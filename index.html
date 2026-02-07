@@ -1,20 +1,24 @@
 <!doctype html>
 <html lang="ru">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="iirest — поиск по прайс-листам поставщиков, сравнение цен и быстрый сбор заказов в одном окне." />
+  <meta name="description"
+    content="Автозагрузка прайс-листов, удобные матрицы сравнения для поиска лучших цен, аналитика по закупкам для контроля и принятия эффективных решений." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://iirest.ru/" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Unbounded:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Unbounded:wght@400;600;700&display=swap"
+    rel="stylesheet" />
 
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
-    (function(m, e, t, r, i, k, a) {
-      m[i] = m[i] || function() {
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () {
         (m[i].a = m[i].a || []).push(arguments);
       };
       m[i].l = 1 * new Date();
@@ -42,449 +46,630 @@
   <!-- /Yandex.Metrika counter -->
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="iirest — поисковик по прайсам и заказы" />
-  <meta property="og:description" content="Загружайте прайсы, находите товары, сравнивайте поставщиков и формируйте заказ за минуты." />
+  <meta property="og:title" content="iirest - сервис быстрого сравнения цен поставщиков для ресторанов и не только." />
+  <meta property="og:description"
+    content="Автозагрузка прайс-листов, удобные матрицы сравнения для поиска лучших цен, аналитика по закупкам для контроля и принятия эффективных решений." />
   <meta property="og:url" content="https://iirest.ru/" />
+  <meta property="og:image" content="https://iirest.ru/hero-dashboard.png" />
 
-  <title>iirest — поиск по прайсам и заказы</title>
+  <title>iirest - сервис быстрого сравнения цен поставщиков для ресторанов и не только.</title>
 
   <style>
     :root {
-      --paper: #f5f7ff;
+      --paper: #f8fafc;
       --cream: #ffffff;
-      --ink: #1e1b4b;
+      --ink: #0f172a;
       --muted: #64748b;
-      --line: #e0e7ff;
-      --primary: #6366f1;
-      --primary-dark: #4f46e5;
+      --line: #e2e8f0;
+      --primary: #4f46e5;
+      --primary-dark: #4338ca;
       --accent: #ec4899;
       --accent-soft: #fbcfe8;
-      --mint: #eef2ff;
-      --shadow-sm: 0 6px 18px rgba(15, 23, 42, 0.08);
-      --shadow: 0 18px 40px rgba(15, 23, 42, 0.14);
-      --radius: 18px;
-      --max: 1160px;
+      --mint: #e0e7ff;
+      --success: #10b981;
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+      --radius: 20px;
+      --max: 1200px;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: "Manrope", sans-serif;
       color: var(--ink);
-      background:
-        radial-gradient(1200px 420px at 10% -10%, rgba(99, 102, 241, 0.18) 0%, transparent 60%),
-        radial-gradient(900px 520px at 95% 0%, rgba(236, 72, 153, 0.2) 0%, transparent 65%),
-        var(--paper);
+      background: var(--paper);
       line-height: 1.6;
-    }
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-    .container { max-width: var(--max); margin: 0 auto; padding: 0 22px; }
-
-    .bg-shape {
-      position: fixed;
-      inset: auto auto 8% -6%;
-      width: 360px;
-      height: 360px;
-      background: conic-gradient(from 180deg, #c7d2fe, #fbcfe8, #c7d2fe);
-      opacity: 0.3;
-      border-radius: 50%;
-      filter: blur(10px);
-      z-index: -1;
-      animation: float 12s ease-in-out infinite;
-    }
-    .bg-shape.right {
-      inset: 5% -8% auto auto;
-      width: 420px;
-      height: 420px;
-      background: conic-gradient(from 45deg, #dbeafe, #e0e7ff, #dbeafe);
-      animation-delay: -4s;
+      background-image:
+        radial-gradient(circle at 15% 50%, rgba(99, 102, 241, 0.08), transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(236, 72, 153, 0.08), transparent 25%);
     }
 
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      height: auto;
+    }
+
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 24px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 16px;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn.primary {
+      background: var(--primary);
+      color: white;
+      border: 1px solid var(--primary);
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+    }
+
+    .btn.primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn.secondary {
+      background: white;
+      color: var(--ink);
+      border: 1px solid var(--line);
+    }
+
+    .btn.secondary:hover {
+      border-color: var(--muted);
+      background: #f1f5f9;
+    }
+
+    /* Header */
     header {
       position: sticky;
       top: 0;
       z-index: 50;
-      backdrop-filter: blur(14px);
-      background: rgba(253, 251, 247, 0.75);
+      backdrop-filter: blur(16px);
+      background: rgba(255, 255, 255, 0.8);
       border-bottom: 1px solid var(--line);
     }
+
     .nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 18px;
-      padding: 16px 0;
+      height: 72px;
     }
+
     .brand {
       display: flex;
       align-items: center;
       gap: 12px;
       font-family: "Unbounded", sans-serif;
       font-weight: 700;
-      letter-spacing: -0.02em;
+      font-size: 18px;
     }
+
     .brand span {
-      display: block;
       font-family: "Manrope", sans-serif;
       font-weight: 500;
-      font-size: 12px;
+      font-size: 14px;
       color: var(--muted);
+      margin-left: 8px;
+      padding-left: 8px;
+      border-left: 1px solid var(--line);
     }
-    .logo {
-      width: 40px;
-      height: 40px;
-      border-radius: 14px;
-      background: var(--cream);
-      border: 1px solid var(--line);
-      display: grid;
-      place-items: center;
-      box-shadow: var(--shadow-sm);
-    }
+
     nav.menu {
       display: flex;
-      gap: 14px;
+      gap: 24px;
       font-weight: 600;
+      font-size: 15px;
       color: var(--muted);
-      font-size: 14px;
     }
-    nav.menu a:hover { color: var(--ink); }
 
-    .btn {
+    nav.menu a:hover {
+      color: var(--primary);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 80px 0 60px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-family: "Unbounded", sans-serif;
+      font-size: clamp(36px, 5vw, 64px);
+      line-height: 1.1;
+      margin: 24px 0;
+      background: linear-gradient(135deg, var(--ink) 0%, #4338ca 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero .eyebrow {
       display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: #e0e7ff;
+      color: var(--primary-dark);
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .hero p {
+      font-size: 20px;
+      color: var(--muted);
+      max-width: 640px;
+      margin: 0 auto 32px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 60px;
+    }
+
+    .hero-image {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+      background: white;
+      position: relative;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Process Flow */
+    .flow-steps {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 32px;
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .flow-steps {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+
+      .flow-steps::before {
+        content: '';
+        position: absolute;
+        top: 40px;
+        left: 10%;
+        right: 10%;
+        height: 2px;
+        background: #e2e8f0;
+        z-index: 0;
+      }
+    }
+
+    .flow-card {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .flow-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 24px;
+      background: white;
+      border: 2px solid #e0e7ff;
+      border-radius: 50%;
+      display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      padding: 12px 18px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: var(--cream);
-      font-weight: 700;
-      font-size: 14px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: var(--shadow-sm);
-    }
-    .btn:hover { transform: translateY(-2px); }
-    .btn.primary {
-      background: var(--primary);
-      color: #fff;
-      border-color: transparent;
-      box-shadow: 0 14px 30px rgba(15, 118, 110, 0.25);
-    }
-    .btn.secondary {
-      background: transparent;
-      border-style: dashed;
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    .hero {
-      padding: 64px 0 36px;
-    }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 32px;
-      align-items: center;
-    }
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: var(--cream);
-      color: var(--muted);
-      font-weight: 600;
-      font-size: 13px;
-    }
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 0 5px rgba(217, 93, 57, 0.2);
-    }
-    h1 {
-      margin: 16px 0 12px;
-      font-family: "Unbounded", sans-serif;
-      font-size: clamp(32px, 4vw, 52px);
-      line-height: 1.1;
-    }
-    .lead {
-      font-size: 18px;
-      color: var(--muted);
-      margin: 0 0 24px;
-      max-width: 56ch;
-    }
-    .hero-cta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 22px;
-    }
-    .hero-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      color: var(--muted);
-    }
-    .tag {
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: #fff;
-      font-weight: 600;
-      font-size: 12px;
-    }
-
-    .panel {
-      border-radius: 24px;
-      border: 1px solid var(--line);
-      background: var(--cream);
-      box-shadow: var(--shadow);
-      padding: 18px;
-      display: grid;
-      gap: 16px;
+      font-size: 32px;
+      color: #4f46e5;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
       position: relative;
-      overflow: hidden;
+      transition: all 0.3s ease;
     }
-    .panel::after {
-      content: "";
+
+    .flow-card:hover .flow-icon {
+      border-color: #4f46e5;
+      background: #eef2ff;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.15);
+    }
+
+    .step-number-badge {
       position: absolute;
-      right: -20%;
-      top: -10%;
-      width: 220px;
-      height: 220px;
-      background: radial-gradient(circle, rgba(217, 93, 57, 0.18) 0%, transparent 70%);
+      top: -5px;
+      right: -5px;
+      width: 24px;
+      height: 24px;
+      background: var(--primary);
+      color: white;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid white;
     }
-    .panel h3 {
-      margin: 0;
+
+    /* Stats/Trusted */
+    .trusted {
+      padding: 40px 0;
+      border-bottom: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .trusted p {
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 600;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .trusted-logos {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      opacity: 0.6;
+      font-weight: 700;
       font-family: "Unbounded", sans-serif;
-      font-size: 18px;
+      color: var(--muted);
+      flex-wrap: wrap;
     }
-    .panel-grid {
+
+    /* Benefits */
+    .benefits {
+      padding: 80px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 60px;
+    }
+
+    .section-header h2 {
+      font-family: "Unbounded", sans-serif;
+      font-size: 36px;
+      margin-bottom: 16px;
+    }
+
+    .b-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 100px;
     }
-    .metric {
-      background: #fff;
+
+    .b-grid.reverse {
+      direction: rtl;
+    }
+
+    .b-grid.reverse>* {
+      direction: ltr;
+    }
+
+    .b-content h3 {
+      font-family: "Unbounded", sans-serif;
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+
+    .b-content p {
+      font-size: 17px;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .b-image {
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+      background: white;
+    }
+
+    .box-feature {
+      padding: 24px;
+      background: white;
       border-radius: 16px;
-      padding: 12px;
       border: 1px solid var(--line);
       box-shadow: var(--shadow-sm);
-    }
-    .metric b { font-size: 18px; }
-    .metric span { display: block; color: var(--muted); font-size: 12px; }
-    .panel-list {
-      display: grid;
-      gap: 10px;
-    }
-    .panel-item {
+      margin-bottom: 16px;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 12px;
-      border-radius: 14px;
-      background: #fff;
-      border: 1px solid var(--line);
-      font-size: 13px;
-      color: var(--muted);
+      gap: 16px;
+      align-items: start;
     }
-    .panel-item strong { color: var(--ink); }
 
-    section { padding: 30px 0; }
-    .section-title {
+    .box-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--mint);
+      color: var(--primary);
+      border-radius: 10px;
       display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 18px;
-      margin-bottom: 18px;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
     }
-    .section-title h2 {
-      margin: 0;
-      font-family: "Unbounded", sans-serif;
-      font-size: clamp(22px, 3vw, 34px);
+
+    /* Steps */
+    .steps-section {
+      background: white;
+      padding: 80px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
     }
-    .section-title p { margin: 0; color: var(--muted); max-width: 70ch; }
 
     .steps {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
+      gap: 24px;
     }
+
     .step {
-      padding: 16px;
-      border-radius: var(--radius);
+      padding: 32px;
+      background: var(--paper);
+      border-radius: 24px;
       border: 1px solid var(--line);
-      background: #fff;
-      box-shadow: var(--shadow-sm);
     }
-    .step span {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 32px;
-      height: 32px;
-      border-radius: 10px;
-      background: var(--mint);
-      font-weight: 700;
-      color: var(--primary-dark);
-      margin-bottom: 10px;
-    }
-    .step h3 { margin: 0 0 8px; font-size: 16px; }
-    .step p { margin: 0; color: var(--muted); font-size: 14px; }
 
-    .features {
+    .step-num {
+      font-family: "Unbounded", sans-serif;
+      font-size: 48px;
+      color: var(--primary);
+      opacity: 0.2;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .step h4 {
+      font-size: 20px;
+      margin: 0 0 12px;
+      font-weight: 700;
+    }
+
+    .step p {
+      color: var(--muted);
+      margin: 0;
+      font-size: 15px;
+    }
+
+    /* Pricing */
+    .pricing-section {
+      padding: 80px 0;
+      background: linear-gradient(180deg, rgba(224, 231, 255, 0.25) 0%, rgba(248, 250, 252, 0) 60%);
+    }
+
+    .pricing-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .pricing-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
       gap: 14px;
     }
-    .feature {
-      padding: 18px;
-      border-radius: var(--radius);
-      border: 1px solid var(--line);
-      background: #fff;
-      box-shadow: var(--shadow-sm);
-      min-height: 160px;
-    }
-    .feature h3 { margin: 12px 0 8px; font-size: 16px; }
-    .feature p { margin: 0; color: var(--muted); font-size: 14px; }
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 8px;
-      border-radius: 999px;
-      background: rgba(99, 102, 241, 0.14);
-      color: var(--primary-dark);
-      font-weight: 700;
-      font-size: 11px;
+
+    .pricing-card.featured {
+      border-color: rgba(79, 70, 229, 0.4);
+      box-shadow: 0 18px 28px -20px rgba(79, 70, 229, 0.7);
     }
 
-    .split {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 18px;
+    .pricing-badge {
+      display: inline-flex;
+      width: fit-content;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(79, 70, 229, 0.25);
+      background: rgba(79, 70, 229, 0.08);
+      color: var(--primary-dark);
+      font-size: 12px;
+      font-weight: 700;
     }
-    .callout {
-      padding: 22px;
-      border-radius: 22px;
-      background: linear-gradient(160deg, #eef2ff 0%, #fff 52%, #fce7f3 100%);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
+
+    .pricing-card h3 {
+      margin: 0;
+      font-family: "Unbounded", sans-serif;
+      font-size: 24px;
     }
-    .callout ul {
-      list-style: none;
+
+    .pricing-price {
+      margin: 0;
+      font-size: 30px;
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .pricing-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .pricing-features {
+      margin: 0;
       padding: 0;
-      margin: 16px 0 0;
+      list-style: none;
       display: grid;
       gap: 10px;
+    }
+
+    .pricing-features li {
+      position: relative;
+      padding-left: 18px;
+      color: #334155;
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    .pricing-features li::before {
+      content: "•";
+      position: absolute;
+      left: 4px;
+      top: -1px;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .pricing-cta {
+      margin-top: auto;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 11px 14px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 700;
+      background: #fff;
+    }
+
+    .pricing-cta:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* ROI / CTA */
+    .cta-section {
+      padding: 100px 0;
+      text-align: center;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, var(--ink) 0%, #1e293b 100%);
+      color: white;
+      border-radius: 32px;
+      padding: 60px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-box h2 {
+      font-family: "Unbounded", sans-serif;
+      font-size: 42px;
+      margin-bottom: 24px;
+    }
+
+    .cta-box p {
+      font-size: 20px;
+      color: #94a3b8;
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+
+    .roi-badge {
+      position: absolute;
+      top: 40px;
+      right: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 12px 20px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      text-align: left;
+      font-size: 14px;
+    }
+
+    .roi-badge strong {
+      display: block;
+      font-size: 24px;
+      color: #4ade80;
+    }
+
+    /* Footer */
+    footer {
+      padding: 48px 0;
+      border-top: 1px solid var(--line);
       color: var(--muted);
       font-size: 14px;
     }
-    .callout li {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: #fff;
-      border: 1px solid var(--line);
-      font-weight: 700;
-      font-size: 12px;
-    }
 
-    .faq {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-    details {
-      border-radius: 16px;
-      border: 1px solid var(--line);
-      padding: 14px;
-      background: #fff;
-      box-shadow: var(--shadow-sm);
-    }
-    summary {
-      cursor: pointer;
-      list-style: none;
-      font-weight: 700;
+    .footer-flex {
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-    summary::-webkit-details-marker { display: none; }
-    details p { margin: 10px 0 0; color: var(--muted); font-size: 14px; }
 
-    .contact {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 14px;
-      align-items: stretch;
-    }
-    .contact-card {
-      padding: 22px;
-      border-radius: 22px;
-      border: 1px solid var(--line);
-      background: #fff;
-      box-shadow: var(--shadow);
-    }
-    .contact-card h3 { margin-top: 0; font-size: 20px; }
-    .contact-links {
-      display: grid;
-      gap: 10px;
-      font-weight: 600;
-      color: var(--muted);
-    }
-    .contact-links a { color: var(--ink); }
+    /* Responsive */
+    @media (max-width: 900px) {
+      .b-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        margin-bottom: 60px;
+      }
 
-    footer {
-      padding: 30px 0 50px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-    }
-    .footer-grid {
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
+      .b-grid.reverse {
+        direction: ltr;
+      }
 
-    .reveal {
-      opacity: 0;
-      transform: translateY(18px);
-      animation: rise 0.8s ease forwards;
-    }
-    .delay-1 { animation-delay: 0.1s; }
-    .delay-2 { animation-delay: 0.2s; }
-    .delay-3 { animation-delay: 0.3s; }
-    .delay-4 { animation-delay: 0.4s; }
+      .steps {
+        grid-template-columns: 1fr;
+      }
 
-    @keyframes rise {
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes float {
-      50% { transform: translateY(-20px); }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .reveal { animation: none; opacity: 1; transform: none; }
-      .bg-shape { animation: none; }
-    }
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
 
-    @media (max-width: 980px) {
-      nav.menu { display: none; }
-      .hero-grid, .split, .contact { grid-template-columns: 1fr; }
-      .features, .steps { grid-template-columns: 1fr; }
-      .faq { grid-template-columns: 1fr; }
+      .nav .menu {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .roi-badge {
+        position: static;
+        margin-bottom: 20px;
+        display: inline-block;
+      }
     }
   </style>
 
@@ -495,241 +680,331 @@
     "name": "iirest",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web",
-    "description": "Поиск по прайс-листам поставщиков, сравнение цен и быстрый сбор заказов в одном окне.",
+    "offer": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "RUB"
+    },
+    "description": "Автозагрузка прайс-листов, удобные матрицы сравнения для поиска лучших цен, аналитика по закупкам для контроля и принятия эффективных решений.",
     "url": "https://iirest.ru/"
   }
   </script>
 </head>
 
 <body>
-  <noscript><div><img src="https://mc.yandex.ru/watch/105886469" style="position:absolute; left:-9999px;" alt=""/></div></noscript>
-  <div class="bg-shape"></div>
-  <div class="bg-shape right"></div>
-
   <header>
     <div class="container nav">
-      <a class="brand" href="#top">
-        <span class="logo" aria-hidden="true">
-          <img src="logo.svg" alt="" />
-        </span>
-        <div>
-          iirest
-          <span>поиск и сравнение прайсов</span>
-        </div>
+      <a class="brand" href="#">
+        <img src="logo.svg" alt="iirest logo" width="32" height="32" />
+        iirest <span>procurement os</span>
       </a>
-      <nav class="menu" aria-label="Навигация">
+      <nav class="menu">
+        <a href="#benefits">Возможности</a>
         <a href="#how">Как это работает</a>
-        <a href="#features">Возможности</a>
-        <a href="#cases">Сценарии</a>
-        <a href="#faq">FAQ</a>
+        <a href="#pricing">Тарифы</a>
+        <a href="#pilot">Пилот</a>
       </nav>
-      <a class="btn primary" href="https://app.iirest.ru" target="_blank" rel="noopener noreferrer">Открыть приложение</a>
+      <a class="btn primary" href="https://app.iirest.ru" target="_blank">Войти</a>
     </div>
   </header>
 
-  <main id="top">
+  <main>
+    <!-- Hero -->
     <section class="hero">
-      <div class="container hero-grid">
+      <div class="container">
         <div class="reveal">
-          <span class="eyebrow"><span class="dot"></span> Сервис для закупок и продаж</span>
-          <h1>Прайсы, поиск и заказы — всё в одном потоке</h1>
-          <p class="lead">
-            iirest собирает прайс-листы поставщиков, помогает быстро находить нужные позиции,
-            сравнивать цены и формировать заказ. Никаких сотен Excel-файлов и бесконечных чатов.
+          <span class="eyebrow" style="background: #dbeafe; color: #1e40af;">🚀 1 Месяц бесплатно</span>
+          <h1>Перестаньте переплачивать <br> поставщикам</h1>
+          <p>
+            Умная матрица закупок для вашего ресторана. Сравниваем цены, находим лучшие предложения и экономим до 30%
+            бюджета.
           </p>
-          <div class="hero-cta">
-            <a class="btn primary" href="https://app.iirest.ru" target="_blank" rel="noopener noreferrer">Открыть приложение</a>
-            <a class="btn secondary" href="#contact">Запросить демо</a>
+          <div class="hero-buttons">
+            <a class="btn primary" href="https://app.iirest.ru" target="_blank"
+              style="padding: 16px 32px; font-size: 18px;">
+              Получить месяц бесплатно
+            </a>
+            <a class="btn secondary" href="#how">Как это работает</a>
           </div>
-          <div class="hero-tags">
-            <span class="tag">Загрузка Excel/CSV</span>
-            <span class="tag">Сравнение поставщиков</span>
-            <span class="tag">Корзина и экспорт</span>
-          </div>
+          <p style="font-size: 14px; margin-top: 12px; margin-bottom:0;">
+            *без ввода карты, отмена в любой момент
+          </p>
         </div>
-        <div class="panel reveal delay-2">
-          <h3>Панель закупок</h3>
-          <div class="panel-grid">
-            <div class="metric"><b>3 000+</b><span>строк в прайсе</span></div>
-            <div class="metric"><b>2–5 мин</b><span>на сбор заявки</span></div>
-            <div class="metric"><b>10+</b><span>поставщиков в одном окне</span></div>
-            <div class="metric"><b>100%</b><span>прозрачность цен</span></div>
-          </div>
-          <div class="panel-list">
-            <div class="panel-item"><span>Сравнение по единице</span><strong>включено</strong></div>
-            <div class="panel-item"><span>Экспорт в Excel</span><strong>готово</strong></div>
-            <div class="panel-item"><span>Тендеры и матрицы</span><strong>в модуле</strong></div>
-          </div>
+        <div class="hero-image reveal delay-2" style="margin-top: 40px;">
+          <img src="hero-dashboard.png" alt="Интерфейс сравнения цен iirest" />
         </div>
       </div>
     </section>
 
-    <section id="how">
+    <!-- Social Proof -->
+    <section class="trusted">
       <div class="container">
-        <div class="section-title">
-          <div>
-            <h2>Как это работает</h2>
-            <p>Три шага, чтобы перейти от прайса к заказу.</p>
-          </div>
-        </div>
-        <div class="steps">
-          <div class="step reveal">
-            <span>01</span>
-            <h3>Загрузка прайса</h3>
-            <p>Добавьте поставщика и загрузите Excel/CSV. Система распознает ключевые колонки.</p>
-          </div>
-          <div class="step reveal delay-1">
-            <span>02</span>
-            <h3>Поиск и сравнение</h3>
-            <p>Умный поиск находит товары и показывает лучшую цену среди всех поставщиков.</p>
-          </div>
-          <div class="step reveal delay-2">
-            <span>03</span>
-            <h3>Заказ и экспорт</h3>
-            <p>Соберите корзину и выгрузите заказ в Excel или отправьте поставщику.</p>
-          </div>
+        <p>Пилотный запуск в Москве. К нам присоединились:</p>
+        <div class="trusted-logos">
+          <span>COFFEE BOOM</span>
+          <span>THE KITCHEN</span>
+          <span>LOCAL CHEF</span>
+          <span>DARK KITCHEN</span>
         </div>
       </div>
     </section>
 
-    <section id="features">
+    <!-- Benefits 1: Cost Control & Matrix -->
+    <section class="benefits" id="benefits">
       <div class="container">
-        <div class="section-title">
-          <div>
-            <h2>Что умеет iirest</h2>
-            <p>Инструменты для закупки, продаж и тендерного сравнения.</p>
+        <div class="section-header">
+          <h2>Полный контроль себестоимости</h2>
+          <p>Превращаем хаос из десятков прайс-листов в единую понятную матрицу. Забудьте о ручном копании в Excel.</p>
+        </div>
+
+        <div class="b-grid">
+          <div class="b-content">
+            <h3>Глубокая аналитика закупки</h3>
+            <p>Это не просто слова — мы показываем конкретные цифры. Насколько вы закупаете дешевле рынка? Где теряете
+              деньги? Система мониторит эффективность каждого заказа.</p>
+            <div class="box-feature">
+              <div class="box-icon">�</div>
+              <div>
+                <strong>Цифры, а не ощущения</strong>
+                <div>Отчеты по динамике цен, объемам и упущенной выгоде в реальном времени.</div>
+              </div>
+            </div>
+            <div class="box-feature">
+              <div class="box-icon">�️</div>
+              <div>
+                <strong>Матрица вместо ошибок</strong>
+                <div>Система сама сводит сотни позиций в единую таблицу сравнения. Человеческий фактор исключен.</div>
+              </div>
+            </div>
+          </div>
+          <div class="b-image">
+            <img src="analytics-chart.png" alt="График экономии" />
           </div>
         </div>
-        <div class="features">
-          <div class="feature reveal">
-            <span class="badge">Поиск</span>
-            <h3>Единый каталог</h3>
-            <p>Объединяем прайсы, нормализуем названия и ищем по всем поставщикам сразу.</p>
+
+        <!-- Benefits 2: Integrations & Ordering -->
+        <div class="b-grid reverse">
+          <div class="b-content">
+            <h3>Интеграция с поставщиками</h3>
+            <p>Мы работаем не только с файлами. Подключаем личные кабинеты поставщиков и настраиваем прямые интеграции
+              под ваш бизнес.</p>
+            <div class="box-feature">
+              <div class="box-icon">�</div>
+              <div>
+                <strong>Личные кабинеты</strong>
+                <div>Автоматический парсинг цен из B2B-порталов поставщиков.</div>
+              </div>
+            </div>
+            <div class="box-feature">
+              <div class="box-icon">⚡</div>
+              <div>
+                <strong>Индивидуальная настройка</strong>
+                <div>Свяжем iirest с вашей учетной системой или специфичными поставщиками под заказ.</div>
+              </div>
+            </div>
           </div>
-          <div class="feature reveal delay-1">
-            <span class="badge">Импорт</span>
-            <h3>Быстрые загрузки</h3>
-            <p>Поддержка Excel и CSV, автоматическое сопоставление колонок и контроль ошибок.</p>
-          </div>
-          <div class="feature reveal delay-2">
-            <span class="badge">Сравнение</span>
-            <h3>Цена за единицу</h3>
-            <p>Считаем цену за базовую единицу, чтобы сравнение было честным.</p>
-          </div>
-          <div class="feature reveal delay-3">
-            <span class="badge">Тендеры</span>
-            <h3>Матрицы и офферы</h3>
-            <p>Собирайте тендерные матрицы, фиксируйте лучшие предложения и итоговые решения.</p>
-          </div>
-          <div class="feature reveal delay-4">
-            <span class="badge">Экспорт</span>
-            <h3>Заказы и выгрузки</h3>
-            <p>Формируйте заказы и выгружайте их в удобный формат для поставщика.</p>
-          </div>
-          <div class="feature reveal delay-4">
-            <span class="badge">Контроль</span>
-            <h3>История и статус</h3>
-            <p>Отслеживайте загрузки, ошибки и итоговые объёмы по каждому поставщику.</p>
+          <div class="b-image">
+            <img src="mobile-app.png" alt="Мобильное приложение для заказа" />
           </div>
         </div>
       </div>
     </section>
 
-    <section id="cases">
-      <div class="container split">
-        <div class="callout reveal">
-          <div class="pill">Сценарии использования</div>
-          <h2>Для отделов закупок и коммерции</h2>
-          <p class="lead">Сервис помогает принимать решения быстрее: всё видно в одном окне, а заявки формируются автоматически.</p>
-          <ul>
-            <li><span class="pill">HoReCa</span> закупка продуктов и расходников</li>
-            <li><span class="pill">Retail</span> выбор поставщика и контроль цен</li>
-            <li><span class="pill">Тендеры</span> подготовка сравнительных таблиц</li>
-          </ul>
-        </div>
-        <div class="contact-card reveal delay-2">
-          <h3>Быстрый старт</h3>
-          <p class="lead">Нужен доступ к демо или консультация по внедрению? Мы покажем, как перенести ваши прайсы.</p>
-          <div class="contact-links">
-            <a href="https://app.iirest.ru" target="_blank" rel="noopener noreferrer">Перейти в приложение</a>
-            <a href="mailto:dkruglov@outlook.com">dkruglov@outlook.com</a>
-            <a href="https://t.me/tabascoden" target="_blank" rel="noopener noreferrer">Telegram: @tabascoden</a>
+    <!-- Expert Origin -->
+    <section class="trusted"
+      style="background: white; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+      <div class="container" style="text-align: center; padding: 40px 0;">
+        <span class="eyebrow" style="background: #e0e7ff; color: #4338ca; margin-bottom: 16px;">От профи для
+          профи</span>
+        <h2 style="font-family: 'Unbounded', sans-serif; font-size: 32px; margin-bottom: 20px;">
+          Мы знаем вашу работу изнутри
+        </h2>
+        <p style="font-size: 18px; color: var(--muted); max-width: 800px; margin: 0 auto 30px;">
+          Сервис создан профессиональными закупщиками. Мы не просто "айтишники", мы знаем, как важно доказать свою
+          эффективность бизнесу.
+        </p>
+        <div class="panel-grid" style="text-align: left; max-width: 900px; margin: 0 auto; gap: 24px;">
+          <div class="metric" style="padding: 24px;">
+            <b style="color: var(--primary); font-size: 20px;">Покажите свою ценность</b>
+            <span style="font-size: 15px; margin-top: 8px;">Не просто "потратили миллион", а "сэкономили 150 000 руб.
+              благодаря тендеру". Система формирует отчеты для владельцев за вас.</span>
+          </div>
+          <div class="metric" style="padding: 24px;">
+            <b style="color: var(--primary); font-size: 20px;">Упростите рутину</b>
+            <span style="font-size: 15px; margin-top: 8px;">Освободите 2 часа в день от Excel-таблиц. Занимайтесь
+              стратегий и переговорами, а не копипастом.</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="faq">
+    <!-- Why iirest (How it Works) -->
+    <section class="steps-section" id="how">
       <div class="container">
-        <div class="section-title">
-          <div>
-            <h2>FAQ</h2>
-            <p>Короткие ответы на частые вопросы.</p>
-          </div>
+        <div class="section-header">
+          <h2>От хаоса к системе за 4 шага</h2>
+          <p>Простой алгоритм, который избавляет от рутины.</p>
         </div>
-        <div class="faq">
-          <details class="reveal">
-            <summary>Какие форматы прайсов поддерживаются?</summary>
-            <p>Excel (.xlsx/.xlsm/.xls) и CSV. Система автоматически распознаёт колонки с названием и ценой.</p>
-          </details>
-          <details class="reveal delay-1">
-            <summary>Можно ли сравнивать поставщиков по цене за единицу?</summary>
-            <p>Да. Сервис рассчитывает цену за базовую единицу и помогает выбрать лучшее предложение.</p>
-          </details>
-          <details class="reveal delay-2">
-            <summary>Где хранятся данные?</summary>
-            <p>В вашей инфраструктуре. Мы размещаем сервис на вашем сервере или в облаке.</p>
-          </details>
-          <details class="reveal delay-3">
-            <summary>Как получить доступ?</summary>
-            <p>Оставьте запрос, мы дадим демо и поможем перенести прайсы.</p>
-          </details>
+
+        <div class="flow-steps">
+          <!-- Step 1 -->
+          <div class="flow-card">
+            <div class="flow-icon">
+              📂
+              <div class="step-number-badge">1</div>
+            </div>
+            <h3>Загрузите прайсы</h3>
+            <p>Перетащите файлы Excel от поставщиков. Система распознает любой формат.</p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="flow-card">
+            <div class="flow-icon">
+              📝
+              <div class="step-number-badge">2</div>
+            </div>
+            <h3>Список покупок</h3>
+            <p>Создайте список нужных продуктов на сегодня. Просто выберите категории.</p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="flow-card">
+            <div class="flow-icon">
+              📊
+              <div class="step-number-badge">3</div>
+            </div>
+            <h3>Умная матрица</h3>
+            <p>Алгоритм найдет лучшие цены для вашего списка и подсветит выгоду.</p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="flow-card">
+            <div class="flow-icon">
+              🚀
+              <div class="step-number-badge">4</div>
+            </div>
+            <h3>Единая корзина</h3>
+            <p>Один клик — и заказы улетели всем 10 поставщикам в WhatsApp/Email.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="contact">
-      <div class="container contact">
-        <div class="contact-card reveal">
-          <h3>Хотите увидеть iirest в работе?</h3>
-          <p class="lead">Напишите нам, и мы быстро покажем сценарии и подготовим пилот.</p>
-          <div class="hero-cta">
-            <a class="btn primary" href="https://app.iirest.ru" target="_blank" rel="noopener noreferrer">Открыть приложение</a>
-            <a class="btn secondary" href="mailto:dkruglov@outlook.com">Запросить демо</a>
-          </div>
+    <!-- Pricing -->
+    <section class="pricing-section" id="pricing">
+      <div class="container">
+        <div class="section-header">
+          <h2>Тарифы для разных задач закупки</h2>
+          <p>Выберите уровень автоматизации: от самостоятельной работы до полного аутсорсинга.</p>
         </div>
-        <div class="contact-card reveal delay-2">
-          <h3>Контакты</h3>
-          <div class="contact-links">
-            <span>Почта: <a href="mailto:dkruglov@outlook.com">dkruglov@outlook.com</a></span>
-            <span>Telegram: <a href="https://t.me/tabascoden" target="_blank" rel="noopener noreferrer">@tabascoden</a></span>
-            <span>Приложение: <a href="https://app.iirest.ru" target="_blank" rel="noopener noreferrer">app.iirest.ru</a></span>
+        <div class="pricing-grid">
+          <article class="pricing-card featured">
+            <span class="pricing-badge">Старт</span>
+            <h3>Базовый</h3>
+            <p class="pricing-price">1 500 руб/мес</p>
+            <p class="pricing-note">Демо доступ на месяц бесплатно</p>
+            <ul class="pricing-features">
+              <li>Загрузка прайс-листов</li>
+              <li>Таблицы сравнения</li>
+              <li>Базовая аналитика</li>
+            </ul>
+            <a class="pricing-cta" href="https://app.iirest.ru" target="_blank">Попробовать бесплатно</a>
+          </article>
+
+          <article class="pricing-card">
+            <span class="pricing-badge">Для роста</span>
+            <h3>Pro</h3>
+            <p class="pricing-price">По запросу</p>
+            <p class="pricing-note">Для компаний с регулярными закупками</p>
+            <ul class="pricing-features">
+              <li>Расширенная аналитика</li>
+              <li>Интеграция с поставщиками (API, личные кабинеты)</li>
+              <li>Автоматизация отправки заказов поставщикам</li>
+            </ul>
+            <a class="pricing-cta" href="mailto:dkruglov@outlook.com">Запросить предложение</a>
+          </article>
+
+          <article class="pricing-card">
+            <span class="pricing-badge">Максимум</span>
+            <h3>ТОП</h3>
+            <p class="pricing-price">По запросу</p>
+            <p class="pricing-note">Формат полного сопровождения закупок</p>
+            <ul class="pricing-features">
+              <li>Аутсорсинг закупок</li>
+              <li>Консалтинг и рекомендации экспертов</li>
+              <li>Формирование и передача заказов</li>
+              <li>Полный аутсорсинг от подбора поставщиков до заведения накладных</li>
+            </ul>
+            <a class="pricing-cta" href="mailto:dkruglov@outlook.com">Обсудить запуск</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" id="pilot">
+      <div class="container">
+        <div class="cta-box">
+          <div class="roi-badge">
+            Выгода
+            <strong>1 месяц бесплатно</strong>
           </div>
+          <h2>Готовы сократить фудкост?</h2>
+          <p>
+            Попробуйте полную версию iirest. Загрузите свои прайсы и увидите реальную экономию уже сегодня.
+            Никаких обязательств.
+          </p>
+          <a class="btn primary" href="https://app.iirest.ru" target="_blank"
+            style="background: white; color: var(--ink); border: none;">
+            Попробовать бесплатно
+          </a>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="container footer-grid">
-      <div class="brand">
-        <span class="logo" aria-hidden="true">
-          <img src="logo.svg" alt="" />
-        </span>
-        <div>
-          iirest
-          <span>поиск и сравнение прайсов</span>
-        </div>
-      </div>
-      <div>© <span id="year"></span> iirest. Все права защищены.</div>
+    <div class="container footer-flex">
       <div>
-        <a href="https://app.iirest.ru" target="_blank" rel="noopener noreferrer">Перейти в приложение</a>
+        <strong>iirest</strong> © <span id="year"></span>. Все права защищены.
+      </div>
+      <div>
+        <a href="mailto:dkruglov@outlook.com">dkruglov@outlook.com</a>
       </div>
     </div>
   </footer>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Simple reveal animation on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
+
+  <style>
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-2 {
+      transition-delay: 0.2s;
+    }
+  </style>
 </body>
+
 </html>
