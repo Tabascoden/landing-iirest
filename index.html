@@ -1,11 +1,11 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="ru">
 
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description"
-    content="Автозагрузка прайс-листов, удобные матрицы сравнения для поиска лучших цен, аналитика по закупкам для контроля и принятия эффективных решений." />
+    content="iirest помогает закупщикам и управляющим сравнивать цены поставщиков, формировать заказы в 10 раз быстрее и контролировать экономию в аналитике." />
   <meta name="theme-color" content="#4f46e5" />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://iirest.ru/" />
@@ -18,14 +18,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload"
-    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Unbounded:wght@400;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@400;600;700&display=swap"
     as="style" />
   <link
-    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Unbounded:wght@400;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@400;600;700&display=swap"
     rel="stylesheet" media="print" onload="this.media='all'" />
   <noscript>
     <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Unbounded:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@400;600;700&display=swap"
       rel="stylesheet" />
   </noscript>
 
@@ -68,38 +68,37 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="iirest" />
   <meta property="og:locale" content="ru_RU" />
-  <meta property="og:title" content="iirest - сервис быстрого сравнения цен поставщиков для ресторанов и не только." />
+  <meta property="og:title" content="iirest - сравнение цен поставщиков и автоматизация закупок" />
   <meta property="og:description"
-    content="Автозагрузка прайс-листов, удобные матрицы сравнения для поиска лучших цен, аналитика по закупкам для контроля и принятия эффективных решений." />
+    content="Сравнивайте цены поставщиков и формируйте заказы в 10 раз быстрее. Контроль экономии в аналитике iirest." />
   <meta property="og:url" content="https://iirest.ru/" />
   <meta property="og:image" content="https://iirest.ru/hero-dashboard.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:alt" content="Интерфейс iirest для сравнения цен поставщиков" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="iirest - сервис быстрого сравнения цен поставщиков для ресторанов и не только." />
+  <meta name="twitter:title" content="iirest - сравнение цен поставщиков и автоматизация закупок" />
   <meta name="twitter:description"
-    content="Автозагрузка прайс-листов, удобные матрицы сравнения для поиска лучших цен, аналитика по закупкам для контроля и принятия эффективных решений." />
+    content="Сравнивайте цены поставщиков и формируйте заказы в 10 раз быстрее. Контроль экономии в аналитике iirest." />
   <meta name="twitter:image" content="https://iirest.ru/hero-dashboard.png" />
 
-  <title>iirest - сервис быстрого сравнения цен поставщиков для ресторанов и не только.</title>
+  <title>iirest - сравнение цен поставщиков и заказы в 10 раз быстрее</title>
 
   <style>
     :root {
       --paper: #f8fafc;
+      --paper-accent: #eef2ff;
       --cream: #ffffff;
       --ink: #0f172a;
-      --muted: #64748b;
-      --line: #e2e8f0;
+      --muted: #475569;
+      --line: #dbe2ea;
       --primary: #4f46e5;
       --primary-dark: #4338ca;
-      --accent: #ec4899;
-      --accent-soft: #fbcfe8;
       --mint: #e0e7ff;
-      --success: #10b981;
-      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-      --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
-      --radius: 20px;
-      --max: 1200px;
+      --soft-green: #dcfce7;
+      --shadow-sm: 0 4px 10px rgba(15, 23, 42, 0.07);
+      --shadow: 0 20px 44px rgba(79, 70, 229, 0.14);
+      --radius: 22px;
+      --max: 1180px;
     }
 
     * {
@@ -110,15 +109,20 @@
       scroll-behavior: smooth;
     }
 
+    section[id] {
+      scroll-margin-top: 94px;
+    }
+
     body {
       margin: 0;
-      font-family: "Manrope", sans-serif;
       color: var(--ink);
-      background: var(--paper);
-      line-height: 1.6;
-      background-image:
-        radial-gradient(circle at 15% 50%, rgba(99, 102, 241, 0.08), transparent 25%),
-        radial-gradient(circle at 85% 30%, rgba(236, 72, 153, 0.08), transparent 25%);
+      font-family: "Manrope", sans-serif;
+      line-height: 1.62;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      background: radial-gradient(circle at 0% 10%, rgba(79, 70, 229, 0.12), transparent 22%),
+        radial-gradient(circle at 100% 0%, rgba(99, 102, 241, 0.1), transparent 20%),
+        var(--paper);
     }
 
     a {
@@ -138,25 +142,65 @@
       padding: 0 24px;
     }
 
-    /* Buttons */
+    .section {
+      padding: 86px 0;
+    }
+
+    .section-header {
+      max-width: 760px;
+      margin: 0 auto 44px;
+      text-align: center;
+    }
+
+    .section-header h2 {
+      margin: 0 0 14px;
+      font-family: "Unbounded", sans-serif;
+      font-size: clamp(28px, 3.3vw, 42px);
+      line-height: 1.17;
+      letter-spacing: -0.02em;
+    }
+
+    .section-header p {
+      margin: 0;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      color: var(--muted);
+      font-size: clamp(16px, 1.7vw, 19px);
+      line-height: 1.55;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--mint);
+      color: var(--primary-dark);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      padding: 14px 24px;
       border-radius: 12px;
-      font-weight: 700;
+      padding: 14px 24px;
       font-size: 16px;
-      transition: all 0.2s ease;
+      font-weight: 700;
       cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
     }
 
     .btn.primary {
-      background: var(--primary);
-      color: white;
+      color: #fff;
       border: 1px solid var(--primary);
-      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+      background: var(--primary);
+      box-shadow: 0 10px 18px rgba(79, 70, 229, 0.28);
     }
 
     .btn.primary:hover {
@@ -165,381 +209,428 @@
     }
 
     .btn.secondary {
-      background: white;
-      color: var(--ink);
       border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
     }
 
     .btn.secondary:hover {
-      border-color: var(--muted);
-      background: #f1f5f9;
+      border-color: #b9c5d4;
+      background: #f8fbff;
     }
 
-    /* Header */
     header {
       position: sticky;
       top: 0;
-      z-index: 50;
-      backdrop-filter: blur(16px);
-      background: rgba(255, 255, 255, 0.8);
-      border-bottom: 1px solid var(--line);
+      z-index: 80;
+      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.82);
+      border-bottom: 1px solid rgba(219, 226, 234, 0.9);
     }
 
     .nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 72px;
+      gap: 20px;
+      min-height: 74px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
+      white-space: nowrap;
       font-family: "Unbounded", sans-serif;
-      font-weight: 700;
       font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
     }
 
     .brand span {
-      font-family: "Manrope", sans-serif;
-      font-weight: 500;
-      font-size: 14px;
-      color: var(--muted);
-      margin-left: 8px;
+      margin-left: 6px;
       padding-left: 8px;
       border-left: 1px solid var(--line);
-    }
-
-    nav.menu {
-      display: flex;
-      gap: 24px;
+      color: #617284;
+      font-family: "Manrope", sans-serif;
+      font-size: 13px;
       font-weight: 600;
-      font-size: 15px;
-      color: var(--muted);
+      letter-spacing: 0;
+      text-transform: lowercase;
     }
 
-    nav.menu a:hover {
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #526176;
+    }
+
+    .menu a:hover {
       color: var(--primary);
     }
 
-    /* Hero */
     .hero {
-      padding: 80px 0 60px;
-      text-align: center;
+      padding: 72px 0 44px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
+      gap: 28px;
+      align-items: center;
     }
 
     .hero h1 {
+      margin: 12px 0 16px;
       font-family: "Unbounded", sans-serif;
-      font-size: clamp(36px, 5vw, 64px);
+      font-size: clamp(30px, 4.2vw, 50px);
       line-height: 1.1;
-      margin: 24px 0;
-      background: linear-gradient(135deg, var(--ink) 0%, #4338ca 100%);
+      letter-spacing: -0.028em;
+      background: linear-gradient(130deg, #0f172a 15%, #4338ca 95%);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    .hero .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 16px;
-      background: #e0e7ff;
-      color: var(--primary-dark);
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
     .hero p {
-      font-size: 20px;
-      color: var(--muted);
-      max-width: 640px;
-      margin: 0 auto 32px;
+      margin: 0;
+      max-width: 560px;
+      color: #526176;
+      font-size: clamp(16px, 1.55vw, 19px);
+      line-height: 1.5;
     }
 
-    .hero-buttons {
+    .hero-actions {
       display: flex;
-      justify-content: center;
-      gap: 16px;
-      margin-bottom: 60px;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 22px 0 12px;
+    }
+
+    .hero-actions .btn {
+      min-width: 190px;
+    }
+
+    .hero-note {
+      margin: 0;
+      color: #708196;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .hero-metrics {
+      margin-top: 16px;
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .metric-pill {
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid #d4ddff;
+      background: #fff;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .metric-pill b {
+      display: block;
+      margin-bottom: 2px;
+      font-size: 16px;
+      color: var(--primary-dark);
+    }
+
+    .metric-pill span {
+      font-size: 13px;
+      color: #617284;
+      font-weight: 600;
     }
 
     .hero-image {
-      border-radius: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
       overflow: hidden;
+      background: #fff;
       box-shadow: var(--shadow);
-      border: 1px solid var(--line);
-      background: white;
-      position: relative;
+      max-width: 520px;
+      justify-self: end;
     }
 
-    .hero-image img {
-      width: 100%;
-      height: auto;
-      display: block;
+    .problem-section {
+      border-top: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(238, 242, 255, 0.44), rgba(248, 250, 252, 0));
     }
 
-    /* Process Flow */
-    .flow-steps {
+    .pain-grid {
       display: grid;
-      grid-template-columns: repeat(1, 1fr);
-      gap: 32px;
-      position: relative;
-      max-width: 1000px;
-      margin: 0 auto;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
     }
 
-    @media (min-width: 768px) {
-      .flow-steps {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
-      }
-
-      .flow-steps::before {
-        content: '';
-        position: absolute;
-        top: 40px;
-        left: 10%;
-        right: 10%;
-        height: 2px;
-        background: #e2e8f0;
-        z-index: 0;
-      }
-    }
-
-    .flow-card {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-    }
-
-    .flow-icon {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto 24px;
-      background: white;
-      border: 2px solid #e0e7ff;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 32px;
-      color: #4f46e5;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-      position: relative;
-      transition: all 0.3s ease;
-    }
-
-    .flow-card:hover .flow-icon {
-      border-color: #4f46e5;
-      background: #eef2ff;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.15);
-    }
-
-    .step-number-badge {
-      position: absolute;
-      top: -5px;
-      right: -5px;
-      width: 24px;
-      height: 24px;
-      background: var(--primary);
-      color: white;
-      font-size: 12px;
-      font-weight: 700;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 2px solid white;
-    }
-
-    /* Stats/Trusted */
-    .trusted {
-      padding: 40px 0;
-      border-bottom: 1px solid var(--line);
-      text-align: center;
-    }
-
-    .trusted p {
-      font-size: 14px;
-      color: var(--muted);
-      font-weight: 600;
-      margin-bottom: 24px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .trusted-logos {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      opacity: 0.6;
-      font-weight: 700;
-      font-family: "Unbounded", sans-serif;
-      color: var(--muted);
-      flex-wrap: wrap;
-    }
-
-    /* Benefits */
-    .benefits {
-      padding: 80px 0;
-    }
-
-    .section-header {
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto 60px;
-    }
-
-    .section-header h2 {
-      font-family: "Unbounded", sans-serif;
-      font-size: 36px;
-      margin-bottom: 16px;
-    }
-
-    .b-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 40px;
-      align-items: center;
-      margin-bottom: 100px;
-    }
-
-    .b-grid.reverse {
-      direction: rtl;
-    }
-
-    .b-grid.reverse>* {
-      direction: ltr;
-    }
-
-    .b-content h3 {
-      font-family: "Unbounded", sans-serif;
-      font-size: 28px;
-      margin-bottom: 16px;
-    }
-
-    .b-content p {
-      font-size: 17px;
-      color: var(--muted);
-      margin-bottom: 24px;
-    }
-
-    .b-image {
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      border: 1px solid var(--line);
-      background: white;
-    }
-
-    .box-feature {
-      padding: 24px;
-      background: white;
-      border-radius: 16px;
-      border: 1px solid var(--line);
+    .pain-card {
+      padding: 26px 22px;
+      border-radius: 18px;
+      border: 1px solid #dbe5f2;
+      background: #fff;
       box-shadow: var(--shadow-sm);
-      margin-bottom: 16px;
-      display: flex;
-      gap: 16px;
-      align-items: start;
     }
 
-    .box-icon {
-      width: 40px;
-      height: 40px;
+    .pain-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 16px;
+      font-size: 24px;
       background: var(--mint);
       color: var(--primary);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
     }
 
-    /* Steps */
-    .steps-section {
-      background: white;
-      padding: 80px 0;
+    .pain-card h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      font-family: "Unbounded", sans-serif;
+      line-height: 1.2;
+    }
+
+    .pain-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .solution-section {
+      background: #fff;
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
     }
 
-    .steps {
+    .solution-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
     }
 
-    .step {
-      padding: 32px;
-      background: var(--paper);
-      border-radius: 24px;
-      border: 1px solid var(--line);
+    .solution-card {
+      border: 1px solid #dbe2ea;
+      border-radius: 18px;
+      background: linear-gradient(180deg, #ffffff, #fafcff);
+      box-shadow: var(--shadow-sm);
+      padding: 22px;
+      height: 100%;
+    }
+
+    .solution-card h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+      line-height: 1.22;
+      font-family: "Unbounded", sans-serif;
+    }
+
+    .solution-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .solution-note {
+      margin-top: 20px;
+      border-radius: 14px;
+      border: 1px solid #dce4f3;
+      background: #f8fbff;
+      padding: 14px 16px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #334155;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .step-card {
+      padding: 24px 22px;
+      border-radius: 18px;
+      border: 1px solid #dbe2ea;
+      background: #fff;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .step-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
     }
 
     .step-num {
-      font-family: "Unbounded", sans-serif;
-      font-size: 48px;
-      color: var(--primary);
-      opacity: 0.2;
-      line-height: 1;
-      margin-bottom: 16px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 13px;
+      font-weight: 800;
+      background: var(--primary);
+      color: #fff;
     }
 
-    .step h4 {
-      font-size: 20px;
-      margin: 0 0 12px;
-      font-weight: 700;
-    }
-
-    .step p {
-      color: var(--muted);
+    .step-card h3 {
       margin: 0;
-      font-size: 15px;
+      font-size: 20px;
+      font-family: "Unbounded", sans-serif;
+      line-height: 1.2;
     }
 
-    /* Pricing */
+    .step-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .showcase-section {
+      background: #fff;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .slider {
+      position: relative;
+      border-radius: 20px;
+      border: 1px solid #d9e2ef;
+      background: #fff;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .slider-track {
+      display: flex;
+      transition: transform 0.4s ease;
+      will-change: transform;
+    }
+
+    .slide {
+      min-width: 100%;
+      padding: 24px 24px 16px;
+    }
+
+    .slide-title {
+      margin: 0 0 12px;
+      font-size: 20px;
+      font-family: "Unbounded", sans-serif;
+      line-height: 1.2;
+    }
+
+    .slide-caption {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .slide figure {
+      margin: 0;
+      border-radius: 14px;
+      border: 1px solid #dbe2ea;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .slider-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 0 24px 22px;
+    }
+
+    .slider-arrows {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .slider-btn {
+      width: 40px;
+      height: 40px;
+      border: 1px solid #cfd8e7;
+      border-radius: 10px;
+      background: #fff;
+      color: #334155;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .slider-btn:hover {
+      color: var(--primary);
+      border-color: #a9b9df;
+    }
+
+    .slider-dots {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .slider-dot {
+      width: 10px;
+      height: 10px;
+      border: 0;
+      border-radius: 50%;
+      background: #cbd5e1;
+      cursor: pointer;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    .slider-dot.active {
+      background: var(--primary);
+      transform: scale(1.12);
+    }
+
     .pricing-section {
-      padding: 80px 0;
       background: linear-gradient(180deg, rgba(224, 231, 255, 0.25) 0%, rgba(248, 250, 252, 0) 60%);
     }
 
     .pricing-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 24px;
+      gap: 20px;
     }
 
     .pricing-card {
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 24px;
-      box-shadow: var(--shadow-sm);
+      border: 1px solid #dbe2ea;
+      border-radius: 18px;
+      background: #fff;
+      padding: 22px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 12px;
+      box-shadow: var(--shadow-sm);
     }
 
     .pricing-card.featured {
-      border-color: rgba(79, 70, 229, 0.4);
-      box-shadow: 0 18px 28px -20px rgba(79, 70, 229, 0.7);
+      border-color: rgba(79, 70, 229, 0.38);
+      box-shadow: 0 18px 28px -18px rgba(79, 70, 229, 0.68);
     }
 
     .pricing-badge {
-      display: inline-flex;
       width: fit-content;
-      padding: 4px 10px;
       border-radius: 999px;
       border: 1px solid rgba(79, 70, 229, 0.25);
       background: rgba(79, 70, 229, 0.08);
       color: var(--primary-dark);
+      padding: 4px 11px;
       font-size: 12px;
       font-weight: 700;
     }
@@ -547,14 +638,15 @@
     .pricing-card h3 {
       margin: 0;
       font-family: "Unbounded", sans-serif;
-      font-size: 24px;
+      font-size: 25px;
+      line-height: 1.15;
     }
 
     .pricing-price {
       margin: 0;
-      font-size: 30px;
-      line-height: 1.15;
+      font-size: 31px;
       font-weight: 800;
+      line-height: 1.1;
       letter-spacing: -0.02em;
     }
 
@@ -563,28 +655,29 @@
       color: var(--muted);
       font-size: 14px;
       font-weight: 600;
+      line-height: 1.45;
     }
 
-    .pricing-features {
+    .pricing-list {
+      list-style: none;
       margin: 0;
       padding: 0;
-      list-style: none;
       display: grid;
-      gap: 10px;
+      gap: 9px;
     }
 
-    .pricing-features li {
+    .pricing-list li {
       position: relative;
       padding-left: 18px;
       color: #334155;
       font-size: 15px;
-      line-height: 1.45;
+      line-height: 1.52;
     }
 
-    .pricing-features li::before {
+    .pricing-list li::before {
       content: "•";
       position: absolute;
-      left: 4px;
+      left: 3px;
       top: -1px;
       color: var(--primary);
       font-weight: 700;
@@ -592,113 +685,267 @@
 
     .pricing-cta {
       margin-top: auto;
-      border: 1px solid var(--line);
-      border-radius: 12px;
+      border: 1px solid #ccd6e4;
+      border-radius: 11px;
       padding: 11px 14px;
       text-align: center;
       font-size: 14px;
       font-weight: 700;
       background: #fff;
+      transition: all 0.2s ease;
     }
 
     .pricing-cta:hover {
+      color: var(--primary);
       border-color: var(--primary);
+    }
+
+    .faq-section {
+      border-top: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 12px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      border: 1px solid #dbe2ea;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 18px 20px;
+      font-size: 17px;
+      font-weight: 700;
+      color: #1e293b;
+      position: relative;
+      padding-right: 52px;
+      line-height: 1.36;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary::after {
+      content: "+";
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #64748b;
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .faq-item[open] summary::after {
+      content: "−";
       color: var(--primary);
     }
 
-    /* ROI / CTA */
+    .faq-answer {
+      margin: 0;
+      padding: 0 20px 18px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.58;
+    }
     .cta-section {
-      padding: 100px 0;
-      text-align: center;
+      padding: 92px 0;
     }
 
     .cta-box {
-      background: linear-gradient(135deg, var(--ink) 0%, #1e293b 100%);
-      color: white;
-      border-radius: 32px;
-      padding: 60px 24px;
+      border-radius: 26px;
+      background: linear-gradient(140deg, #111827 0%, #1e293b 100%);
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      color: #fff;
+      text-align: center;
+      padding: 54px 24px;
       position: relative;
       overflow: hidden;
     }
 
+    .cta-box::before {
+      content: "";
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: rgba(79, 70, 229, 0.24);
+      top: -160px;
+      right: -70px;
+      pointer-events: none;
+    }
+
     .cta-box h2 {
+      margin: 0 0 14px;
       font-family: "Unbounded", sans-serif;
-      font-size: 42px;
-      margin-bottom: 24px;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.14;
+      position: relative;
+      z-index: 1;
     }
 
     .cta-box p {
-      font-size: 20px;
+      margin: 0 auto 28px;
+      max-width: 680px;
+      color: #cbd5e1;
+      font-size: clamp(16px, 1.8vw, 20px);
+      line-height: 1.5;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-box .btn {
+      position: relative;
+      z-index: 1;
+      padding-left: 34px;
+      padding-right: 34px;
+      font-size: 17px;
+      background: #fff;
+      border-color: #fff;
+      color: #111827;
+      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.35);
+    }
+
+    .cta-box .btn:hover {
+      background: #eef2ff;
+      border-color: #eef2ff;
+      color: #111827;
+    }
+
+    .cta-footnote {
+      margin-top: 12px;
       color: #94a3b8;
-      max-width: 600px;
-      margin: 0 auto 40px;
+      font-size: 13px;
+      position: relative;
+      z-index: 1;
     }
 
-    .roi-badge {
-      position: absolute;
-      top: 40px;
-      right: 40px;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      padding: 12px 20px;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      text-align: left;
-      font-size: 14px;
-    }
-
-    .roi-badge strong {
-      display: block;
-      font-size: 24px;
-      color: #4ade80;
-    }
-
-    /* Footer */
     footer {
-      padding: 48px 0;
       border-top: 1px solid var(--line);
-      color: var(--muted);
+      padding: 34px 0;
       font-size: 14px;
+      color: #526176;
     }
 
-    .footer-flex {
+    .footer-grid {
+      display: grid;
+      gap: 16px;
+      justify-items: start;
+    }
+
+    .footer-brand {
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .footer-links {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px 18px;
+      line-height: 1.35;
     }
 
-    /* Responsive */
-    @media (max-width: 900px) {
-      .b-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
-        margin-bottom: 60px;
-      }
+    .footer-links a:hover {
+      color: var(--primary);
+    }
 
-      .b-grid.reverse {
-        direction: ltr;
-      }
-
-      .steps {
+    @media (max-width: 1080px) {
+      .hero-grid {
         grid-template-columns: 1fr;
       }
 
+      .hero-image {
+        max-width: 780px;
+        margin: 0 auto;
+      }
+
+      .pain-grid,
+      .solution-grid,
+      .steps-grid,
       .pricing-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .nav .menu {
+      .pricing-grid .pricing-card:last-child {
+        grid-column: span 2;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .menu {
         display: none;
       }
 
-      .hero h1 {
-        font-size: 36px;
+      .nav .btn {
+        padding: 11px 14px;
+        font-size: 14px;
       }
 
-      .roi-badge {
-        position: static;
-        margin-bottom: 20px;
-        display: inline-block;
+      .hero {
+        padding-top: 62px;
+      }
+
+      .hero h1 {
+        font-size: clamp(31px, 10vw, 38px);
+        line-height: 1.11;
+        letter-spacing: -0.022em;
+      }
+
+      .section-header h2 {
+        line-height: 1.19;
+      }
+
+      .hero-metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .pain-grid,
+      .solution-grid,
+      .steps-grid,
+      .pricing-grid,
+      .pricing-grid .pricing-card:last-child {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 72px 0;
+      }
+
+      .slider-controls {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .slider-arrows,
+      .slider-dots {
+        justify-content: center;
+      }
+
+      .slide {
+        padding: 18px 16px 14px;
+      }
+
+      .faq-item summary {
+        font-size: 16px;
+        line-height: 1.33;
+      }
+
+      .cta-section {
+        padding: 72px 0;
       }
     }
   </style>
@@ -714,12 +961,12 @@
     "image": "https://iirest.ru/hero-dashboard.png",
     "offers": {
       "@type": "Offer",
-      "price": "1500",
+      "price": "1400",
       "priceCurrency": "RUB",
       "availability": "https://schema.org/InStock",
       "url": "https://iirest.ru/"
     },
-    "description": "Автозагрузка прайс-листов, удобные матрицы сравнения для поиска лучших цен, аналитика по закупкам для контроля и принятия эффективных решений.",
+    "description": "Сервис сравнения цен поставщиков и автоматизации закупок для ресторанов.",
     "url": "https://iirest.ru/"
   }
   </script>
@@ -752,300 +999,495 @@
 <body>
   <header>
     <div class="container nav">
-      <a class="brand" href="/">
+      <a class="brand" href="/" data-track-goal="brand_click">
         <img src="logo.svg" alt="iirest logo" width="32" height="32" decoding="async" />
-        iirest <span>procurement os</span>
+        iirest
       </a>
-      <nav class="menu">
-        <a href="#benefits">Возможности</a>
-        <a href="#how">Как это работает</a>
-        <a href="#pricing">Тарифы</a>
-        <a href="#pilot">Пилот</a>
+      <nav class="menu" aria-label="Основная навигация">
+        <a href="#solution" data-track-goal="menu_solution">Решение</a>
+        <a href="#how" data-track-goal="menu_how">Как это работает</a>
+        <a href="#pricing" data-track-goal="menu_pricing">Тарифы</a>
+        <a href="#faq" data-track-goal="menu_faq">FAQ</a>
       </nav>
-      <a class="btn primary" href="https://app.iirest.ru" target="_blank" rel="noopener noreferrer">Войти</a>
+      <a class="btn primary" href="https://app.iirest.ru" target="_blank" rel="noopener noreferrer"
+        data-track-goal="cta_header_try">Попробовать бесплатно</a>
     </div>
   </header>
 
   <main>
-    <!-- Hero -->
     <section class="hero">
-      <div class="container">
+      <div class="container hero-grid">
         <div>
-          <span class="eyebrow" style="background: #dbeafe; color: #1e40af;">🚀 1 Месяц бесплатно</span>
-          <h1>Перестаньте переплачивать <br> поставщикам</h1>
-          <p>
-            Умная матрица закупок для вашего ресторана. Сравниваем цены, находим лучшие предложения и экономим до 30%
-            бюджета.
-          </p>
-          <div class="hero-buttons">
+          <span class="eyebrow">Для управляющих и закупщиков</span>
+          <h1>Сравнивай цены и формируй заказы<br />в 10 раз быстрее и проще</h1>
+          <p>iirest объединяет сравнение цен поставщиков, закупочную матрицу и аналитику в одном окне. Меньше рутины,
+            больше контроля и понятного результата по закупке.</p>
+          <div class="hero-actions">
             <a class="btn primary" href="https://app.iirest.ru" target="_blank" rel="noopener noreferrer"
-              style="padding: 16px 32px; font-size: 18px;">
-              Получить месяц бесплатно
-            </a>
-            <a class="btn secondary" href="#how">Как это работает</a>
+              data-track-goal="cta_hero_try">Попробовать бесплатно</a>
+            <a class="btn secondary" href="#how" data-track-goal="cta_hero_how">Как это работает</a>
           </div>
-          <p style="font-size: 14px; margin-top: 12px; margin-bottom:0;">
-            *без ввода карты, отмена в любой момент
-          </p>
+          <p class="hero-note">Без карты. Быстрый старт и тестирование в реальном процессе закупки.</p>
+
+          <div class="hero-metrics">
+            <div class="metric-pill">
+              <b>10x быстрее</b>
+              <span>Подготовка заказа по поставщикам</span>
+            </div>
+            <div class="metric-pill">
+              <b>Единая матрица</b>
+              <span>Сравнение цен в одном интерфейсе</span>
+            </div>
+            <div class="metric-pill">
+              <b>Контроль в цифрах</b>
+              <span>Экономия и динамика по закупкам</span>
+            </div>
+          </div>
         </div>
-        <div class="hero-image" style="margin-top: 40px;">
+        <div class="hero-image">
           <picture>
             <source srcset="hero-dashboard.webp" type="image/webp" />
-            <img src="hero-dashboard.png" alt="Интерфейс сравнения цен iirest" width="1024" height="1024"
+            <img src="hero-dashboard.png" alt="Дашборд iirest для сравнения цен поставщиков" width="1024" height="1024"
               loading="eager" fetchpriority="high" decoding="async" />
           </picture>
         </div>
       </div>
     </section>
 
-    <!-- Social Proof -->
-    <section class="trusted">
-      <div class="container">
-        <p>Пилотный запуск в Москве. К нам присоединились:</p>
-        <div class="trusted-logos">
-          <span>COFFEE BOOM</span>
-          <span>THE KITCHEN</span>
-          <span>LOCAL CHEF</span>
-          <span>DARK KITCHEN</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Benefits 1: Cost Control & Matrix -->
-    <section class="benefits" id="benefits">
+    <section class="section problem-section" id="problem">
       <div class="container">
         <div class="section-header">
-          <h2>Полный контроль себестоимости</h2>
-          <p>Превращаем хаос из десятков прайс-листов в единую понятную матрицу. Забудьте о ручном копании в Excel.</p>
+          <span class="eyebrow">Проблема</span>
+          <h2>Закупка съедает время и не дает ясной картины по выгоде</h2>
+          <p>Когда процесс держится на Excel и ручных сверках, скорость падает, а доказать результат руководству становится
+            сложнее.</p>
         </div>
-
-        <div class="b-grid">
-          <div class="b-content">
-            <h3>Глубокая аналитика закупки</h3>
-            <p>Это не просто слова — мы показываем конкретные цифры. Насколько вы закупаете дешевле рынка? Где теряете
-              деньги? Система мониторит эффективность каждого заказа.</p>
-            <div class="box-feature">
-              <div class="box-icon">�</div>
-              <div>
-                <strong>Цифры, а не ощущения</strong>
-                <div>Отчеты по динамике цен, объемам и упущенной выгоде в реальном времени.</div>
-              </div>
-            </div>
-            <div class="box-feature">
-              <div class="box-icon">�️</div>
-              <div>
-                <strong>Матрица вместо ошибок</strong>
-                <div>Система сама сводит сотни позиций в единую таблицу сравнения. Человеческий фактор исключен.</div>
-              </div>
-            </div>
-          </div>
-          <div class="b-image">
-            <picture>
-              <source srcset="analytics-chart.webp" type="image/webp" />
-              <img src="analytics-chart.png" alt="График экономии" width="1024" height="1024" loading="lazy"
-                decoding="async" />
-            </picture>
-          </div>
-        </div>
-
-        <!-- Benefits 2: Integrations & Ordering -->
-        <div class="b-grid reverse">
-          <div class="b-content">
-            <h3>Интеграция с поставщиками</h3>
-            <p>Мы работаем не только с файлами. Подключаем личные кабинеты поставщиков и настраиваем прямые интеграции
-              под ваш бизнес.</p>
-            <div class="box-feature">
-              <div class="box-icon">�</div>
-              <div>
-                <strong>Личные кабинеты</strong>
-                <div>Автоматический парсинг цен из B2B-порталов поставщиков.</div>
-              </div>
-            </div>
-            <div class="box-feature">
-              <div class="box-icon">⚡</div>
-              <div>
-                <strong>Индивидуальная настройка</strong>
-                <div>Свяжем iirest с вашей учетной системой или специфичными поставщиками под заказ.</div>
-              </div>
-            </div>
-          </div>
-          <div class="b-image">
-            <picture>
-              <source srcset="mobile-app.webp" type="image/webp" />
-              <img src="mobile-app.png" alt="Мобильное приложение для заказа" width="1024" height="1024"
-                loading="lazy" decoding="async" />
-            </picture>
-          </div>
+        <div class="pain-grid">
+          <article class="pain-card">
+            <div class="pain-icon" aria-hidden="true">📊</div>
+            <h3>Ручная работа в Excel</h3>
+            <p>Формулы, копипаст и постоянные правки тормозят закупку и создают риск ошибок в выборе цен.</p>
+          </article>
+          <article class="pain-card">
+            <div class="pain-icon" aria-hidden="true">⏱</div>
+            <h3>Долгий сбор заказа</h3>
+            <p>Чтобы собрать заказ по нескольким поставщикам, приходится переключаться между файлами и кабинетами.</p>
+          </article>
+          <article class="pain-card">
+            <div class="pain-icon" aria-hidden="true">📉</div>
+            <h3>Сложно доказать эффект</h3>
+            <p>Без прозрачной аналитики трудно показать руководству, где реально сэкономили и где теряются деньги.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- Expert Origin -->
-    <section class="trusted"
-      style="background: white; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
-      <div class="container" style="text-align: center; padding: 40px 0;">
-        <span class="eyebrow" style="background: #e0e7ff; color: #4338ca; margin-bottom: 16px;">От профи для
-          профи</span>
-        <h2 style="font-family: 'Unbounded', sans-serif; font-size: 32px; margin-bottom: 20px;">
-          Мы знаем вашу работу изнутри
-        </h2>
-        <p style="font-size: 18px; color: var(--muted); max-width: 800px; margin: 0 auto 30px;">
-          Сервис создан профессиональными закупщиками. Мы не просто "айтишники", мы знаем, как важно доказать свою
-          эффективность бизнесу.
-        </p>
-        <div class="panel-grid" style="text-align: left; max-width: 900px; margin: 0 auto; gap: 24px;">
-          <div class="metric" style="padding: 24px;">
-            <b style="color: var(--primary); font-size: 20px;">Покажите свою ценность</b>
-            <span style="font-size: 15px; margin-top: 8px;">Не просто "потратили миллион", а "сэкономили 150 000 руб.
-              благодаря тендеру". Система формирует отчеты для владельцев за вас.</span>
-          </div>
-          <div class="metric" style="padding: 24px;">
-            <b style="color: var(--primary); font-size: 20px;">Упростите рутину</b>
-            <span style="font-size: 15px; margin-top: 8px;">Освободите 2 часа в день от Excel-таблиц. Занимайтесь
-              стратегий и переговорами, а не копипастом.</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Why iirest (How it Works) -->
-    <section class="steps-section" id="how">
+    <section class="section solution-section" id="solution">
       <div class="container">
         <div class="section-header">
-          <h2>От хаоса к системе за 4 шага</h2>
-          <p>Простой алгоритм, который избавляет от рутины.</p>
+          <span class="eyebrow">Решение iirest</span>
+          <h2>Один сервис для цен, матрицы и аналитики закупок</h2>
+          <p>Ядро платформы закрывает ежедневные задачи закупщика и управляющего без лишних действий.</p>
+        </div>
+        <div class="solution-grid">
+          <article class="solution-card">
+            <h3>Автосбор и нормализация прайсов</h3>
+            <p>Система загружает и приводит прайсы к единому виду, чтобы вы сразу работали с сопоставимыми позициями.</p>
+          </article>
+          <article class="solution-card">
+            <h3>Умная матрица по списку закупки</h3>
+            <p>iirest собирает лучшую цену по каждой позиции и подсвечивает выгодные решения для конкретного заказа.</p>
+          </article>
+          <article class="solution-card">
+            <h3>Аналитика экономии</h3>
+            <p>Отчеты по заказам, динамике цен и результатам закупки помогают принимать решения на основе фактов.</p>
+          </article>
+        </div>
+        <p class="solution-note">Дополнительно в тарифах Pro и ТОП: автоматическая отправка заказов и интеграции с
+          кабинетами/API поставщиков.</p>
+      </div>
+    </section>
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Как это работает</span>
+          <h2>Три шага до управляемой закупки</h2>
+          <p>Минимум действий на старте, чтобы быстро перейти от хаоса к процессу с понятной экономикой.</p>
+        </div>
+        <div class="steps-grid">
+          <article class="step-card">
+            <div class="step-head">
+              <span class="step-num">1</span>
+              <h3>Загрузите прайсы</h3>
+            </div>
+            <p>Добавьте прайс-листы поставщиков. iirest подготовит данные для корректного сравнения цен.</p>
+          </article>
+          <article class="step-card">
+            <div class="step-head">
+              <span class="step-num">2</span>
+              <h3>Соберите закупку</h3>
+            </div>
+            <p>Создайте список позиций, а система подберет оптимальные предложения по каждой категории.</p>
+          </article>
+          <article class="step-card">
+            <div class="step-head">
+              <span class="step-num">3</span>
+              <h3>Контролируйте результат</h3>
+            </div>
+            <p>Отслеживайте экономию, динамику цен и эффективность закупки в отчетах без ручных таблиц.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section showcase-section" id="visuals">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Визуализация сервиса</span>
+          <h2>Матрица, корзина и аналитика в одном процессе</h2>
+          <p>Показываем, как выглядит работа в iirest на реальных экранах продукта.</p>
         </div>
 
-        <div class="flow-steps">
-          <!-- Step 1 -->
-          <div class="flow-card">
-            <div class="flow-icon">
-              📂
-              <div class="step-number-badge">1</div>
-            </div>
-            <h3>Загрузите прайсы</h3>
-            <p>Перетащите файлы Excel от поставщиков. Система распознает любой формат.</p>
+        <div class="slider" data-slider aria-label="Слайдер интерфейсов iirest">
+          <div class="slider-track">
+            <article class="slide" data-slide-name="matrix">
+              <h3 class="slide-title">Матрица</h3>
+              <p class="slide-caption">Сравнение цен поставщиков по каждой позиции в единой таблице.</p>
+              <figure>
+                <img src="Screenshots/Матрица.png" alt="Экран матрицы сравнения цен поставщиков" width="1070"
+                  height="634" loading="lazy" decoding="async" />
+              </figure>
+            </article>
+            <article class="slide" data-slide-name="cart">
+              <h3 class="slide-title">Корзина</h3>
+              <p class="slide-caption">Консолидация выбранных позиций и контроль суммы заказа по поставщикам.</p>
+              <figure>
+                <img src="Screenshots/Корзина.png" alt="Экран корзины с итогами заказа" width="1066" height="532"
+                  loading="lazy" decoding="async" />
+              </figure>
+            </article>
+            <article class="slide" data-slide-name="analytics_cart_mix">
+              <h3 class="slide-title">Аналитика и корзина</h3>
+              <p class="slide-caption">Быстрый переход от итогов аналитики к проверке и сборке корзины заказа.</p>
+              <figure>
+                <img src="Screenshots/Аналитика Корзина.png" alt="Комбинированный экран аналитики и корзины"
+                  width="1065" height="282" loading="lazy" decoding="async" />
+              </figure>
+            </article>
+            <article class="slide" data-slide-name="analytics">
+              <h3 class="slide-title">Аналитика</h3>
+              <p class="slide-caption">Показатели тендеров, экономии и переплаты по закупщикам и поставщикам.</p>
+              <figure>
+                <img src="Screenshots/Аналитика2.png" alt="Экран аналитики закупок" width="1156" height="645"
+                  loading="lazy" decoding="async" />
+              </figure>
+            </article>
+            <article class="slide" data-slide-name="analytics_summary">
+              <h3 class="slide-title">Аналитика: сводка</h3>
+              <p class="slide-caption">Сводные показатели по закупщикам и динамике результатов по тендерам.</p>
+              <figure>
+                <img src="Screenshots/Аналитика1.png" alt="Сводная аналитика по закупщикам" width="1120" height="403"
+                  loading="lazy" decoding="async" />
+              </figure>
+            </article>
           </div>
 
-          <!-- Step 2 -->
-          <div class="flow-card">
-            <div class="flow-icon">
-              📝
-              <div class="step-number-badge">2</div>
+          <div class="slider-controls">
+            <div class="slider-arrows">
+              <button class="slider-btn" type="button" data-slider-prev aria-label="Предыдущий слайд">‹</button>
+              <button class="slider-btn" type="button" data-slider-next aria-label="Следующий слайд">›</button>
             </div>
-            <h3>Список покупок</h3>
-            <p>Создайте список нужных продуктов на сегодня. Просто выберите категории.</p>
-          </div>
-
-          <!-- Step 3 -->
-          <div class="flow-card">
-            <div class="flow-icon">
-              📊
-              <div class="step-number-badge">3</div>
+            <div class="slider-dots" aria-label="Индикаторы слайдов">
+              <button class="slider-dot active" type="button" data-slider-dot="0" aria-label="Матрица"></button>
+              <button class="slider-dot" type="button" data-slider-dot="1" aria-label="Корзина"></button>
+              <button class="slider-dot" type="button" data-slider-dot="2" aria-label="Аналитика и корзина"></button>
+              <button class="slider-dot" type="button" data-slider-dot="3" aria-label="Аналитика"></button>
+              <button class="slider-dot" type="button" data-slider-dot="4" aria-label="Аналитика сводка"></button>
             </div>
-            <h3>Умная матрица</h3>
-            <p>Алгоритм найдет лучшие цены для вашего списка и подсветит выгоду.</p>
-          </div>
-
-          <!-- Step 4 -->
-          <div class="flow-card">
-            <div class="flow-icon">
-              🚀
-              <div class="step-number-badge">4</div>
-            </div>
-            <h3>Единая корзина</h3>
-            <p>Один клик — и заказы улетели всем 10 поставщикам в WhatsApp/Email.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Pricing -->
-    <section class="pricing-section" id="pricing">
+    <section class="section pricing-section" id="pricing">
       <div class="container">
         <div class="section-header">
-          <h2>Тарифы для разных задач закупки</h2>
-          <p>Выберите уровень автоматизации: от самостоятельной работы до полного аутсорсинга.</p>
+          <span class="eyebrow">Тарифы</span>
+          <h2>Выберите уровень автоматизации закупки</h2>
+          <p>Базовый сценарий для старта и расширенные опции для роста и полного сопровождения.</p>
         </div>
+
         <div class="pricing-grid">
           <article class="pricing-card featured">
-            <span class="pricing-badge">Старт</span>
             <h3>Базовый</h3>
-            <p class="pricing-price">1 500 руб/мес</p>
-            <p class="pricing-note">Демо доступ на месяц бесплатно</p>
-            <ul class="pricing-features">
-              <li>Загрузка прайс-листов</li>
-              <li>Таблицы сравнения</li>
-              <li>Базовая аналитика</li>
+            <p class="pricing-price">От 1 400 ₽/мес</p>
+            <p class="pricing-note">1 месяц бесплатного демо-доступа</p>
+            <ul class="pricing-list">
+              <li>Автозагрузка прайс-листов</li>
+              <li>Умная матрица сравнения</li>
+              <li>Базовая аналитика закупок</li>
             </ul>
-            <a class="pricing-cta" href="https://app.iirest.ru" target="_blank" rel="noopener noreferrer">Попробовать бесплатно</a>
+            <a class="pricing-cta" href="https://app.iirest.ru" target="_blank" rel="noopener noreferrer"
+              data-track-goal="cta_pricing_basic">Попробовать бесплатно</a>
           </article>
 
           <article class="pricing-card">
-            <span class="pricing-badge">Для роста</span>
             <h3>Pro</h3>
             <p class="pricing-price">По запросу</p>
             <p class="pricing-note">Для компаний с регулярными закупками</p>
-            <ul class="pricing-features">
-              <li>Расширенная аналитика</li>
-              <li>Интеграция с поставщиками (API, личные кабинеты)</li>
-              <li>Автоматизация отправки заказов поставщикам</li>
+            <ul class="pricing-list">
+              <li>Расширенная аналитика и отчеты</li>
+              <li>Интеграции с кабинетами/API поставщиков</li>
+              <li>Автоматическая отправка заказов</li>
             </ul>
-            <a class="pricing-cta" href="mailto:dkruglov@outlook.com">Запросить предложение</a>
+            <a class="pricing-cta" href="mailto:dkruglov@outlook.com" data-track-goal="cta_pricing_pro">Запросить
+              предложение</a>
           </article>
 
           <article class="pricing-card">
-            <span class="pricing-badge">Максимум</span>
             <h3>ТОП</h3>
             <p class="pricing-price">По запросу</p>
-            <p class="pricing-note">Формат полного сопровождения закупок</p>
-            <ul class="pricing-features">
-              <li>Аутсорсинг закупок</li>
-              <li>Консалтинг и рекомендации экспертов</li>
+            <p class="pricing-note">Формат полного сопровождения закупки</p>
+            <ul class="pricing-list">
+              <li>Аутсорсинг закупочного процесса</li>
+              <li>Экспертные рекомендации и консалтинг</li>
               <li>Формирование и передача заказов</li>
-              <li>Полный аутсорсинг от подбора поставщиков до заведения накладных</li>
+              <li>Поддержка на всех этапах внедрения</li>
             </ul>
-            <a class="pricing-cta" href="mailto:dkruglov@outlook.com">Обсудить запуск</a>
+            <a class="pricing-cta" href="mailto:dkruglov@outlook.com" data-track-goal="cta_pricing_top">Обсудить
+              запуск</a>
           </article>
         </div>
       </div>
     </section>
+    <section class="section faq-section" id="faq">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">FAQ</span>
+          <h2>Ответы на частые вопросы</h2>
+          <p>Коротко о запуске, автоматизации и аналитике в iirest.</p>
+        </div>
 
-    <!-- CTA -->
-    <section class="cta-section" id="pilot">
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary>Как быстро можно начать пользоваться?</summary>
+            <p class="faq-answer">Базовый сценарий запуска занимает от одного рабочего дня: загружаете прайсы,
+              формируете список закупки и получаете сравнение цен в матрице.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Нужна ли регистрация поставщиков?</summary>
+            <p class="faq-answer">Нет, для старта это не требуется. Вы можете начать работу с файлами прайс-листов.
+              Интеграции с кабинетами поставщиков подключаются отдельно в старших тарифах.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Можно ли настроить автоматическое обновление прайс-листов?</summary>
+            <p class="faq-answer">Да. Настраиваются регулярные обновления данных, чтобы сравнение цен всегда опиралось
+              на актуальные прайсы.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Можно ли настроить автоматическую отправку заказов?</summary>
+            <p class="faq-answer">Да, автоматическая отправка заказов доступна как расширенная опция в тарифах Pro и
+              ТОП.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Какая есть аналитика?</summary>
+            <p class="faq-answer">Сервис показывает динамику цен, экономию/переплату, объем закупок и эффективность
+              работы по закупщикам и поставщикам.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section" id="cta">
       <div class="container">
         <div class="cta-box">
-          <div class="roi-badge">
-            Выгода
-            <strong>1 месяц бесплатно</strong>
-          </div>
-          <h2>Готовы сократить фудкост?</h2>
-          <p>
-            Попробуйте полную версию iirest. Загрузите свои прайсы и увидите реальную экономию уже сегодня.
-            Никаких обязательств.
-          </p>
+          <h2>Переведите закупку на управляемый процесс</h2>
+          <p>Попробуйте iirest в реальной работе: сравните цены поставщиков, соберите заказ и оцените эффект в
+            аналитике уже в первый месяц.</p>
           <a class="btn primary" href="https://app.iirest.ru" target="_blank" rel="noopener noreferrer"
-            style="background: white; color: var(--ink); border: none;">
-            Попробовать бесплатно
-          </a>
+            data-track-goal="cta_final_try">Попробовать бесплатно</a>
+          <p class="cta-footnote">Главный сценарий: переход в приложение и быстрый запуск без лишних шагов.</p>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="container footer-flex">
-      <div>
-        <strong>iirest</strong> © <span id="year"></span>. Все права защищены.
-      </div>
-      <div>
-        <a href="mailto:dkruglov@outlook.com">dkruglov@outlook.com</a>
+    <div class="container footer-grid">
+      <div class="footer-brand"><strong>iirest</strong> © <span id="year"></span></div>
+      <div class="footer-links">
+        <a href="mailto:dkruglov@outlook.com" data-track-goal="contact_email">dkruglov@outlook.com</a>
+        <a href="https://t.me/tabascoden" target="_blank" rel="noopener noreferrer"
+          data-track-goal="contact_telegram">Telegram</a>
+        <a href="https://app.iirest.ru/legal/public-offer" target="_blank" rel="noopener noreferrer"
+          data-track-goal="legal_offer">Публичная оферта</a>
+        <a href="https://app.iirest.ru/legal/user-agreement" target="_blank" rel="noopener noreferrer"
+          data-track-goal="legal_user_agreement">Пользовательское соглашение</a>
+        <a href="https://app.iirest.ru/legal/privacy-policy" target="_blank" rel="noopener noreferrer"
+          data-track-goal="legal_privacy">Политика конфиденциальности</a>
       </div>
     </div>
   </footer>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    (function () {
+      var counterId = 105886469;
+
+      function trackGoal(goal, params) {
+        if (!goal || typeof ym !== "function") return;
+        try {
+          ym(counterId, "reachGoal", goal, params || {});
+        } catch (err) {
+          // noop
+        }
+      }
+
+      function initGoalTracking() {
+        document.addEventListener("click", function (event) {
+          var target = event.target;
+          if (!(target instanceof Element)) return;
+
+          var trackNode = target.closest("[data-track-goal]");
+          if (trackNode) {
+            var goal = trackNode.getAttribute("data-track-goal");
+            trackGoal(goal, {
+              path: location.pathname
+            });
+          }
+
+          var appLink = target.closest("a[href^='https://app.iirest.ru']");
+          if (appLink) {
+            trackGoal("app_transition", {
+              href: appLink.getAttribute("href")
+            });
+          }
+        });
+      }
+
+      function initSectionViews() {
+        if (!("IntersectionObserver" in window)) return;
+
+        var observed = {};
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            var id = entry.target.id;
+            if (!id || observed[id]) return;
+            observed[id] = true;
+            trackGoal("view_" + id);
+            observer.unobserve(entry.target);
+          });
+        }, {
+          threshold: 0.45
+        });
+
+        ["pricing", "faq"].forEach(function (id) {
+          var node = document.getElementById(id);
+          if (node) observer.observe(node);
+        });
+      }
+      function initSlider() {
+        var slider = document.querySelector("[data-slider]");
+        if (!slider) return;
+
+        var track = slider.querySelector(".slider-track");
+        var slides = Array.prototype.slice.call(slider.querySelectorAll(".slide"));
+        var dots = Array.prototype.slice.call(slider.querySelectorAll("[data-slider-dot]"));
+        var prev = slider.querySelector("[data-slider-prev]");
+        var next = slider.querySelector("[data-slider-next]");
+
+        if (!track || slides.length === 0) return;
+
+        var current = 0;
+        var timer = null;
+        var intervalMs = 5200;
+        var touchStartX = 0;
+        var touchActive = false;
+
+        function render(index) {
+          current = (index + slides.length) % slides.length;
+          track.style.transform = "translateX(-" + (current * 100) + "%)";
+          dots.forEach(function (dot, idx) {
+            dot.classList.toggle("active", idx === current);
+          });
+        }
+
+        function goTo(index, reason) {
+          render(index);
+          if (reason) {
+            var slide = slides[current];
+            var name = slide ? slide.getAttribute("data-slide-name") : "unknown";
+            trackGoal("slider_interaction", {
+              action: reason,
+              slide: name
+            });
+          }
+        }
+
+        function startAuto() {
+          stopAuto();
+          timer = window.setInterval(function () {
+            render(current + 1);
+          }, intervalMs);
+        }
+
+        function stopAuto() {
+          if (!timer) return;
+          window.clearInterval(timer);
+          timer = null;
+        }
+
+        if (prev) {
+          prev.addEventListener("click", function () {
+            goTo(current - 1, "prev");
+          });
+        }
+
+        if (next) {
+          next.addEventListener("click", function () {
+            goTo(current + 1, "next");
+          });
+        }
+
+        dots.forEach(function (dot) {
+          dot.addEventListener("click", function () {
+            var index = Number(dot.getAttribute("data-slider-dot"));
+            if (Number.isNaN(index)) return;
+            goTo(index, "dot");
+          });
+        });
+
+        slider.addEventListener("pointerdown", function (event) {
+          touchActive = true;
+          touchStartX = event.clientX;
+        });
+
+        slider.addEventListener("pointerup", function (event) {
+          if (!touchActive) return;
+          touchActive = false;
+          var diff = event.clientX - touchStartX;
+          if (Math.abs(diff) < 45) return;
+          if (diff < 0) {
+            goTo(current + 1, "swipe_left");
+          } else {
+            goTo(current - 1, "swipe_right");
+          }
+        });
+
+        slider.addEventListener("mouseenter", stopAuto);
+        slider.addEventListener("mouseleave", startAuto);
+        slider.addEventListener("focusin", stopAuto);
+        slider.addEventListener("focusout", startAuto);
+
+        render(0);
+        startAuto();
+      }
+
+      document.getElementById("year").textContent = new Date().getFullYear();
+      initGoalTracking();
+      initSectionViews();
+      initSlider();
+    })();
   </script>
 </body>
 
