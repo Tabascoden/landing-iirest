@@ -6,34 +6,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description"
     content="Автозагрузка прайс-листов, удобные матрицы сравнения для поиска лучших цен, аналитика по закупкам для контроля и принятия эффективных решений." />
+  <meta name="theme-color" content="#4f46e5" />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://iirest.ru/" />
+  <link rel="alternate" hreflang="ru-RU" href="https://iirest.ru/" />
+  <link rel="alternate" hreflang="x-default" href="https://iirest.ru/" />
+  <link rel="preload" as="image" href="hero-dashboard.webp" type="image/webp" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="icon" type="image/png" href="favicon.png" sizes="120x120" />
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Unbounded:wght@400;600;700&display=swap"
+    as="style" />
   <link
     href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Unbounded:wght@400;600;700&display=swap"
-    rel="stylesheet" />
+    rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Unbounded:wght@400;600;700&display=swap"
+      rel="stylesheet" />
+  </noscript>
 
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
-    (function (m, e, t, r, i, k, a) {
-      m[i] = m[i] || function () {
-        (m[i].a = m[i].a || []).push(arguments);
+    (function (w, d, t, src, fn) {
+      w[fn] = w[fn] || function () {
+        (w[fn].a = w[fn].a || []).push(arguments);
       };
-      m[i].l = 1 * new Date();
-      for (var j = 0; j < document.scripts.length; j++) {
-        if (document.scripts[j].src === r) {
-          return;
-        }
+      w[fn].l = Date.now();
+
+      var loaded = false;
+      function loadMetrika() {
+        if (loaded) return;
+        loaded = true;
+        var s = d.createElement(t);
+        s.async = true;
+        s.src = src;
+        var ref = d.getElementsByTagName(t)[0];
+        ref.parentNode.insertBefore(s, ref);
       }
-      k = e.createElement(t),
-        a = e.getElementsByTagName(t)[0],
-        k.async = 1,
-        k.src = r,
-        a.parentNode.insertBefore(k, a);
+
+      d.addEventListener("pointerdown", loadMetrika, { once: true, passive: true });
+      d.addEventListener("keydown", loadMetrika, { once: true });
+      d.addEventListener("scroll", loadMetrika, { once: true, passive: true });
+      w.setTimeout(loadMetrika, 12000);
     })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
     ym(105886469, "init", {
@@ -48,11 +66,20 @@
   <!-- /Yandex.Metrika counter -->
 
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="iirest" />
+  <meta property="og:locale" content="ru_RU" />
   <meta property="og:title" content="iirest - сервис быстрого сравнения цен поставщиков для ресторанов и не только." />
   <meta property="og:description"
     content="Автозагрузка прайс-листов, удобные матрицы сравнения для поиска лучших цен, аналитика по закупкам для контроля и принятия эффективных решений." />
   <meta property="og:url" content="https://iirest.ru/" />
   <meta property="og:image" content="https://iirest.ru/hero-dashboard.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:alt" content="Интерфейс iirest для сравнения цен поставщиков" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="iirest - сервис быстрого сравнения цен поставщиков для ресторанов и не только." />
+  <meta name="twitter:description"
+    content="Автозагрузка прайс-листов, удобные матрицы сравнения для поиска лучших цен, аналитика по закупкам для контроля и принятия эффективных решений." />
+  <meta name="twitter:image" content="https://iirest.ru/hero-dashboard.png" />
 
   <title>iirest - сервис быстрого сравнения цен поставщиков для ресторанов и не только.</title>
 
@@ -683,13 +710,41 @@
     "name": "iirest",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web",
-    "offer": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "RUB"
+    "inLanguage": "ru-RU",
+    "image": "https://iirest.ru/hero-dashboard.png",
+    "offers": {
+      "@type": "Offer",
+      "price": "1500",
+      "priceCurrency": "RUB",
+      "availability": "https://schema.org/InStock",
+      "url": "https://iirest.ru/"
     },
     "description": "Автозагрузка прайс-листов, удобные матрицы сравнения для поиска лучших цен, аналитика по закупкам для контроля и принятия эффективных решений.",
     "url": "https://iirest.ru/"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "iirest",
+    "url": "https://iirest.ru/",
+    "logo": "https://iirest.ru/logo.svg",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "email": "dkruglov@outlook.com",
+      "availableLanguage": ["ru"]
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "iirest",
+    "url": "https://iirest.ru/",
+    "inLanguage": "ru-RU"
   }
   </script>
 </head>
@@ -697,8 +752,8 @@
 <body>
   <header>
     <div class="container nav">
-      <a class="brand" href="#">
-        <img src="logo.svg" alt="iirest logo" width="32" height="32" />
+      <a class="brand" href="/">
+        <img src="logo.svg" alt="iirest logo" width="32" height="32" decoding="async" />
         iirest <span>procurement os</span>
       </a>
       <nav class="menu">
@@ -707,7 +762,7 @@
         <a href="#pricing">Тарифы</a>
         <a href="#pilot">Пилот</a>
       </nav>
-      <a class="btn primary" href="https://app.iirest.ru" target="_blank">Войти</a>
+      <a class="btn primary" href="https://app.iirest.ru" target="_blank" rel="noopener noreferrer">Войти</a>
     </div>
   </header>
 
@@ -715,7 +770,7 @@
     <!-- Hero -->
     <section class="hero">
       <div class="container">
-        <div class="reveal">
+        <div>
           <span class="eyebrow" style="background: #dbeafe; color: #1e40af;">🚀 1 Месяц бесплатно</span>
           <h1>Перестаньте переплачивать <br> поставщикам</h1>
           <p>
@@ -723,7 +778,7 @@
             бюджета.
           </p>
           <div class="hero-buttons">
-            <a class="btn primary" href="https://app.iirest.ru" target="_blank"
+            <a class="btn primary" href="https://app.iirest.ru" target="_blank" rel="noopener noreferrer"
               style="padding: 16px 32px; font-size: 18px;">
               Получить месяц бесплатно
             </a>
@@ -733,8 +788,12 @@
             *без ввода карты, отмена в любой момент
           </p>
         </div>
-        <div class="hero-image reveal delay-2" style="margin-top: 40px;">
-          <img src="hero-dashboard.png" alt="Интерфейс сравнения цен iirest" />
+        <div class="hero-image" style="margin-top: 40px;">
+          <picture>
+            <source srcset="hero-dashboard.webp" type="image/webp" />
+            <img src="hero-dashboard.png" alt="Интерфейс сравнения цен iirest" width="1024" height="1024"
+              loading="eager" fetchpriority="high" decoding="async" />
+          </picture>
         </div>
       </div>
     </section>
@@ -781,7 +840,11 @@
             </div>
           </div>
           <div class="b-image">
-            <img src="analytics-chart.png" alt="График экономии" />
+            <picture>
+              <source srcset="analytics-chart.webp" type="image/webp" />
+              <img src="analytics-chart.png" alt="График экономии" width="1024" height="1024" loading="lazy"
+                decoding="async" />
+            </picture>
           </div>
         </div>
 
@@ -807,7 +870,11 @@
             </div>
           </div>
           <div class="b-image">
-            <img src="mobile-app.png" alt="Мобильное приложение для заказа" />
+            <picture>
+              <source srcset="mobile-app.webp" type="image/webp" />
+              <img src="mobile-app.png" alt="Мобильное приложение для заказа" width="1024" height="1024"
+                loading="lazy" decoding="async" />
+            </picture>
           </div>
         </div>
       </div>
@@ -911,7 +978,7 @@
               <li>Таблицы сравнения</li>
               <li>Базовая аналитика</li>
             </ul>
-            <a class="pricing-cta" href="https://app.iirest.ru" target="_blank">Попробовать бесплатно</a>
+            <a class="pricing-cta" href="https://app.iirest.ru" target="_blank" rel="noopener noreferrer">Попробовать бесплатно</a>
           </article>
 
           <article class="pricing-card">
@@ -957,7 +1024,7 @@
             Попробуйте полную версию iirest. Загрузите свои прайсы и увидите реальную экономию уже сегодня.
             Никаких обязательств.
           </p>
-          <a class="btn primary" href="https://app.iirest.ru" target="_blank"
+          <a class="btn primary" href="https://app.iirest.ru" target="_blank" rel="noopener noreferrer"
             style="background: white; color: var(--ink); border: none;">
             Попробовать бесплатно
           </a>
@@ -979,35 +1046,7 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Simple reveal animation on scroll
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
-
-  <style>
-    .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.6s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .delay-2 {
-      transition-delay: 0.2s;
-    }
-  </style>
 </body>
 
 </html>
