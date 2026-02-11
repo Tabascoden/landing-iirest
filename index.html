@@ -11,7 +11,7 @@
   <link rel="canonical" href="https://iirest.ru/" />
   <link rel="alternate" hreflang="ru-RU" href="https://iirest.ru/" />
   <link rel="alternate" hreflang="x-default" href="https://iirest.ru/" />
-  <link rel="preload" as="image" href="hero-dashboard.webp" type="image/webp" />
+  <link rel="preload" as="image" href="hero-dashboard.png" type="image/png" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="icon" type="image/png" href="favicon.png" sizes="120x120" />
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
@@ -70,7 +70,7 @@
   <meta property="og:locale" content="ru_RU" />
   <meta property="og:title" content="iirest - сравнение цен поставщиков и автоматизация закупок" />
   <meta property="og:description"
-    content="Сравнивайте цены поставщиков и формируйте заказы в 10 раз быстрее. Контроль экономии в аналитике iirest." />
+    content="Сравнивайте цены поставщиков и формируйте заказы в одном окне, быстро и без множества таблиц. Контроль экономии в аналитике iirest." />
   <meta property="og:url" content="https://iirest.ru/" />
   <meta property="og:image" content="https://iirest.ru/hero-dashboard.png" />
   <meta property="og:image:type" content="image/png" />
@@ -78,10 +78,10 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="iirest - сравнение цен поставщиков и автоматизация закупок" />
   <meta name="twitter:description"
-    content="Сравнивайте цены поставщиков и формируйте заказы в 10 раз быстрее. Контроль экономии в аналитике iirest." />
+    content="Сравнивайте цены поставщиков и формируйте заказы в одном окне. Контроль экономии в аналитике iirest." />
   <meta name="twitter:image" content="https://iirest.ru/hero-dashboard.png" />
 
-  <title>iirest - сравнение цен поставщиков и заказы в 10 раз быстрее</title>
+  <title>iirest - сравнение цен поставщиков и заказы в одном окне</title>
 
   <style>
     :root {
@@ -272,19 +272,36 @@
       color: var(--primary);
     }
 
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .nav-actions .btn {
+      padding: 10px 14px;
+      font-size: 14px;
+      border-radius: 10px;
+      white-space: nowrap;
+    }
+
+    .nav-actions .btn.header-try {
+      padding: 10px 12px;
+    }
+
     .hero {
       padding: 72px 0 44px;
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
-      gap: 28px;
-      align-items: center;
+    .hero-top {
+      padding: 0 clamp(24px, 4vw, 52px);
+      margin-bottom: 30px;
+      text-align: center;
     }
 
-    .hero h1 {
-      margin: 12px 0 16px;
+    .hero-title-full {
+      margin: 12px auto 0;
       font-family: "Unbounded", sans-serif;
       font-size: clamp(30px, 4.2vw, 50px);
       line-height: 1.1;
@@ -293,6 +310,13 @@
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
+      gap: 28px;
+      align-items: center;
     }
 
     .hero p {
@@ -307,12 +331,13 @@
       display: flex;
       align-items: center;
       flex-wrap: wrap;
-      gap: 12px;
-      margin: 22px 0 12px;
+      gap: 14px 12px;
+      margin: 24px 0;
     }
 
     .hero-actions .btn {
       min-width: 190px;
+      min-height: 52px;
     }
 
     .hero-note {
@@ -360,7 +385,7 @@
       justify-self: end;
     }
 
-    .problem-section {
+    .solution-intro-section {
       border-top: 1px solid var(--line);
       background: linear-gradient(180deg, rgba(238, 242, 255, 0.44), rgba(248, 250, 252, 0));
     }
@@ -405,16 +430,14 @@
       line-height: 1.55;
     }
 
-    .solution-section {
-      background: #fff;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
     .solution-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 18px;
+    }
+
+    .solution-grid-secondary {
+      margin-top: 18px;
     }
 
     .solution-card {
@@ -438,17 +461,6 @@
       color: var(--muted);
       font-size: 15px;
       line-height: 1.55;
-    }
-
-    .solution-note {
-      margin-top: 20px;
-      border-radius: 14px;
-      border: 1px solid #dce4f3;
-      background: #f8fbff;
-      padding: 14px 16px;
-      font-size: 14px;
-      font-weight: 700;
-      color: #334155;
     }
 
     .steps-grid {
@@ -509,72 +521,124 @@
       border: 1px solid #d9e2ef;
       background: #fff;
       box-shadow: var(--shadow);
+      padding: 16px 16px 14px;
+    }
+
+    .slider-stage {
+      position: relative;
+    }
+
+    .slider-viewport {
       overflow: hidden;
+      border-radius: 16px;
     }
 
     .slider-track {
       display: flex;
-      transition: transform 0.4s ease;
+      align-items: stretch;
+      gap: 16px;
+      transition: transform 1.05s cubic-bezier(0.22, 1, 0.36, 1);
       will-change: transform;
+      touch-action: pan-y;
     }
 
     .slide {
-      min-width: 100%;
-      padding: 24px 24px 16px;
+      flex: 0 0 clamp(240px, 74%, 860px);
+      padding: 14px;
+      border-radius: 16px;
+      border: 1px solid #dbe2ea;
+      background: #fff;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+      transform: scale(0.92);
+      opacity: 0.55;
+      transition: transform 0.45s ease, opacity 0.45s ease, box-shadow 0.45s ease;
+    }
+
+    .slide.is-active {
+      transform: scale(1);
+      opacity: 1;
+      box-shadow: 0 16px 28px rgba(79, 70, 229, 0.16);
     }
 
     .slide-title {
-      margin: 0 0 12px;
+      margin: 0 0 10px;
       font-size: 20px;
       font-family: "Unbounded", sans-serif;
       line-height: 1.2;
+      transition: opacity 0.25s ease, transform 0.25s ease;
     }
 
     .slide-caption {
-      margin: 0 0 16px;
+      margin: 0 0 14px;
       color: var(--muted);
       font-size: 15px;
       line-height: 1.5;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .slide:not(.is-active) .slide-title,
+    .slide:not(.is-active) .slide-caption {
+      opacity: 0;
+      transform: translateY(6px);
+      pointer-events: none;
+      margin-bottom: 0;
+      max-height: 0;
+      overflow: hidden;
     }
 
     .slide figure {
       margin: 0;
-      border-radius: 14px;
+      border-radius: 12px;
       border: 1px solid #dbe2ea;
       overflow: hidden;
       background: #fff;
     }
 
-    .slider-controls {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      padding: 0 24px 22px;
+    .slide figure img {
+      width: 100%;
+      display: block;
+      height: auto;
     }
 
-    .slider-arrows {
+    .slider-controls {
       display: flex;
-      align-items: center;
-      gap: 8px;
+      justify-content: center;
+      padding: 14px 0 2px;
     }
 
     .slider-btn {
-      width: 40px;
-      height: 40px;
-      border: 1px solid #cfd8e7;
-      border-radius: 10px;
-      background: #fff;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 3;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(15, 23, 42, 0.14);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.94);
       color: #334155;
-      font-size: 18px;
+      font-size: 22px;
       font-weight: 700;
+      line-height: 1;
+      display: grid;
+      place-items: center;
       cursor: pointer;
       transition: all 0.2s ease;
+      box-shadow: 0 8px 16px rgba(15, 23, 42, 0.14);
+    }
+
+    .slider-btn[data-slider-prev] {
+      left: 10px;
+    }
+
+    .slider-btn[data-slider-next] {
+      right: 10px;
     }
 
     .slider-btn:hover {
       color: var(--primary);
       border-color: #a9b9df;
+      background: #fff;
     }
 
     .slider-dots {
@@ -698,6 +762,19 @@
     .pricing-cta:hover {
       color: var(--primary);
       border-color: var(--primary);
+    }
+
+    .pricing-cta.lavender {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+      box-shadow: 0 10px 20px rgba(79, 70, 229, 0.22);
+    }
+
+    .pricing-cta.lavender:hover {
+      background: var(--primary-dark);
+      border-color: var(--primary-dark);
+      color: #fff;
     }
 
     .faq-section {
@@ -830,6 +907,137 @@
       z-index: 1;
     }
 
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 110;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      background: rgba(15, 23, 42, 0.56);
+      backdrop-filter: blur(4px);
+    }
+
+    .modal-backdrop[hidden] {
+      display: none;
+    }
+
+    .consult-modal {
+      width: min(100%, 540px);
+      border: 1px solid #dbe2ea;
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: 0 24px 48px rgba(15, 23, 42, 0.24);
+      padding: 24px;
+    }
+
+    .consult-modal-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .consult-modal h3 {
+      margin: 0 0 6px;
+      font-size: 24px;
+      line-height: 1.2;
+      font-family: "Unbounded", sans-serif;
+    }
+
+    .consult-modal p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .consult-close {
+      width: 36px;
+      height: 36px;
+      border: 1px solid #dbe2ea;
+      border-radius: 10px;
+      background: #fff;
+      color: #334155;
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .consult-close:hover {
+      border-color: #a9b9df;
+      color: var(--primary);
+    }
+
+    .consult-form {
+      display: grid;
+      gap: 12px;
+    }
+
+    .consult-field {
+      display: grid;
+      gap: 6px;
+    }
+
+    .consult-field span {
+      font-size: 13px;
+      font-weight: 700;
+      color: #334155;
+    }
+
+    .consult-field input,
+    .consult-field textarea {
+      width: 100%;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 11px 12px;
+      font: inherit;
+      color: #0f172a;
+      background: #fff;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .consult-field input:focus,
+    .consult-field textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.14);
+    }
+
+    .consult-field textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .consult-form-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 2px;
+      flex-wrap: wrap;
+    }
+
+    .consult-feedback {
+      margin: 0;
+      font-size: 13px;
+      color: #526176;
+    }
+
+    .consult-feedback.success {
+      color: #166534;
+    }
+
+    .consult-feedback.error {
+      color: #b91c1c;
+    }
+
+    body.modal-open {
+      overflow: hidden;
+    }
+
     footer {
       border-top: 1px solid var(--line);
       padding: 34px 0;
@@ -891,11 +1099,20 @@
         font-size: 14px;
       }
 
+      .nav-actions .btn-consult {
+        display: none;
+      }
+
       .hero {
         padding-top: 62px;
       }
 
-      .hero h1 {
+      .hero-top {
+        padding: 0 24px;
+        margin-bottom: 20px;
+      }
+
+      .hero-title-full {
         font-size: clamp(31px, 10vw, 38px);
         line-height: 1.11;
         letter-spacing: -0.022em;
@@ -925,18 +1142,39 @@
         padding: 72px 0;
       }
 
-      .slider-controls {
-        flex-direction: column;
-        align-items: stretch;
+      .slider {
+        padding: 12px 10px 12px;
       }
 
-      .slider-arrows,
-      .slider-dots {
-        justify-content: center;
+      .slider-track {
+        gap: 10px;
       }
 
       .slide {
-        padding: 18px 16px 14px;
+        flex-basis: 86%;
+        padding: 12px;
+      }
+
+      .slider-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 20px;
+      }
+
+      .slider-btn[data-slider-prev] {
+        left: 6px;
+      }
+
+      .slider-btn[data-slider-next] {
+        right: 6px;
+      }
+
+      .slider-controls {
+        padding-top: 10px;
+      }
+
+      .slider-dots {
+        justify-content: center;
       }
 
       .faq-item summary {
@@ -946,6 +1184,20 @@
 
       .cta-section {
         padding: 72px 0;
+      }
+
+      .consult-modal {
+        padding: 18px;
+      }
+
+      .consult-modal h3 {
+        font-size: 21px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-actions .btn-login {
+        display: none;
       }
     }
   </style>
@@ -966,7 +1218,7 @@
       "availability": "https://schema.org/InStock",
       "url": "https://iirest.ru/"
     },
-    "description": "Сервис сравнения цен поставщиков и автоматизации закупок для ресторанов.",
+    "description": "Сервис сравнения цен поставщиков и автоматизации закупок для horeca.",
     "url": "https://iirest.ru/"
   }
   </script>
@@ -1009,25 +1261,31 @@
         <a href="#pricing" data-track-goal="menu_pricing">Тарифы</a>
         <a href="#faq" data-track-goal="menu_faq">FAQ</a>
       </nav>
-      <a class="btn primary" href="https://app.iirest.ru" target="_blank" rel="noopener noreferrer"
-        data-track-goal="cta_header_try">Попробовать бесплатно</a>
+      <div class="nav-actions">
+        <a class="btn secondary btn-login" href="https://app.iirest.ru" target="_blank" rel="noopener noreferrer"
+          data-track-goal="cta_header_login">Войти</a>
+        <button class="btn secondary btn-consult" type="button"
+          data-track-goal="cta_header_consult">Получить консультацию</button>
+        <a class="btn primary header-try" href="https://app.iirest.ru" target="_blank" rel="noopener noreferrer"
+          data-track-goal="cta_header_try">Попробовать бесплатно</a>
+      </div>
     </div>
   </header>
 
   <main>
     <section class="hero">
+      <div class="hero-top">
+        <span class="eyebrow">Для управляющих и закупщиков</span>
+        <h1 class="hero-title-full">Сравнивай цены и формируй заказы<br />в одном окне, быстро, просто и без ошибок</h1>
+      </div>
       <div class="container hero-grid">
         <div>
-          <span class="eyebrow">Для управляющих и закупщиков</span>
-          <h1>Сравнивай цены и формируй заказы<br />в 10 раз быстрее и проще</h1>
-          <p>iirest объединяет сравнение цен поставщиков, закупочную матрицу и аналитику в одном окне. Меньше рутины,
-            больше контроля и понятного результата по закупке.</p>
           <div class="hero-actions">
             <a class="btn primary" href="https://app.iirest.ru" target="_blank" rel="noopener noreferrer"
               data-track-goal="cta_hero_try">Попробовать бесплатно</a>
             <a class="btn secondary" href="#how" data-track-goal="cta_hero_how">Как это работает</a>
           </div>
-          <p class="hero-note">Без карты. Быстрый старт и тестирование в реальном процессе закупки.</p>
+          <p class="hero-note">Доступ на 1 месяц бесплатно. Протестируйте и оцените удобство сервиса прямо сейчас.</p>
 
           <div class="hero-metrics">
             <div class="metric-pill">
@@ -1039,57 +1297,44 @@
               <span>Сравнение цен в одном интерфейсе</span>
             </div>
             <div class="metric-pill">
-              <b>Контроль в цифрах</b>
+              <b>Экономия в реальных цифрах</b>
               <span>Экономия и динамика по закупкам</span>
             </div>
           </div>
         </div>
         <div class="hero-image">
-          <picture>
-            <source srcset="hero-dashboard.webp" type="image/webp" />
-            <img src="hero-dashboard.png" alt="Дашборд iirest для сравнения цен поставщиков" width="1024" height="1024"
-              loading="eager" fetchpriority="high" decoding="async" />
-          </picture>
+          <img src="hero-dashboard.png" alt="Дашборд iirest для сравнения цен поставщиков" width="2624" height="1632"
+            loading="eager" fetchpriority="high" decoding="async" />
         </div>
       </div>
     </section>
 
-    <section class="section problem-section" id="problem">
+    <section class="section solution-intro-section" id="solution">
       <div class="container">
         <div class="section-header">
-          <span class="eyebrow">Проблема</span>
-          <h2>Закупка съедает время и не дает ясной картины по выгоде</h2>
-          <p>Когда процесс держится на Excel и ручных сверках, скорость падает, а доказать результат руководству становится
-            сложнее.</p>
+          <span class="eyebrow">Решение</span>
+          <h2>Закупка становится быстрее и прозрачнее на каждом этапе</h2>
+          <p>iirest переносит процесс из разрозненных таблиц в единый рабочий контур: вы быстрее собираете заказ, видите
+            экономию и управляете закупкой на основе цифр.</p>
         </div>
         <div class="pain-grid">
           <article class="pain-card">
             <div class="pain-icon" aria-hidden="true">📊</div>
-            <h3>Ручная работа в Excel</h3>
-            <p>Формулы, копипаст и постоянные правки тормозят закупку и создают риск ошибок в выборе цен.</p>
+            <h3>Единая матрица вместо ручных таблиц</h3>
+            <p>Прайсы приводятся к единому виду, чтобы сравнивать позиции без копипаста, формул и постоянных правок.</p>
           </article>
           <article class="pain-card">
-            <div class="pain-icon" aria-hidden="true">⏱</div>
-            <h3>Долгий сбор заказа</h3>
-            <p>Чтобы собрать заказ по нескольким поставщикам, приходится переключаться между файлами и кабинетами.</p>
+            <div class="pain-icon" aria-hidden="true">⚡</div>
+            <h3>Быстрый сбор заказа по поставщикам</h3>
+            <p>Заказ формируется в одном интерфейсе по нескольким поставщикам без переключения между файлами и кабинетами.</p>
           </article>
           <article class="pain-card">
-            <div class="pain-icon" aria-hidden="true">📉</div>
-            <h3>Сложно доказать эффект</h3>
-            <p>Без прозрачной аналитики трудно показать руководству, где реально сэкономили и где теряются деньги.</p>
+            <div class="pain-icon" aria-hidden="true">📈</div>
+            <h3>Экономия подтверждается аналитикой</h3>
+            <p>Показатели по ценам и динамике помогают наглядно подтвердить результат закупки для руководства.</p>
           </article>
         </div>
-      </div>
-    </section>
-
-    <section class="section solution-section" id="solution">
-      <div class="container">
-        <div class="section-header">
-          <span class="eyebrow">Решение iirest</span>
-          <h2>Один сервис для цен, матрицы и аналитики закупок</h2>
-          <p>Ядро платформы закрывает ежедневные задачи закупщика и управляющего без лишних действий.</p>
-        </div>
-        <div class="solution-grid">
+        <div class="solution-grid solution-grid-secondary">
           <article class="solution-card">
             <h3>Автосбор и нормализация прайсов</h3>
             <p>Система загружает и приводит прайсы к единому виду, чтобы вы сразу работали с сопоставимыми позициями.</p>
@@ -1103,16 +1348,13 @@
             <p>Отчеты по заказам, динамике цен и результатам закупки помогают принимать решения на основе фактов.</p>
           </article>
         </div>
-        <p class="solution-note">Дополнительно в тарифах Pro и ТОП: автоматическая отправка заказов и интеграции с
-          кабинетами/API поставщиков.</p>
       </div>
     </section>
     <section class="section" id="how">
       <div class="container">
         <div class="section-header">
           <span class="eyebrow">Как это работает</span>
-          <h2>Три шага до управляемой закупки</h2>
-          <p>Минимум действий на старте, чтобы быстро перейти от хаоса к процессу с понятной экономикой.</p>
+          <h2>Три шага до быстрой и эффективной закупки</h2>
         </div>
         <div class="steps-grid">
           <article class="step-card">
@@ -1127,12 +1369,12 @@
               <span class="step-num">2</span>
               <h3>Соберите закупку</h3>
             </div>
-            <p>Создайте список позиций, а система подберет оптимальные предложения по каждой категории.</p>
+            <p>Создайте список товаров для закупки, а система подберет оптимальные предложения по каждой позиции.</p>
           </article>
           <article class="step-card">
             <div class="step-head">
               <span class="step-num">3</span>
-              <h3>Контролируйте результат</h3>
+              <h3>Оцените результат</h3>
             </div>
             <p>Отслеживайте экономию, динамику цен и эффективность закупки в отчетах без ручных таблиц.</p>
           </article>
@@ -1144,59 +1386,59 @@
       <div class="container">
         <div class="section-header">
           <span class="eyebrow">Визуализация сервиса</span>
-          <h2>Матрица, корзина и аналитика в одном процессе</h2>
-          <p>Показываем, как выглядит работа в iirest на реальных экранах продукта.</p>
+          <h2>Матрица, корзина и аналитика под рукой в удобном интерфейсе</h2>
         </div>
 
         <div class="slider" data-slider aria-label="Слайдер интерфейсов iirest">
-          <div class="slider-track">
-            <article class="slide" data-slide-name="matrix">
-              <h3 class="slide-title">Матрица</h3>
-              <p class="slide-caption">Сравнение цен поставщиков по каждой позиции в единой таблице.</p>
-              <figure>
-                <img src="Screenshots/Матрица.png" alt="Экран матрицы сравнения цен поставщиков" width="1070"
-                  height="634" loading="lazy" decoding="async" />
-              </figure>
-            </article>
-            <article class="slide" data-slide-name="cart">
-              <h3 class="slide-title">Корзина</h3>
-              <p class="slide-caption">Консолидация выбранных позиций и контроль суммы заказа по поставщикам.</p>
-              <figure>
-                <img src="Screenshots/Корзина.png" alt="Экран корзины с итогами заказа" width="1066" height="532"
-                  loading="lazy" decoding="async" />
-              </figure>
-            </article>
-            <article class="slide" data-slide-name="analytics_cart_mix">
-              <h3 class="slide-title">Аналитика и корзина</h3>
-              <p class="slide-caption">Быстрый переход от итогов аналитики к проверке и сборке корзины заказа.</p>
-              <figure>
-                <img src="Screenshots/Аналитика Корзина.png" alt="Комбинированный экран аналитики и корзины"
-                  width="1065" height="282" loading="lazy" decoding="async" />
-              </figure>
-            </article>
-            <article class="slide" data-slide-name="analytics">
-              <h3 class="slide-title">Аналитика</h3>
-              <p class="slide-caption">Показатели тендеров, экономии и переплаты по закупщикам и поставщикам.</p>
-              <figure>
-                <img src="Screenshots/Аналитика2.png" alt="Экран аналитики закупок" width="1156" height="645"
-                  loading="lazy" decoding="async" />
-              </figure>
-            </article>
-            <article class="slide" data-slide-name="analytics_summary">
-              <h3 class="slide-title">Аналитика: сводка</h3>
-              <p class="slide-caption">Сводные показатели по закупщикам и динамике результатов по тендерам.</p>
-              <figure>
-                <img src="Screenshots/Аналитика1.png" alt="Сводная аналитика по закупщикам" width="1120" height="403"
-                  loading="lazy" decoding="async" />
-              </figure>
-            </article>
-          </div>
-
-          <div class="slider-controls">
-            <div class="slider-arrows">
-              <button class="slider-btn" type="button" data-slider-prev aria-label="Предыдущий слайд">‹</button>
-              <button class="slider-btn" type="button" data-slider-next aria-label="Следующий слайд">›</button>
+          <div class="slider-stage">
+            <button class="slider-btn" type="button" data-slider-prev aria-label="Предыдущий слайд">‹</button>
+            <div class="slider-viewport">
+              <div class="slider-track">
+                <article class="slide" data-slide-name="matrix">
+                  <h3 class="slide-title">Матрица</h3>
+                  <p class="slide-caption">Сравнение цен поставщиков по каждой позиции в единой таблице.</p>
+                  <figure>
+                    <img src="Screenshots/Матрица.png" alt="Экран матрицы сравнения цен поставщиков" width="1070"
+                      height="634" loading="lazy" decoding="async" />
+                  </figure>
+                </article>
+                <article class="slide" data-slide-name="cart">
+                  <h3 class="slide-title">Корзина</h3>
+                  <p class="slide-caption">Консолидация выбранных позиций по поставщикам с возможностью выгрузки списка.</p>
+                  <figure>
+                    <img src="Screenshots/Корзина.png" alt="Экран корзины с итогами заказа" width="1066" height="532"
+                      loading="lazy" decoding="async" />
+                  </figure>
+                </article>
+                <article class="slide" data-slide-name="analytics_cart_mix">
+                  <h3 class="slide-title">Аналитика в корзине</h3>
+                  <p class="slide-caption">Соберите корзину и сразу увидите эффект.</p>
+                  <figure>
+                    <img src="Screenshots/Аналитика Корзина.png" alt="Комбинированный экран аналитики и корзины"
+                      width="1065" height="282" loading="lazy" decoding="async" />
+                  </figure>
+                </article>
+                <article class="slide" data-slide-name="analytics">
+                  <h3 class="slide-title">Аналитика по закупщикам и поставщикам</h3>
+                  <p class="slide-caption">Показатели тендеров, экономии и переплаты по закупщикам и поставщикам.</p>
+                  <figure>
+                    <img src="Screenshots/Аналитика2.png" alt="Экран аналитики закупок" width="1156" height="645"
+                      loading="lazy" decoding="async" />
+                  </figure>
+                </article>
+                <article class="slide" data-slide-name="analytics_summary">
+                  <h3 class="slide-title">Аналитика по точкам закупки</h3>
+                  <p class="slide-caption">Сводные показатели результатов закупки.</p>
+                  <figure>
+                    <img src="Screenshots/Аналитика1.png" alt="Сводная аналитика по закупщикам" width="1120" height="403"
+                      loading="lazy" decoding="async" />
+                  </figure>
+                </article>
+              </div>
             </div>
+            <button class="slider-btn" type="button" data-slider-next aria-label="Следующий слайд">›</button>
+          </div>
+          <div class="slider-controls">
             <div class="slider-dots" aria-label="Индикаторы слайдов">
               <button class="slider-dot active" type="button" data-slider-dot="0" aria-label="Матрица"></button>
               <button class="slider-dot" type="button" data-slider-dot="1" aria-label="Корзина"></button>
@@ -1214,7 +1456,6 @@
         <div class="section-header">
           <span class="eyebrow">Тарифы</span>
           <h2>Выберите уровень автоматизации закупки</h2>
-          <p>Базовый сценарий для старта и расширенные опции для роста и полного сопровождения.</p>
         </div>
 
         <div class="pricing-grid">
@@ -1240,7 +1481,7 @@
               <li>Интеграции с кабинетами/API поставщиков</li>
               <li>Автоматическая отправка заказов</li>
             </ul>
-            <a class="pricing-cta" href="mailto:dkruglov@outlook.com" data-track-goal="cta_pricing_pro">Запросить
+            <a class="pricing-cta lavender" href="mailto:dkruglov@outlook.com" data-track-goal="cta_pricing_pro">Запросить
               предложение</a>
           </article>
 
@@ -1252,9 +1493,8 @@
               <li>Аутсорсинг закупочного процесса</li>
               <li>Экспертные рекомендации и консалтинг</li>
               <li>Формирование и передача заказов</li>
-              <li>Поддержка на всех этапах внедрения</li>
             </ul>
-            <a class="pricing-cta" href="mailto:dkruglov@outlook.com" data-track-goal="cta_pricing_top">Обсудить
+            <a class="pricing-cta lavender" href="mailto:dkruglov@outlook.com" data-track-goal="cta_pricing_top">Обсудить
               запуск</a>
           </article>
         </div>
@@ -1265,24 +1505,22 @@
         <div class="section-header">
           <span class="eyebrow">FAQ</span>
           <h2>Ответы на частые вопросы</h2>
-          <p>Коротко о запуске, автоматизации и аналитике в iirest.</p>
         </div>
 
         <div class="faq-list">
           <details class="faq-item" open>
             <summary>Как быстро можно начать пользоваться?</summary>
-            <p class="faq-answer">Базовый сценарий запуска занимает от одного рабочего дня: загружаете прайсы,
-              формируете список закупки и получаете сравнение цен в матрице.</p>
+            <p class="faq-answer">В течение 10 минут: создаете аккаунт, загружаете прайс-листы,
+              формируете список закупки, получаете сравнение цен в матрице и формируете корзину для заказа.</p>
           </details>
           <details class="faq-item">
-            <summary>Нужна ли регистрация поставщиков?</summary>
+            <summary>Нужна ли регистрация поставщиков на старте?</summary>
             <p class="faq-answer">Нет, для старта это не требуется. Вы можете начать работу с файлами прайс-листов.
-              Интеграции с кабинетами поставщиков подключаются отдельно в старших тарифах.</p>
+              Интеграции с кабинетами поставщиков подключаются отдельно на тарифе Pro.</p>
           </details>
           <details class="faq-item">
             <summary>Можно ли настроить автоматическое обновление прайс-листов?</summary>
-            <p class="faq-answer">Да. Настраиваются регулярные обновления данных, чтобы сравнение цен всегда опиралось
-              на актуальные прайсы.</p>
+            <p class="faq-answer">Да, на тарифе Pro, при наличии технической возможности у поставщика.</p>
           </details>
           <details class="faq-item">
             <summary>Можно ли настроить автоматическую отправку заказов?</summary>
@@ -1291,8 +1529,8 @@
           </details>
           <details class="faq-item">
             <summary>Какая есть аналитика?</summary>
-            <p class="faq-answer">Сервис показывает динамику цен, экономию/переплату, объем закупок и эффективность
-              работы по закупщикам и поставщикам.</p>
+            <p class="faq-answer">В базе сервис показывает динамику цен, экономию/переплату, объем закупок и эффективность
+              работы по закупщикам и поставщикам. По запросу можем расширить список аналитики и отчетов</p>
           </details>
         </div>
       </div>
@@ -1301,15 +1539,48 @@
     <section class="cta-section" id="cta">
       <div class="container">
         <div class="cta-box">
-          <h2>Переведите закупку на управляемый процесс</h2>
+          <h2>Сделайте закупку быстрее и эффективнее</h2>
           <p>Попробуйте iirest в реальной работе: сравните цены поставщиков, соберите заказ и оцените эффект в
-            аналитике уже в первый месяц.</p>
+            аналитике прямо сейчас.</p>
           <a class="btn primary" href="https://app.iirest.ru" target="_blank" rel="noopener noreferrer"
             data-track-goal="cta_final_try">Попробовать бесплатно</a>
-          <p class="cta-footnote">Главный сценарий: переход в приложение и быстрый запуск без лишних шагов.</p>
         </div>
       </div>
     </section>
+
+    <div class="modal-backdrop" id="consult-modal" hidden>
+      <div class="consult-modal" role="dialog" aria-modal="true" aria-labelledby="consult-modal-title">
+        <div class="consult-modal-head">
+          <div>
+            <h3 id="consult-modal-title">Получить консультацию</h3>
+            <p>Оставьте запрос, и мы свяжемся с вами в ближайшее время.</p>
+          </div>
+          <button class="consult-close" type="button" data-consult-close aria-label="Закрыть">×</button>
+        </div>
+
+        <form id="consult-form" class="consult-form" novalidate>
+          <label class="consult-field">
+            <span>Имя</span>
+            <input type="text" name="name" placeholder="Как к вам обращаться" />
+          </label>
+
+          <label class="consult-field">
+            <span>Контакт</span>
+            <input type="text" name="contact" placeholder="Телефон или email" required />
+          </label>
+
+          <label class="consult-field">
+            <span>Запрос</span>
+            <textarea name="message" placeholder="Опишите задачу или вопрос" required></textarea>
+          </label>
+
+          <div class="consult-form-actions">
+            <p class="consult-feedback" id="consult-feedback" aria-live="polite"></p>
+            <button class="btn primary" type="submit" id="consult-submit-btn">Отправить</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </main>
 
   <footer>
@@ -1332,6 +1603,11 @@
   <script>
     (function () {
       var counterId = 105886469;
+      var consultConfig = {
+        // Replace with your webhook URL. It can forward messages to Telegram and/or email.
+        webhookUrl: "",
+        fallbackEmail: "dkruglov@outlook.com"
+      };
 
       function trackGoal(goal, params) {
         if (!goal || typeof ym !== "function") return;
@@ -1386,48 +1662,266 @@
           if (node) observer.observe(node);
         });
       }
+
+      function initFaqAccordion() {
+        var items = Array.prototype.slice.call(document.querySelectorAll(".faq-list .faq-item"));
+        if (items.length === 0) return;
+
+        items.forEach(function (item) {
+          item.addEventListener("toggle", function () {
+            if (!item.open) return;
+            items.forEach(function (other) {
+              if (other === item) return;
+              other.open = false;
+            });
+          });
+        });
+      }
+
+      function initConsultModal() {
+        var modal = document.getElementById("consult-modal");
+        var form = document.getElementById("consult-form");
+        var feedback = document.getElementById("consult-feedback");
+        var submitBtn = document.getElementById("consult-submit-btn");
+        var closeBtn = modal ? modal.querySelector("[data-consult-close]") : null;
+        var openButtons = Array.prototype.slice.call(document.querySelectorAll(".btn-consult"));
+        var lastFocused = null;
+
+        if (!modal || !form || !feedback || !submitBtn || openButtons.length === 0) return;
+
+        function setFeedback(text, state) {
+          feedback.textContent = text || "";
+          feedback.classList.remove("success", "error");
+          if (state) feedback.classList.add(state);
+        }
+
+        function buildPayload() {
+          var formData = new FormData(form);
+          return {
+            name: String(formData.get("name") || "").trim(),
+            contact: String(formData.get("contact") || "").trim(),
+            message: String(formData.get("message") || "").trim(),
+            page: window.location.href,
+            createdAt: new Date().toISOString()
+          };
+        }
+
+        function openModal(button) {
+          lastFocused = button || document.activeElement;
+          modal.hidden = false;
+          document.body.classList.add("modal-open");
+          setFeedback("");
+          window.setTimeout(function () {
+            var firstInput = form.querySelector("input, textarea");
+            if (firstInput) firstInput.focus();
+          }, 0);
+          trackGoal("consult_modal_open", {
+            path: location.pathname
+          });
+        }
+
+        function closeModal() {
+          modal.hidden = true;
+          document.body.classList.remove("modal-open");
+          setFeedback("");
+          if (lastFocused && typeof lastFocused.focus === "function") {
+            lastFocused.focus();
+          }
+        }
+
+        function sendViaWebhook(payload) {
+          return fetch(consultConfig.webhookUrl, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+          }).then(function (response) {
+            if (!response.ok) {
+              throw new Error("Webhook response error");
+            }
+          });
+        }
+
+        function openMailFallback(payload) {
+          var subject = encodeURIComponent("Заявка с сайта iirest");
+          var lines = [
+            "Имя: " + (payload.name || "-"),
+            "Контакт: " + (payload.contact || "-"),
+            "",
+            "Запрос:",
+            payload.message || "-",
+            "",
+            "Страница: " + payload.page,
+            "Дата: " + payload.createdAt
+          ];
+          var body = encodeURIComponent(lines.join("\n"));
+          window.location.href = "mailto:" + consultConfig.fallbackEmail + "?subject=" + subject + "&body=" + body;
+        }
+
+        openButtons.forEach(function (button) {
+          button.addEventListener("click", function () {
+            openModal(button);
+          });
+        });
+
+        if (closeBtn) {
+          closeBtn.addEventListener("click", closeModal);
+        }
+
+        modal.addEventListener("click", function (event) {
+          if (event.target === modal) {
+            closeModal();
+          }
+        });
+
+        document.addEventListener("keydown", function (event) {
+          if (event.key === "Escape" && !modal.hidden) {
+            closeModal();
+          }
+        });
+
+        form.addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          var payload = buildPayload();
+          if (!payload.contact || !payload.message) {
+            setFeedback("Укажите контакт и текст запроса.", "error");
+            return;
+          }
+
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Отправляем...";
+          setFeedback("Отправка запроса...");
+
+          if (consultConfig.webhookUrl) {
+            sendViaWebhook(payload)
+              .then(function () {
+                setFeedback("Готово. Заявка отправлена.", "success");
+                form.reset();
+                trackGoal("consult_submit", {
+                  channel: "webhook"
+                });
+              })
+              .catch(function () {
+                setFeedback("Не удалось отправить автоматически. Открываем почту...", "error");
+                openMailFallback(payload);
+                trackGoal("consult_submit_fallback", {
+                  channel: "mailto"
+                });
+              })
+              .finally(function () {
+                submitBtn.disabled = false;
+                submitBtn.textContent = "Отправить";
+              });
+            return;
+          }
+
+          openMailFallback(payload);
+          setFeedback("Открыли почтовый клиент для отправки заявки.", "success");
+          trackGoal("consult_submit_fallback", {
+            channel: "mailto"
+          });
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Отправить";
+        });
+      }
+
       function initSlider() {
         var slider = document.querySelector("[data-slider]");
         if (!slider) return;
 
+        var viewport = slider.querySelector(".slider-viewport");
         var track = slider.querySelector(".slider-track");
-        var slides = Array.prototype.slice.call(slider.querySelectorAll(".slide"));
         var dots = Array.prototype.slice.call(slider.querySelectorAll("[data-slider-dot]"));
         var prev = slider.querySelector("[data-slider-prev]");
         var next = slider.querySelector("[data-slider-next]");
 
-        if (!track || slides.length === 0) return;
+        if (!viewport || !track) return;
 
-        var current = 0;
+        var realSlides = Array.prototype.slice.call(track.querySelectorAll(".slide"));
+        if (realSlides.length === 0) return;
+
+        var total = realSlides.length;
+        var firstClone = realSlides[0].cloneNode(true);
+        var lastClone = realSlides[total - 1].cloneNode(true);
+
+        firstClone.setAttribute("aria-hidden", "true");
+        lastClone.setAttribute("aria-hidden", "true");
+        firstClone.setAttribute("data-slide-clone", "first");
+        lastClone.setAttribute("data-slide-clone", "last");
+
+        track.insertBefore(lastClone, realSlides[0]);
+        track.appendChild(firstClone);
+
+        var slides = Array.prototype.slice.call(track.querySelectorAll(".slide"));
+        var current = 1;
         var timer = null;
-        var intervalMs = 5200;
+        var intervalMs = 5000;
         var touchStartX = 0;
         var touchActive = false;
+        var isTransitioning = false;
+        var resizeRaf = null;
+        var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-        function render(index) {
-          current = (index + slides.length) % slides.length;
-          track.style.transform = "translateX(-" + (current * 100) + "%)";
+        function getLogicalIndex(index) {
+          if (index === 0) return total - 1;
+          if (index === total + 1) return 0;
+          return index - 1;
+        }
+
+        function getOffset(index) {
+          var slide = slides[index];
+          if (!slide) return 0;
+          return slide.offsetLeft - (viewport.clientWidth - slide.clientWidth) / 2;
+        }
+
+        function updateState() {
+          var logicalIndex = getLogicalIndex(current);
+
+          slides.forEach(function (slide, idx) {
+            slide.classList.toggle("is-active", idx === current);
+          });
+
           dots.forEach(function (dot, idx) {
-            dot.classList.toggle("active", idx === current);
+            dot.classList.toggle("active", idx === logicalIndex);
           });
         }
 
+        function render(animate) {
+          track.style.transition = animate === false
+            ? "none"
+            : "transform 1.05s cubic-bezier(0.22, 1, 0.36, 1)";
+          track.style.transform = "translate3d(-" + getOffset(current) + "px, 0, 0)";
+          updateState();
+        }
+
+        function currentSlideName() {
+          var logicalIndex = getLogicalIndex(current);
+          var slide = realSlides[logicalIndex];
+          return slide ? slide.getAttribute("data-slide-name") : "unknown";
+        }
+
         function goTo(index, reason) {
-          render(index);
+          if (isTransitioning) return;
+          current = index;
+          isTransitioning = true;
+          render(true);
+
           if (reason) {
-            var slide = slides[current];
-            var name = slide ? slide.getAttribute("data-slide-name") : "unknown";
             trackGoal("slider_interaction", {
               action: reason,
-              slide: name
+              slide: currentSlideName()
             });
           }
         }
 
         function startAuto() {
+          if (reduceMotion) return;
           stopAuto();
           timer = window.setInterval(function () {
-            render(current + 1);
+            if (isTransitioning) return;
+            goTo(current + 1);
           }, intervalMs);
         }
 
@@ -1453,25 +1947,59 @@
           dot.addEventListener("click", function () {
             var index = Number(dot.getAttribute("data-slider-dot"));
             if (Number.isNaN(index)) return;
-            goTo(index, "dot");
+            goTo(index + 1, "dot");
           });
         });
 
-        slider.addEventListener("pointerdown", function (event) {
-          touchActive = true;
-          touchStartX = event.clientX;
+        track.addEventListener("transitionend", function (event) {
+          if (event.target !== track || event.propertyName !== "transform") return;
+
+          isTransitioning = false;
+
+          if (current === 0) {
+            current = total;
+            render(false);
+          } else if (current === total + 1) {
+            current = 1;
+            render(false);
+          }
         });
 
-        slider.addEventListener("pointerup", function (event) {
+        viewport.addEventListener("pointerdown", function (event) {
+          touchActive = true;
+          touchStartX = event.clientX;
+          stopAuto();
+        });
+
+        viewport.addEventListener("pointerup", function (event) {
           if (!touchActive) return;
           touchActive = false;
           var diff = event.clientX - touchStartX;
-          if (Math.abs(diff) < 45) return;
-          if (diff < 0) {
-            goTo(current + 1, "swipe_left");
-          } else {
-            goTo(current - 1, "swipe_right");
+          if (Math.abs(diff) >= 45 && !isTransitioning) {
+            if (diff < 0) {
+              goTo(current + 1, "swipe_left");
+            } else {
+              goTo(current - 1, "swipe_right");
+            }
           }
+          startAuto();
+        });
+
+        viewport.addEventListener("pointercancel", function () {
+          touchActive = false;
+          startAuto();
+        });
+
+        slider.addEventListener("pointerleave", function () {
+          if (!touchActive) return;
+          touchActive = false;
+        });
+
+        window.addEventListener("resize", function () {
+          if (resizeRaf) window.cancelAnimationFrame(resizeRaf);
+          resizeRaf = window.requestAnimationFrame(function () {
+            render(false);
+          });
         });
 
         slider.addEventListener("mouseenter", stopAuto);
@@ -1479,13 +2007,23 @@
         slider.addEventListener("focusin", stopAuto);
         slider.addEventListener("focusout", startAuto);
 
-        render(0);
-        startAuto();
+        if (reduceMotion) {
+          intervalMs = 8000;
+        }
+
+        render(false);
+        if (!reduceMotion) {
+          startAuto();
+        } else {
+          stopAuto();
+        }
       }
 
       document.getElementById("year").textContent = new Date().getFullYear();
       initGoalTracking();
       initSectionViews();
+      initFaqAccordion();
+      initConsultModal();
       initSlider();
     })();
   </script>
