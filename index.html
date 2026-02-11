@@ -849,9 +849,9 @@
 
     .cta-box {
       border-radius: 26px;
-      background: linear-gradient(140deg, #111827 0%, #1e293b 100%);
-      border: 1px solid rgba(148, 163, 184, 0.28);
-      color: #fff;
+      background: linear-gradient(138deg, #f4efff 0%, #ece3ff 52%, #e1d7ff 100%);
+      border: 1px solid rgba(146, 121, 217, 0.42);
+      color: #30214c;
       text-align: center;
       padding: 54px 24px;
       position: relative;
@@ -861,12 +861,24 @@
     .cta-box::before {
       content: "";
       position: absolute;
-      width: 320px;
-      height: 320px;
+      width: 360px;
+      height: 360px;
       border-radius: 50%;
-      background: rgba(79, 70, 229, 0.24);
-      top: -160px;
-      right: -70px;
+      background: radial-gradient(circle, rgba(167, 139, 250, 0.34) 0%, rgba(196, 181, 253, 0.24) 48%, rgba(196, 181, 253, 0) 74%);
+      top: -190px;
+      right: -90px;
+      pointer-events: none;
+    }
+
+    .cta-box::after {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.26) 0%, rgba(167, 139, 250, 0) 74%);
+      left: -120px;
+      bottom: -140px;
       pointer-events: none;
     }
 
@@ -882,7 +894,7 @@
     .cta-box p {
       margin: 0 auto 28px;
       max-width: 680px;
-      color: #cbd5e1;
+      color: #584a78;
       font-size: clamp(16px, 1.8vw, 20px);
       line-height: 1.5;
       position: relative;
@@ -895,21 +907,21 @@
       padding-left: 34px;
       padding-right: 34px;
       font-size: 17px;
-      background: #fff;
-      border-color: #fff;
-      color: #111827;
-      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.35);
+      background: #ffffff;
+      border-color: #d8c8ff;
+      color: #3b2a65;
+      box-shadow: 0 12px 24px rgba(99, 83, 171, 0.2);
     }
 
     .cta-box .btn:hover {
-      background: #eef2ff;
-      border-color: #eef2ff;
-      color: #111827;
+      background: #f3edff;
+      border-color: #c8b0ff;
+      color: #332356;
     }
 
     .cta-footnote {
       margin-top: 12px;
-      color: #94a3b8;
+      color: #7868a0;
       font-size: 13px;
       position: relative;
       z-index: 1;
@@ -1284,7 +1296,7 @@
     <section class="hero">
       <div class="hero-top">
         <span class="eyebrow">Для управляющих и закупщиков</span>
-        <h1 class="hero-title-full">Сравнивай цены и формируй заказы<br />в одном окне, быстро, просто и без ошибок</h1>
+        <h1 class="hero-title-full">Сравнивай цены и формируй заказы<br />в одном окне, быстро и без ошибок</h1>
       </div>
       <div class="container hero-grid">
         <div>
