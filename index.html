@@ -526,6 +526,12 @@
       padding: 16px 16px 14px;
     }
 
+    .slider.is-measuring .slide,
+    .slider.is-measuring .slide-title,
+    .slider.is-measuring .slide-caption {
+      transition: none !important;
+    }
+
     .slider-stage {
       position: relative;
     }
@@ -1268,7 +1274,7 @@
           data-track-goal="cta_header_login">Войти</a>
         <button class="btn secondary btn-consult" type="button"
           data-track-goal="cta_header_consult">Получить консультацию</button>
-        <a class="btn primary header-try" href="https://app.iirest.ru" target="_blank" rel="noopener noreferrer"
+        <a class="btn primary header-try" href="https://app.iirest.ru/register" target="_blank" rel="noopener noreferrer"
           data-track-goal="cta_header_try">Попробовать бесплатно</a>
       </div>
     </div>
@@ -1283,7 +1289,7 @@
       <div class="container hero-grid">
         <div>
           <div class="hero-actions">
-            <a class="btn primary" href="https://app.iirest.ru" target="_blank" rel="noopener noreferrer"
+            <a class="btn primary" href="https://app.iirest.ru/register" target="_blank" rel="noopener noreferrer"
               data-track-goal="cta_hero_try">Попробовать бесплатно</a>
             <a class="btn secondary" href="#how" data-track-goal="cta_hero_how">Как это работает</a>
           </div>
@@ -1478,7 +1484,7 @@
               <li>Умная матрица сравнения</li>
               <li>Базовая аналитика закупок</li>
             </ul>
-            <a class="pricing-cta" href="https://app.iirest.ru" target="_blank" rel="noopener noreferrer"
+            <a class="pricing-cta" href="https://app.iirest.ru/register" target="_blank" rel="noopener noreferrer"
               data-track-goal="cta_pricing_basic">Попробовать бесплатно</a>
           </article>
 
@@ -1491,7 +1497,7 @@
               <li>Интеграции с кабинетами/API поставщиков</li>
               <li>Автоматическая отправка заказов</li>
             </ul>
-            <a class="pricing-cta lavender" href="mailto:dkruglov@outlook.com" data-track-goal="cta_pricing_pro">Запросить
+            <a class="pricing-cta lavender btn-consult" href="#consult-modal" data-track-goal="cta_pricing_pro">Запросить
               предложение</a>
           </article>
 
@@ -1504,7 +1510,7 @@
               <li>Экспертные рекомендации и консалтинг</li>
               <li>Формирование и передача заказов</li>
             </ul>
-            <a class="pricing-cta lavender" href="mailto:dkruglov@outlook.com" data-track-goal="cta_pricing_top">Обсудить
+            <a class="pricing-cta lavender btn-consult" href="#consult-modal" data-track-goal="cta_pricing_top">Обсудить
               запуск</a>
           </article>
         </div>
@@ -1552,7 +1558,7 @@
           <h2>Сделайте закупку быстрее и эффективнее</h2>
           <p>Попробуйте iirest в реальной работе: сравните цены поставщиков, соберите заказ и оцените эффект в
             аналитике прямо сейчас.</p>
-          <a class="btn primary" href="https://app.iirest.ru" target="_blank" rel="noopener noreferrer"
+          <a class="btn primary" href="https://app.iirest.ru/register" target="_blank" rel="noopener noreferrer"
             data-track-goal="cta_final_try">Попробовать бесплатно</a>
         </div>
       </div>
@@ -1787,7 +1793,10 @@
         }
 
         openButtons.forEach(function (button) {
-          button.addEventListener("click", function () {
+          button.addEventListener("click", function (event) {
+            if (event && typeof event.preventDefault === "function") {
+              event.preventDefault();
+            }
             openModal(button);
           });
         });
@@ -1884,11 +1893,12 @@
         var slides = Array.prototype.slice.call(track.querySelectorAll(".slide"));
         var current = 1;
         var timer = null;
-        var intervalMs = 5000;
+        var intervalMs = 4200;
         var touchStartX = 0;
         var touchActive = false;
         var isTransitioning = false;
         var resizeRaf = null;
+        var isMeasuring = false;
         var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
         function getLogicalIndex(index) {
@@ -1921,6 +1931,35 @@
             : "transform 1.05s cubic-bezier(0.22, 1, 0.36, 1)";
           track.style.transform = "translate3d(-" + getOffset(current) + "px, 0, 0)";
           updateState();
+        }
+
+        function syncViewportMinHeight() {
+          if (isMeasuring) return;
+          isMeasuring = true;
+
+          var savedCurrent = current;
+          var maxHeight = 0;
+
+          slider.classList.add("is-measuring");
+
+          for (var index = 1; index <= total; index += 1) {
+            current = index;
+            updateState();
+            var height = Math.ceil(track.getBoundingClientRect().height);
+            if (height > maxHeight) {
+              maxHeight = height;
+            }
+          }
+
+          current = savedCurrent;
+          updateState();
+          slider.classList.remove("is-measuring");
+
+          if (maxHeight > 0) {
+            viewport.style.minHeight = maxHeight + "px";
+          }
+
+          isMeasuring = false;
         }
 
         function currentSlideName() {
@@ -2025,6 +2064,16 @@
         window.addEventListener("resize", function () {
           if (resizeRaf) window.cancelAnimationFrame(resizeRaf);
           resizeRaf = window.requestAnimationFrame(function () {
+            syncViewportMinHeight();
+            render(false);
+          });
+        });
+
+        realSlides.forEach(function (slide) {
+          var image = slide.querySelector("img");
+          if (!image || image.complete) return;
+          image.addEventListener("load", function () {
+            syncViewportMinHeight();
             render(false);
           });
         });
@@ -2035,9 +2084,10 @@
         slider.addEventListener("focusout", startAuto);
 
         if (reduceMotion) {
-          intervalMs = 8000;
+          intervalMs = 6500;
         }
 
+        syncViewportMinHeight();
         render(false);
         if (!reduceMotion) {
           startAuto();
