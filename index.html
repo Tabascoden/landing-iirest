@@ -1614,8 +1614,11 @@
     (function () {
       var counterId = 105886469;
       var consultConfig = {
-        // Replace with your webhook URL. It can forward messages to Telegram and/or email.
-        webhookUrl: "",
+        // n8n webhook endpoint (Production URL).
+        webhookUrl: "https://n8n.iirest.ru/webhook/site-contact",
+        // Header auth for n8n Webhook node (authentication = Header Auth).
+        webhookSecretHeader: "x-webhook-key",
+        webhookSecretValue: "super_secret_123",
         fallbackEmail: "dkruglov@outlook.com"
       };
 
@@ -1707,9 +1710,16 @@
 
         function buildPayload() {
           var formData = new FormData(form);
+          var contact = String(formData.get("contact") || "").trim();
+          var emailMatch = contact.match(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i);
+          var phoneOnly = contact.replace(/[^\d+]/g, "");
+          var phone = phoneOnly.replace(/\+/g, "").length >= 10 ? phoneOnly : "";
+
           return {
             name: String(formData.get("name") || "").trim(),
-            contact: String(formData.get("contact") || "").trim(),
+            contact: contact,
+            email: emailMatch ? emailMatch[0] : "",
+            phone: phone,
             message: String(formData.get("message") || "").trim(),
             page: window.location.href,
             createdAt: new Date().toISOString()
@@ -1740,11 +1750,16 @@
         }
 
         function sendViaWebhook(payload) {
+          var headers = {
+            "Content-Type": "application/json"
+          };
+          if (consultConfig.webhookSecretHeader && consultConfig.webhookSecretValue) {
+            headers[consultConfig.webhookSecretHeader] = consultConfig.webhookSecretValue;
+          }
+
           return fetch(consultConfig.webhookUrl, {
             method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
+            headers: headers,
             body: JSON.stringify(payload)
           }).then(function (response) {
             if (!response.ok) {
@@ -1758,6 +1773,8 @@
           var lines = [
             "Имя: " + (payload.name || "-"),
             "Контакт: " + (payload.contact || "-"),
+            "Email: " + (payload.email || "-"),
+            "Телефон: " + (payload.phone || "-"),
             "",
             "Запрос:",
             payload.message || "-",
