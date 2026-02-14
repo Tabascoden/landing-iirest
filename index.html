@@ -904,9 +904,17 @@
       z-index: 1;
     }
 
-    .cta-box .btn {
+    .cta-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
       position: relative;
       z-index: 1;
+    }
+
+    .cta-box .btn {
       padding-left: 34px;
       padding-right: 34px;
       font-size: 17px;
@@ -1195,10 +1203,20 @@
 
       .pain-grid,
       .solution-grid,
-      .steps-grid,
-      .pricing-grid,
-      .pricing-grid .pricing-card:last-child {
+      .steps-grid {
         grid-template-columns: 1fr;
+      }
+
+      .pricing-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .pricing-grid .pricing-card,
+      .pricing-grid .pricing-card:last-child {
+        width: 100%;
+        grid-column: auto;
       }
 
       .section {
@@ -1269,6 +1287,10 @@
 
       .nav-actions .header-try {
         grid-column: 1 / -1;
+      }
+
+      .cta-actions .btn {
+        width: 100%;
       }
     }
   </style>
@@ -1621,8 +1643,12 @@
           <h2>Сделайте закупку быстрее и эффективнее</h2>
           <p>Попробуйте iirest в реальной работе: сравните цены поставщиков, соберите заказ и оцените эффект в
             аналитике прямо сейчас.</p>
-          <a class="btn primary" href="https://app.iirest.ru/register" target="_blank" rel="noopener noreferrer"
-            data-track-goal="cta_final_try">Попробовать бесплатно</a>
+          <div class="cta-actions">
+            <a class="btn primary" href="https://app.iirest.ru/register" target="_blank" rel="noopener noreferrer"
+              data-track-goal="cta_final_try">Попробовать бесплатно</a>
+            <button class="btn secondary btn-consult" type="button"
+              data-track-goal="cta_final_consult">Получить консультацию</button>
+          </div>
         </div>
       </div>
     </section>
