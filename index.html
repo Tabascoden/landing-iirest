@@ -109,6 +109,7 @@
 
     html {
       scroll-behavior: smooth;
+      overflow-x: hidden;
     }
 
     section[id] {
@@ -122,6 +123,7 @@
       line-height: 1.62;
       text-rendering: optimizeLegibility;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
       background: radial-gradient(circle at 0% 10%, rgba(79, 70, 229, 0.12), transparent 22%),
         radial-gradient(circle at 100% 0%, rgba(99, 102, 241, 0.1), transparent 20%),
         var(--paper);
@@ -539,6 +541,7 @@
     .slider-viewport {
       overflow: hidden;
       border-radius: 16px;
+      touch-action: pan-y;
     }
 
     .slider-track {
@@ -1110,17 +1113,57 @@
     }
 
     @media (max-width: 860px) {
-      .menu {
-        display: none;
+      section[id] {
+        scroll-margin-top: 220px;
       }
 
-      .nav .btn {
-        padding: 11px 14px;
+      .nav {
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 10px 12px;
+        min-height: 0;
+        padding: 10px 0 12px;
+      }
+
+      .menu {
+        order: 2;
+        display: flex;
+        flex: 1 0 100%;
+        flex-wrap: wrap;
+        gap: 8px;
         font-size: 14px;
       }
 
-      .nav-actions .btn-consult {
-        display: none;
+      .menu a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 11px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: #fff;
+        line-height: 1;
+      }
+
+      .nav-actions {
+        order: 3;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        flex: 1 0 100%;
+        gap: 8px;
+      }
+
+      .nav .btn {
+        width: 100%;
+        padding: 10px 8px;
+        font-size: 13px;
+        white-space: normal;
+        line-height: 1.25;
+      }
+
+      .nav-actions .btn-consult,
+      .nav-actions .btn-login {
+        display: inline-flex;
       }
 
       .hero {
@@ -1216,8 +1259,16 @@
     }
 
     @media (max-width: 640px) {
-      .nav-actions .btn-login {
-        display: none;
+      section[id] {
+        scroll-margin-top: 260px;
+      }
+
+      .nav-actions {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .nav-actions .header-try {
+        grid-column: 1 / -1;
       }
     }
   </style>
@@ -1907,8 +1958,12 @@
         var timer = null;
         var intervalMs = 4200;
         var touchStartX = 0;
+        var touchStartY = 0;
+        var touchLastX = 0;
+        var activePointerId = null;
         var touchActive = false;
         var isTransitioning = false;
+        var transitionFallbackTimer = null;
         var resizeRaf = null;
         var isMeasuring = false;
         var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -1980,11 +2035,35 @@
           return slide ? slide.getAttribute("data-slide-name") : "unknown";
         }
 
+        function clearTransitionFallback() {
+          if (!transitionFallbackTimer) return;
+          window.clearTimeout(transitionFallbackTimer);
+          transitionFallbackTimer = null;
+        }
+
+        function finishTransition() {
+          clearTransitionFallback();
+          isTransitioning = false;
+
+          if (current === 0) {
+            current = total;
+            render(false);
+          } else if (current === total + 1) {
+            current = 1;
+            render(false);
+          }
+        }
+
         function goTo(index, reason) {
           if (isTransitioning) return;
           current = index;
           isTransitioning = true;
           render(true);
+          clearTransitionFallback();
+          transitionFallbackTimer = window.setTimeout(function () {
+            if (!isTransitioning) return;
+            finishTransition();
+          }, 1300);
 
           if (reason) {
             trackGoal("slider_interaction", {
@@ -2030,31 +2109,46 @@
         });
 
         track.addEventListener("transitionend", function (event) {
-          if (event.target !== track || event.propertyName !== "transform") return;
-
-          isTransitioning = false;
-
-          if (current === 0) {
-            current = total;
-            render(false);
-          } else if (current === total + 1) {
-            current = 1;
-            render(false);
-          }
+          if (event.target !== track) return;
+          if (event.propertyName !== "transform" && event.propertyName !== "-webkit-transform") return;
+          finishTransition();
         });
 
         viewport.addEventListener("pointerdown", function (event) {
+          if (event.pointerType === "mouse") return;
           touchActive = true;
+          activePointerId = event.pointerId;
           touchStartX = event.clientX;
+          touchLastX = event.clientX;
+          touchStartY = event.clientY;
+          if (typeof viewport.setPointerCapture === "function") {
+            try {
+              viewport.setPointerCapture(event.pointerId);
+            } catch (_err) { }
+          }
           stopAuto();
         });
 
+        viewport.addEventListener("pointermove", function (event) {
+          if (!touchActive || event.pointerId !== activePointerId) return;
+          touchLastX = event.clientX;
+        });
+
         viewport.addEventListener("pointerup", function (event) {
-          if (!touchActive) return;
+          if (!touchActive || event.pointerId !== activePointerId) return;
           touchActive = false;
-          var diff = event.clientX - touchStartX;
-          if (Math.abs(diff) >= 45 && !isTransitioning) {
-            if (diff < 0) {
+          activePointerId = null;
+          if (typeof viewport.releasePointerCapture === "function") {
+            try {
+              if (typeof viewport.hasPointerCapture !== "function" || viewport.hasPointerCapture(event.pointerId)) {
+                viewport.releasePointerCapture(event.pointerId);
+              }
+            } catch (_err) { }
+          }
+          var diffX = touchLastX - touchStartX;
+          var diffY = event.clientY - touchStartY;
+          if (Math.abs(diffX) >= 45 && Math.abs(diffX) > Math.abs(diffY) && !isTransitioning) {
+            if (diffX < 0) {
               goTo(current + 1, "swipe_left");
             } else {
               goTo(current - 1, "swipe_right");
@@ -2063,19 +2157,27 @@
           startAuto();
         });
 
-        viewport.addEventListener("pointercancel", function () {
+        viewport.addEventListener("pointercancel", function (event) {
+          if (activePointerId !== null && event.pointerId !== activePointerId) return;
           touchActive = false;
+          activePointerId = null;
           startAuto();
         });
 
         slider.addEventListener("pointerleave", function () {
           if (!touchActive) return;
           touchActive = false;
+          activePointerId = null;
+          startAuto();
         });
 
         window.addEventListener("resize", function () {
           if (resizeRaf) window.cancelAnimationFrame(resizeRaf);
           resizeRaf = window.requestAnimationFrame(function () {
+            touchActive = false;
+            activePointerId = null;
+            clearTransitionFallback();
+            isTransitioning = false;
             syncViewportMinHeight();
             render(false);
           });
