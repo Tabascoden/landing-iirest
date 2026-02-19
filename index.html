@@ -513,6 +513,147 @@
       line-height: 1.55;
     }
 
+    .how-features {
+      margin-top: 20px;
+      padding: 22px 24px;
+      border-radius: 18px;
+      border: 1px solid #dbe2ea;
+      background: #fff;
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+
+    .how-features-summary {
+      list-style: none;
+      cursor: pointer;
+      position: relative;
+      padding: 6px 34px 4px 0;
+      border-radius: 12px;
+      transition: background-color 0.2s ease;
+    }
+
+    .how-features-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .how-features-summary:hover,
+    .how-features-summary:focus-visible {
+      background: #f3f6ff;
+    }
+
+    .how-features-summary:focus-visible {
+      outline: 2px solid #b8c3ff;
+      outline-offset: 2px;
+    }
+
+    .how-features-summary::after {
+      content: "▾";
+      position: absolute;
+      right: 0;
+      top: 0;
+      font-size: 18px;
+      line-height: 1;
+      color: #64748b;
+      transform: rotate(0deg);
+      transform-origin: center;
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+
+    .how-features:not([open]) .how-features-summary::after {
+      animation: howFeaturesArrowNudge 1.4s ease-in-out infinite;
+    }
+
+    .how-features[open] .how-features-summary::after {
+      animation: none;
+      transform: rotate(180deg);
+      color: var(--primary);
+    }
+
+    .how-features-title {
+      display: block;
+      margin: 0;
+      font-size: 22px;
+      font-family: "Unbounded", sans-serif;
+      line-height: 1.2;
+      transition: color 0.2s ease;
+    }
+
+    .how-features-summary:hover .how-features-title,
+    .how-features-summary:focus-visible .how-features-title {
+      color: var(--primary);
+    }
+
+    .how-features-note {
+      display: block;
+      margin-top: 8px;
+      color: #64748b;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    .how-features-hint {
+      display: inline-block;
+      margin-top: 9px;
+      color: #4f46e5;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      line-height: 1.2;
+      opacity: 0.86;
+    }
+
+    .how-features:not([open]) .how-features-hint {
+      animation: howFeaturesHintPulse 1.7s ease-in-out infinite;
+    }
+
+    .how-features[open] .how-features-hint {
+      display: none;
+    }
+
+    @keyframes howFeaturesArrowNudge {
+      0%,
+      100% {
+        transform: rotate(0deg) translateY(0);
+      }
+      50% {
+        transform: rotate(0deg) translateY(3px);
+      }
+    }
+
+    @keyframes howFeaturesHintPulse {
+      0%,
+      100% {
+        opacity: 0.64;
+        transform: translateX(0);
+      }
+      50% {
+        opacity: 1;
+        transform: translateX(4px);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .how-features-summary::after,
+      .how-features-hint {
+        animation: none !important;
+      }
+    }
+
+    .how-features-list {
+      margin: 14px 0 0;
+      padding-left: 22px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 24px;
+    }
+
+    .how-features-list li {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
     .showcase-section {
       background: #fff;
       border-top: 1px solid var(--line);
@@ -1115,6 +1256,10 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
+      .how-features-list {
+        grid-template-columns: 1fr;
+      }
+
       .pricing-grid .pricing-card:last-child {
         grid-column: span 2;
       }
@@ -1205,6 +1350,10 @@
       .solution-grid,
       .steps-grid {
         grid-template-columns: 1fr;
+      }
+
+      .how-features {
+        padding: 22px 18px;
       }
 
       .pricing-grid {
@@ -1480,6 +1629,31 @@
             <p>Отслеживайте экономию, динамику цен и эффективность закупки в отчетах без ручных таблиц.</p>
           </article>
         </div>
+        <details class="how-features">
+          <summary class="how-features-summary">
+            <span class="how-features-title">Функционал сервиса</span>
+            <span class="how-features-note">Разработано профессиональными закупщиками</span>
+            <span class="how-features-hint">Посмотреть весь список</span>
+          </summary>
+          <ul class="how-features-list">
+            <li>Загрузка прайсов за 2 клика — любые Excel-форматы. Сервис сам распознаёт позиции и цены.</li>
+            <li>2 режима обновления прайса — полная замена или дозагрузка (дополнение без потери данных).</li>
+            <li>Управляйте закупками централизованно — задавайте видимость и права для сотрудников, привязывайте поставщиков к конкретным точкам.</li>
+            <li>Номенклатура ресторана с комментариями — сохраняйте «как правильно» и требования для поставщиков.</li>
+            <li>Тендер за минуту — добавляйте позиции из номенклатуры, списком из текста или файлом.</li>
+            <li>Гибкий пул поставщиков — выбирайте, кого сравнивать в каждом тендере.</li>
+            <li>Умный подбор позиций — автопоиск в матрице + ручной поиск по кнопке.</li>
+            <li>Поиск по эталону — кнопка «звездочка» перестраивает поиск по выбранному у поставщика наименованию, повышая точность сопоставления с другими поставщиками.</li>
+            <li>Корзина тендера — группировка по поставщикам, редактирование количества, авто-пересчёт сумм.</li>
+            <li>Доп. накладная в заказе — разделяйте отгрузки внутри одного заказа поставщику.</li>
+            <li>Экспорт в Excel — по одному поставщику или сразу по всем, с комментариями к позициям.</li>
+            <li>Цены прямо с сайтов поставщиков — автоматическое подтягивание актуальных цен.</li>
+            <li>Сохранение и «закрытие» тендера — фиксируйте результат и защищайте от правок.</li>
+            <li>Аналитика в тендере — сравнение выбранной корзины с самой дешевой, средней и вариантом заказа у одного поставщика: сразу видны экономия и переплата.</li>
+            <li>Аналитика компании — срезы по периоду, ресторанам, закупщикам и поставщикам + индекс цен и «самый дешевый/дорогой».</li>
+            <li>Быстрый вход через Telegram — без паролей и лишних шагов.</li>
+          </ul>
+        </details>
       </div>
     </section>
 
