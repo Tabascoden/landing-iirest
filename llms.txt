@@ -1,0 +1,78 @@
+# iirest
+
+> iirest — веб-SaaS для автоматизации закупок в ресторанах. / iirest is a web SaaS for restaurant procurement automation.
+
+Canonical: https://iirest.ru/
+Languages: ru-RU, en
+Product type: B2B SoftwareApplication
+English mirror: https://iirest.ru/llms-en.txt
+
+## Русский (ru-RU)
+
+## Что делает iirest
+
+- Сравнивает цены поставщиков в единой матрице.
+- Ускоряет подготовку закупочных заказов.
+- Поддерживает загрузку прайс-листов и работу с поставщиками.
+- Показывает аналитику по экономии, переплате и динамике закупок.
+
+## Для кого
+
+- Владельцы и управляющие ресторанов.
+- Закупщики и закупочные команды.
+- Сетевые horeca-компании.
+
+## Ключевые публичные страницы
+
+- Лендинг: https://iirest.ru/
+- Вход в приложение: https://app.iirest.ru/
+- Регистрация на бесплатный период: https://app.iirest.ru/register
+
+## Публичный оффер
+
+- Доступен бесплатный тестовый период (указано на лендинге).
+- Базовая публичная цена: от 1400 RUB/месяц (см. блок тарифов и structured data на странице).
+
+## Контакт
+
+- Email поддержки: dkruglov@outlook.com
+
+## Сигналы обхода и индексации
+
+- robots.txt: https://iirest.ru/robots.txt
+- sitemap.xml: https://iirest.ru/sitemap.xml
+
+## English (en)
+
+## What iirest does
+
+- Compares supplier prices in one matrix view.
+- Speeds up procurement order preparation.
+- Supports price-list uploads and supplier workflows.
+- Shows analytics for savings, overpayment, and purchasing dynamics.
+
+## Primary audience
+
+- Restaurant owners and managers.
+- Procurement specialists and purchasing teams.
+- Multi-location horeca operators.
+
+## Key public pages
+
+- Landing page: https://iirest.ru/
+- App sign in: https://app.iirest.ru/
+- Free trial registration: https://app.iirest.ru/register
+
+## Public offer highlights
+
+- Free trial access is available (as stated on landing).
+- Base public price starts from 1400 RUB/month (see pricing block and structured data).
+
+## Contact
+
+- Support email: dkruglov@outlook.com
+
+## Crawl and index signals
+
+- robots.txt: https://iirest.ru/robots.txt
+- sitemap.xml: https://iirest.ru/sitemap.xml

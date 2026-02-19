@@ -1,0 +1,41 @@
+# iirest
+
+> iirest is a web SaaS for restaurant procurement teams. It helps compare supplier prices, build orders, and track savings.
+
+Canonical: https://iirest.ru/
+Language: en
+Product type: B2B SoftwareApplication
+Russian source: https://iirest.ru/llms.txt
+
+## What iirest does
+
+- Compares supplier prices in one matrix view.
+- Speeds up procurement order preparation.
+- Supports price-list uploads and supplier workflows.
+- Shows analytics for savings, overpayment, and purchasing dynamics.
+
+## Primary audience
+
+- Restaurant owners and managers.
+- Procurement specialists and purchasing teams.
+- Multi-location horeca operators.
+
+## Key public pages
+
+- Landing page: https://iirest.ru/
+- App sign in: https://app.iirest.ru/
+- Free trial registration: https://app.iirest.ru/register
+
+## Public offer highlights
+
+- Free trial access is available (as stated on landing).
+- Base public price starts from 1400 RUB/month (see pricing block and structured data).
+
+## Contact
+
+- Support email: dkruglov@outlook.com
+
+## Crawl and index signals
+
+- robots.txt: https://iirest.ru/robots.txt
+- sitemap.xml: https://iirest.ru/sitemap.xml
