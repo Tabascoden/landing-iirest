@@ -1,937 +1,2475 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="ru">
+
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Ассистент закупщика для ресторана: за пару кликов формируем закупку, подтягиваем прайсы, находим лучшие предложения, собираем оптимальные корзины и рассылаем заявки поставщикам." />
-  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="iirest помогает закупщикам и управляющим сравнивать цены поставщиков, формировать заказы в 10 раз быстрее и контролировать экономию в аналитике." />
+  <meta name="theme-color" content="#4f46e5" />
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+  <meta name="googlebot" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+  <meta name="yandex" content="index,follow,max-snippet:-1,max-image-preview:large" />
   <link rel="canonical" href="https://iirest.ru/" />
+  <link rel="alternate" type="text/markdown" href="https://iirest.ru/llms.txt" title="LLMs (RU+EN)" />
+  <link rel="alternate" type="text/markdown" href="https://iirest.ru/llms-en.txt" title="LLMs (EN)" />
+  <link rel="alternate" hreflang="ru-RU" href="https://iirest.ru/" />
+  <link rel="alternate" hreflang="x-default" href="https://iirest.ru/" />
+  <link rel="preload" as="image" href="hero-dashboard-1200.webp" type="image/webp"
+    imagesrcset="hero-dashboard-780.webp 780w, hero-dashboard-1200.webp 1200w, hero-dashboard-1600.webp 1600w"
+    imagesizes="(max-width: 1080px) min(100vw - 48px, 780px), 520px" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" href="favicon.png" sizes="120x120" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@400;600;700&display=swap"
+    as="style" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@400;600;700&display=swap"
+    rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@400;600;700&display=swap"
+      rel="stylesheet" />
+  </noscript>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (w, d, t, src, fn) {
+      w[fn] = w[fn] || function () {
+        (w[fn].a = w[fn].a || []).push(arguments);
+      };
+      w[fn].l = Date.now();
+
+      var loaded = false;
+      function loadMetrika() {
+        if (loaded) return;
+        loaded = true;
+        var s = d.createElement(t);
+        s.async = true;
+        s.src = src;
+        var ref = d.getElementsByTagName(t)[0];
+        ref.parentNode.insertBefore(s, ref);
+      }
+
+      d.addEventListener("pointerdown", loadMetrika, { once: true, passive: true });
+      d.addEventListener("keydown", loadMetrika, { once: true });
+      d.addEventListener("scroll", loadMetrika, { once: true, passive: true });
+      w.setTimeout(loadMetrika, 12000);
+    })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(105886469, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true,
+      webvisor: true,
+      trackHash: true,
+      ecommerce: "dataLayer"
+    });
+  </script>
+  <!-- /Yandex.Metrika counter -->
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="iirest — ассистент закупщика" />
-  <meta property="og:description" content="Закупка за пару кликов: прайсы, лучшие предложения, оптимальные корзины и рассылка заявок поставщикам." />
+  <meta property="og:site_name" content="iirest" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:title" content="iirest - сравнение цен поставщиков и автоматизация закупок" />
+  <meta property="og:description"
+    content="Сравнивайте цены поставщиков и формируйте заказы в одном окне, быстро и без множества таблиц. Контроль экономии в аналитике iirest." />
   <meta property="og:url" content="https://iirest.ru/" />
+  <meta property="og:image" content="https://iirest.ru/hero-dashboard.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:alt" content="Интерфейс iirest для сравнения цен поставщиков" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="iirest - сравнение цен поставщиков и автоматизация закупок" />
+  <meta name="twitter:description"
+    content="Сравнивайте цены поставщиков и формируйте заказы в одном окне. Контроль экономии в аналитике iirest." />
+  <meta name="twitter:image" content="https://iirest.ru/hero-dashboard.png" />
 
-  <title>iirest — ассистент закупщика</title>
+  <title>iirest - сравнение цен поставщиков и заказы в одном окне</title>
 
   <style>
     :root {
-      --bg: #f5f7ff;
-      --surface: #ffffff;
-      --text: #1e1b4b;
-      --text-muted: #64748b;
-      --primary: #6366f1;
-      --primary-hover: #4f46e5;
-      --accent: #ec4899;
-      --border: #e0e7ff;
-      --input-bg: #ffffff;
-      --radius: 12px;
-      --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1);
-      --shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
-      --max: 1120px;
+      --paper: #f8fafc;
+      --paper-accent: #eef2ff;
+      --cream: #ffffff;
+      --ink: #0f172a;
+      --muted: #475569;
+      --line: #dbe2ea;
+      --primary: #4f46e5;
+      --primary-dark: #4338ca;
+      --mint: #e0e7ff;
+      --soft-green: #dcfce7;
+      --shadow-sm: 0 4px 10px rgba(15, 23, 42, 0.07);
+      --shadow: 0 20px 44px rgba(79, 70, 229, 0.14);
+      --radius: 22px;
+      --max: 1180px;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    section[id] {
+      scroll-margin-top: 94px;
+    }
+
     body {
       margin: 0;
-      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-      color: var(--text);
-      background-color: var(--bg);
-      background-image:
-        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.05) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(236, 72, 153, 0.05) 0px, transparent 50%);
+      color: var(--ink);
+      font-family: "Manrope", sans-serif;
+      line-height: 1.62;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      background: radial-gradient(circle at 0% 10%, rgba(79, 70, 229, 0.12), transparent 22%),
+        radial-gradient(circle at 100% 0%, rgba(99, 102, 241, 0.1), transparent 20%),
+        var(--paper);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      height: auto;
+    }
+
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section {
+      padding: 86px 0;
+    }
+
+    .section-header {
+      max-width: 760px;
+      margin: 0 auto 44px;
+      text-align: center;
+    }
+
+    .section-header h2 {
+      margin: 0 0 14px;
+      font-family: "Unbounded", sans-serif;
+      font-size: clamp(28px, 3.3vw, 42px);
+      line-height: 1.17;
+      letter-spacing: -0.02em;
+    }
+
+    .section-header p {
+      margin: 0;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      color: var(--muted);
+      font-size: clamp(16px, 1.7vw, 19px);
       line-height: 1.55;
     }
 
-    a { color: inherit; text-decoration: none; transition: all 0.2s; }
-    .container { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
-
-    .pill {
+    .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      padding: 8px 12px;
-      border: 1px solid var(--border);
-      background: #ffffff;
+      padding: 6px 14px;
       border-radius: 999px;
-      color: var(--text-muted);
-      font-size: 14px;
-      box-shadow: var(--shadow-sm);
+      background: var(--mint);
+      color: var(--primary-dark);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
     }
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--primary);
-      box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.14);
-    }
-
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 0;
-      gap: 16px;
-    }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-    }
-    .brand small { display: block; font-weight: 600; color: var(--text-muted); letter-spacing: 0; }
-    .logo {
-      width: 34px;
-      height: 34px;
-      border-radius: 12px;
-      overflow: hidden;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid var(--border);
-      background: #ffffff;
-      box-shadow: var(--shadow-sm);
-    }
-    .logo img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: contain;
-    }
-
-    .menu { display: flex; gap: 8px; align-items: center; }
-    .menu a {
-      text-decoration: none;
-      color: #4338ca;
-      font-weight: 600;
-      font-size: 14px;
-      padding: 10px 14px;
-      border-radius: var(--radius);
-    }
-    .menu a:hover { color: var(--primary); background: #eef2ff; }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      padding: 12px 16px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      text-decoration: none;
+      gap: 8px;
+      border-radius: 12px;
+      padding: 14px 24px;
+      font-size: 16px;
       font-weight: 700;
       cursor: pointer;
-      background: var(--surface);
-      color: var(--text);
-      transition: all 0.2s;
-      user-select: none;
-      height: 44px;
-      font-size: 14px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
     }
-    .btn:hover { background: #f8fafc; transform: translateY(-1px); }
-    .btn:active { transform: translateY(0); }
+
     .btn.primary {
+      color: #fff;
+      border: 1px solid var(--primary);
       background: var(--primary);
-      color: white;
-      border: none;
-      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+      box-shadow: 0 10px 18px rgba(79, 70, 229, 0.28);
     }
-    .btn.primary:hover { background: var(--primary-hover); }
-    .btn.ghost { background: transparent; }
-    .btn.small { padding: 10px 12px; font-weight: 700; border-radius: 10px; font-size: 14px; height: 40px; }
 
-    .hero { padding: 56px 0 28px; }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 26px;
-      align-items: start;
+    .btn.primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
     }
-    h1 {
-      margin: 14px 0 10px;
-      font-size: clamp(34px, 4.2vw, 52px);
-      line-height: 1.05;
-      letter-spacing: -0.8px;
+
+    .btn.secondary {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
     }
-    .lead { font-size: 18px; color: var(--text-muted); max-width: 52ch; margin: 0; }
-    .bullets {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px 14px;
-      margin: 18px 0 22px;
-      padding: 0;
-      list-style: none;
+
+    .btn.secondary:hover {
+      border-color: #b9c5d4;
+      background: #f8fbff;
     }
-    .bullets li {
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 80;
+      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.82);
+      border-bottom: 1px solid rgba(219, 226, 234, 0.9);
+    }
+
+    .nav {
       display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 74px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
       gap: 10px;
-      align-items: flex-start;
-      padding: 10px 12px;
-      border: 1px solid var(--border);
-      background: #ffffff;
-      border-radius: 14px;
-      color: var(--text-muted);
-      font-weight: 600;
-      font-size: 14px;
-      box-shadow: var(--shadow-sm);
-    }
-    .check {
-      width: 18px;
-      height: 18px;
-      flex: 0 0 auto;
-      border-radius: 6px;
-      background: rgba(99, 102, 241, 0.12);
-      border: 1px solid rgba(99, 102, 241, 0.35);
-      display: grid;
-      place-items: center;
-      margin-top: 2px;
-    }
-    .cta { display: flex; gap: 12px; flex-wrap: wrap; margin: 12px 0 14px; }
-    .note { color: var(--text-muted); font-size: 13px; margin-top: 10px; max-width: 62ch; }
-
-    .mock {
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      background:
-        linear-gradient(135deg, rgba(99, 102, 241, 0.08), transparent 55%),
-        linear-gradient(320deg, rgba(236, 72, 153, 0.08), transparent 55%),
-        #ffffff;
-      background-image:
-        url("data:image/svg+xml,%3Csvg width='240' height='160' viewBox='0 0 240 160' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='240' height='160' rx='20' fill='%23ffffff'/%3E%3Cpath d='M24 120c20-32 52-48 86-44 24 2 32 14 56 14 22 0 36-10 50-24' stroke='%23d6dced' stroke-width='2' stroke-linecap='round'/%3E%3Ccircle cx='38' cy='38' r='18' fill='%23eef1fb'/%3E%3Ccircle cx='208' cy='42' r='16' fill='%23eef1fb'/%3E%3C/svg%3E"),
-        linear-gradient(135deg, rgba(99, 102, 241, 0.08), transparent 55%),
-        linear-gradient(320deg, rgba(236, 72, 153, 0.08), transparent 55%),
-        #ffffff;
-      background-repeat: no-repeat;
-      background-position: right 12px top 16px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-    .mock .top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 14px 16px;
-      border-bottom: 1px solid var(--border);
-      color: var(--text-muted);
-      font-size: 13px;
-    }
-    .mock .dots { display: flex; gap: 6px; }
-    .mock .dots span { width: 10px; height: 10px; border-radius: 999px; background: rgba(15, 23, 42, 0.12); }
-    .mock .body { padding: 16px; }
-    .kpi { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
-    .kpi .card {
-      padding: 12px;
-      border-radius: 16px;
-      background: #ffffff;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-sm);
-    }
-    .kpi .card b { display: block; font-size: 16px; }
-    .kpi .card span { color: var(--text-muted); font-size: 13px; }
-    .insights { display: grid; gap: 10px; margin-top: 8px; }
-    .insights .item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 10px 12px;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      background: #f5f7ff;
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-    .insights .item strong { color: var(--text); }
-    .insights .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 8px;
-      border-radius: 999px;
-      background: #eef2ff;
-      color: #4338ca;
+      white-space: nowrap;
+      font-family: "Unbounded", sans-serif;
+      font-size: 18px;
       font-weight: 700;
-      font-size: 12px;
+      letter-spacing: -0.02em;
     }
-    .tag {
-      display: inline-flex;
+
+    .brand span {
+      margin-left: 6px;
+      padding-left: 8px;
+      border-left: 1px solid var(--line);
+      color: #617284;
+      font-family: "Manrope", sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0;
+      text-transform: lowercase;
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #526176;
+    }
+
+    .menu a:hover {
+      color: var(--primary);
+    }
+
+    .nav-actions {
+      display: flex;
       align-items: center;
       gap: 8px;
-      padding: 7px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: #ffffff;
-      font-weight: 700;
-      color: var(--text);
-      font-size: 12px;
+      flex-shrink: 0;
     }
 
-    section { padding: 28px 0; }
-    .section-title {
+    .nav-actions .btn {
+      padding: 10px 14px;
+      font-size: 14px;
+      border-radius: 10px;
+      white-space: nowrap;
+    }
+
+    .nav-actions .btn.header-try {
+      padding: 10px 12px;
+    }
+
+    .hero {
+      padding: 72px 0 44px;
+    }
+
+    .hero-top {
+      padding: 0 clamp(24px, 4vw, 52px);
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .hero-title-full {
+      margin: 12px auto 0;
+      font-family: "Unbounded", sans-serif;
+      font-size: clamp(30px, 4.2vw, 50px);
+      line-height: 1.1;
+      letter-spacing: -0.028em;
+      background: linear-gradient(130deg, #0f172a 15%, #4338ca 95%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
+      gap: 28px;
+      align-items: center;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 560px;
+      color: #526176;
+      font-size: clamp(16px, 1.55vw, 19px);
+      line-height: 1.5;
+    }
+
+    .hero-actions {
       display: flex;
-      align-items: flex-end;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px 12px;
+      margin: 24px 0;
+    }
+
+    .hero-actions .btn {
+      min-width: 190px;
+      min-height: 52px;
+    }
+
+    .hero-note {
+      margin: 0;
+      color: #708196;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .hero-metrics {
+      margin-top: 16px;
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .metric-pill {
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid #d4ddff;
+      background: #fff;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .metric-pill b {
+      display: block;
+      margin-bottom: 2px;
+      font-size: 16px;
+      color: var(--primary-dark);
+    }
+
+    .metric-pill span {
+      font-size: 13px;
+      color: #617284;
+      font-weight: 600;
+    }
+
+    .hero-image {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #fff;
+      box-shadow: var(--shadow);
+      max-width: 520px;
+      justify-self: end;
+    }
+
+    .solution-intro-section {
+      border-top: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(238, 242, 255, 0.44), rgba(248, 250, 252, 0));
+    }
+
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .pain-card {
+      padding: 26px 22px;
+      border-radius: 18px;
+      border: 1px solid #dbe5f2;
+      background: #fff;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .pain-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 16px;
+      font-size: 24px;
+      background: var(--mint);
+      color: var(--primary);
+    }
+
+    .pain-card h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      font-family: "Unbounded", sans-serif;
+      line-height: 1.2;
+    }
+
+    .pain-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .solution-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .solution-grid-secondary {
+      margin-top: 18px;
+    }
+
+    .solution-card {
+      border: 1px solid #dbe2ea;
+      border-radius: 18px;
+      background: linear-gradient(180deg, #ffffff, #fafcff);
+      box-shadow: var(--shadow-sm);
+      padding: 22px;
+      height: 100%;
+    }
+
+    .solution-card h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+      line-height: 1.22;
+      font-family: "Unbounded", sans-serif;
+    }
+
+    .solution-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .step-card {
+      padding: 24px 22px;
+      border-radius: 18px;
+      border: 1px solid #dbe2ea;
+      background: #fff;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .step-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .step-num {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 13px;
+      font-weight: 800;
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .step-card h3 {
+      margin: 0;
+      font-size: 20px;
+      font-family: "Unbounded", sans-serif;
+      line-height: 1.2;
+    }
+
+    .step-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .how-features {
+      margin-top: 20px;
+      padding: 22px 24px;
+      border-radius: 18px;
+      border: 1px solid #dbe2ea;
+      background: #fff;
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+
+    .how-features-summary {
+      list-style: none;
+      cursor: pointer;
+      position: relative;
+      padding: 6px 34px 4px 0;
+      border-radius: 12px;
+      transition: background-color 0.2s ease;
+    }
+
+    .how-features-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .how-features-summary:hover,
+    .how-features-summary:focus-visible {
+      background: #f3f6ff;
+    }
+
+    .how-features-summary:focus-visible {
+      outline: 2px solid #b8c3ff;
+      outline-offset: 2px;
+    }
+
+    .how-features-summary::after {
+      content: "▾";
+      position: absolute;
+      right: 0;
+      top: 0;
+      font-size: 18px;
+      line-height: 1;
+      color: #64748b;
+      transform: rotate(0deg);
+      transform-origin: center;
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+
+    .how-features:not([open]) .how-features-summary::after {
+      animation: howFeaturesArrowNudge 1.4s ease-in-out infinite;
+    }
+
+    .how-features[open] .how-features-summary::after {
+      animation: none;
+      transform: rotate(180deg);
+      color: var(--primary);
+    }
+
+    .how-features-title {
+      display: block;
+      margin: 0;
+      font-size: 22px;
+      font-family: "Unbounded", sans-serif;
+      line-height: 1.2;
+      transition: color 0.2s ease;
+    }
+
+    .how-features-summary:hover .how-features-title,
+    .how-features-summary:focus-visible .how-features-title {
+      color: var(--primary);
+    }
+
+    .how-features-note {
+      display: block;
+      margin-top: 8px;
+      color: #64748b;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    .how-features-hint {
+      display: inline-block;
+      margin-top: 9px;
+      color: #4f46e5;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      line-height: 1.2;
+      opacity: 0.86;
+    }
+
+    .how-features:not([open]) .how-features-hint {
+      animation: howFeaturesHintPulse 1.7s ease-in-out infinite;
+    }
+
+    .how-features[open] .how-features-hint {
+      display: none;
+    }
+
+    @keyframes howFeaturesArrowNudge {
+      0%,
+      100% {
+        transform: rotate(0deg) translateY(0);
+      }
+      50% {
+        transform: rotate(0deg) translateY(3px);
+      }
+    }
+
+    @keyframes howFeaturesHintPulse {
+      0%,
+      100% {
+        opacity: 0.64;
+        transform: translateX(0);
+      }
+      50% {
+        opacity: 1;
+        transform: translateX(4px);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .how-features-summary::after,
+      .how-features-hint {
+        animation: none !important;
+      }
+    }
+
+    .how-features-list {
+      margin: 14px 0 0;
+      padding-left: 22px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 24px;
+    }
+
+    .how-features-list li {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .showcase-section {
+      background: #fff;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .slider {
+      position: relative;
+      border-radius: 20px;
+      border: 1px solid #d9e2ef;
+      background: #fff;
+      box-shadow: var(--shadow);
+      padding: 16px 16px 14px;
+    }
+
+    .slider.is-measuring .slide,
+    .slider.is-measuring .slide-title,
+    .slider.is-measuring .slide-caption {
+      transition: none !important;
+    }
+
+    .slider-stage {
+      position: relative;
+    }
+
+    .slider-viewport {
+      overflow: hidden;
+      border-radius: 16px;
+      touch-action: pan-y;
+    }
+
+    .slider-track {
+      display: flex;
+      align-items: stretch;
+      gap: 16px;
+      transition: transform 1.05s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: transform;
+      touch-action: pan-y;
+    }
+
+    .slide {
+      flex: 0 0 clamp(240px, 74%, 860px);
+      padding: 14px;
+      border-radius: 16px;
+      border: 1px solid #dbe2ea;
+      background: #fff;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+      transform: scale(0.92);
+      opacity: 0.55;
+      transition: transform 0.45s ease, opacity 0.45s ease, box-shadow 0.45s ease;
+    }
+
+    .slide.is-active {
+      transform: scale(1);
+      opacity: 1;
+      box-shadow: 0 16px 28px rgba(79, 70, 229, 0.16);
+    }
+
+    .slide-title {
+      margin: 0 0 10px;
+      font-size: 20px;
+      font-family: "Unbounded", sans-serif;
+      line-height: 1.2;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .slide-caption {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.5;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .slide:not(.is-active) .slide-title,
+    .slide:not(.is-active) .slide-caption {
+      opacity: 0;
+      transform: translateY(6px);
+      pointer-events: none;
+      margin-bottom: 0;
+      max-height: 0;
+      overflow: hidden;
+    }
+
+    .slide figure {
+      margin: 0;
+      border-radius: 12px;
+      border: 1px solid #dbe2ea;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .slide figure img {
+      width: 100%;
+      display: block;
+      height: auto;
+    }
+
+    .slider-controls {
+      display: flex;
+      justify-content: center;
+      padding: 14px 0 2px;
+    }
+
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 3;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(15, 23, 42, 0.14);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.94);
+      color: #334155;
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 8px 16px rgba(15, 23, 42, 0.14);
+    }
+
+    .slider-btn[data-slider-prev] {
+      left: 10px;
+    }
+
+    .slider-btn[data-slider-next] {
+      right: 10px;
+    }
+
+    .slider-btn:hover {
+      color: var(--primary);
+      border-color: #a9b9df;
+      background: #fff;
+    }
+
+    .slider-dots {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .slider-dot {
+      width: 10px;
+      height: 10px;
+      border: 0;
+      border-radius: 50%;
+      background: #cbd5e1;
+      cursor: pointer;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    .slider-dot.active {
+      background: var(--primary);
+      transform: scale(1.12);
+    }
+
+    .pricing-section {
+      background: linear-gradient(180deg, rgba(224, 231, 255, 0.25) 0%, rgba(248, 250, 252, 0) 60%);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .pricing-card {
+      border: 1px solid #dbe2ea;
+      border-radius: 18px;
+      background: #fff;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .pricing-card.featured {
+      border-color: rgba(79, 70, 229, 0.38);
+      box-shadow: 0 18px 28px -18px rgba(79, 70, 229, 0.68);
+    }
+
+    .pricing-badge {
+      width: fit-content;
+      border-radius: 999px;
+      border: 1px solid rgba(79, 70, 229, 0.25);
+      background: rgba(79, 70, 229, 0.08);
+      color: var(--primary-dark);
+      padding: 4px 11px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .pricing-card h3 {
+      margin: 0;
+      font-family: "Unbounded", sans-serif;
+      font-size: 25px;
+      line-height: 1.15;
+    }
+
+    .pricing-price {
+      margin: 0;
+      font-size: 31px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .pricing-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.45;
+    }
+
+    .pricing-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 9px;
+    }
+
+    .pricing-list li {
+      position: relative;
+      padding-left: 18px;
+      color: #334155;
+      font-size: 15px;
+      line-height: 1.52;
+    }
+
+    .pricing-list li::before {
+      content: "•";
+      position: absolute;
+      left: 3px;
+      top: -1px;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .pricing-cta {
+      margin-top: auto;
+      border: 1px solid #ccd6e4;
+      border-radius: 11px;
+      padding: 11px 14px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 700;
+      background: #fff;
+      transition: all 0.2s ease;
+    }
+
+    .pricing-cta:hover {
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .pricing-cta.lavender {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+      box-shadow: 0 10px 20px rgba(79, 70, 229, 0.22);
+    }
+
+    .pricing-cta.lavender:hover {
+      background: var(--primary-dark);
+      border-color: var(--primary-dark);
+      color: #fff;
+    }
+
+    .faq-section {
+      border-top: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 12px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      border: 1px solid #dbe2ea;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 18px 20px;
+      font-size: 17px;
+      font-weight: 700;
+      color: #1e293b;
+      position: relative;
+      padding-right: 52px;
+      line-height: 1.36;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary::after {
+      content: "+";
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #64748b;
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .faq-item[open] summary::after {
+      content: "−";
+      color: var(--primary);
+    }
+
+    .faq-answer {
+      margin: 0;
+      padding: 0 20px 18px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.58;
+    }
+    .cta-section {
+      padding: 92px 0;
+    }
+
+    .cta-box {
+      border-radius: 26px;
+      background: linear-gradient(138deg, #f4efff 0%, #ece3ff 52%, #e1d7ff 100%);
+      border: 1px solid rgba(146, 121, 217, 0.42);
+      color: #30214c;
+      text-align: center;
+      padding: 54px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-box::before {
+      content: "";
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(167, 139, 250, 0.34) 0%, rgba(196, 181, 253, 0.24) 48%, rgba(196, 181, 253, 0) 74%);
+      top: -190px;
+      right: -90px;
+      pointer-events: none;
+    }
+
+    .cta-box::after {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.26) 0%, rgba(167, 139, 250, 0) 74%);
+      left: -120px;
+      bottom: -140px;
+      pointer-events: none;
+    }
+
+    .cta-box h2 {
+      margin: 0 0 14px;
+      font-family: "Unbounded", sans-serif;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.14;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-box p {
+      margin: 0 auto 28px;
+      max-width: 680px;
+      color: #584a78;
+      font-size: clamp(16px, 1.8vw, 20px);
+      line-height: 1.5;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-box .btn {
+      padding-left: 34px;
+      padding-right: 34px;
+      font-size: 17px;
+      background: #ffffff;
+      border-color: #d8c8ff;
+      color: #3b2a65;
+      box-shadow: 0 12px 24px rgba(99, 83, 171, 0.2);
+    }
+
+    .cta-box .btn:hover {
+      background: #f3edff;
+      border-color: #c8b0ff;
+      color: #332356;
+    }
+
+    .cta-footnote {
+      margin-top: 12px;
+      color: #7868a0;
+      font-size: 13px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 110;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      background: rgba(15, 23, 42, 0.56);
+      backdrop-filter: blur(4px);
+    }
+
+    .modal-backdrop[hidden] {
+      display: none;
+    }
+
+    .consult-modal {
+      width: min(100%, 540px);
+      border: 1px solid #dbe2ea;
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: 0 24px 48px rgba(15, 23, 42, 0.24);
+      padding: 24px;
+    }
+
+    .consult-modal-head {
+      display: flex;
+      align-items: flex-start;
       justify-content: space-between;
       gap: 16px;
       margin-bottom: 14px;
     }
-    .section-title h2 {
+
+    .consult-modal h3 {
+      margin: 0 0 6px;
+      font-size: 24px;
+      line-height: 1.2;
+      font-family: "Unbounded", sans-serif;
+    }
+
+    .consult-modal p {
       margin: 0;
-      font-size: clamp(22px, 2.6vw, 32px);
-      letter-spacing: -0.3px;
-      line-height: 1.15;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
     }
-    .section-title p { margin: 0; color: var(--text-muted); max-width: 70ch; }
 
-    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-    .card {
-      padding: 16px;
-      border-radius: 16px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-    }
-    .card:hover { border-color: rgba(99, 102, 241, 0.35); background: #f8fafc; }
-    .card h3 { margin: 10px 0 6px; font-size: 16px; }
-    .card p { margin: 0; color: var(--text-muted); font-size: 14px; }
-    .icon {
-      width: 38px;
-      height: 38px;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      background: #eef2ff;
-      display: grid;
-      place-items: center;
-    }
-    .icon svg { opacity: 0.92; }
-
-    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .callout {
-      padding: 18px;
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      background:
-        radial-gradient(700px 380px at 20% 20%, rgba(99, 102, 241, 0.1), transparent 60%),
-        radial-gradient(700px 380px at 80% 60%, rgba(236, 72, 153, 0.1), transparent 60%),
-        #ffffff;
-      box-shadow: var(--shadow);
-    }
-    .callout h3 { margin: 0 0 8px; font-size: 18px; }
-    .callout ul { margin: 12px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
-    .callout li { display: flex; gap: 10px; color: var(--text-muted); font-size: 14px; }
-
-    .faq { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    details {
-      border-radius: 16px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 14px 14px;
-      box-shadow: var(--shadow-sm);
-    }
-    details[open] { background: #f8fafc; border-color: rgba(99, 102, 241, 0.35); }
-    summary {
+    .consult-close {
+      width: 36px;
+      height: 36px;
+      border: 1px solid #dbe2ea;
+      border-radius: 10px;
+      background: #fff;
+      color: #334155;
+      font-size: 20px;
+      line-height: 1;
       cursor: pointer;
-      list-style: none;
+      transition: all 0.2s ease;
+    }
+
+    .consult-close:hover {
+      border-color: #a9b9df;
+      color: var(--primary);
+    }
+
+    .consult-form {
+      display: grid;
+      gap: 12px;
+    }
+
+    .consult-field {
+      display: grid;
+      gap: 6px;
+    }
+
+    .consult-field span {
+      font-size: 13px;
       font-weight: 700;
+      color: #334155;
+    }
+
+    .consult-field input,
+    .consult-field textarea {
+      width: 100%;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 11px 12px;
+      font: inherit;
+      color: #0f172a;
+      background: #fff;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .consult-field input:focus,
+    .consult-field textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.14);
+    }
+
+    .consult-field textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .consult-form-actions {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
+      margin-top: 2px;
+      flex-wrap: wrap;
     }
-    summary::-webkit-details-marker { display: none; }
-    .chev { transition: transform 0.18s ease; }
-    details[open] .chev { transform: rotate(180deg); }
-    details p { margin: 10px 0 0; color: var(--text-muted); font-size: 14px; }
 
-    .form-wrap {
-      display: grid;
-      grid-template-columns: 1fr 0.95fr;
-      gap: 14px;
-      align-items: stretch;
+    .consult-feedback {
+      margin: 0;
+      font-size: 13px;
+      color: #526176;
     }
-    form { display: grid; gap: 10px; }
-    label { font-size: 13px; color: var(--text-muted); }
-    input, textarea {
-      width: 100%;
-      padding: 12px 12px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: var(--input-bg);
-      color: var(--text);
-      outline: none;
-      font-size: 15px;
-      transition: all 0.2s;
+
+    .consult-feedback.success {
+      color: #166534;
     }
-    input:focus, textarea:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+
+    .consult-feedback.error {
+      color: #b91c1c;
     }
-    textarea { min-height: 110px; resize: vertical; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .fineprint { color: var(--text-muted); font-size: 12px; margin: 0; }
-    .success {
-      display: none;
-      padding: 12px 14px;
-      border-radius: 12px;
-      border: 1px solid rgba(99, 102, 241, 0.25);
-      background: rgba(99, 102, 241, 0.1);
-      color: var(--text);
-      font-weight: 700;
+
+    body.modal-open {
+      overflow: hidden;
     }
 
     footer {
-      padding: 26px 0 44px;
-      color: var(--text-muted);
-      border-top: 1px solid var(--border);
-      margin-top: 22px;
-    }
-    .footer-grid {
-      display: flex;
-      justify-content: space-between;
-      gap: 14px;
-      align-items: flex-start;
-      flex-wrap: wrap;
-    }
-    .footer-grid a { color: var(--text-muted); text-decoration: none; }
-    .footer-grid a:hover { color: var(--text); }
-    .kbd {
-      display: inline-flex;
-      align-items: center;
-      padding: 4px 8px;
-      border-radius: 10px;
-      background: #eef2ff;
-      border: 1px solid var(--border);
-      font-weight: 700;
-      font-size: 12px;
-      color: var(--text);
+      border-top: 1px solid var(--line);
+      padding: 34px 0;
+      font-size: 14px;
+      color: #526176;
     }
 
-    @media (max-width: 980px) {
-      .hero-grid { grid-template-columns: 1fr; }
-      .mock { order: 2; }
-      .bullets { grid-template-columns: 1fr; }
-      .grid-4 { grid-template-columns: 1fr 1fr; }
-      .grid-3 { grid-template-columns: 1fr; }
-      .split { grid-template-columns: 1fr; }
-      .faq { grid-template-columns: 1fr; }
-      .form-wrap { grid-template-columns: 1fr; }
-      .menu { display: none; }
-      .container { padding: 0 16px; }
+    .footer-grid {
+      display: grid;
+      gap: 16px;
+      justify-items: start;
+    }
+
+    .footer-brand {
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 18px;
+      line-height: 1.35;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image {
+        max-width: 780px;
+        margin: 0 auto;
+      }
+
+      .pain-grid,
+      .solution-grid,
+      .steps-grid,
+      .pricing-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .how-features-list {
+        grid-template-columns: 1fr;
+      }
+
+      .pricing-grid .pricing-card:last-child {
+        grid-column: span 2;
+      }
+    }
+
+    @media (max-width: 860px) {
+      section[id] {
+        scroll-margin-top: 220px;
+      }
+
+      .nav {
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 10px 12px;
+        min-height: 0;
+        padding: 10px 0 12px;
+      }
+
+      .menu {
+        order: 2;
+        display: flex;
+        flex: 1 0 100%;
+        flex-wrap: wrap;
+        gap: 8px;
+        font-size: 14px;
+      }
+
+      .menu a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 11px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: #fff;
+        line-height: 1;
+      }
+
+      .nav-actions {
+        order: 3;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        flex: 1 0 100%;
+        gap: 8px;
+      }
+
+      .nav .btn {
+        width: 100%;
+        padding: 10px 8px;
+        font-size: 13px;
+        white-space: normal;
+        line-height: 1.25;
+      }
+
+      .nav-actions .btn-consult,
+      .nav-actions .btn-login {
+        display: inline-flex;
+      }
+
+      .hero {
+        padding-top: 62px;
+      }
+
+      .hero-top {
+        padding: 0 24px;
+        margin-bottom: 20px;
+      }
+
+      .hero-title-full {
+        font-size: clamp(31px, 10vw, 38px);
+        line-height: 1.11;
+        letter-spacing: -0.022em;
+      }
+
+      .section-header h2 {
+        line-height: 1.19;
+      }
+
+      .hero-metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .pain-grid,
+      .solution-grid,
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .how-features {
+        padding: 22px 18px;
+      }
+
+      .pricing-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .pricing-grid .pricing-card,
+      .pricing-grid .pricing-card:last-child {
+        width: 100%;
+        grid-column: auto;
+      }
+
+      .section {
+        padding: 72px 0;
+      }
+
+      .slider {
+        padding: 12px 10px 12px;
+      }
+
+      .slider-track {
+        gap: 10px;
+      }
+
+      .slide {
+        flex-basis: 86%;
+        padding: 12px;
+      }
+
+      .slider-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 20px;
+      }
+
+      .slider-btn[data-slider-prev] {
+        left: 6px;
+      }
+
+      .slider-btn[data-slider-next] {
+        right: 6px;
+      }
+
+      .slider-controls {
+        padding-top: 10px;
+      }
+
+      .slider-dots {
+        justify-content: center;
+      }
+
+      .faq-item summary {
+        font-size: 16px;
+        line-height: 1.33;
+      }
+
+      .cta-section {
+        padding: 72px 0;
+      }
+
+      .consult-modal {
+        padding: 18px;
+      }
+
+      .consult-modal h3 {
+        font-size: 21px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      section[id] {
+        scroll-margin-top: 260px;
+      }
+
+      .nav-actions {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .nav-actions .header-try {
+        grid-column: 1 / -1;
+      }
+
+      .cta-actions .btn {
+        width: 100%;
+      }
     }
   </style>
 
   <script type="application/ld+json">
   {
-    "@context":"https://schema.org",
-    "@type":"SoftwareApplication",
-    "name":"iirest — ассистент закупщика",
-    "applicationCategory":"BusinessApplication",
-    "operatingSystem":"Web",
-    "description":"Сервис ассистента закупщика: формирует заявки на закупку, подтягивает прайсы, находит лучшие предложения, собирает оптимальные корзины с учетом требований поставщиков и рассылает заявки.",
-    "url":"https://iirest.ru/"
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "iirest",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "inLanguage": "ru-RU",
+    "image": "https://iirest.ru/hero-dashboard.png",
+    "offers": {
+      "@type": "Offer",
+      "price": "1400",
+      "priceCurrency": "RUB",
+      "availability": "https://schema.org/InStock",
+      "url": "https://iirest.ru/"
+    },
+    "description": "Сервис сравнения цен поставщиков и автоматизации закупок для horeca.",
+    "url": "https://iirest.ru/"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "iirest",
+    "url": "https://iirest.ru/",
+    "logo": "https://iirest.ru/logo.svg",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "email": "dkruglov@outlook.com",
+      "availableLanguage": ["ru"]
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "iirest",
+    "url": "https://iirest.ru/",
+    "inLanguage": "ru-RU"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Как быстро можно начать пользоваться?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "В течение 10 минут: создаете аккаунт, загружаете прайс-листы, формируете список закупки, получаете сравнение цен в матрице и формируете корзину для заказа."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Нужна ли регистрация поставщиков на старте?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Нет, для старта это не требуется. Вы можете начать работу с файлами прайс-листов. Интеграции с кабинетами поставщиков подключаются отдельно на тарифе Pro."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Можно ли настроить автоматическое обновление прайс-листов?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Да, на тарифе Pro, при наличии технической возможности у поставщика."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Можно ли настроить автоматическую отправку заказов?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Да, автоматическая отправка заказов доступна как расширенная опция в тарифах Pro и ТОП."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Какая есть аналитика?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "В базе сервис показывает динамику цен, экономию или переплату, объем закупок и эффективность работы по закупщикам и поставщикам. По запросу можем расширить список аналитики и отчетов."
+        }
+      }
+    ]
   }
   </script>
 </head>
 
 <body>
-  <div class="topbar">
-    <div class="container">
-      <div class="nav">
-        <a class="brand" href="#top" aria-label="iirest">
-          <span class="logo" aria-hidden="true">
-            <img src="logo.svg" alt="" />
-          </span>
-          <span>
-            iiRest
-            <small>Ассистент закупщика</small>
-          </span>
-        </a>
-
-        <nav class="menu" aria-label="Навигация">
-          <a href="#how">Как работает</a>
-          <a href="#features">Возможности</a>
-          <a href="#benefits">Преимущества</a>
-          <a href="#faq">FAQ</a>
-          <a href="#contact">Контакты</a>
-        </nav>
-
-        <a class="btn primary small" href="#contact">Получить демо</a>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="/" data-track-goal="brand_click">
+        <img src="logo.svg" alt="iirest logo" width="32" height="32" decoding="async" />
+        iirest
+      </a>
+      <nav class="menu" aria-label="Основная навигация">
+        <a href="#solution" data-track-goal="menu_solution">Решение</a>
+        <a href="#how" data-track-goal="menu_how">Как это работает</a>
+        <a href="#pricing" data-track-goal="menu_pricing">Тарифы</a>
+        <a href="#faq" data-track-goal="menu_faq">FAQ</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn secondary btn-login" href="https://app.iirest.ru" target="_blank" rel="noopener noreferrer"
+          data-track-goal="cta_header_login">Войти</a>
+        <button class="btn secondary btn-consult" type="button"
+          data-track-goal="cta_header_consult">Получить консультацию</button>
+        <a class="btn primary header-try" href="https://app.iirest.ru/register" target="_blank" rel="noopener noreferrer"
+          data-track-goal="cta_header_try">Попробовать бесплатно</a>
       </div>
     </div>
-  </div>
+  </header>
 
-  <main id="top">
-    <header class="hero">
+  <main>
+    <section class="hero">
+      <div class="hero-top">
+        <span class="eyebrow">Для управляющих и закупщиков</span>
+        <h1 class="hero-title-full">Сравнивай цены и формируй заказы<br />в одном окне, быстро и без ошибок</h1>
+      </div>
+      <div class="container hero-grid">
+        <div>
+          <div class="hero-actions">
+            <a class="btn primary" href="https://app.iirest.ru/register" target="_blank" rel="noopener noreferrer"
+              data-track-goal="cta_hero_try">Попробовать бесплатно</a>
+            <a class="btn secondary" href="#how" data-track-goal="cta_hero_how">Как это работает</a>
+          </div>
+          <p class="hero-note">Доступ на 1 месяц бесплатно. Протестируйте и оцените удобство сервиса прямо сейчас.</p>
+
+          <div class="hero-metrics">
+            <div class="metric-pill">
+              <b>10x быстрее</b>
+              <span>Подготовка заказа по поставщикам</span>
+            </div>
+            <div class="metric-pill">
+              <b>Единая матрица</b>
+              <span>Сравнение цен в одном интерфейсе</span>
+            </div>
+            <div class="metric-pill">
+              <b>Экономия в реальных цифрах</b>
+              <span>Экономия и динамика по закупкам</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-image">
+          <picture>
+            <source type="image/webp"
+              srcset="hero-dashboard-780.webp 780w, hero-dashboard-1200.webp 1200w, hero-dashboard-1600.webp 1600w"
+              sizes="(max-width: 1080px) min(100vw - 48px, 780px), 520px" />
+            <source type="image/jpeg"
+              srcset="hero-dashboard-780.jpg 780w, hero-dashboard-1200.jpg 1200w, hero-dashboard-1600.jpg 1600w"
+              sizes="(max-width: 1080px) min(100vw - 48px, 780px), 520px" />
+            <img src="hero-dashboard-1200.jpg" alt="Дашборд iirest для сравнения цен поставщиков" width="1600"
+              height="995" loading="eager" fetchpriority="high" decoding="async" />
+          </picture>
+        </div>
+      </div>
+    </section>
+
+    <section class="section solution-intro-section" id="solution">
       <div class="container">
-        <div class="hero-grid">
-          <div>
-            <span class="pill"><span class="dot"></span> Можно начать прямо сейчас — без сложной настройки</span>
-            <h1>Ассистент закупщика для ресторана</h1>
-            <p class="lead">
-              Делайте закупку за пару кликов: мы подтягиваем прайсы, находим лучшие предложения под вашу номенклатуру,
-              формируем оптимальные корзины с учетом требований поставщиков и рассылаем заявки.
-            </p>
+        <div class="section-header">
+          <span class="eyebrow">Решение</span>
+          <h2>Закупка становится быстрее и прозрачнее на каждом этапе</h2>
+          <p>iirest переносит процесс из разрозненных таблиц в единый рабочий контур: вы быстрее собираете заказ, видите
+            экономию и управляете закупкой на основе цифр.</p>
+        </div>
+        <div class="pain-grid">
+          <article class="pain-card">
+            <div class="pain-icon" aria-hidden="true">📊</div>
+            <h3>Единая матрица вместо ручных таблиц</h3>
+            <p>Прайсы приводятся к единому виду, чтобы сравнивать позиции без копипаста, формул и постоянных правок.</p>
+          </article>
+          <article class="pain-card">
+            <div class="pain-icon" aria-hidden="true">⚡</div>
+            <h3>Быстрый сбор заказа по поставщикам</h3>
+            <p>Заказ формируется в одном интерфейсе по нескольким поставщикам без переключения между файлами и кабинетами.</p>
+          </article>
+          <article class="pain-card">
+            <div class="pain-icon" aria-hidden="true">📈</div>
+            <h3>Экономия подтверждается аналитикой</h3>
+            <p>Показатели по ценам и динамике помогают наглядно подтвердить результат закупки для руководства.</p>
+          </article>
+        </div>
+        <div class="solution-grid solution-grid-secondary">
+          <article class="solution-card">
+            <h3>Автосбор и нормализация прайсов</h3>
+            <p>Система загружает и приводит прайсы к единому виду, чтобы вы сразу работали с сопоставимыми позициями.</p>
+          </article>
+          <article class="solution-card">
+            <h3>Умная матрица по списку закупки</h3>
+            <p>iirest собирает лучшую цену по каждой позиции и подсвечивает выгодные решения для конкретного заказа.</p>
+          </article>
+          <article class="solution-card">
+            <h3>Аналитика экономии</h3>
+            <p>Отчеты по заказам, динамике цен и результатам закупки помогают принимать решения на основе фактов.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Как это работает</span>
+          <h2>Три шага до быстрой и эффективной закупки</h2>
+        </div>
+        <div class="steps-grid">
+          <article class="step-card">
+            <div class="step-head">
+              <span class="step-num">1</span>
+              <h3>Загрузите прайсы</h3>
+            </div>
+            <p>Добавьте прайс-листы поставщиков. iirest подготовит данные для корректного сравнения цен.</p>
+          </article>
+          <article class="step-card">
+            <div class="step-head">
+              <span class="step-num">2</span>
+              <h3>Соберите закупку</h3>
+            </div>
+            <p>Создайте список товаров для закупки, а система подберет оптимальные предложения по каждой позиции.</p>
+          </article>
+          <article class="step-card">
+            <div class="step-head">
+              <span class="step-num">3</span>
+              <h3>Оцените результат</h3>
+            </div>
+            <p>Отслеживайте экономию, динамику цен и эффективность закупки в отчетах без ручных таблиц.</p>
+          </article>
+        </div>
+        <details class="how-features">
+          <summary class="how-features-summary">
+            <span class="how-features-title">Функционал сервиса</span>
+            <span class="how-features-note">Разработано профессиональными закупщиками</span>
+            <span class="how-features-hint">Посмотреть весь список</span>
+          </summary>
+          <ul class="how-features-list">
+            <li>Загрузка прайсов за 2 клика — любые Excel-форматы. Сервис сам распознаёт позиции и цены.</li>
+            <li>2 режима обновления прайса — полная замена или дозагрузка (дополнение без потери данных).</li>
+            <li>Управляйте закупками централизованно — задавайте видимость и права для сотрудников, привязывайте поставщиков к конкретным точкам.</li>
+            <li>Номенклатура ресторана с комментариями — сохраняйте «как правильно» и требования для поставщиков.</li>
+            <li>Тендер за минуту — добавляйте позиции из номенклатуры, списком из текста или файлом.</li>
+            <li>Гибкий пул поставщиков — выбирайте, кого сравнивать в каждом тендере.</li>
+            <li>Умный подбор позиций — автопоиск в матрице + ручной поиск по кнопке.</li>
+            <li>Поиск по эталону — кнопка «звездочка» перестраивает поиск по выбранному у поставщика наименованию, повышая точность сопоставления с другими поставщиками.</li>
+            <li>Корзина тендера — группировка по поставщикам, редактирование количества, авто-пересчёт сумм.</li>
+            <li>Доп. накладная в заказе — разделяйте отгрузки внутри одного заказа поставщику.</li>
+            <li>Экспорт в Excel — по одному поставщику или сразу по всем, с комментариями к позициям.</li>
+            <li>Цены прямо с сайтов поставщиков — автоматическое подтягивание актуальных цен.</li>
+            <li>Сохранение и «закрытие» тендера — фиксируйте результат и защищайте от правок.</li>
+            <li>Аналитика в тендере — сравнение выбранной корзины с самой дешевой, средней и вариантом заказа у одного поставщика: сразу видны экономия и переплата.</li>
+            <li>Аналитика компании — срезы по периоду, ресторанам, закупщикам и поставщикам + индекс цен и «самый дешевый/дорогой».</li>
+            <li>Быстрый вход через Telegram — без паролей и лишних шагов.</li>
+          </ul>
+        </details>
+      </div>
+    </section>
 
-            <ul class="bullets">
-              <li><span class="check" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-5-5" stroke="rgba(95,91,255,.95)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>Экономим время закупщика</li>
+    <section class="section showcase-section" id="visuals">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Визуализация сервиса</span>
+          <h2>Матрица, корзина и аналитика под рукой в удобном интерфейсе</h2>
+        </div>
 
-              <li><span class="check" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-5-5" stroke="rgba(95,91,255,.95)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>Меньше ошибок и пересортов</li>
+        <div class="slider" data-slider aria-label="Слайдер интерфейсов iirest">
+          <div class="slider-stage">
+            <button class="slider-btn" type="button" data-slider-prev aria-label="Предыдущий слайд">‹</button>
+            <div class="slider-viewport">
+              <div class="slider-track">
+                <article class="slide" data-slide-name="matrix">
+                  <h3 class="slide-title">Матрица</h3>
+                  <p class="slide-caption">Сравнение цен поставщиков по каждой позиции в единой таблице.</p>
+                  <figure>
+                    <img src="Screenshots/Матрица.png" alt="Экран матрицы сравнения цен поставщиков" width="1070"
+                      height="634" loading="lazy" decoding="async" />
+                  </figure>
+                </article>
+                <article class="slide" data-slide-name="cart">
+                  <h3 class="slide-title">Корзина</h3>
+                  <p class="slide-caption">Консолидация выбранных позиций по поставщикам с возможностью выгрузки списка.</p>
+                  <figure>
+                    <img src="Screenshots/Корзина.png" alt="Экран корзины с итогами заказа" width="1066" height="532"
+                      loading="lazy" decoding="async" />
+                  </figure>
+                </article>
+                <article class="slide" data-slide-name="analytics_cart_mix">
+                  <h3 class="slide-title">Аналитика в корзине</h3>
+                  <p class="slide-caption">Соберите корзину и сразу увидите эффект.</p>
+                  <figure>
+                    <img src="Screenshots/Аналитика Корзина.png" alt="Комбинированный экран аналитики и корзины"
+                      width="1065" height="282" loading="lazy" decoding="async" />
+                  </figure>
+                </article>
+                <article class="slide" data-slide-name="analytics">
+                  <h3 class="slide-title">Аналитика по закупщикам и поставщикам</h3>
+                  <p class="slide-caption">Показатели тендеров, экономии и переплаты по закупщикам и поставщикам.</p>
+                  <figure>
+                    <img src="Screenshots/Аналитика2.png" alt="Экран аналитики закупок" width="1156" height="645"
+                      loading="lazy" decoding="async" />
+                  </figure>
+                </article>
+                <article class="slide" data-slide-name="analytics_summary">
+                  <h3 class="slide-title">Аналитика по точкам закупки</h3>
+                  <p class="slide-caption">Сводные показатели результатов закупки.</p>
+                  <figure>
+                    <img src="Screenshots/Аналитика1.png" alt="Сводная аналитика по закупщикам" width="1120" height="403"
+                      loading="lazy" decoding="async" />
+                  </figure>
+                </article>
+              </div>
+            </div>
+            <button class="slider-btn" type="button" data-slider-next aria-label="Следующий слайд">›</button>
+          </div>
+          <div class="slider-controls">
+            <div class="slider-dots" aria-label="Индикаторы слайдов">
+              <button class="slider-dot active" type="button" data-slider-dot="0" aria-label="Матрица"></button>
+              <button class="slider-dot" type="button" data-slider-dot="1" aria-label="Корзина"></button>
+              <button class="slider-dot" type="button" data-slider-dot="2" aria-label="Аналитика и корзина"></button>
+              <button class="slider-dot" type="button" data-slider-dot="3" aria-label="Аналитика"></button>
+              <button class="slider-dot" type="button" data-slider-dot="4" aria-label="Аналитика сводка"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-              <li><span class="check" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-5-5" stroke="rgba(95,91,255,.95)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>Прозрачность и контроль</li>
+    <section class="section pricing-section" id="pricing">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Тарифы</span>
+          <h2>Выберите уровень автоматизации закупки</h2>
+        </div>
 
-              <li><span class="check" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-5-5" stroke="rgba(95,91,255,.95)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>Простота внедрения</li>
+        <div class="pricing-grid">
+          <article class="pricing-card featured">
+            <h3>Базовый</h3>
+            <p class="pricing-price">От 1 400 ₽/мес</p>
+            <p class="pricing-note">1 месяц бесплатного демо-доступа</p>
+            <ul class="pricing-list">
+              <li>Автозагрузка прайс-листов</li>
+              <li>Умная матрица сравнения</li>
+              <li>Базовая аналитика закупок</li>
             </ul>
+            <a class="pricing-cta" href="https://app.iirest.ru/register" target="_blank" rel="noopener noreferrer"
+              data-track-goal="cta_pricing_basic">Попробовать бесплатно</a>
+          </article>
 
-            <div class="cta">
-              <a class="btn primary" href="#contact">
-                Получить демо
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M7 17L17 7" stroke="rgba(234,240,255,.95)" stroke-width="2.2" stroke-linecap="round"/>
-                  <path d="M9 7h8v8" stroke="rgba(234,240,255,.95)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </a>
-              <a class="btn ghost" href="#how">Как это работает</a>
-              <!-- ЗАМЕНИТЕ ССЫЛКУ НА ВАШ TELEGRAM -->
-              <a class="btn ghost" href="https://t.me/tabascoden" target="_blank" rel="noopener noreferrer">
-                Написать в Telegram
-              </a>
-            </div>
-
-            <p class="note">
-              Базовый сервис — формирование заявки на закупку.
-              Дополнительно: мониторинг критических уровней запасов, оптимизация складских запасов, поиск поставщиков.
-            </p>
-          </div>
-
-          <aside class="mock" aria-label="Пример интерфейса">
-            <div class="top">
-              <span class="tag">Пример: “Оптимальная закупка”</span>
-              <span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>
-            </div>
-            <div class="body">
-              <div class="kpi">
-                <div class="card">
-                  <b>Заявка за 2–3 клика</b>
-                  <span>Номенклатура → предложения → корзины</span>
-                </div>
-                <div class="card">
-                  <b>Прайсы подтянуты</b>
-                  <span>Сравнение и выбор лучших условий</span>
-                </div>
-              </div>
-              <div class="insights" aria-label="Подсказки по закупке">
-                <div class="item">
-                  <strong>Лучшие условия найдены</strong>
-                  <span class="badge">-14% к цене</span>
-                </div>
-                <div class="item">
-                  <strong>Корзина собрана по правилам</strong>
-                  <span class="badge">без пересортов</span>
-                </div>
-                <div class="item">
-                  <strong>Готово к отправке</strong>
-                  <span class="badge">3 поставщика</span>
-                </div>
-              </div>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </header>
-
-    <section id="how">
-      <div class="container">
-        <div class="section-title">
-          <div>
-            <h2>Как работает</h2>
-            <p>Собирайте закупку быстро и прозрачно: от номенклатуры до отправленных заявок поставщикам.</p>
-          </div>
-          <a class="btn small" href="#contact">Показать демо</a>
-        </div>
-
-        <div class="grid-4">
-          <div class="card">
-            <div class="icon" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path d="M8 7h8M8 12h8M8 17h5" stroke="rgba(234,240,255,.9)" stroke-width="2" stroke-linecap="round"/>
-                <path d="M6 3h12a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" stroke="rgba(234,240,255,.55)" stroke-width="2"/>
-              </svg>
-            </div>
-            <h3>1) Выбираете номенклатуру</h3>
-            <p>Пара кликов — и формируете список позиций, которые нужно закупить.</p>
-          </div>
-
-          <div class="card">
-            <div class="icon" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path d="M4 7h16M4 12h16M4 17h10" stroke="rgba(234,240,255,.9)" stroke-width="2" stroke-linecap="round"/>
-                <path d="M20 6v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6" stroke="rgba(234,240,255,.55)" stroke-width="2"/>
-              </svg>
-            </div>
-            <h3>2) Подтягиваем прайсы</h3>
-            <p>Находим совпадения и сравниваем предложения по вашей номенклатуре.</p>
-          </div>
-
-          <div class="card">
-            <div class="icon" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path d="M12 3v18M3 12h18" stroke="rgba(234,240,255,.55)" stroke-width="2" stroke-linecap="round"/>
-                <path d="M7 7h10v10H7V7Z" stroke="rgba(234,240,255,.9)" stroke-width="2"/>
-              </svg>
-            </div>
-            <h3>3) Собираем корзины</h3>
-            <p>Оптимальные корзины с учетом требований поставщиков: фасовка, кратность, минимальная сумма.</p>
-          </div>
-
-          <div class="card">
-            <div class="icon" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path d="M22 2 11 13" stroke="rgba(234,240,255,.9)" stroke-width="2" stroke-linecap="round"/>
-                <path d="M22 2 15 22l-4-9-9-4 20-7Z" stroke="rgba(234,240,255,.55)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <h3>4) Рассылаем заявки</h3>
-            <p>Отправляем поставщикам сформированные заявки и фиксируем результат.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="features">
-      <div class="container">
-        <div class="section-title">
-          <div>
-            <h2>Возможности</h2>
-            <p>Начните с базового сценария, а затем подключайте модули для контроля запасов и снижения себестоимости.</p>
-          </div>
-        </div>
-
-        <div class="split">
-          <div class="callout">
-            <h3>Базовый сервис: формирование заявки на закупку</h3>
-            <p style="margin:0; color:var(--muted)">
-              Вы делаете пару кликов — система подтягивает прайсы, находит лучшие предложения,
-              формирует оптимальные корзины и готовит заявки поставщикам.
-            </p>
-            <ul>
-              <li>
-                <span class="check" aria-hidden="true">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-5-5" stroke="rgba(95,91,255,.95)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </span>
-                Сопоставление номенклатуры (в т.ч. по синонимам/названиям)
-              </li>
-              <li>
-                <span class="check" aria-hidden="true">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-5-5" stroke="rgba(95,91,255,.95)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </span>
-                Сравнение предложений и выбор оптимальных цен
-              </li>
-              <li>
-                <span class="check" aria-hidden="true">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-5-5" stroke="rgba(95,91,255,.95)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </span>
-                Корзины по поставщикам с учетом условий (кратность/мин. сумма)
-              </li>
-              <li>
-                <span class="check" aria-hidden="true">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-5-5" stroke="rgba(95,91,255,.95)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </span>
-                Подготовка и рассылка заявок поставщикам
-              </li>
+          <article class="pricing-card">
+            <h3>Pro</h3>
+            <p class="pricing-price">По запросу</p>
+            <p class="pricing-note">Для компаний с регулярными закупками</p>
+            <ul class="pricing-list">
+              <li>Расширенная аналитика и отчеты</li>
+              <li>Интеграции с кабинетами/API поставщиков</li>
+              <li>Автоматическая отправка заказов</li>
             </ul>
-          </div>
+            <a class="pricing-cta lavender btn-consult" href="#consult-modal" data-track-goal="cta_pricing_pro">Запросить
+              предложение</a>
+          </article>
 
-          <div class="grid-3">
-            <div class="card">
-              <div class="icon" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 22s7-4.35 7-10V7l-7-4-7 4v5c0 5.65 7 10 7 10Z" stroke="rgba(234,240,255,.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </div>
-              <h3>Мониторинг критических запасов</h3>
-              <p>Чтобы ничего не уходило в стоп: уведомления и контроль критических уровней.</p>
-            </div>
-
-            <div class="card">
-              <div class="icon" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                  <path d="M4 19V5M4 19h16M8 16V9M12 19v-6M16 19v-10" stroke="rgba(234,240,255,.9)" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-              </div>
-              <h3>Оптимизация складских запасов</h3>
-              <p>Снижаем “оборотку”: рекомендации по оптимальным уровням и излишкам.</p>
-            </div>
-
-            <div class="card">
-              <div class="icon" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                  <path d="M10 13a5 5 0 0 1 0-7l1-1a5 5 0 0 1 7 7l-1 1" stroke="rgba(234,240,255,.55)" stroke-width="2" stroke-linecap="round"/>
-                  <path d="M14 11a5 5 0 0 1 0 7l-1 1a5 5 0 0 1-7-7l1-1" stroke="rgba(234,240,255,.9)" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-              </div>
-              <h3>Поиск поставщиков</h3>
-              <p>Снижаем себестоимость: альтернативы и лучшие условия под вашу номенклатуру.</p>
-            </div>
-          </div>
-        </div>
-
-        <div style="margin-top:14px; display:flex; gap:12px; flex-wrap:wrap">
-          <a class="btn primary" href="#contact">Запросить демо</a>
-          <a class="btn ghost" href="#benefits">Смотреть преимущества</a>
+          <article class="pricing-card">
+            <h3>ТОП</h3>
+            <p class="pricing-price">По запросу</p>
+            <p class="pricing-note">Формат полного сопровождения закупки</p>
+            <ul class="pricing-list">
+              <li>Аутсорсинг закупочного процесса</li>
+              <li>Экспертные рекомендации и консалтинг</li>
+              <li>Формирование и передача заказов</li>
+            </ul>
+            <a class="pricing-cta lavender btn-consult" href="#consult-modal" data-track-goal="cta_pricing_top">Обсудить
+              запуск</a>
+          </article>
         </div>
       </div>
     </section>
-
-    <section id="benefits">
+    <section class="section faq-section" id="faq">
       <div class="container">
-        <div class="section-title">
-          <div>
-            <h2>Преимущества</h2>
-            <p>Не просто “прайс-агрегатор”, а рабочее место закупщика: быстрее, точнее, прозрачно.</p>
-          </div>
+        <div class="section-header">
+          <span class="eyebrow">FAQ</span>
+          <h2>Ответы на частые вопросы</h2>
         </div>
 
-        <div class="grid-3">
-          <div class="card">
-            <h3>Экономим время</h3>
-            <p>Меньше рутины: сравнение прайсов, сбор корзин и подготовка заявок автоматизированы.</p>
-          </div>
-          <div class="card">
-            <h3>Меньше ошибок</h3>
-            <p>Снижаем риски: фасовки, кратности, условия поставщиков учитываются при сборке корзин.</p>
-          </div>
-          <div class="card">
-            <h3>Удобство</h3>
-            <p>Единый процесс “от потребности до заявки”. Без хаоса в чатах и табличках.</p>
-          </div>
-          <div class="card">
-            <h3>Прозрачность и контроль</h3>
-            <p>Понятно, почему выбрано именно так: предложения, условия и история решений.</p>
-          </div>
-          <div class="card">
-            <h3>Простота внедрения</h3>
-            <p>Можно начать использовать сразу — без сложной настройки или долгой интеграции.</p>
-          </div>
-          <div class="card">
-            <h3>Без ожидания регистрации поставщиков</h3>
-            <p>Работает уже сейчас: вы добавляете прайсы/номенклатуру и запускаете закупку.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="faq">
-      <div class="container">
-        <div class="section-title">
-          <div>
-            <h2>FAQ</h2>
-            <p>Короткие ответы на частые вопросы. Если нужен разбор под ваш кейс — покажем демо.</p>
-          </div>
-          <a class="btn small" href="#contact">Получить консультацию</a>
-        </div>
-
-        <div class="faq">
-          <details>
-            <summary>
-              Сколько времени занимает старт?
-              <span class="chev" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="rgba(234,240,255,.75)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
-            </summary>
-            <p>Можно начать в тот же день: базовый сценарий не требует сложной настройки — покажем процесс и поможем подготовить стартовый набор данных.</p>
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary>Как быстро можно начать пользоваться?</summary>
+            <p class="faq-answer">В течение 10 минут: создаете аккаунт, загружаете прайс-листы,
+              формируете список закупки, получаете сравнение цен в матрице и формируете корзину для заказа.</p>
           </details>
-
-          <details>
-            <summary>
-              Нужна ли регистрация поставщиков?
-              <span class="chev" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="rgba(234,240,255,.75)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
-            </summary>
-            <p>Нет. Вы можете начать сразу: система работает с вашими прайсами и условиями, а заявки формируются и отправляются по выбранному каналу.</p>
+          <details class="faq-item">
+            <summary>Нужна ли регистрация поставщиков на старте?</summary>
+            <p class="faq-answer">Нет, для старта это не требуется. Вы можете начать работу с файлами прайс-листов.
+              Интеграции с кабинетами поставщиков подключаются отдельно на тарифе Pro.</p>
           </details>
-
-          <details>
-            <summary>
-              Как вы подтягиваете прайсы?
-              <span class="chev" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="rgba(234,240,255,.75)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
-            </summary>
-            <p>Прайсы импортируются и нормализуются, затем система сопоставляет позиции с вашей номенклатурой, чтобы корректно сравнивать предложения.</p>
+          <details class="faq-item">
+            <summary>Можно ли настроить автоматическое обновление прайс-листов?</summary>
+            <p class="faq-answer">Да, на тарифе Pro, при наличии технической возможности у поставщика.</p>
           </details>
-
-          <details>
-            <summary>
-              Как формируются корзины?
-              <span class="chev" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="rgba(234,240,255,.75)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
-            </summary>
-            <p>С учетом требований поставщиков: минимальные суммы, фасовки, кратности, доступность. Цель — оптимально закрыть вашу потребность.</p>
+          <details class="faq-item">
+            <summary>Можно ли настроить автоматическую отправку заказов?</summary>
+            <p class="faq-answer">Да, автоматическая отправка заказов доступна как расширенная опция в тарифах Pro и
+              ТОП.</p>
           </details>
-
-          <details>
-            <summary>
-              Как отправляются заявки поставщикам?
-              <span class="chev" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="rgba(234,240,255,.75)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
-            </summary>
-            <p>По согласованному каналу: email, мессенджеры или файл. На демо покажем удобный вариант под ваш процесс.</p>
-          </details>
-
-          <details>
-            <summary>
-              Можно ли подключить контроль запасов?
-              <span class="chev" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="rgba(234,240,255,.75)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
-            </summary>
-            <p>Да. Дополнительные модули закрывают: критические уровни, оптимизацию запасов и поиск поставщиков для снижения себестоимости.</p>
+          <details class="faq-item">
+            <summary>Какая есть аналитика?</summary>
+            <p class="faq-answer">В базе сервис показывает динамику цен, экономию/переплату, объем закупок и эффективность
+              работы по закупщикам и поставщикам. По запросу можем расширить список аналитики и отчетов</p>
           </details>
         </div>
       </div>
     </section>
 
-    <section id="contact">
+    <section class="cta-section" id="cta">
       <div class="container">
-        <div class="section-title">
-          <div>
-            <h2>Получить демо и обсудить ваш кейс</h2>
-            <p>Оставьте контакт — покажем, как ваш закупщик сможет собирать заявки быстрее и с меньшим количеством ошибок.</p>
-          </div>
-        </div>
-        
-    <footer>
-      <div class="container">
-        <div class="footer-grid">
-          <div>
-            <div style="display:flex; align-items:center; gap:10px; font-weight:900; color:rgba(234,240,255,.92)">
-              <span class="logo" aria-hidden="true" style="width:28px;height:28px;border-radius:10px">
-                <img src="logo.svg" alt="" />
-              </span>
-              iirest
-            </div>
-            <div style="margin-top:8px;">© <span id="year"></span> iirest. Все права защищены.</div>
-          </div>
-
-          <div style="display:grid; gap:8px;">
-            <a href="#how">Как работает</a>
-            <a href="#features">Возможности</a>
-            <a href="#faq">FAQ</a>
-          </div>
-
-          <div style="display:grid; gap:8px;">
-            <a href="mailto:dkruglov@outlook.com">dkruglov@outlook.com</a>
-            <a href="https://t.me/tabascoden" target="_blank" rel="noopener noreferrer">Telegram</a>
+        <div class="cta-box">
+          <h2>Сделайте закупку быстрее и эффективнее</h2>
+          <p>Попробуйте iirest в реальной работе: сравните цены поставщиков, соберите заказ и оцените эффект в
+            аналитике прямо сейчас.</p>
+          <div class="cta-actions">
+            <a class="btn primary" href="https://app.iirest.ru/register" target="_blank" rel="noopener noreferrer"
+              data-track-goal="cta_final_try">Попробовать бесплатно</a>
+            <button class="btn secondary btn-consult" type="button"
+              data-track-goal="cta_final_consult">Получить консультацию</button>
           </div>
         </div>
       </div>
-    </footer>
+    </section>
+
+    <div class="modal-backdrop" id="consult-modal" hidden>
+      <div class="consult-modal" role="dialog" aria-modal="true" aria-labelledby="consult-modal-title">
+        <div class="consult-modal-head">
+          <div>
+            <h3 id="consult-modal-title">Получить консультацию</h3>
+            <p>Оставьте запрос, и мы свяжемся с вами в ближайшее время.</p>
+          </div>
+          <button class="consult-close" type="button" data-consult-close aria-label="Закрыть">×</button>
+        </div>
+
+        <form id="consult-form" class="consult-form" novalidate>
+          <label class="consult-field">
+            <span>Имя</span>
+            <input type="text" name="name" placeholder="Как к вам обращаться" />
+          </label>
+
+          <label class="consult-field">
+            <span>Контакт</span>
+            <input type="text" name="contact" placeholder="Телефон или email" required />
+          </label>
+
+          <label class="consult-field">
+            <span>Запрос</span>
+            <textarea name="message" placeholder="Опишите задачу или вопрос" required></textarea>
+          </label>
+
+          <div class="consult-form-actions">
+            <p class="consult-feedback" id="consult-feedback" aria-live="polite"></p>
+            <button class="btn primary" type="submit" id="consult-submit-btn">Отправить</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </main>
 
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-brand"><strong>iirest</strong> © <span id="year"></span></div>
+      <div class="footer-links">
+        <a href="mailto:dkruglov@outlook.com" data-track-goal="contact_email">dkruglov@outlook.com</a>
+        <a href="https://t.me/tabascoden" target="_blank" rel="noopener noreferrer"
+          data-track-goal="contact_telegram">Telegram</a>
+        <a href="https://app.iirest.ru/legal/public-offer" target="_blank" rel="noopener noreferrer"
+          data-track-goal="legal_offer">Публичная оферта</a>
+        <a href="https://app.iirest.ru/legal/user-agreement" target="_blank" rel="noopener noreferrer"
+          data-track-goal="legal_user_agreement">Пользовательское соглашение</a>
+        <a href="https://app.iirest.ru/legal/privacy-policy" target="_blank" rel="noopener noreferrer"
+          data-track-goal="legal_privacy">Политика конфиденциальности</a>
+      </div>
+    </div>
+  </footer>
+
   <script>
-    // year
-    document.getElementById('year').textContent = new Date().getFullYear();
+    (function () {
+      var counterId = 105886469;
+      var consultConfig = {
+        // n8n webhook endpoint (Production URL).
+        webhookUrl: "https://n8n.iirest.ru/webhook/site-contact",
+        // Header auth for n8n Webhook node (authentication = Header Auth).
+        webhookSecretHeader: "x-webhook-key",
+        webhookSecretValue: "super_secret_123",
+        fallbackEmail: "dkruglov@outlook.com"
+      };
 
-    // Simple "static" form handler:
-    // 1) validates required contact
-    // 2) shows success message
-    // 3) prepares a message and copies it to clipboard (best-effort)
-    (function(){
-      const form = document.getElementById('leadForm');
-      const success = document.getElementById('successBox');
-
-      function escapeText(s){
-        return (s || '').toString().replace(/\s+/g,' ').trim();
+      function trackGoal(goal, params) {
+        if (!goal || typeof ym !== "function") return;
+        try {
+          ym(counterId, "reachGoal", goal, params || {});
+        } catch (err) {
+          // noop
+        }
       }
 
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
+      function initGoalTracking() {
+        document.addEventListener("click", function (event) {
+          var target = event.target;
+          if (!(target instanceof Element)) return;
 
-        const name = escapeText(document.getElementById('name').value);
-        const contact = escapeText(document.getElementById('contactField').value);
-        const place = escapeText(document.getElementById('place').value);
-        const comment = escapeText(document.getElementById('comment').value);
+          var trackNode = target.closest("[data-track-goal]");
+          if (trackNode) {
+            var goal = trackNode.getAttribute("data-track-goal");
+            trackGoal(goal, {
+              path: location.pathname
+            });
+          }
 
-        if (!contact) {
-          document.getElementById('contactField').focus();
-          form.style.animation = 'shake .16s ease-in-out 0s 2';
-          setTimeout(() => form.style.animation = '', 400);
-          return;
+          var appLink = target.closest("a[href^='https://app.iirest.ru']");
+          if (appLink) {
+            trackGoal("app_transition", {
+              href: appLink.getAttribute("href")
+            });
+          }
+        });
+      }
+
+      function initSectionViews() {
+        if (!("IntersectionObserver" in window)) return;
+
+        var observed = {};
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            var id = entry.target.id;
+            if (!id || observed[id]) return;
+            observed[id] = true;
+            trackGoal("view_" + id);
+            observer.unobserve(entry.target);
+          });
+        }, {
+          threshold: 0.45
+        });
+
+        ["pricing", "faq"].forEach(function (id) {
+          var node = document.getElementById(id);
+          if (node) observer.observe(node);
+        });
+      }
+
+      function initFaqAccordion() {
+        var items = Array.prototype.slice.call(document.querySelectorAll(".faq-list .faq-item"));
+        if (items.length === 0) return;
+
+        items.forEach(function (item) {
+          item.addEventListener("toggle", function () {
+            if (!item.open) return;
+            items.forEach(function (other) {
+              if (other === item) return;
+              other.open = false;
+            });
+          });
+        });
+      }
+
+      function initConsultModal() {
+        var modal = document.getElementById("consult-modal");
+        var form = document.getElementById("consult-form");
+        var feedback = document.getElementById("consult-feedback");
+        var submitBtn = document.getElementById("consult-submit-btn");
+        var closeBtn = modal ? modal.querySelector("[data-consult-close]") : null;
+        var openButtons = Array.prototype.slice.call(document.querySelectorAll(".btn-consult"));
+        var lastFocused = null;
+
+        if (!modal || !form || !feedback || !submitBtn || openButtons.length === 0) return;
+
+        function setFeedback(text, state) {
+          feedback.textContent = text || "";
+          feedback.classList.remove("success", "error");
+          if (state) feedback.classList.add(state);
         }
 
-        const text =
-`Заявка на демо iirest
-Имя: ${name || '-'}
-Контакт: ${contact}
-Заведение: ${place || '-'}
-Комментарий: ${comment || '-'}`;
-        const subject = 'Демо iirest';
-        const mailtoLink = `mailto:dkruglov@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
-        const telegramLink = `https://t.me/share/url?url=&text=${encodeURIComponent(text)}`;
+        function buildPayload() {
+          var formData = new FormData(form);
+          var contact = String(formData.get("contact") || "").trim();
+          var emailMatch = contact.match(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i);
+          var phoneOnly = contact.replace(/[^\d+]/g, "");
+          var phone = phoneOnly.replace(/\+/g, "").length >= 10 ? phoneOnly : "";
 
-        // Show success
-        success.style.display = 'block';
-        success.scrollIntoView({behavior:'smooth', block:'center'});
-        success.innerHTML = `Спасибо! Заявка принята.<br />
-          <span class="note" style="display:inline-flex;align-items:center;gap:6px;margin-top:6px;">
-            Мы уже получили данные. Для быстрой отправки можно открыть:
-          </span>
-          <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;">
-            <a class="btn small" href="${mailtoLink}">Email</a>
-            <a class="btn small" href="${telegramLink}" target="_blank" rel="noopener noreferrer">Telegram</a>
-          </div>`;
-
-        // Best-effort copy
-        try {
-          await navigator.clipboard.writeText(text);
-          success.insertAdjacentHTML('beforeend', '<div class="note" style="margin-top:10px;">Текст заявки скопирован в буфер — можно вставить в Telegram/почту.</div>');
-        } catch (err) {
-          success.insertAdjacentHTML('beforeend', '<div class="note" style="margin-top:10px;">Если нужно, скопируйте данные вручную — мы скоро свяжемся.</div>');
-          console.log(err);
+          return {
+            name: String(formData.get("name") || "").trim(),
+            contact: contact,
+            email: emailMatch ? emailMatch[0] : "",
+            phone: phone,
+            message: String(formData.get("message") || "").trim(),
+            page: window.location.href,
+            createdAt: new Date().toISOString()
+          };
         }
 
-        // Optional: open mail client (uncomment if you want)
-        // window.location.href = mailtoLink;
+        function openModal(button) {
+          lastFocused = button || document.activeElement;
+          modal.hidden = false;
+          document.body.classList.add("modal-open");
+          setFeedback("");
+          window.setTimeout(function () {
+            var firstInput = form.querySelector("input, textarea");
+            if (firstInput) firstInput.focus();
+          }, 0);
+          trackGoal("consult_modal_open", {
+            path: location.pathname
+          });
+        }
 
-        form.reset();
-      });
+        function closeModal() {
+          modal.hidden = true;
+          document.body.classList.remove("modal-open");
+          setFeedback("");
+          if (lastFocused && typeof lastFocused.focus === "function") {
+            lastFocused.focus();
+          }
+        }
+
+        function sendViaWebhook(payload) {
+          var headers = {
+            "Content-Type": "application/json"
+          };
+          if (consultConfig.webhookSecretHeader && consultConfig.webhookSecretValue) {
+            headers[consultConfig.webhookSecretHeader] = consultConfig.webhookSecretValue;
+          }
+
+          return fetch(consultConfig.webhookUrl, {
+            method: "POST",
+            headers: headers,
+            body: JSON.stringify(payload)
+          }).then(function (response) {
+            if (!response.ok) {
+              throw new Error("Webhook response error");
+            }
+          });
+        }
+
+        function openMailFallback(payload) {
+          var subject = encodeURIComponent("Заявка с сайта iirest");
+          var lines = [
+            "Имя: " + (payload.name || "-"),
+            "Контакт: " + (payload.contact || "-"),
+            "Email: " + (payload.email || "-"),
+            "Телефон: " + (payload.phone || "-"),
+            "",
+            "Запрос:",
+            payload.message || "-",
+            "",
+            "Страница: " + payload.page,
+            "Дата: " + payload.createdAt
+          ];
+          var body = encodeURIComponent(lines.join("\n"));
+          window.location.href = "mailto:" + consultConfig.fallbackEmail + "?subject=" + subject + "&body=" + body;
+        }
+
+        openButtons.forEach(function (button) {
+          button.addEventListener("click", function (event) {
+            if (event && typeof event.preventDefault === "function") {
+              event.preventDefault();
+            }
+            openModal(button);
+          });
+        });
+
+        if (closeBtn) {
+          closeBtn.addEventListener("click", closeModal);
+        }
+
+        modal.addEventListener("click", function (event) {
+          if (event.target === modal) {
+            closeModal();
+          }
+        });
+
+        document.addEventListener("keydown", function (event) {
+          if (event.key === "Escape" && !modal.hidden) {
+            closeModal();
+          }
+        });
+
+        form.addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          var payload = buildPayload();
+          if (!payload.contact || !payload.message) {
+            setFeedback("Укажите контакт и текст запроса.", "error");
+            return;
+          }
+
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Отправляем...";
+          setFeedback("Отправка запроса...");
+
+          if (consultConfig.webhookUrl) {
+            sendViaWebhook(payload)
+              .then(function () {
+                setFeedback("Готово. Заявка отправлена.", "success");
+                form.reset();
+                trackGoal("consult_submit", {
+                  channel: "webhook"
+                });
+              })
+              .catch(function () {
+                setFeedback("Не удалось отправить автоматически. Открываем почту...", "error");
+                openMailFallback(payload);
+                trackGoal("consult_submit_fallback", {
+                  channel: "mailto"
+                });
+              })
+              .finally(function () {
+                submitBtn.disabled = false;
+                submitBtn.textContent = "Отправить";
+              });
+            return;
+          }
+
+          openMailFallback(payload);
+          setFeedback("Открыли почтовый клиент для отправки заявки.", "success");
+          trackGoal("consult_submit_fallback", {
+            channel: "mailto"
+          });
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Отправить";
+        });
+      }
+
+      function initSlider() {
+        var slider = document.querySelector("[data-slider]");
+        if (!slider) return;
+
+        var viewport = slider.querySelector(".slider-viewport");
+        var track = slider.querySelector(".slider-track");
+        var dots = Array.prototype.slice.call(slider.querySelectorAll("[data-slider-dot]"));
+        var prev = slider.querySelector("[data-slider-prev]");
+        var next = slider.querySelector("[data-slider-next]");
+
+        if (!viewport || !track) return;
+
+        var realSlides = Array.prototype.slice.call(track.querySelectorAll(".slide"));
+        if (realSlides.length === 0) return;
+
+        var total = realSlides.length;
+        var firstClone = realSlides[0].cloneNode(true);
+        var lastClone = realSlides[total - 1].cloneNode(true);
+
+        firstClone.setAttribute("aria-hidden", "true");
+        lastClone.setAttribute("aria-hidden", "true");
+        firstClone.setAttribute("data-slide-clone", "first");
+        lastClone.setAttribute("data-slide-clone", "last");
+
+        track.insertBefore(lastClone, realSlides[0]);
+        track.appendChild(firstClone);
+
+        var slides = Array.prototype.slice.call(track.querySelectorAll(".slide"));
+        var current = 1;
+        var timer = null;
+        var intervalMs = 4200;
+        var touchStartX = 0;
+        var touchStartY = 0;
+        var touchLastX = 0;
+        var activePointerId = null;
+        var touchActive = false;
+        var isTransitioning = false;
+        var transitionFallbackTimer = null;
+        var resizeRaf = null;
+        var isMeasuring = false;
+        var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        function getLogicalIndex(index) {
+          if (index === 0) return total - 1;
+          if (index === total + 1) return 0;
+          return index - 1;
+        }
+
+        function getOffset(index) {
+          var slide = slides[index];
+          if (!slide) return 0;
+          return slide.offsetLeft - (viewport.clientWidth - slide.clientWidth) / 2;
+        }
+
+        function updateState() {
+          var logicalIndex = getLogicalIndex(current);
+
+          slides.forEach(function (slide, idx) {
+            slide.classList.toggle("is-active", idx === current);
+          });
+
+          dots.forEach(function (dot, idx) {
+            dot.classList.toggle("active", idx === logicalIndex);
+          });
+        }
+
+        function render(animate) {
+          track.style.transition = animate === false
+            ? "none"
+            : "transform 1.05s cubic-bezier(0.22, 1, 0.36, 1)";
+          track.style.transform = "translate3d(-" + getOffset(current) + "px, 0, 0)";
+          updateState();
+        }
+
+        function syncViewportMinHeight() {
+          if (isMeasuring) return;
+          isMeasuring = true;
+
+          var savedCurrent = current;
+          var maxHeight = 0;
+
+          slider.classList.add("is-measuring");
+
+          for (var index = 1; index <= total; index += 1) {
+            current = index;
+            updateState();
+            var height = Math.ceil(track.getBoundingClientRect().height);
+            if (height > maxHeight) {
+              maxHeight = height;
+            }
+          }
+
+          current = savedCurrent;
+          updateState();
+          slider.classList.remove("is-measuring");
+
+          if (maxHeight > 0) {
+            viewport.style.minHeight = maxHeight + "px";
+          }
+
+          isMeasuring = false;
+        }
+
+        function currentSlideName() {
+          var logicalIndex = getLogicalIndex(current);
+          var slide = realSlides[logicalIndex];
+          return slide ? slide.getAttribute("data-slide-name") : "unknown";
+        }
+
+        function clearTransitionFallback() {
+          if (!transitionFallbackTimer) return;
+          window.clearTimeout(transitionFallbackTimer);
+          transitionFallbackTimer = null;
+        }
+
+        function finishTransition() {
+          clearTransitionFallback();
+          isTransitioning = false;
+
+          if (current === 0) {
+            current = total;
+            render(false);
+          } else if (current === total + 1) {
+            current = 1;
+            render(false);
+          }
+        }
+
+        function goTo(index, reason) {
+          if (isTransitioning) return;
+          current = index;
+          isTransitioning = true;
+          render(true);
+          clearTransitionFallback();
+          transitionFallbackTimer = window.setTimeout(function () {
+            if (!isTransitioning) return;
+            finishTransition();
+          }, 1300);
+
+          if (reason) {
+            trackGoal("slider_interaction", {
+              action: reason,
+              slide: currentSlideName()
+            });
+          }
+        }
+
+        function startAuto() {
+          if (reduceMotion) return;
+          stopAuto();
+          timer = window.setInterval(function () {
+            if (isTransitioning) return;
+            goTo(current + 1);
+          }, intervalMs);
+        }
+
+        function stopAuto() {
+          if (!timer) return;
+          window.clearInterval(timer);
+          timer = null;
+        }
+
+        if (prev) {
+          prev.addEventListener("click", function () {
+            goTo(current - 1, "prev");
+          });
+        }
+
+        if (next) {
+          next.addEventListener("click", function () {
+            goTo(current + 1, "next");
+          });
+        }
+
+        dots.forEach(function (dot) {
+          dot.addEventListener("click", function () {
+            var index = Number(dot.getAttribute("data-slider-dot"));
+            if (Number.isNaN(index)) return;
+            goTo(index + 1, "dot");
+          });
+        });
+
+        track.addEventListener("transitionend", function (event) {
+          if (event.target !== track) return;
+          if (event.propertyName !== "transform" && event.propertyName !== "-webkit-transform") return;
+          finishTransition();
+        });
+
+        viewport.addEventListener("pointerdown", function (event) {
+          if (event.pointerType === "mouse") return;
+          touchActive = true;
+          activePointerId = event.pointerId;
+          touchStartX = event.clientX;
+          touchLastX = event.clientX;
+          touchStartY = event.clientY;
+          if (typeof viewport.setPointerCapture === "function") {
+            try {
+              viewport.setPointerCapture(event.pointerId);
+            } catch (_err) { }
+          }
+          stopAuto();
+        });
+
+        viewport.addEventListener("pointermove", function (event) {
+          if (!touchActive || event.pointerId !== activePointerId) return;
+          touchLastX = event.clientX;
+        });
+
+        viewport.addEventListener("pointerup", function (event) {
+          if (!touchActive || event.pointerId !== activePointerId) return;
+          touchActive = false;
+          activePointerId = null;
+          if (typeof viewport.releasePointerCapture === "function") {
+            try {
+              if (typeof viewport.hasPointerCapture !== "function" || viewport.hasPointerCapture(event.pointerId)) {
+                viewport.releasePointerCapture(event.pointerId);
+              }
+            } catch (_err) { }
+          }
+          var diffX = touchLastX - touchStartX;
+          var diffY = event.clientY - touchStartY;
+          if (Math.abs(diffX) >= 45 && Math.abs(diffX) > Math.abs(diffY) && !isTransitioning) {
+            if (diffX < 0) {
+              goTo(current + 1, "swipe_left");
+            } else {
+              goTo(current - 1, "swipe_right");
+            }
+          }
+          startAuto();
+        });
+
+        viewport.addEventListener("pointercancel", function (event) {
+          if (activePointerId !== null && event.pointerId !== activePointerId) return;
+          touchActive = false;
+          activePointerId = null;
+          startAuto();
+        });
+
+        slider.addEventListener("pointerleave", function () {
+          if (!touchActive) return;
+          touchActive = false;
+          activePointerId = null;
+          startAuto();
+        });
+
+        window.addEventListener("resize", function () {
+          if (resizeRaf) window.cancelAnimationFrame(resizeRaf);
+          resizeRaf = window.requestAnimationFrame(function () {
+            touchActive = false;
+            activePointerId = null;
+            clearTransitionFallback();
+            isTransitioning = false;
+            syncViewportMinHeight();
+            render(false);
+          });
+        });
+
+        realSlides.forEach(function (slide) {
+          var image = slide.querySelector("img");
+          if (!image || image.complete) return;
+          image.addEventListener("load", function () {
+            syncViewportMinHeight();
+            render(false);
+          });
+        });
+
+        slider.addEventListener("mouseenter", stopAuto);
+        slider.addEventListener("mouseleave", startAuto);
+        slider.addEventListener("focusin", stopAuto);
+        slider.addEventListener("focusout", startAuto);
+
+        if (reduceMotion) {
+          intervalMs = 6500;
+        }
+
+        syncViewportMinHeight();
+        render(false);
+        if (!reduceMotion) {
+          startAuto();
+        } else {
+          stopAuto();
+        }
+      }
+
+      document.getElementById("year").textContent = new Date().getFullYear();
+      initGoalTracking();
+      initSectionViews();
+      initFaqAccordion();
+      initConsultModal();
+      initSlider();
     })();
   </script>
-
-  <style>
-    @keyframes shake {
-      0% { transform: translateX(0); }
-      25% { transform: translateX(-6px); }
-      50% { transform: translateX(6px); }
-      75% { transform: translateX(-4px); }
-      100% { transform: translateX(0); }
-    }
-  </style>
 </body>
+
 </html>

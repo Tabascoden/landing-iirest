@@ -1,2 +1,36 @@
 User-agent: *
 Allow: /
+
+# OpenAI
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+# Google AI training controls (does not affect Google Search indexing)
+User-agent: Google-Extended
+Allow: /
+
+# Yandex Search + Search with Alice
+User-agent: Yandex
+Allow: /
+
+User-agent: YandexAdditional
+Allow: /
+
+User-agent: YandexAdditionalBot
+Allow: /
+
+# No separate public robots token is currently documented for GigaChat,
+# so it is covered by the global allow rule above.
+
+Host: iirest.ru
+Sitemap: https://iirest.ru/sitemap.xml
