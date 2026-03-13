@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description"
-    content="iirest помогает закупщикам и управляющим сравнивать цены поставщиков, формировать заказы в 10 раз быстрее и контролировать экономию в аналитике." />
+    content="iiRest помогает ресторанам сравнивать цены поставщиков, собирать выгодные заказы и видеть экономию по закупке в цифрах." />
   <meta name="theme-color" content="#4f46e5" />
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
   <meta name="googlebot" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
@@ -72,22 +72,22 @@
   <!-- /Yandex.Metrika counter -->
 
   <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="iirest" />
+  <meta property="og:site_name" content="iiRest" />
   <meta property="og:locale" content="ru_RU" />
-  <meta property="og:title" content="iirest - сравнение цен поставщиков и автоматизация закупок" />
+  <meta property="og:title" content="iiRest — сравнение цен поставщиков и контроль закупки для ресторанов" />
   <meta property="og:description"
-    content="Сравнивайте цены поставщиков и формируйте заказы в одном окне, быстро и без множества таблиц. Контроль экономии в аналитике iirest." />
+    content="iiRest помогает ресторанам сравнивать цены поставщиков, собирать выгодные заказы и видеть экономию по закупке в цифрах." />
   <meta property="og:url" content="https://iirest.ru/" />
   <meta property="og:image" content="https://iirest.ru/hero-dashboard.png" />
   <meta property="og:image:type" content="image/png" />
-  <meta property="og:image:alt" content="Интерфейс iirest для сравнения цен поставщиков" />
+  <meta property="og:image:alt" content="Интерфейс iiRest для контроля закупки и сравнения цен поставщиков" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="iirest - сравнение цен поставщиков и автоматизация закупок" />
+  <meta name="twitter:title" content="iiRest — сравнение цен поставщиков и контроль закупки для ресторанов" />
   <meta name="twitter:description"
-    content="Сравнивайте цены поставщиков и формируйте заказы в одном окне. Контроль экономии в аналитике iirest." />
+    content="iiRest помогает ресторанам сравнивать цены поставщиков, собирать выгодные заказы и видеть экономию по закупке в цифрах." />
   <meta name="twitter:image" content="https://iirest.ru/hero-dashboard.png" />
 
-  <title>iirest - сравнение цен поставщиков и заказы в одном окне</title>
+  <title>iiRest — сравнение цен поставщиков и контроль закупки для ресторанов</title>
 
   <style>
     :root {
@@ -320,11 +320,23 @@
       -webkit-text-fill-color: transparent;
     }
 
+    .hero p.hero-lead {
+      margin: 18px auto 0;
+      max-width: 760px;
+      color: #526176;
+      font-size: clamp(17px, 1.8vw, 20px);
+      line-height: 1.58;
+    }
+
     .hero-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
       gap: 28px;
       align-items: center;
+    }
+
+    .hero-copy {
+      max-width: 560px;
     }
 
     .hero p {
@@ -348,7 +360,7 @@
       min-height: 52px;
     }
 
-    .hero-note {
+    .hero p.hero-note {
       margin: 0;
       color: #708196;
       font-size: 14px;
@@ -391,6 +403,7 @@
       box-shadow: var(--shadow);
       max-width: 520px;
       justify-self: end;
+      cursor: zoom-in;
     }
 
     .solution-intro-section {
@@ -398,9 +411,29 @@
       background: linear-gradient(180deg, rgba(238, 242, 255, 0.44), rgba(248, 250, 252, 0));
     }
 
+    .audience-section {
+      border-top: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(238, 242, 255, 0.34), rgba(248, 250, 252, 0));
+    }
+
+    .buyer-section {
+      background: linear-gradient(180deg, rgba(224, 231, 255, 0.22), rgba(248, 250, 252, 0));
+    }
+
+    .user-section {
+      border-top: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .problem-section {
+      background: #fff;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
     .pain-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 18px;
     }
 
@@ -440,7 +473,7 @@
 
     .solution-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 18px;
     }
 
@@ -469,6 +502,43 @@
       color: var(--muted);
       font-size: 15px;
       line-height: 1.55;
+    }
+
+    .problem-panel {
+      padding: 28px;
+      border-radius: 22px;
+      border: 1px solid #dbe2ea;
+      background: linear-gradient(180deg, #ffffff, #f8fbff);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .problem-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px 22px;
+    }
+
+    .problem-list li {
+      position: relative;
+      padding-left: 28px;
+      color: #334155;
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    .problem-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #cbd5e1;
+      box-shadow: 0 0 0 6px rgba(203, 213, 225, 0.34);
     }
 
     .steps-grid {
@@ -748,6 +818,7 @@
       border: 1px solid #dbe2ea;
       overflow: hidden;
       background: #fff;
+      cursor: zoom-in;
     }
 
     .slide figure img {
@@ -991,6 +1062,62 @@
       font-size: 15px;
       line-height: 1.58;
     }
+
+    .compare-box {
+      padding: 30px;
+      border-radius: 24px;
+      border: 1px solid #dbe2ea;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(238, 242, 255, 0.92));
+      box-shadow: var(--shadow-sm);
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .compare-copy h2 {
+      margin: 0 0 12px;
+      font-family: "Unbounded", sans-serif;
+      font-size: clamp(28px, 3vw, 38px);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .compare-copy p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .compare-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px 18px;
+    }
+
+    .compare-list li {
+      position: relative;
+      padding-left: 22px;
+      color: #334155;
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    .compare-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--primary);
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+
     .cta-section {
       padding: 92px 0;
     }
@@ -1214,6 +1341,140 @@
       overflow: hidden;
     }
 
+    .hero-image:focus-visible,
+    .slide figure:focus-visible,
+    .lightbox-action:focus-visible {
+      outline: 2px solid #b8c3ff;
+      outline-offset: 3px;
+    }
+
+    .lightbox-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 120;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(15, 23, 42, 0.82);
+      backdrop-filter: blur(6px);
+    }
+
+    .lightbox-backdrop[hidden] {
+      display: none;
+    }
+
+    .lightbox-dialog {
+      width: min(100%, 1320px);
+      height: 100%;
+      border-radius: 24px;
+      border: 1px solid rgba(148, 163, 184, 0.24);
+      background: rgba(15, 23, 42, 0.92);
+      box-shadow: 0 24px 48px rgba(15, 23, 42, 0.36);
+      color: #e2e8f0;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .lightbox-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 18px 20px 14px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+    }
+
+    .lightbox-meta {
+      min-width: 0;
+      display: grid;
+      gap: 4px;
+    }
+
+    .lightbox-title {
+      margin: 0;
+      font-family: "Unbounded", sans-serif;
+      font-size: clamp(20px, 2.4vw, 28px);
+      line-height: 1.2;
+      color: #fff;
+    }
+
+    .lightbox-caption {
+      margin: 0;
+      color: #cbd5e1;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .lightbox-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .lightbox-action {
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      border-radius: 12px;
+      background: rgba(30, 41, 59, 0.92);
+      color: #f8fafc;
+      font-size: 22px;
+      line-height: 1;
+      cursor: pointer;
+      transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .lightbox-action:hover {
+      background: rgba(51, 65, 85, 0.98);
+      border-color: rgba(191, 219, 254, 0.34);
+      transform: translateY(-1px);
+    }
+
+    .lightbox-action:disabled {
+      cursor: default;
+      opacity: 0.48;
+      transform: none;
+    }
+
+    .lightbox-zoom {
+      min-width: 56px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 700;
+      color: #e2e8f0;
+    }
+
+    .lightbox-view {
+      flex: 1;
+      min-height: 0;
+      padding: 18px;
+    }
+
+    .lightbox-scroll {
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      border-radius: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.16);
+      background: rgba(15, 23, 42, 0.56);
+    }
+
+    .lightbox-canvas {
+      margin: 0 auto;
+    }
+
+    .lightbox-image {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
     footer {
       border-top: 1px solid var(--line);
       padding: 34px 0;
@@ -1356,6 +1617,19 @@
         grid-template-columns: 1fr;
       }
 
+      .problem-list {
+        grid-template-columns: 1fr;
+      }
+
+      .compare-list {
+        grid-template-columns: 1fr;
+      }
+
+      .compare-box {
+        grid-template-columns: 1fr;
+        padding: 24px 22px;
+      }
+
       .how-features {
         padding: 22px 18px;
       }
@@ -1427,6 +1701,27 @@
       .consult-modal h3 {
         font-size: 21px;
       }
+
+      .lightbox-backdrop {
+        padding: 12px;
+      }
+
+      .lightbox-dialog {
+        border-radius: 18px;
+      }
+
+      .lightbox-head {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .lightbox-actions {
+        justify-content: space-between;
+      }
+
+      .lightbox-view {
+        padding: 12px;
+      }
     }
 
     @media (max-width: 640px) {
@@ -1452,7 +1747,7 @@
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "iirest",
+    "name": "iiRest",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web",
     "inLanguage": "ru-RU",
@@ -1464,7 +1759,7 @@
       "availability": "https://schema.org/InStock",
       "url": "https://iirest.ru/"
     },
-    "description": "Сервис сравнения цен поставщиков и автоматизации закупок для horeca.",
+    "description": "iiRest помогает ресторанам сравнивать цены поставщиков, собирать выгодные заказы и видеть экономию по закупке в цифрах.",
     "url": "https://iirest.ru/"
   }
   </script>
@@ -1472,7 +1767,7 @@
   {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "iirest",
+    "name": "iiRest",
     "url": "https://iirest.ru/",
     "logo": "https://iirest.ru/logo.svg",
     "contactPoint": {
@@ -1487,7 +1782,7 @@
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "iirest",
+    "name": "iiRest",
     "url": "https://iirest.ru/",
     "inLanguage": "ru-RU"
   }
@@ -1499,42 +1794,42 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "Как быстро можно начать пользоваться?",
+        "name": "Как быстро можно начать?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "В течение 10 минут: создаете аккаунт, загружаете прайс-листы, формируете список закупки, получаете сравнение цен в матрице и формируете корзину для заказа."
+          "text": "Обычно первый тест можно провести в тот же день: загрузить прайсы, собрать реальный список закупки и увидеть сравнение по поставщикам без долгого внедрения."
         }
       },
       {
         "@type": "Question",
-        "name": "Нужна ли регистрация поставщиков на старте?",
+        "name": "Что делать, если у поставщиков разные названия товаров?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Нет, для старта это не требуется. Вы можете начать работу с файлами прайс-листов. Интеграции с кабинетами поставщиков подключаются отдельно на тарифе Pro."
+          "text": "iiRest приводит прайсы к сопоставимому виду и помогает подобрать соответствия. Если наименования отличаются сильно, закупщик может быстро уточнить позицию вручную и сохранить корректный вариант для дальнейшей работы."
         }
       },
       {
         "@type": "Question",
-        "name": "Можно ли настроить автоматическое обновление прайс-листов?",
+        "name": "Нужно ли менять текущий процесс закупки?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Да, на тарифе Pro, при наличии технической возможности у поставщика."
+          "text": "Нет. На старте можно работать с теми прайсами и списками, которые уже есть. iiRest встраивается поверх текущего процесса и постепенно убирает ручную сводку."
         }
       },
       {
         "@type": "Question",
-        "name": "Можно ли настроить автоматическую отправку заказов?",
+        "name": "Можно ли работать с несколькими поставщиками одновременно?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Да, автоматическая отправка заказов доступна как расширенная опция в тарифах Pro и ТОП."
+          "text": "Да. Сервис позволяет сравнивать предложения нескольких поставщиков в одном окне и собирать корзину по разным поставщикам в рамках одного заказа."
         }
       },
       {
         "@type": "Question",
-        "name": "Какая есть аналитика?",
+        "name": "Как считается экономия?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "В базе сервис показывает динамику цен, экономию или переплату, объем закупок и эффективность работы по закупщикам и поставщикам. По запросу можем расширить список аналитики и отчетов."
+          "text": "Система сравнивает выбранную корзину с альтернативными сценариями закупки и показывает, где заказ стал выгоднее, а где остается переплата. Эффект виден по заказу, поставщику, закупщику и точке."
         }
       }
     ]
@@ -1546,8 +1841,8 @@
   <header>
     <div class="container nav">
       <a class="brand" href="/" data-track-goal="brand_click">
-        <img src="logo.svg" alt="iirest logo" width="32" height="32" decoding="async" />
-        iirest
+        <img src="logo.svg" alt="iiRest logo" width="32" height="32" decoding="async" />
+        iiRest
       </a>
       <nav class="menu" aria-label="Основная навигация">
         <a href="#solution" data-track-goal="menu_solution">Решение</a>
@@ -1561,7 +1856,7 @@
         <button class="btn secondary btn-consult" type="button"
           data-track-goal="cta_header_consult">Получить консультацию</button>
         <a class="btn primary header-try" href="https://app.iirest.ru/register" target="_blank" rel="noopener noreferrer"
-          data-track-goal="cta_header_try">Попробовать бесплатно</a>
+          data-track-goal="cta_header_try">Запустить тест</a>
       </div>
     </div>
   </header>
@@ -1569,34 +1864,40 @@
   <main>
     <section class="hero">
       <div class="hero-top">
-        <span class="eyebrow">Для управляющих, закупщиков и шеф-поваров</span>
-        <h1 class="hero-title-full">Сравнивай цены и формируй заказы<br />в одном окне, быстро и без ошибок</h1>
+        <span class="eyebrow">Для собственников и управляющих ресторанов</span>
+        <h1 class="hero-title-full">Снижайте переплату в закупке и держите поставщиков под контролем</h1>
+        <p class="hero-lead">iiRest помогает собственникам и управляющим ресторанов сравнивать цены поставщиков в
+          одном окне, быстро собирать выгодные заказы и видеть экономию в цифрах.</p>
       </div>
       <div class="container hero-grid">
-        <div>
+        <div class="hero-copy">
           <div class="hero-actions">
             <a class="btn primary" href="https://app.iirest.ru/register" target="_blank" rel="noopener noreferrer"
-              data-track-goal="cta_hero_try">Попробовать бесплатно</a>
-            <a class="btn secondary" href="#how" data-track-goal="cta_hero_how">Как это работает</a>
+              data-track-goal="cta_hero_try">Запустить тест на реальной закупке</a>
+            <button class="btn secondary btn-consult" type="button"
+              data-track-goal="cta_hero_consult">Получить консультацию</button>
           </div>
-          <p class="hero-note">Доступ на 1 месяц бесплатно. Протестируйте и оцените удобство сервиса прямо сейчас.</p>
+          <p class="hero-note">Проверьте сервис на своей реальной закупке — без долгого внедрения и сложного запуска.</p>
 
           <div class="hero-metrics">
             <div class="metric-pill">
-              <b>10x быстрее</b>
-              <span>Подготовка заказа по поставщикам</span>
+              <b>Экономия в цифрах</b>
+              <span>Видно, где корзина выгоднее, а где остается переплата</span>
             </div>
             <div class="metric-pill">
-              <b>Единая матрица</b>
-              <span>Сравнение цен в одном интерфейсе</span>
+              <b>Один экран вместо Excel и чатов</b>
+              <span>Прайсы, сравнение и заказ собираются в одном интерфейсе</span>
             </div>
             <div class="metric-pill">
-              <b>Экономия в реальных цифрах</b>
-              <span>Экономия и динамика по закупкам</span>
+              <b>Быстрый заказ по нескольким поставщикам</b>
+              <span>Команда собирает закупку без ручной сводки и лишних ошибок</span>
             </div>
           </div>
         </div>
-        <div class="hero-image">
+        <div class="hero-image" role="button" tabindex="0" data-lightbox-trigger
+          data-lightbox-src="hero-dashboard-1600.jpg" data-lightbox-title="Панель контроля закупки"
+          data-lightbox-caption="Главный экран iiRest: сравнение цен поставщиков, заказ и контроль результата."
+          aria-label="Открыть скриншот панели контроля закупки">
           <picture>
             <source type="image/webp"
               srcset="hero-dashboard-780.webp 780w, hero-dashboard-1200.webp 1200w, hero-dashboard-1600.webp 1600w"
@@ -1604,9 +1905,59 @@
             <source type="image/jpeg"
               srcset="hero-dashboard-780.jpg 780w, hero-dashboard-1200.jpg 1200w, hero-dashboard-1600.jpg 1600w"
               sizes="(max-width: 1080px) min(100vw - 48px, 780px), 520px" />
-            <img src="hero-dashboard-1200.jpg" alt="Дашборд iirest для сравнения цен поставщиков" width="1600"
+            <img src="hero-dashboard-1200.jpg" alt="Дашборд iiRest для контроля закупки и сравнения цен поставщиков"
+              width="1600"
               height="995" loading="eager" fetchpriority="high" decoding="async" />
           </picture>
+        </div>
+      </div>
+    </section>
+
+    <section class="section audience-section" id="audience">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Для кого</span>
+          <h2>Для собственников и управляющих ресторанов, которым важно не переплачивать</h2>
+          <p>iiRest особенно полезен, если у вас несколько поставщиков, закупка собирается вручную, цены часто
+            меняются, а проверить реальную экономию по заказу сложно.</p>
+        </div>
+        <div class="solution-grid">
+          <article class="solution-card">
+            <h3>Несколько поставщиков</h3>
+            <p>Цены и условия разбросаны по разным прайсам, кабинетам и привычным каналам связи.</p>
+          </article>
+          <article class="solution-card">
+            <h3>Ручная сборка закупки</h3>
+            <p>Excel, чаты и файлы отнимают время и добавляют лишние поводы для ошибок в заказе.</p>
+          </article>
+          <article class="solution-card">
+            <h3>Нестабильные цены</h3>
+            <p>Выгодная цена быстро меняется, и без постоянного сравнения переплата накапливается незаметно.</p>
+          </article>
+          <article class="solution-card">
+            <h3>Слабая прозрачность результата</h3>
+            <p>Трудно быстро понять, где заказ действительно выгодный, а где ресторан уже теряет деньги.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section problem-section" id="problem">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Проблема</span>
+          <h2>Почему закупка начинает &laquo;течь&raquo;</h2>
+          <p>Потери обычно появляются не из-за одной большой ошибки, а из-за ежедневной рутины без прозрачного
+            сравнения и понятного контроля.</p>
+        </div>
+        <div class="problem-panel">
+          <ul class="problem-list">
+            <li>Прайсы лежат в почте, чатах и разных файлах</li>
+            <li>Сравнение идет вручную и съедает время</li>
+            <li>Заказ собирается по привычке, а не по лучшей цене</li>
+            <li>Непонятно, где реальная экономия, а где переплата</li>
+            <li>На нескольких точках порядок быстро расползается</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -1615,75 +1966,126 @@
       <div class="container">
         <div class="section-header">
           <span class="eyebrow">Решение</span>
-          <h2>Быстрая и прозрачная закупка по лучшим ценам</h2>
-          <p>С iirest вы быстрее собираете заказ, видите экономию и управляете закупкой на основе фактических цифр.</p>
+          <h2>iiRest превращает хаос закупки в управляемый процесс</h2>
+          <p>Сервис помогает сравнивать предложения поставщиков по реальному списку закупки, собирать выгодную
+            корзину и видеть результат без ручной сводки.</p>
         </div>
-        <div class="pain-grid">
-          <article class="pain-card">
-            <div class="pain-icon" aria-hidden="true">📊</div>
-            <h3>Единая матрица вместо ручных таблиц</h3>
-            <p>Прайсы приводятся к единому виду, чтобы сравнивать позиции без копипаста, формул и постоянных правок.</p>
-          </article>
-          <article class="pain-card">
-            <div class="pain-icon" aria-hidden="true">⚡</div>
-            <h3>Быстрый сбор заказа по поставщикам</h3>
-            <p>Заказ формируется в одном интерфейсе по нескольким поставщикам без переключения между файлами и кабинетами.</p>
-          </article>
-          <article class="pain-card">
-            <div class="pain-icon" aria-hidden="true">📈</div>
-            <h3>Экономия подтверждается аналитикой</h3>
-            <p>Показатели по ценам и динамике помогают наглядно подтвердить результат закупки для руководства.</p>
-          </article>
-        </div>
-        <div class="solution-grid solution-grid-secondary">
+        <div class="solution-grid">
           <article class="solution-card">
-            <h3>Автосбор и нормализация прайсов</h3>
-            <p>Система загружает и приводит прайсы к единому виду, чтобы вы сразу работали с сопоставимыми позициями.</p>
+            <h3>Единая матрица вместо ручной сводки</h3>
+            <p>Прайсы приводятся к сопоставимому виду, чтобы вы могли сравнивать предложения без копипаста, формул и
+              постоянных правок.</p>
           </article>
           <article class="solution-card">
-            <h3>Умная матрица по списку закупки</h3>
-            <p>iirest собирает лучшую цену по каждой позиции и подсвечивает выгодные решения для конкретного заказа.</p>
+            <h3>Выгодная корзина по реальному заказу</h3>
+            <p>iiRest помогает быстро собрать закупку по нескольким поставщикам и увидеть лучший сценарий по
+              конкретному списку товаров.</p>
           </article>
           <article class="solution-card">
-            <h3>Аналитика экономии</h3>
-            <p>Отчеты по заказам, динамике цен и результатам закупки помогают принимать решения на основе фактов.</p>
+            <h3>Экономия и переплата видны сразу</h3>
+            <p>Аналитика показывает, где закупка стала выгоднее, а где ресторан продолжает терять деньги.</p>
+          </article>
+          <article class="solution-card">
+            <h3>Один процесс для команды и руководителя</h3>
+            <p>Шефу и закупщику — меньше рутины. Собственнику и управляющему — больше прозрачности и контроля.</p>
           </article>
         </div>
       </div>
     </section>
+
+    <section class="section buyer-section" id="buyers">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Ценность для руководителя</span>
+          <h2>Что получает собственник или управляющий</h2>
+          <p>iiRest помогает быстрее увидеть, где теряются деньги, и держать закупку под контролем без расширения
+            штата и новой ручной отчетности.</p>
+        </div>
+        <div class="solution-grid">
+          <article class="solution-card">
+            <h3>Меньше переплаты</h3>
+            <p>Сравнивайте цены по нужным позициям и быстрее находите более выгодные варианты закупки.</p>
+          </article>
+          <article class="solution-card">
+            <h3>Больше контроля по поставщикам</h3>
+            <p>Видно, кто реально дает лучшие условия по фактическому заказу, а не только по отдельным строкам прайса.</p>
+          </article>
+          <article class="solution-card">
+            <h3>Понятный эффект в цифрах</h3>
+            <p>Экономия, переплата и динамика цен видны без ручной сводки и без споров о результате.</p>
+          </article>
+          <article class="solution-card">
+            <h3>Меньше зависимости от ручной рутины</h3>
+            <p>Процесс не разваливается, когда закупка держится на одном человеке, Excel и переписке в чатах.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section user-section" id="users">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Ценность для команды</span>
+          <h2>Что получает шеф или закупщик</h2>
+          <p>Скорость и удобство остаются важными, но работают как поддержка главной цели: собирать заказ аккуратно и
+            прозрачно для руководителя.</p>
+        </div>
+        <div class="solution-grid">
+          <article class="solution-card">
+            <h3>Быстрее сбор заказа</h3>
+            <p>Меньше переключений между файлами и меньше повторяющихся действий по каждой закупке.</p>
+          </article>
+          <article class="solution-card">
+            <h3>Меньше ручной сверки</h3>
+            <p>Поставщики и позиции сравниваются в одном интерфейсе, а не вручную строка за строкой.</p>
+          </article>
+          <article class="solution-card">
+            <h3>Меньше ошибок по позициям и фасовкам</h3>
+            <p>Проще заметить расхождения и не потерять нужный товар в похожих названиях и форматах.</p>
+          </article>
+          <article class="solution-card">
+            <h3>Удобнее работать с несколькими поставщиками</h3>
+            <p>Заказ можно собрать в одной корзине и сразу разложить по поставщикам без лишнего хаоса.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="how">
       <div class="container">
         <div class="section-header">
           <span class="eyebrow">Как это работает</span>
-          <h2>Три шага до быстрой и эффективной закупки</h2>
+          <h2>Три шага до более выгодной закупки</h2>
+          <p>Старт не требует тяжелого внедрения: вы берете текущие прайсы и реальный список закупки, а дальше
+            iiRest помогает быстро собрать лучший сценарий.</p>
         </div>
         <div class="steps-grid">
           <article class="step-card">
             <div class="step-head">
               <span class="step-num">1</span>
-              <h3>Загрузите прайсы</h3>
+              <h3>Загрузите прайсы поставщиков</h3>
             </div>
-            <p>Добавьте прайс-листы поставщиков. iirest подготовит данные для корректного сравнения цен.</p>
+            <p>iiRest подготавливает прайсы для корректного сравнения цен.</p>
           </article>
           <article class="step-card">
             <div class="step-head">
               <span class="step-num">2</span>
-              <h3>Соберите закупку</h3>
+              <h3>Соберите заказ по реальному списку</h3>
             </div>
-            <p>Создайте список товаров для закупки, а система подберет оптимальные предложения по каждой позиции.</p>
+            <p>Система помогает подобрать предложения по вашим позициям и собрать корзину по нескольким поставщикам.</p>
           </article>
           <article class="step-card">
             <div class="step-head">
               <span class="step-num">3</span>
-              <h3>Оцените результат</h3>
+              <h3>Оцените эффект</h3>
             </div>
-            <p>Отслеживайте экономию, динамику цен и эффективность закупки в отчетах без ручных таблиц.</p>
+            <p>Сразу видно экономию, переплату, динамику цен и результат закупки в аналитике.</p>
           </article>
         </div>
         <details class="how-features">
           <summary class="how-features-summary">
-            <span class="how-features-title">Функционал сервиса</span>
-            <span class="how-features-note">Разработано профессиональными закупщиками</span>
+            <span class="how-features-title">Что еще есть в iiRest</span>
+            <span class="how-features-note">Матрица, корзина, аналитика, загрузка прайсов и работа по точкам</span>
             <span class="how-features-hint">Посмотреть весь список</span>
           </summary>
           <ul class="how-features-list">
@@ -1711,52 +2113,60 @@
     <section class="section showcase-section" id="visuals">
       <div class="container">
         <div class="section-header">
-          <span class="eyebrow">Визуализация сервиса</span>
-          <h2>Матрица, корзина и аналитика под рукой в удобном интерфейсе</h2>
+          <span class="eyebrow">Аналитика</span>
+          <h2>Экономия не &laquo;на ощущениях&raquo;, а в цифрах</h2>
+          <p>Смотрите динамику цен, экономию и переплату по заказам, поставщикам, закупщикам и точкам. iiRest помогает
+            принимать решения на основе фактов, а не на основе привычки или ручных таблиц.</p>
         </div>
 
-        <div class="slider" data-slider aria-label="Слайдер интерфейсов iirest">
+        <div class="slider" data-slider aria-label="Слайдер интерфейсов iiRest">
           <div class="slider-stage">
             <button class="slider-btn" type="button" data-slider-prev aria-label="Предыдущий слайд">‹</button>
             <div class="slider-viewport">
               <div class="slider-track">
-                <article class="slide" data-slide-name="matrix">
-                  <h3 class="slide-title">Матрица</h3>
-                  <p class="slide-caption">Сравнение цен поставщиков по каждой позиции в единой таблице.</p>
-                  <figure>
-                    <img src="Screenshots/Матрица.png" alt="Экран матрицы сравнения цен поставщиков" width="1070"
-                      height="634" loading="lazy" decoding="async" />
-                  </figure>
-                </article>
-                <article class="slide" data-slide-name="cart">
-                  <h3 class="slide-title">Корзина</h3>
-                  <p class="slide-caption">Консолидация выбранных позиций по поставщикам с возможностью выгрузки списка.</p>
-                  <figure>
-                    <img src="Screenshots/Корзина.png" alt="Экран корзины с итогами заказа" width="1066" height="532"
-                      loading="lazy" decoding="async" />
-                  </figure>
-                </article>
                 <article class="slide" data-slide-name="analytics_cart_mix">
                   <h3 class="slide-title">Аналитика в корзине</h3>
-                  <p class="slide-caption">Соберите корзину и сразу увидите эффект.</p>
-                  <figure>
+                  <p class="slide-caption">По реальному заказу сразу видно, сколько стоит выбранная корзина и где
+                    остается переплата.</p>
+                  <figure role="button" tabindex="0" data-lightbox-trigger aria-label="Открыть скриншот: Аналитика в корзине">
                     <img src="Screenshots/Аналитика Корзина.png" alt="Комбинированный экран аналитики и корзины"
                       width="1065" height="282" loading="lazy" decoding="async" />
                   </figure>
                 </article>
                 <article class="slide" data-slide-name="analytics">
                   <h3 class="slide-title">Аналитика по закупщикам и поставщикам</h3>
-                  <p class="slide-caption">Показатели тендеров, экономии и переплаты по закупщикам и поставщикам.</p>
-                  <figure>
+                  <p class="slide-caption">Сравнивайте эффективность, динамику цен и результат по каждому сценарию
+                    закупки.</p>
+                  <figure role="button" tabindex="0" data-lightbox-trigger
+                    aria-label="Открыть скриншот: Аналитика по закупщикам и поставщикам">
                     <img src="Screenshots/Аналитика2.png" alt="Экран аналитики закупок" width="1156" height="645"
                       loading="lazy" decoding="async" />
                   </figure>
                 </article>
                 <article class="slide" data-slide-name="analytics_summary">
                   <h3 class="slide-title">Аналитика по точкам закупки</h3>
-                  <p class="slide-caption">Сводные показатели результатов закупки.</p>
-                  <figure>
-                    <img src="Screenshots/Аналитика1.png" alt="Сводная аналитика по закупщикам" width="1120" height="403"
+                  <p class="slide-caption">Сводка по ресторанам помогает видеть отклонения и быстрее искать точки
+                    потерь.</p>
+                  <figure role="button" tabindex="0" data-lightbox-trigger
+                    aria-label="Открыть скриншот: Аналитика по точкам закупки">
+                    <img src="Screenshots/Аналитика1.png" alt="Сводная аналитика по закупщикам" width="1120"
+                      height="403" loading="lazy" decoding="async" />
+                  </figure>
+                </article>
+                <article class="slide" data-slide-name="matrix">
+                  <h3 class="slide-title">Матрица</h3>
+                  <p class="slide-caption">Единый экран для сравнения предложений поставщиков по нужным позициям.</p>
+                  <figure role="button" tabindex="0" data-lightbox-trigger aria-label="Открыть скриншот: Матрица">
+                    <img src="Screenshots/Матрица.png" alt="Экран матрицы сравнения цен поставщиков" width="1070"
+                      height="634" loading="lazy" decoding="async" />
+                  </figure>
+                </article>
+                <article class="slide" data-slide-name="cart">
+                  <h3 class="slide-title">Корзина</h3>
+                  <p class="slide-caption">Заказ по нескольким поставщикам собирается без прыжков между файлами и
+                    чатами.</p>
+                  <figure role="button" tabindex="0" data-lightbox-trigger aria-label="Открыть скриншот: Корзина">
+                    <img src="Screenshots/Корзина.png" alt="Экран корзины с итогами заказа" width="1066" height="532"
                       loading="lazy" decoding="async" />
                   </figure>
                 </article>
@@ -1766,13 +2176,31 @@
           </div>
           <div class="slider-controls">
             <div class="slider-dots" aria-label="Индикаторы слайдов">
-              <button class="slider-dot active" type="button" data-slider-dot="0" aria-label="Матрица"></button>
-              <button class="slider-dot" type="button" data-slider-dot="1" aria-label="Корзина"></button>
-              <button class="slider-dot" type="button" data-slider-dot="2" aria-label="Аналитика и корзина"></button>
-              <button class="slider-dot" type="button" data-slider-dot="3" aria-label="Аналитика"></button>
-              <button class="slider-dot" type="button" data-slider-dot="4" aria-label="Аналитика сводка"></button>
+              <button class="slider-dot active" type="button" data-slider-dot="0" aria-label="Аналитика в корзине"></button>
+              <button class="slider-dot" type="button" data-slider-dot="1" aria-label="Аналитика по закупщикам и поставщикам"></button>
+              <button class="slider-dot" type="button" data-slider-dot="2" aria-label="Аналитика по точкам"></button>
+              <button class="slider-dot" type="button" data-slider-dot="3" aria-label="Матрица"></button>
+              <button class="slider-dot" type="button" data-slider-dot="4" aria-label="Корзина"></button>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="difference">
+      <div class="container">
+        <div class="compare-box">
+          <div class="compare-copy">
+            <h2>iiRest — не еще одна таблица</h2>
+            <p>Это рабочий слой между прайсами поставщиков и решением о закупке, где видно цену, сценарий заказа и
+              итоговый эффект в цифрах.</p>
+          </div>
+          <ul class="compare-list">
+            <li>Вместо Excel, чатов и ручной сводки</li>
+            <li>Вместо закупки &laquo;по памяти&raquo;</li>
+            <li>Вместо ощущения &laquo;кажется, переплачиваем&raquo;</li>
+            <li>Вместо споров, почему заказ собран именно так</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -1782,20 +2210,22 @@
         <div class="section-header">
           <span class="eyebrow">Тарифы</span>
           <h2>Выберите уровень автоматизации закупки</h2>
+          <p>Начните с теста на реальной закупке и выберите подходящий формат по масштабу бизнеса и уровню
+            автоматизации.</p>
         </div>
 
         <div class="pricing-grid">
           <article class="pricing-card featured">
             <h3>Базовый</h3>
             <p class="pricing-price">От 1 400 ₽/мес</p>
-            <p class="pricing-note">1 месяц бесплатного демо-доступа</p>
+            <p class="pricing-note">1 месяц бесплатного теста на реальной закупке</p>
             <ul class="pricing-list">
               <li>Автозагрузка прайс-листов</li>
               <li>Умная матрица сравнения</li>
               <li>Базовая аналитика закупок</li>
             </ul>
             <a class="pricing-cta" href="https://app.iirest.ru/register" target="_blank" rel="noopener noreferrer"
-              data-track-goal="cta_pricing_basic">Попробовать бесплатно</a>
+              data-track-goal="cta_pricing_basic">Запустить тест</a>
           </article>
 
           <article class="pricing-card">
@@ -1805,7 +2235,7 @@
             <ul class="pricing-list">
               <li>Расширенная аналитика и отчеты</li>
               <li>Интеграции с кабинетами/API поставщиков</li>
-              <li>Автоматизция сборки и отправки заказа</li>
+              <li>Автоматизация сборки и отправки заказа</li>
             </ul>
             <a class="pricing-cta lavender btn-consult" href="#consult-modal" data-track-goal="cta_pricing_pro">Запросить
               предложение</a>
@@ -1830,33 +2260,37 @@
       <div class="container">
         <div class="section-header">
           <span class="eyebrow">FAQ</span>
-          <h2>Ответы на частые вопросы</h2>
+          <h2>Вопросы перед запуском</h2>
+          <p>Собрали ответы на основные барьеры перед тестом на реальной закупке.</p>
         </div>
 
         <div class="faq-list">
           <details class="faq-item" open>
-            <summary>Как быстро можно начать пользоваться?</summary>
-            <p class="faq-answer">В течение 10 минут: создаете аккаунт, загружаете прайс-листы,
-              формируете список закупки, получаете сравнение цен в матрице и формируете корзину для заказа.</p>
+            <summary>Как быстро можно начать?</summary>
+            <p class="faq-answer">Обычно первый тест можно провести в тот же день: загрузить прайсы, собрать реальный
+              список закупки и увидеть сравнение по поставщикам без долгого внедрения.</p>
           </details>
           <details class="faq-item">
-            <summary>Нужна ли регистрация поставщиков на старте?</summary>
-            <p class="faq-answer">Нет, для старта это не требуется. Вы можете начать работу с файлами прайс-листов.
-              Интеграции с кабинетами поставщиков подключаются отдельно на тарифе Pro.</p>
+            <summary>Что делать, если у поставщиков разные названия товаров?</summary>
+            <p class="faq-answer">iiRest приводит прайсы к сопоставимому виду и помогает подобрать соответствия. Если
+              наименования отличаются сильно, закупщик может быстро уточнить позицию вручную и сохранить корректный
+              вариант для дальнейшей работы.</p>
           </details>
           <details class="faq-item">
-            <summary>Можно ли настроить автоматическое обновление прайс-листов?</summary>
-            <p class="faq-answer">Да, на тарифе Pro, при наличии технической возможности у поставщика.</p>
+            <summary>Нужно ли менять текущий процесс закупки?</summary>
+            <p class="faq-answer">Нет. На старте можно работать с теми прайсами и списками, которые уже есть. iiRest
+              встраивается поверх текущего процесса и постепенно убирает ручную сводку.</p>
           </details>
           <details class="faq-item">
-            <summary>Можно ли настроить автоматическую отправку заказов?</summary>
-            <p class="faq-answer">Да, автоматическая отправка заказов доступна как расширенная опция в тарифах Pro и
-              ТОП.</p>
+            <summary>Можно ли работать с несколькими поставщиками одновременно?</summary>
+            <p class="faq-answer">Да. Сервис позволяет сравнивать предложения нескольких поставщиков в одном окне и
+              собирать корзину по разным поставщикам в рамках одного заказа.</p>
           </details>
           <details class="faq-item">
-            <summary>Какая есть аналитика?</summary>
-            <p class="faq-answer">В базе сервис показывает динамику цен, экономию/переплату, объем закупок и эффективность
-              работы по закупщикам и поставщикам. По запросу можем расширить список аналитики и отчетов</p>
+            <summary>Как считается экономия?</summary>
+            <p class="faq-answer">Система сравнивает выбранную корзину с альтернативными сценариями закупки и
+              показывает, где заказ стал выгоднее, а где остается переплата. Эффект виден по заказу, поставщику,
+              закупщику и точке.</p>
           </details>
         </div>
       </div>
@@ -1865,12 +2299,12 @@
     <section class="cta-section" id="cta">
       <div class="container">
         <div class="cta-box">
-          <h2>Сделайте закупку быстрее и эффективнее</h2>
-          <p>Попробуйте iirest в реальной работе: сравните цены поставщиков, соберите заказ и оцените эффект в
-            аналитике прямо сейчас.</p>
+          <h2>Посмотрите, где вы переплачиваете уже на ближайшей закупке</h2>
+          <p>Возьмите текущий список закупки, загрузите прайсы и проверьте, какую экономию и прозрачность дает iiRest
+            уже на первом сценарии.</p>
           <div class="cta-actions">
             <a class="btn primary" href="https://app.iirest.ru/register" target="_blank" rel="noopener noreferrer"
-              data-track-goal="cta_final_try">Попробовать бесплатно</a>
+              data-track-goal="cta_final_try">Запустить тест</a>
             <button class="btn secondary btn-consult" type="button"
               data-track-goal="cta_final_consult">Получить консультацию</button>
           </div>
@@ -1883,7 +2317,7 @@
         <div class="consult-modal-head">
           <div>
             <h3 id="consult-modal-title">Получить консультацию</h3>
-            <p>Оставьте запрос, и мы свяжемся с вами в ближайшее время.</p>
+            <p>Оставьте запрос, и мы поможем проверить вашу закупку на реальном списке.</p>
           </div>
           <button class="consult-close" type="button" data-consult-close aria-label="Закрыть">×</button>
         </div>
@@ -1901,7 +2335,7 @@
 
           <label class="consult-field">
             <span>Запрос</span>
-            <textarea name="message" placeholder="Опишите задачу или вопрос" required></textarea>
+            <textarea name="message" placeholder="Опишите текущую закупку, задачу или вопрос" required></textarea>
           </label>
 
           <div class="consult-form-actions">
@@ -1911,11 +2345,36 @@
         </form>
       </div>
     </div>
+
+    <div class="lightbox-backdrop" id="image-lightbox" hidden>
+      <div class="lightbox-dialog" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+        <div class="lightbox-head">
+          <div class="lightbox-meta">
+            <h3 class="lightbox-title" id="lightbox-title">Скриншот iiRest</h3>
+            <p class="lightbox-caption" id="lightbox-caption">Откройте изображение крупно и увеличьте его для
+              детального просмотра.</p>
+          </div>
+          <div class="lightbox-actions">
+            <button class="lightbox-action" type="button" data-lightbox-zoom-out aria-label="Уменьшить">−</button>
+            <span class="lightbox-zoom" id="lightbox-zoom-value">1.0x</span>
+            <button class="lightbox-action" type="button" data-lightbox-zoom-in aria-label="Увеличить">+</button>
+            <button class="lightbox-action" type="button" data-lightbox-close aria-label="Закрыть">×</button>
+          </div>
+        </div>
+        <div class="lightbox-view">
+          <div class="lightbox-scroll" id="lightbox-scroll">
+            <div class="lightbox-canvas" id="lightbox-canvas">
+              <img class="lightbox-image" id="lightbox-image" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 
   <footer>
     <div class="container footer-grid">
-      <div class="footer-brand"><strong>iirest</strong> © <span id="year"></span></div>
+      <div class="footer-brand"><strong>iiRest</strong> © <span id="year"></span></div>
       <div class="footer-links">
         <a href="mailto:dkruglov@outlook.com" data-track-goal="contact_email">dkruglov@outlook.com</a>
         <a href="https://t.me/tabascoden" target="_blank" rel="noopener noreferrer"
@@ -1990,7 +2449,7 @@
           threshold: 0.45
         });
 
-        ["pricing", "faq"].forEach(function (id) {
+        ["buyers", "visuals", "pricing", "faq"].forEach(function (id) {
           var node = document.getElementById(id);
           if (node) observer.observe(node);
         });
@@ -2089,7 +2548,7 @@
         }
 
         function openMailFallback(payload) {
-          var subject = encodeURIComponent("Заявка с сайта iirest");
+          var subject = encodeURIComponent("Заявка с сайта iiRest");
           var lines = [
             "Имя: " + (payload.name || "-"),
             "Контакт: " + (payload.contact || "-"),
@@ -2174,6 +2633,208 @@
           });
           submitBtn.disabled = false;
           submitBtn.textContent = "Отправить";
+        });
+      }
+
+      function initImageLightbox() {
+        var lightbox = document.getElementById("image-lightbox");
+        var image = document.getElementById("lightbox-image");
+        var canvas = document.getElementById("lightbox-canvas");
+        var scroll = document.getElementById("lightbox-scroll");
+        var title = document.getElementById("lightbox-title");
+        var caption = document.getElementById("lightbox-caption");
+        var zoomValue = document.getElementById("lightbox-zoom-value");
+        var zoomOutBtn = lightbox ? lightbox.querySelector("[data-lightbox-zoom-out]") : null;
+        var zoomInBtn = lightbox ? lightbox.querySelector("[data-lightbox-zoom-in]") : null;
+        var closeBtn = lightbox ? lightbox.querySelector("[data-lightbox-close]") : null;
+
+        if (!lightbox || !image || !canvas || !scroll || !title || !caption || !zoomValue || !zoomOutBtn || !zoomInBtn || !closeBtn) return;
+
+        var currentTrigger = null;
+        var currentZoom = 1;
+        var maxZoom = 4;
+        var naturalWidth = 0;
+        var naturalHeight = 0;
+        var resizeRaf = null;
+
+        function isOpen() {
+          return !lightbox.hidden;
+        }
+
+        function clampZoom(value) {
+          return Math.max(1, Math.min(maxZoom, Math.round(value * 4) / 4));
+        }
+
+        function triggerFromEvent(event) {
+          if (!(event.target instanceof Element)) return null;
+          return event.target.closest("[data-lightbox-trigger]");
+        }
+
+        function payloadFromTrigger(trigger) {
+          if (!trigger) return null;
+
+          var img = trigger.querySelector("img");
+          if (!img) return null;
+
+          var slide = trigger.closest(".slide");
+          var headline = slide ? slide.querySelector(".slide-title") : null;
+          var copy = slide ? slide.querySelector(".slide-caption") : null;
+
+          return {
+            src: trigger.getAttribute("data-lightbox-src") || img.currentSrc || img.src,
+            alt: img.getAttribute("alt") || "",
+            title: trigger.getAttribute("data-lightbox-title") || (headline ? headline.textContent.trim() : (img.getAttribute("alt") || "Скриншот iiRest")),
+            caption: trigger.getAttribute("data-lightbox-caption") || (copy ? copy.textContent.trim() : "Откройте изображение крупно и увеличьте его для детального просмотра.")
+          };
+        }
+
+        function syncCanvas() {
+          if (!naturalWidth || !naturalHeight) return;
+
+          var availableWidth = Math.max(scroll.clientWidth - 32, 320);
+          var availableHeight = Math.max(scroll.clientHeight - 32, 240);
+          var fitScale = Math.min(availableWidth / naturalWidth, availableHeight / naturalHeight, 1);
+          var renderScale = fitScale * currentZoom;
+
+          canvas.style.width = Math.max(1, Math.round(naturalWidth * renderScale)) + "px";
+          canvas.style.height = Math.max(1, Math.round(naturalHeight * renderScale)) + "px";
+          zoomValue.textContent = currentZoom.toFixed(1) + "x";
+          zoomOutBtn.disabled = currentZoom <= 1;
+          zoomInBtn.disabled = currentZoom >= maxZoom;
+        }
+
+        function setZoom(nextZoom) {
+          var clampedZoom = clampZoom(nextZoom);
+          if (clampedZoom === currentZoom || !naturalWidth || !naturalHeight) return;
+
+          var ratioX = (scroll.scrollLeft + scroll.clientWidth / 2) / Math.max(scroll.scrollWidth, 1);
+          var ratioY = (scroll.scrollTop + scroll.clientHeight / 2) / Math.max(scroll.scrollHeight, 1);
+
+          currentZoom = clampedZoom;
+          syncCanvas();
+
+          window.requestAnimationFrame(function () {
+            scroll.scrollLeft = Math.max(0, scroll.scrollWidth * ratioX - scroll.clientWidth / 2);
+            scroll.scrollTop = Math.max(0, scroll.scrollHeight * ratioY - scroll.clientHeight / 2);
+          });
+        }
+
+        function openLightbox(trigger) {
+          var payload = payloadFromTrigger(trigger);
+          if (!payload) return;
+
+          currentTrigger = trigger;
+          currentZoom = 1;
+          naturalWidth = 0;
+          naturalHeight = 0;
+          title.textContent = payload.title;
+          caption.textContent = payload.caption;
+          image.alt = payload.alt || payload.title;
+          image.removeAttribute("src");
+          canvas.style.width = "";
+          canvas.style.height = "";
+          zoomValue.textContent = "1.0x";
+          zoomOutBtn.disabled = true;
+          zoomInBtn.disabled = false;
+          lightbox.hidden = false;
+          document.body.classList.add("modal-open");
+          image.src = payload.src;
+          closeBtn.focus();
+
+          trackGoal("screenshot_open", {
+            title: payload.title
+          });
+        }
+
+        function closeLightbox() {
+          if (lightbox.hidden) return;
+
+          lightbox.hidden = true;
+          image.removeAttribute("src");
+          canvas.style.width = "";
+          canvas.style.height = "";
+          document.body.classList.remove("modal-open");
+
+          if (currentTrigger && typeof currentTrigger.focus === "function") {
+            currentTrigger.focus();
+          }
+
+          currentTrigger = null;
+        }
+
+        image.addEventListener("load", function () {
+          naturalWidth = image.naturalWidth || 1;
+          naturalHeight = image.naturalHeight || 1;
+          scroll.scrollTop = 0;
+          scroll.scrollLeft = 0;
+          syncCanvas();
+        });
+
+        document.addEventListener("click", function (event) {
+          var trigger = triggerFromEvent(event);
+          if (trigger) {
+            event.preventDefault();
+            openLightbox(trigger);
+          }
+        });
+
+        document.addEventListener("keydown", function (event) {
+          var trigger = event.target instanceof Element ? event.target.closest("[data-lightbox-trigger]") : null;
+
+          if (trigger && (event.key === "Enter" || event.key === " ")) {
+            event.preventDefault();
+            openLightbox(trigger);
+            return;
+          }
+
+          if (!isOpen()) return;
+
+          if (event.key === "Escape") {
+            closeLightbox();
+            return;
+          }
+
+          if (event.key === "+" || event.key === "=") {
+            event.preventDefault();
+            setZoom(currentZoom + 0.25);
+          }
+
+          if (event.key === "-") {
+            event.preventDefault();
+            setZoom(currentZoom - 0.25);
+          }
+        });
+
+        lightbox.addEventListener("click", function (event) {
+          if (event.target === lightbox) {
+            closeLightbox();
+          }
+        });
+
+        zoomInBtn.addEventListener("click", function () {
+          setZoom(currentZoom + 0.25);
+        });
+
+        zoomOutBtn.addEventListener("click", function () {
+          setZoom(currentZoom - 0.25);
+        });
+
+        closeBtn.addEventListener("click", closeLightbox);
+
+        image.addEventListener("dblclick", function (event) {
+          event.preventDefault();
+          setZoom(currentZoom > 1 ? 1 : 2);
+        });
+
+        window.addEventListener("resize", function () {
+          if (!isOpen()) return;
+          if (resizeRaf) {
+            window.cancelAnimationFrame(resizeRaf);
+          }
+          resizeRaf = window.requestAnimationFrame(function () {
+            resizeRaf = null;
+            syncCanvas();
+          });
         });
       }
 
@@ -2466,6 +3127,7 @@
       initSectionViews();
       initFaqAccordion();
       initConsultModal();
+      initImageLightbox();
       initSlider();
     })();
   </script>
