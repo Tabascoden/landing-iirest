@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description"
-    content="Сравнивайте поставщиков по Excel-прайсам и сайтам, собирайте оптимальную корзину и видьте экономию и переплату по закупке ресторана." />
+    content="Сравнивайте поставщиков по Excel-прайсам и актуальным ценам с сайтов, собирайте оптимальную корзину и видите переплату по закупке ресторана." />
   <meta name="theme-color" content="#4f46e5" />
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
   <meta name="googlebot" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
@@ -73,7 +73,7 @@
   <meta property="og:locale" content="ru_RU" />
   <meta property="og:title" content="iiRest — сравнение цен поставщиков для ресторанов" />
   <meta property="og:description"
-    content="Сравнивайте поставщиков по Excel-прайсам и сайтам, собирайте оптимальную корзину и видьте экономию и переплату по закупке ресторана." />
+    content="Сравнивайте поставщиков по Excel-прайсам и актуальным ценам с сайтов, собирайте оптимальную корзину и видите переплату по закупке ресторана." />
   <meta property="og:url" content="https://iirest.ru/" />
   <meta property="og:image" content="https://iirest.ru/hero-dashboard.png" />
   <meta property="og:image:type" content="image/png" />
@@ -81,7 +81,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="iiRest — сравнение цен поставщиков для ресторанов" />
   <meta name="twitter:description"
-    content="Сравнивайте поставщиков по Excel-прайсам и сайтам, собирайте оптимальную корзину и видьте экономию и переплату по закупке ресторана." />
+    content="Сравнивайте поставщиков по Excel-прайсам и актуальным ценам с сайтов, собирайте оптимальную корзину и видите переплату по закупке ресторана." />
   <meta name="twitter:image" content="https://iirest.ru/hero-dashboard.png" />
 
   <title>iiRest — сравнение цен поставщиков для ресторанов</title>
@@ -354,6 +354,11 @@
       min-height: 52px;
     }
 
+    .hero-actions .btn.primary {
+      min-width: 210px;
+      box-shadow: 0 14px 26px rgba(79, 70, 229, 0.3);
+    }
+
     .hero p.hero-note {
       margin: 0;
       color: #708196;
@@ -373,7 +378,7 @@
       display: inline-flex;
       align-items: center;
       min-height: 34px;
-      padding: 7px 12px;
+      padding: 7px 13px;
       border: 1px solid #d4ddff;
       border-radius: 999px;
       background: #fff;
@@ -388,11 +393,11 @@
       width: 100%;
       max-width: 480px;
       justify-self: end;
-      border: 1px solid #dbe2ea;
-      border-radius: 22px;
-      background: linear-gradient(180deg, #ffffff, #f8fbff);
+      border: 1px solid rgba(79, 70, 229, 0.2);
+      border-radius: 24px;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fbff 58%, #fff7ed 100%);
       box-shadow: var(--shadow);
-      padding: 22px;
+      padding: 24px;
     }
 
     .result-card-head {
@@ -424,8 +429,8 @@
       flex: 0 0 auto;
       border-radius: 999px;
       padding: 7px 10px;
-      background: var(--mint);
-      color: var(--primary-dark);
+      background: #fff7ed;
+      color: #9a3412;
       font-size: 12px;
       font-weight: 800;
       white-space: nowrap;
@@ -442,7 +447,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 18px;
-      padding: 13px 14px;
+      padding: 14px 15px;
       border: 1px solid #e2e8f0;
       border-radius: 14px;
       background: #fff;
@@ -461,21 +466,44 @@
       white-space: nowrap;
     }
 
-    .result-row.highlight {
-      border-color: rgba(22, 163, 74, 0.28);
+    .result-row-positive {
+      border-color: rgba(22, 163, 74, 0.22);
       background: #f0fdf4;
     }
 
-    .result-row.warning {
+    .result-row-positive strong {
+      color: var(--success);
+    }
+
+    .result-summary {
+      display: grid;
+      gap: 6px;
+      padding: 18px 16px;
+      border: 1px solid rgba(249, 115, 22, 0.34);
+      border-radius: 16px;
+      background: linear-gradient(180deg, #fff7ed, #fffbeb);
+      box-shadow: 0 12px 22px rgba(249, 115, 22, 0.12);
+    }
+
+    .result-summary span {
+      color: #9a3412;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .result-summary strong {
+      color: var(--warning);
+      font-size: 34px;
+      line-height: 1.02;
+      letter-spacing: -0.02em;
+    }
+
+    .result-row-warning {
       border-color: rgba(249, 115, 22, 0.28);
       background: #fff7ed;
     }
 
-    .result-row.highlight strong {
-      color: var(--success);
-    }
-
-    .result-row.warning strong {
+    .result-row-warning strong {
       color: var(--warning);
     }
 
@@ -514,7 +542,7 @@
     .plugin-section {
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(238, 242, 255, 0.42));
+      background: linear-gradient(180deg, rgba(238, 242, 255, 0.72), rgba(255, 247, 237, 0.5));
     }
 
     .plugin-box {
@@ -523,10 +551,16 @@
       gap: clamp(24px, 4vw, 42px);
       align-items: center;
       padding: clamp(24px, 4vw, 38px);
-      border: 1px solid #d4ddff;
-      border-radius: 24px;
-      background: #fff;
-      box-shadow: var(--shadow);
+      border: 1px solid rgba(79, 70, 229, 0.24);
+      border-radius: 26px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(248, 251, 255, 0.96));
+      box-shadow: 0 24px 52px rgba(79, 70, 229, 0.16);
+    }
+
+    .plugin-eyebrow {
+      background: #fff7ed;
+      color: #9a3412;
+      border: 1px solid rgba(249, 115, 22, 0.2);
     }
 
     .plugin-copy h2 {
@@ -560,35 +594,37 @@
     }
 
     .plugin-point {
-      min-height: 94px;
+      min-height: 86px;
       padding: 14px;
       border: 1px solid #e2e8f0;
       border-radius: 14px;
-      background: #f8fafc;
+      background: #ffffff;
       color: #334155;
       font-size: 14px;
       font-weight: 800;
       line-height: 1.35;
+      box-shadow: 0 8px 14px rgba(15, 23, 42, 0.04);
     }
 
     .plugin-flow {
-      padding: 22px;
-      border: 1px solid #dbe2ea;
-      border-radius: 20px;
-      background: linear-gradient(180deg, #f8fbff, #ffffff);
+      padding: clamp(20px, 3vw, 28px);
+      border: 1px solid rgba(79, 70, 229, 0.18);
+      border-radius: 22px;
+      background: linear-gradient(180deg, #ffffff, #f8fbff);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.92), 0 16px 32px rgba(15, 23, 42, 0.08);
     }
 
     .flow-sources {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
+      gap: 18px;
     }
 
     .flow-node {
       display: grid;
       place-items: center;
-      min-height: 64px;
-      padding: 12px;
+      min-height: 68px;
+      padding: 13px 14px;
       border: 1px solid #dbe2ea;
       border-radius: 14px;
       background: #fff;
@@ -597,6 +633,13 @@
       font-weight: 800;
       line-height: 1.25;
       box-shadow: var(--shadow-sm);
+    }
+
+    .flow-source-web {
+      border-color: rgba(249, 115, 22, 0.32);
+      background: #fff7ed;
+      color: #9a3412;
+      box-shadow: 0 12px 20px rgba(249, 115, 22, 0.11);
     }
 
     .flow-node.accent {
@@ -617,14 +660,56 @@
       color: #9a3412;
     }
 
-    .flow-arrow {
-      display: grid;
-      place-items: center;
-      height: 34px;
-      color: #94a3b8;
-      font-size: 22px;
-      font-weight: 800;
-      line-height: 1;
+    .flow-merge {
+      position: relative;
+      height: 54px;
+    }
+
+    .flow-merge::before,
+    .flow-merge::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: calc(50% - 22px);
+      height: 32px;
+      border-bottom: 2px solid #c7d2fe;
+    }
+
+    .flow-merge::before {
+      left: 24px;
+      border-right: 2px solid #c7d2fe;
+      border-bottom-right-radius: 18px;
+    }
+
+    .flow-merge::after {
+      right: 24px;
+      border-left: 2px solid #c7d2fe;
+      border-bottom-left-radius: 18px;
+    }
+
+    .flow-line {
+      width: 2px;
+      height: 38px;
+      margin: 0 auto;
+      background: linear-gradient(180deg, #c7d2fe, #fbbf24);
+      position: relative;
+    }
+
+    .flow-line::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -2px;
+      width: 9px;
+      height: 9px;
+      border-right: 2px solid #f59e0b;
+      border-bottom: 2px solid #f59e0b;
+      transform: translateX(-50%) rotate(45deg);
+      background: transparent;
+    }
+
+    .flow-mobile-arrow {
+      display: none;
     }
 
     .solution-intro-section {
@@ -725,41 +810,46 @@
       line-height: 1.55;
     }
 
-    .problem-panel {
-      padding: 28px;
-      border-radius: 22px;
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .problem-card {
+      position: relative;
+      min-height: 154px;
+      padding: 20px 18px;
       border: 1px solid #dbe2ea;
+      border-radius: 16px;
       background: linear-gradient(180deg, #ffffff, #f8fbff);
       box-shadow: var(--shadow-sm);
     }
 
-    .problem-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px 22px;
-    }
-
-    .problem-list li {
-      position: relative;
-      padding-left: 28px;
-      color: #334155;
-      font-size: 16px;
-      line-height: 1.55;
-    }
-
-    .problem-list li::before {
+    .problem-card::before {
       content: "";
-      position: absolute;
-      left: 0;
-      top: 10px;
-      width: 10px;
-      height: 10px;
+      display: block;
+      width: 9px;
+      height: 9px;
+      margin-bottom: 14px;
       border-radius: 50%;
-      background: #cbd5e1;
-      box-shadow: 0 0 0 6px rgba(203, 213, 225, 0.34);
+      background: var(--warning);
+      box-shadow: 0 0 0 6px rgba(249, 115, 22, 0.12);
+    }
+
+    .problem-card h3 {
+      margin: 0 0 8px;
+      color: #0f172a;
+      font-family: "Unbounded", sans-serif;
+      font-size: 16px;
+      line-height: 1.24;
+    }
+
+    .problem-card p {
+      margin: 0;
+      color: #334155;
+      font-size: 14px;
+      line-height: 1.45;
     }
 
     .steps-grid {
@@ -992,159 +1082,213 @@
       border-bottom: 1px solid var(--line);
     }
 
-    .slider {
-      position: relative;
-      border-radius: 20px;
+    .product-tabs {
+      border-radius: 22px;
       border: 1px solid #d9e2ef;
       background: #fff;
       box-shadow: var(--shadow);
-      padding: 16px 16px 14px;
+      padding: 16px;
     }
 
-    .slider.is-measuring .slide,
-    .slider.is-measuring .slide-title,
-    .slider.is-measuring .slide-caption {
-      transition: none !important;
+    .product-tab-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+      padding: 6px;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      background: #f8fafc;
     }
 
-    .slider-stage {
+    .product-tab {
+      flex: 1 1 120px;
+      min-height: 42px;
+      border: 1px solid transparent;
+      border-radius: 10px;
+      background: transparent;
+      color: #475569;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .product-tab:hover,
+    .product-tab:focus-visible {
+      color: var(--primary-dark);
+      background: #fff;
+      border-color: #d4ddff;
+    }
+
+    .product-tab:focus-visible {
+      outline: 2px solid #b8c3ff;
+      outline-offset: 2px;
+    }
+
+    .product-tab.active {
+      color: var(--primary-dark);
+      background: #fff;
+      border-color: rgba(79, 70, 229, 0.24);
+      box-shadow: 0 8px 16px rgba(79, 70, 229, 0.1);
+    }
+
+    .product-stage {
       position: relative;
     }
 
-    .slider-viewport {
-      overflow: hidden;
-      border-radius: 16px;
-      touch-action: pan-y;
-    }
-
-    .slider-track {
-      display: flex;
+    .product-panel {
+      display: none;
+      grid-template-columns: minmax(240px, 0.34fr) minmax(0, 0.66fr);
+      gap: 18px;
       align-items: stretch;
-      gap: 16px;
-      transition: transform 1.05s cubic-bezier(0.22, 1, 0.36, 1);
-      will-change: transform;
-      touch-action: pan-y;
     }
 
-    .slide {
-      flex: 0 0 clamp(240px, 74%, 860px);
-      padding: 14px;
-      border-radius: 16px;
+    .product-panel.is-active {
+      display: grid;
+    }
+
+    .product-copy {
+      padding: 22px;
       border: 1px solid #dbe2ea;
-      background: #fff;
-      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
-      transform: scale(0.92);
-      opacity: 0.55;
-      transition: transform 0.45s ease, opacity 0.45s ease, box-shadow 0.45s ease;
+      border-radius: 16px;
+      background: linear-gradient(180deg, #f8fbff, #ffffff);
     }
 
-    .slide.is-active {
-      transform: scale(1);
-      opacity: 1;
-      box-shadow: 0 16px 28px rgba(79, 70, 229, 0.16);
-    }
-
-    .slide-title {
+    .product-title {
       margin: 0 0 10px;
-      font-size: 20px;
       font-family: "Unbounded", sans-serif;
+      font-size: 22px;
       line-height: 1.2;
-      transition: opacity 0.25s ease, transform 0.25s ease;
     }
 
-    .slide-caption {
-      margin: 0 0 14px;
+    .product-caption {
+      margin: 0;
       color: var(--muted);
       font-size: 15px;
-      line-height: 1.5;
-      transition: opacity 0.25s ease, transform 0.25s ease;
+      line-height: 1.55;
     }
 
-    .slide:not(.is-active) .slide-title,
-    .slide:not(.is-active) .slide-caption {
-      opacity: 0;
-      transform: translateY(6px);
-      pointer-events: none;
-      margin-bottom: 0;
-      max-height: 0;
-      overflow: hidden;
-    }
-
-    .slide figure {
-      margin: 0;
-      border-radius: 12px;
+    .product-visual {
+      min-width: 0;
       border: 1px solid #dbe2ea;
-      overflow: hidden;
+      border-radius: 16px;
       background: #fff;
+      overflow: hidden;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+    }
+
+    .product-shot {
+      margin: 0;
+      height: 100%;
       cursor: zoom-in;
     }
 
-    .slide figure img {
+    .product-shot img {
       width: 100%;
+      height: 100%;
+      min-height: 360px;
       display: block;
-      height: auto;
-    }
-
-    .slider-controls {
-      display: flex;
-      justify-content: center;
-      padding: 14px 0 2px;
-    }
-
-    .slider-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 3;
-      width: 42px;
-      height: 42px;
-      border: 1px solid rgba(15, 23, 42, 0.14);
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.94);
-      color: #334155;
-      font-size: 22px;
-      font-weight: 700;
-      line-height: 1;
-      display: grid;
-      place-items: center;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      box-shadow: 0 8px 16px rgba(15, 23, 42, 0.14);
-    }
-
-    .slider-btn[data-slider-prev] {
-      left: 10px;
-    }
-
-    .slider-btn[data-slider-next] {
-      right: 10px;
-    }
-
-    .slider-btn:hover {
-      color: var(--primary);
-      border-color: #a9b9df;
+      object-fit: contain;
       background: #fff;
     }
 
-    .slider-dots {
+    .plugin-mockup {
+      height: 100%;
+      min-height: 360px;
+      padding: 18px;
+      background: linear-gradient(180deg, #f8fbff, #ffffff);
+    }
+
+    .mock-browser {
+      height: 100%;
+      border: 1px solid #dbe2ea;
+      border-radius: 16px;
+      background: #fff;
+      overflow: hidden;
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
+    }
+
+    .mock-browser-bar {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
+      height: 38px;
+      padding: 0 14px;
+      border-bottom: 1px solid #e2e8f0;
+      background: #f8fafc;
     }
 
-    .slider-dot {
-      width: 10px;
-      height: 10px;
-      border: 0;
+    .mock-browser-dot {
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
       background: #cbd5e1;
-      cursor: pointer;
-      transition: transform 0.2s ease, background-color 0.2s ease;
     }
 
-    .slider-dot.active {
-      background: var(--primary);
-      transform: scale(1.12);
+    .mock-browser-url {
+      margin-left: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #fff;
+      color: #64748b;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .mock-content {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 180px;
+      gap: 16px;
+      padding: 18px;
+    }
+
+    .mock-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .mock-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: center;
+      padding: 12px;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      background: #f8fafc;
+      color: #334155;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .mock-row strong {
+      color: #0f172a;
+      font-size: 15px;
+      white-space: nowrap;
+    }
+
+    .mock-plugin-card {
+      align-self: stretch;
+      display: grid;
+      align-content: center;
+      gap: 12px;
+      padding: 16px;
+      border: 1px solid rgba(249, 115, 22, 0.28);
+      border-radius: 14px;
+      background: #fff7ed;
+      color: #9a3412;
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
+    .mock-plugin-card strong {
+      color: #0f172a;
+      font-family: "Unbounded", sans-serif;
+      font-size: 15px;
+      line-height: 1.2;
     }
 
     .pricing-section {
@@ -1600,7 +1744,7 @@
     }
 
     .hero-image:focus-visible,
-    .slide figure:focus-visible,
+    .product-shot:focus-visible,
     .lightbox-action:focus-visible {
       outline: 2px solid #b8c3ff;
       outline-offset: 3px;
@@ -1783,6 +1927,7 @@
 
       .pain-grid,
       .solution-grid,
+      .problem-grid,
       .steps-grid,
       .pricing-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1889,7 +2034,7 @@
         grid-template-columns: 1fr;
       }
 
-      .problem-list {
+      .problem-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1912,6 +2057,49 @@
 
       .flow-sources {
         grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .flow-mobile-arrow {
+        display: block;
+        width: 2px;
+        height: 34px;
+        margin: 0 auto;
+        background: #c7d2fe;
+        position: relative;
+      }
+
+      .flow-mobile-arrow::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: -2px;
+        width: 9px;
+        height: 9px;
+        border-right: 2px solid #c7d2fe;
+        border-bottom: 2px solid #c7d2fe;
+        transform: translateX(-50%) rotate(45deg);
+      }
+
+      .flow-merge {
+        height: 38px;
+      }
+
+      .flow-merge::before,
+      .flow-merge::after {
+        display: none;
+      }
+
+      .flow-merge::before {
+        display: block;
+        left: 50%;
+        top: 0;
+        width: 2px;
+        height: 36px;
+        border: 0;
+        border-radius: 0;
+        background: #c7d2fe;
+        transform: translateX(-50%);
       }
 
       .how-features {
@@ -1934,39 +2122,42 @@
         padding: 72px 0;
       }
 
-      .slider {
+      .product-tabs {
         padding: 12px 10px 12px;
       }
 
-      .slider-track {
-        gap: 10px;
+      .product-tab-list {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        scrollbar-width: thin;
       }
 
-      .slide {
-        flex-basis: 86%;
-        padding: 12px;
+      .product-tab {
+        flex: 0 0 auto;
+        min-width: 126px;
       }
 
-      .slider-btn {
-        width: 38px;
-        height: 38px;
-        font-size: 20px;
+      .product-panel,
+      .product-panel.is-active {
+        grid-template-columns: 1fr;
       }
 
-      .slider-btn[data-slider-prev] {
-        left: 6px;
+      .product-copy {
+        padding: 18px;
       }
 
-      .slider-btn[data-slider-next] {
-        right: 6px;
+      .product-shot img,
+      .plugin-mockup {
+        min-height: 260px;
       }
 
-      .slider-controls {
-        padding-top: 10px;
+      .mock-content {
+        grid-template-columns: 1fr;
       }
 
-      .slider-dots {
-        justify-content: center;
+      .mock-plugin-card {
+        min-height: 120px;
       }
 
       .faq-item summary {
@@ -2037,6 +2228,15 @@
         font-size: 21px;
       }
 
+      .result-summary strong {
+        font-size: 30px;
+      }
+
+      .mock-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
       .cta-actions .btn {
         width: 100%;
       }
@@ -2059,7 +2259,7 @@
       "availability": "https://schema.org/InStock",
       "url": "https://iirest.ru/"
     },
-    "description": "Сравнивайте поставщиков по Excel-прайсам и сайтам, собирайте оптимальную корзину и видьте экономию и переплату по закупке ресторана.",
+    "description": "Сравнивайте поставщиков по Excel-прайсам и актуальным ценам с сайтов, собирайте оптимальную корзину и видите переплату по закупке ресторана.",
     "url": "https://iirest.ru/"
   }
   </script>
@@ -2142,10 +2342,10 @@
       },
       {
         "@type": "Question",
-        "name": "Как считается экономия?",
+        "name": "Как считается переплата?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Система сравнивает выбранную корзину с альтернативными сценариями закупки и показывает, где заказ стал выгоднее, а где остается переплата. Эффект виден по заказу, поставщику, закупщику и точке."
+          "text": "Система сравнивает текущую корзину с оптимальным сценарием закупки и показывает разницу в рублях и процентах. Эффект виден по заказу, поставщику, закупщику и точке."
         }
       }
     ]
@@ -2183,8 +2383,8 @@
         <div class="hero-copy">
           <span class="eyebrow">Для ресторанов, кафе и сетей</span>
           <h1 class="hero-title-full">Вы уверены, что закупаетесь по лучшим ценам?</h1>
-          <p class="hero-lead">iiRest сравнит ваших поставщиков по Excel-прайсам и сайтам, покажет оптимальную корзину,
-            экономию и переплату по реальному заказу.</p>
+          <p class="hero-lead">iiRest сравнит поставщиков по Excel-прайсам и актуальным ценам с сайтов, соберёт
+            оптимальную корзину и покажет, где вы переплачиваете.</p>
           <div class="hero-actions">
             <a class="btn primary" href="https://app.iirest.ru/register" target="_blank" rel="noopener noreferrer"
               data-track-goal="cta_hero_try">Проверить закупку</a>
@@ -2197,38 +2397,38 @@
             <span class="hero-chip">Сайты поставщиков</span>
             <span class="hero-chip">Личные кабинеты</span>
             <span class="hero-chip">Оптимальная корзина</span>
-            <span class="hero-chip">Экономия в рублях</span>
+            <span class="hero-chip">Переплата в рублях</span>
           </div>
         </div>
         <aside class="hero-result-card" aria-label="Пример результата проверки закупки">
           <div class="result-card-head">
             <div>
-              <p class="result-kicker">Проверка закупки</p>
+              <p class="result-kicker">Пример проверки закупки</p>
               <h2>Результат по заказу</h2>
             </div>
-            <span class="result-source">Excel + сайты</span>
+            <span class="result-source">пример расчёта</span>
           </div>
           <div class="result-rows">
             <div class="result-row">
               <span>Текущая корзина</span>
               <strong>184 600 ₽</strong>
             </div>
-            <div class="result-row">
+            <div class="result-row result-row-positive">
               <span>Оптимальная корзина</span>
               <strong>171 900 ₽</strong>
             </div>
-            <div class="result-row highlight">
-              <span>Экономия</span>
+            <div class="result-summary">
+              <span>Найденная переплата</span>
               <strong>12 700 ₽</strong>
             </div>
-            <div class="result-row warning">
-              <span>Переплата</span>
+            <div class="result-row result-row-warning">
+              <span>Переплата к текущей корзине</span>
               <strong>6,8%</strong>
             </div>
           </div>
           <div class="result-footer">
             <span>Excel-прайсы + сайты поставщиков</span>
-            <span class="result-footer-badge">Одна матрица</span>
+            <span class="result-footer-badge">Одна матрица сравнения</span>
           </div>
         </aside>
       </div>
@@ -2238,15 +2438,15 @@
       <div class="container">
         <div class="plugin-box">
           <div class="plugin-copy">
-            <span class="eyebrow">Плагин iiRest</span>
-            <h2>Поставщик не даёт прайс? Всё равно сравним.</h2>
-            <p>Многие поставщики показывают цены только на сайте или в личном кабинете. Обычно такие цены сложно
-              сравнить с Excel-прайсами других поставщиков — они выпадают из нормального контроля.</p>
-            <p>Плагин iiRest подтягивает цены с сайта поставщика, добавляет их в общую матрицу и помогает выбрать
-              оптимальную корзину. После сравнения вы можете сформировать корзины на сайтах выбранных поставщиков.</p>
+            <span class="eyebrow plugin-eyebrow">Уникальная возможность iiRest</span>
+            <h2>Поставщик не даёт Excel-прайс? Всё равно сравним.</h2>
+            <p>Часть поставщиков показывает цены только на сайте или в личном кабинете. Обычно их приходится проверять
+              вручную, поэтому они выпадают из честного сравнения.</p>
+            <p>Плагин iiRest загружает актуальные цены с сайта, передаёт их в матрицу и помогает выбрать оптимальную
+              корзину. После сравнения вы можете сформировать корзины на сайтах выбранных поставщиков.</p>
             <div class="plugin-actions">
               <a class="btn primary" href="https://app.iirest.ru/register" target="_blank" rel="noopener noreferrer"
-                data-track-goal="cta_plugin_try">Сравнить поставщиков без прайсов</a>
+                data-track-goal="cta_plugin_try">Проверить поставщиков без прайсов</a>
             </div>
             <div class="plugin-points" aria-label="Что убирает плагин iiRest">
               <div class="plugin-point">Не переписывайте цены вручную</div>
@@ -2256,15 +2456,16 @@
           </div>
           <div class="plugin-flow" aria-label="Схема работы с Excel-прайсами и сайтами поставщиков">
             <div class="flow-sources">
-              <div class="flow-node">Excel-прайсы</div>
-              <div class="flow-node">Сайты поставщиков</div>
+              <div class="flow-node flow-source">Excel-прайсы</div>
+              <div class="flow-mobile-arrow" aria-hidden="true"></div>
+              <div class="flow-node flow-source flow-source-web">Сайты / личные кабинеты</div>
             </div>
-            <div class="flow-arrow">↓</div>
+            <div class="flow-merge" aria-hidden="true"></div>
             <div class="flow-node accent">Матрица iiRest</div>
-            <div class="flow-arrow">↓</div>
+            <div class="flow-line" aria-hidden="true"></div>
             <div class="flow-node success">Оптимальная корзина</div>
-            <div class="flow-arrow">↓</div>
-            <div class="flow-node order">Корзины на сайтах поставщиков</div>
+            <div class="flow-line" aria-hidden="true"></div>
+            <div class="flow-node order">Корзины у поставщиков</div>
           </div>
         </div>
       </div>
@@ -2275,8 +2476,8 @@
         <div class="section-header">
           <span class="eyebrow">Для кого</span>
           <h2>Для тех, кто закупается у нескольких поставщиков</h2>
-          <p>iiRest особенно полезен, если цены разбросаны по прайсам, сайтам, личным кабинетам и чатам, а закупка
-            всё ещё собирается вручную или по привычке.</p>
+          <p>Для ресторанов, где цены разбросаны по прайсам, сайтам, личным кабинетам и чатам, а заказ всё ещё
+            собирается вручную.</p>
         </div>
         <div class="solution-grid">
           <article class="solution-card">
@@ -2289,7 +2490,7 @@
           </article>
           <article class="solution-card">
             <h3>Закупка по привычке</h3>
-            <p>Команда выбирает поставщика не потому, что он выгоднее, а потому что так быстрее.</p>
+            <p>Поставщика выбирают не по лучшей цене, а потому что так быстрее.</p>
           </article>
           <article class="solution-card">
             <h3>Переплата не видна</h3>
@@ -2303,17 +2504,30 @@
       <div class="container">
         <div class="section-header">
           <span class="eyebrow">Проблема</span>
-          <h2>Где закупка начинает течь</h2>
-          <p>Потери появляются не из-за одной большой ошибки, а из-за ежедневной рутины без прозрачного сравнения.</p>
+          <h2>Где появляется переплата</h2>
+          <p>Переплата возникает не из-за одной большой ошибки, а из ежедневных заказов без прозрачного сравнения цен.</p>
         </div>
-        <div class="problem-panel">
-          <ul class="problem-list">
-            <li>Прайсы лежат в почте, чатах и разных файлах</li>
-            <li>Цены на сайтах поставщиков не попадают в сравнение</li>
-            <li>Заказ собирается по привычке, а не по лучшей цене</li>
-            <li>Excel показывает строки, но не показывает реальную переплату</li>
-            <li>На нескольких точках контроль быстро расползается</li>
-          </ul>
+        <div class="problem-grid">
+          <article class="problem-card">
+            <h3>Прайсы в разных местах</h3>
+            <p>Почта, чаты, Excel и сайты поставщиков.</p>
+          </article>
+          <article class="problem-card">
+            <h3>Цены с сайтов вне сравнения</h3>
+            <p>Их приходится проверять вручную.</p>
+          </article>
+          <article class="problem-card">
+            <h3>Заказ по привычке</h3>
+            <p>Поставщик выбирается не всегда по лучшей цене.</p>
+          </article>
+          <article class="problem-card">
+            <h3>Excel не считает переплату</h3>
+            <p>Строки есть, общей картины нет.</p>
+          </article>
+          <article class="problem-card">
+            <h3>Несколько точек</h3>
+            <p>Контроль цен становится сложнее.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -2323,8 +2537,8 @@
         <div class="section-header">
           <span class="eyebrow">Решение</span>
           <h2>iiRest собирает все цены в одну матрицу</h2>
-          <p>Загрузите Excel-прайсы или подтяните цены с сайтов поставщиков через плагин. iiRest сравнит предложения,
-            покажет лучший сценарий закупки и поможет собрать заказы.</p>
+          <p>Загрузите Excel-прайсы или подтяните цены с сайтов через плагин. iiRest сравнит предложения, соберёт
+            оптимальную корзину и покажет переплату по текущему заказу.</p>
         </div>
         <div class="solution-grid">
           <article class="solution-card">
@@ -2336,8 +2550,8 @@
             <p>Система показывает, у кого выгоднее покупать каждую позицию по реальному заказу.</p>
           </article>
           <article class="solution-card">
-            <h3>Экономия и переплата</h3>
-            <p>Вы сразу видите, где заказ стал выгоднее, а где ресторан всё ещё теряет деньги.</p>
+            <h3>Переплата в цифрах</h3>
+            <p>Вы видите разницу между текущей и оптимальной корзиной: в рублях и процентах.</p>
           </article>
           <article class="solution-card">
             <h3>Корзины у поставщиков</h3>
@@ -2352,7 +2566,7 @@
         <div class="section-header">
           <span class="eyebrow">Как это работает</span>
           <h2>Три шага до выгодной закупки</h2>
-          <p>Начните с текущих поставщиков и реального списка заказа. Ничего не нужно перестраивать на старте.</p>
+          <p>Начните с текущих поставщиков и реального списка заказа. Сначала проверьте переплату, потом меняйте процесс.</p>
         </div>
         <div class="steps-grid">
           <article class="step-card">
@@ -2360,7 +2574,7 @@
               <span class="step-num">1</span>
               <h3>Добавьте цены поставщиков</h3>
             </div>
-            <p>Загрузите Excel-прайсы или подтяните цены с сайтов через плагин iiRest.</p>
+            <p>Загрузите Excel-прайсы или подтяните актуальные цены с сайтов через плагин iiRest.</p>
           </article>
           <article class="step-card">
             <div class="step-head">
@@ -2372,15 +2586,15 @@
           <article class="step-card">
             <div class="step-head">
               <span class="step-num">3</span>
-              <h3>Оформите корзины</h3>
+              <h3>Сформируйте корзины у поставщиков</h3>
             </div>
-            <p>Система разложит заказ по поставщикам, а плагин поможет сформировать корзины на их сайтах.</p>
+            <p>iiRest разложит заказ по поставщикам, а плагин поможет перенести позиции в корзины на их сайтах.</p>
           </article>
         </div>
         <details class="how-features">
           <summary class="how-features-summary">
-            <span class="how-features-title">Что еще есть в iiRest</span>
-            <span class="how-features-note">Сравнение цен, сбор заказа и контроль закупки без длинного списка функций</span>
+            <span class="how-features-title">Что ещё умеет iiRest</span>
+            <span class="how-features-note">Ключевые возможности в одном процессе: сравнить цены, собрать корзину и проконтролировать результат.</span>
             <span class="how-features-hint">Посмотреть весь список</span>
           </summary>
           <div class="feature-groups">
@@ -2420,51 +2634,99 @@
       <div class="container">
         <div class="section-header">
           <span class="eyebrow">Аналитика</span>
-          <h2>Экономия не &laquo;на ощущениях&raquo;, а в цифрах</h2>
-          <p>Смотрите, сколько стоит выбранная корзина, где осталась переплата и какие поставщики реально выгоднее по
-            вашим заказам.</p>
+          <h2>Переплата и экономия — в цифрах</h2>
+          <p>Смотрите стоимость текущей и оптимальной корзины, найденную переплату и поставщиков, которые реально
+            выгоднее по вашим заказам.</p>
         </div>
 
-        <div class="slider" data-slider aria-label="Слайдер интерфейсов iiRest">
-          <div class="slider-stage">
-            <button class="slider-btn" type="button" data-slider-prev aria-label="Предыдущий слайд">‹</button>
-            <div class="slider-viewport">
-              <div class="slider-track">
-                <article class="slide" data-slide-name="analytics_cart_mix">
-                  <h3 class="slide-title">Аналитика</h3>
-                  <p class="slide-caption">Экономия, переплата и динамика цен по заказам, поставщикам, закупщикам и
-                    точкам.</p>
-                  <figure role="button" tabindex="0" data-lightbox-trigger aria-label="Открыть скриншот: Аналитика в корзине">
-                    <img src="Screenshots/Аналитика Корзина.png" alt="Комбинированный экран аналитики и корзины"
-                      width="1065" height="282" loading="lazy" decoding="async" />
-                  </figure>
-                </article>
-                <article class="slide" data-slide-name="matrix">
-                  <h3 class="slide-title">Матрица</h3>
-                  <p class="slide-caption">Все предложения поставщиков в одном окне: Excel-прайсы и цены с сайтов.</p>
-                  <figure role="button" tabindex="0" data-lightbox-trigger aria-label="Открыть скриншот: Матрица">
-                    <img src="Screenshots/Матрица.png" alt="Экран матрицы сравнения цен поставщиков" width="1070"
-                      height="634" loading="lazy" decoding="async" />
-                  </figure>
-                </article>
-                <article class="slide" data-slide-name="cart">
-                  <h3 class="slide-title">Корзина</h3>
-                  <p class="slide-caption">Заказ по нескольким поставщикам без ручной сводки и повторного набора.</p>
-                  <figure role="button" tabindex="0" data-lightbox-trigger aria-label="Открыть скриншот: Корзина">
-                    <img src="Screenshots/Корзина.png" alt="Экран корзины с итогами заказа" width="1066" height="532"
-                      loading="lazy" decoding="async" />
-                  </figure>
-                </article>
-              </div>
-            </div>
-            <button class="slider-btn" type="button" data-slider-next aria-label="Следующий слайд">›</button>
+        <div class="product-tabs" data-product-tabs>
+          <div class="product-tab-list" role="tablist" aria-label="Экраны продукта iiRest">
+            <button class="product-tab active" id="product-tab-matrix" type="button" role="tab" aria-selected="true"
+              aria-controls="product-panel-matrix" data-product-tab="matrix">Матрица</button>
+            <button class="product-tab" id="product-tab-cart" type="button" role="tab" aria-selected="false"
+              aria-controls="product-panel-cart" data-product-tab="cart" tabindex="-1">Корзина</button>
+            <button class="product-tab" id="product-tab-analytics" type="button" role="tab" aria-selected="false"
+              aria-controls="product-panel-analytics" data-product-tab="analytics" tabindex="-1">Аналитика</button>
+            <button class="product-tab" id="product-tab-plugin" type="button" role="tab" aria-selected="false"
+              aria-controls="product-panel-plugin" data-product-tab="plugin" tabindex="-1">Плагин</button>
           </div>
-          <div class="slider-controls">
-            <div class="slider-dots" aria-label="Индикаторы слайдов">
-              <button class="slider-dot active" type="button" data-slider-dot="0" aria-label="Аналитика в корзине"></button>
-              <button class="slider-dot" type="button" data-slider-dot="1" aria-label="Матрица"></button>
-              <button class="slider-dot" type="button" data-slider-dot="2" aria-label="Корзина"></button>
-            </div>
+          <div class="product-stage">
+            <article class="product-panel is-active" id="product-panel-matrix" role="tabpanel"
+              aria-labelledby="product-tab-matrix" data-product-panel="matrix">
+              <div class="product-copy">
+                <h3 class="product-title">Матрица</h3>
+                <p class="product-caption">Все цены в одном окне: Excel-прайсы, сайты поставщиков и личные кабинеты.</p>
+              </div>
+              <div class="product-visual">
+                <figure class="product-shot" role="button" tabindex="0" data-lightbox-trigger
+                  aria-label="Открыть скриншот: Матрица">
+                  <img src="Screenshots/Матрица.png" alt="Экран матрицы сравнения цен поставщиков" width="1070"
+                    height="634" loading="lazy" decoding="async" />
+                </figure>
+              </div>
+            </article>
+            <article class="product-panel" id="product-panel-cart" role="tabpanel" aria-labelledby="product-tab-cart"
+              data-product-panel="cart" hidden>
+              <div class="product-copy">
+                <h3 class="product-title">Корзина</h3>
+                <p class="product-caption">Оптимальный заказ по нескольким поставщикам без ручной сводки.</p>
+              </div>
+              <div class="product-visual">
+                <figure class="product-shot" role="button" tabindex="0" data-lightbox-trigger
+                  aria-label="Открыть скриншот: Корзина">
+                  <img src="Screenshots/Корзина.png" alt="Экран корзины с итогами заказа" width="1066" height="532"
+                    loading="lazy" decoding="async" />
+                </figure>
+              </div>
+            </article>
+            <article class="product-panel" id="product-panel-analytics" role="tabpanel"
+              aria-labelledby="product-tab-analytics" data-product-panel="analytics" hidden>
+              <div class="product-copy">
+                <h3 class="product-title">Аналитика</h3>
+                <p class="product-caption">Переплата, экономия и динамика цен по заказам, поставщикам и точкам.</p>
+              </div>
+              <div class="product-visual">
+                <figure class="product-shot" role="button" tabindex="0" data-lightbox-trigger
+                  aria-label="Открыть скриншот: Аналитика">
+                  <img src="Screenshots/Аналитика Корзина.png" alt="Комбинированный экран аналитики и корзины"
+                    width="1065" height="282" loading="lazy" decoding="async" />
+                </figure>
+              </div>
+            </article>
+            <article class="product-panel" id="product-panel-plugin" role="tabpanel"
+              aria-labelledby="product-tab-plugin" data-product-panel="plugin" hidden>
+              <div class="product-copy">
+                <h3 class="product-title">Плагин</h3>
+                <p class="product-caption">Цены с сайта поставщика попадают в сравнение, а выбранные позиции — в
+                  корзину на сайте.</p>
+              </div>
+              <div class="product-visual">
+                <div class="plugin-mockup" aria-label="Мокап работы плагина iiRest">
+                  <div class="mock-browser">
+                    <div class="mock-browser-bar">
+                      <span class="mock-browser-dot"></span>
+                      <span class="mock-browser-dot"></span>
+                      <span class="mock-browser-dot"></span>
+                      <span class="mock-browser-url">supplier.example/catalog</span>
+                    </div>
+                    <div class="mock-content">
+                      <div class="mock-list">
+                        <div class="mock-row"><span>Томаты сливка 5 кг</span><strong>1 240 ₽</strong></div>
+                        <div class="mock-row"><span>Моцарелла 1 кг</span><strong>690 ₽</strong></div>
+                        <div class="mock-row"><span>Мука пшеничная 25 кг</span><strong>1 180 ₽</strong></div>
+                        <div class="mock-row"><span>Масло оливковое 5 л</span><strong>4 760 ₽</strong></div>
+                      </div>
+                      <div class="mock-plugin-card">
+                        <strong>Плагин iiRest</strong>
+                        <span>4 позиции найдены на сайте</span>
+                        <span>Цены переданы в матрицу</span>
+                        <span>Корзина готова к переносу</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
           </div>
         </div>
       </div>
@@ -2474,15 +2736,15 @@
       <div class="container">
         <div class="compare-box">
           <div class="compare-copy">
-            <h2>iiRest — не еще одна таблица</h2>
-            <p>Это рабочий слой между Excel-прайсами, сайтами поставщиков и решением о закупке, где видно цену,
-              сценарий заказа и итоговый эффект в цифрах.</p>
+            <h2>iiRest — не ещё одна таблица</h2>
+            <p>iiRest соединяет Excel-прайсы, сайты поставщиков и реальный заказ. В одном окне видно, где дешевле, что
+              покупать и сколько вы переплачиваете.</p>
           </div>
           <ul class="compare-list">
-            <li>Вместо Excel, чатов и ручной сводки</li>
-            <li>Вместо закупки &laquo;по памяти&raquo;</li>
-            <li>Вместо ощущения &laquo;кажется, переплачиваем&raquo;</li>
-            <li>Вместо споров, почему заказ собран именно так</li>
+            <li>Вместо ручной сводки в Excel</li>
+            <li>Вместо закупки по привычке</li>
+            <li>Вместо догадок — переплата в рублях</li>
+            <li>Вместо споров — понятный расчёт по заказу</li>
           </ul>
         </div>
       </div>
@@ -2580,10 +2842,9 @@
               собирать корзину по разным поставщикам в рамках одного заказа.</p>
           </details>
           <details class="faq-item">
-            <summary>Как считается экономия?</summary>
-            <p class="faq-answer">Система сравнивает выбранную корзину с альтернативными сценариями закупки и
-              показывает, где заказ стал выгоднее, а где остается переплата. Эффект виден по заказу, поставщику,
-              закупщику и точке.</p>
+            <summary>Как считается переплата?</summary>
+            <p class="faq-answer">Система сравнивает текущую корзину с оптимальным сценарием закупки и показывает
+              разницу в рублях и процентах. Эффект виден по заказу, поставщику, закупщику и точке.</p>
           </details>
         </div>
       </div>
@@ -2594,7 +2855,7 @@
         <div class="cta-box">
           <h2>Проверьте, где вы переплачиваете уже на ближайшей закупке</h2>
           <p>Возьмите текущий список заказа. Загрузите Excel-прайсы или подтяните цены с сайтов поставщиков через
-            плагин iiRest. Мы покажем, какая корзина выгоднее и где ресторан теряет деньги.</p>
+            плагин iiRest. Мы сравним варианты и покажем найденную переплату в рублях.</p>
           <div class="cta-actions">
             <a class="btn primary" href="https://app.iirest.ru/register" target="_blank" rel="noopener noreferrer"
               data-track-goal="cta_final_try">Проверить закупку</a>
@@ -2969,9 +3230,9 @@
           var img = trigger.querySelector("img");
           if (!img) return null;
 
-          var slide = trigger.closest(".slide");
-          var headline = slide ? slide.querySelector(".slide-title") : null;
-          var copy = slide ? slide.querySelector(".slide-caption") : null;
+          var productPanel = trigger.closest(".product-panel");
+          var headline = productPanel ? productPanel.querySelector(".product-title") : null;
+          var copy = productPanel ? productPanel.querySelector(".product-caption") : null;
 
           return {
             src: trigger.getAttribute("data-lightbox-src") || img.currentSrc || img.src,
@@ -3131,288 +3392,50 @@
         });
       }
 
-      function initSlider() {
-        var slider = document.querySelector("[data-slider]");
-        if (!slider) return;
+      function initProductTabs() {
+        var root = document.querySelector("[data-product-tabs]");
+        if (!root) return;
 
-        var viewport = slider.querySelector(".slider-viewport");
-        var track = slider.querySelector(".slider-track");
-        var dots = Array.prototype.slice.call(slider.querySelectorAll("[data-slider-dot]"));
-        var prev = slider.querySelector("[data-slider-prev]");
-        var next = slider.querySelector("[data-slider-next]");
+        var tabs = Array.prototype.slice.call(root.querySelectorAll("[data-product-tab]"));
+        var panels = Array.prototype.slice.call(root.querySelectorAll("[data-product-panel]"));
+        if (tabs.length === 0 || panels.length === 0) return;
 
-        if (!viewport || !track) return;
-
-        var realSlides = Array.prototype.slice.call(track.querySelectorAll(".slide"));
-        if (realSlides.length === 0) return;
-
-        var total = realSlides.length;
-        var firstClone = realSlides[0].cloneNode(true);
-        var lastClone = realSlides[total - 1].cloneNode(true);
-
-        firstClone.setAttribute("aria-hidden", "true");
-        lastClone.setAttribute("aria-hidden", "true");
-        firstClone.setAttribute("data-slide-clone", "first");
-        lastClone.setAttribute("data-slide-clone", "last");
-
-        track.insertBefore(lastClone, realSlides[0]);
-        track.appendChild(firstClone);
-
-        var slides = Array.prototype.slice.call(track.querySelectorAll(".slide"));
-        var current = 1;
-        var timer = null;
-        var intervalMs = 4200;
-        var touchStartX = 0;
-        var touchStartY = 0;
-        var touchLastX = 0;
-        var activePointerId = null;
-        var touchActive = false;
-        var isTransitioning = false;
-        var transitionFallbackTimer = null;
-        var resizeRaf = null;
-        var isMeasuring = false;
-        var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-        function getLogicalIndex(index) {
-          if (index === 0) return total - 1;
-          if (index === total + 1) return 0;
-          return index - 1;
-        }
-
-        function getOffset(index) {
-          var slide = slides[index];
-          if (!slide) return 0;
-          return slide.offsetLeft - (viewport.clientWidth - slide.clientWidth) / 2;
-        }
-
-        function updateState() {
-          var logicalIndex = getLogicalIndex(current);
-
-          slides.forEach(function (slide, idx) {
-            slide.classList.toggle("is-active", idx === current);
+        function setActive(name, shouldTrack) {
+          tabs.forEach(function (tab) {
+            var isActive = tab.getAttribute("data-product-tab") === name;
+            tab.classList.toggle("active", isActive);
+            tab.setAttribute("aria-selected", isActive ? "true" : "false");
+            tab.tabIndex = isActive ? 0 : -1;
           });
 
-          dots.forEach(function (dot, idx) {
-            dot.classList.toggle("active", idx === logicalIndex);
+          panels.forEach(function (panel) {
+            var isActive = panel.getAttribute("data-product-panel") === name;
+            panel.classList.toggle("is-active", isActive);
+            panel.hidden = !isActive;
           });
-        }
 
-        function render(animate) {
-          track.style.transition = animate === false
-            ? "none"
-            : "transform 1.05s cubic-bezier(0.22, 1, 0.36, 1)";
-          track.style.transform = "translate3d(-" + getOffset(current) + "px, 0, 0)";
-          updateState();
-        }
-
-        function syncViewportMinHeight() {
-          if (isMeasuring) return;
-          isMeasuring = true;
-
-          var savedCurrent = current;
-          var maxHeight = 0;
-
-          slider.classList.add("is-measuring");
-
-          for (var index = 1; index <= total; index += 1) {
-            current = index;
-            updateState();
-            var height = Math.ceil(track.getBoundingClientRect().height);
-            if (height > maxHeight) {
-              maxHeight = height;
-            }
-          }
-
-          current = savedCurrent;
-          updateState();
-          slider.classList.remove("is-measuring");
-
-          if (maxHeight > 0) {
-            viewport.style.minHeight = maxHeight + "px";
-          }
-
-          isMeasuring = false;
-        }
-
-        function currentSlideName() {
-          var logicalIndex = getLogicalIndex(current);
-          var slide = realSlides[logicalIndex];
-          return slide ? slide.getAttribute("data-slide-name") : "unknown";
-        }
-
-        function clearTransitionFallback() {
-          if (!transitionFallbackTimer) return;
-          window.clearTimeout(transitionFallbackTimer);
-          transitionFallbackTimer = null;
-        }
-
-        function finishTransition() {
-          clearTransitionFallback();
-          isTransitioning = false;
-
-          if (current === 0) {
-            current = total;
-            render(false);
-          } else if (current === total + 1) {
-            current = 1;
-            render(false);
-          }
-        }
-
-        function goTo(index, reason) {
-          if (isTransitioning) return;
-          current = index;
-          isTransitioning = true;
-          render(true);
-          clearTransitionFallback();
-          transitionFallbackTimer = window.setTimeout(function () {
-            if (!isTransitioning) return;
-            finishTransition();
-          }, 1300);
-
-          if (reason) {
-            trackGoal("slider_interaction", {
-              action: reason,
-              slide: currentSlideName()
+          if (shouldTrack) {
+            trackGoal("product_tab_click", {
+              tab: name
             });
           }
         }
 
-        function startAuto() {
-          if (reduceMotion) return;
-          stopAuto();
-          timer = window.setInterval(function () {
-            if (isTransitioning) return;
-            goTo(current + 1);
-          }, intervalMs);
-        }
-
-        function stopAuto() {
-          if (!timer) return;
-          window.clearInterval(timer);
-          timer = null;
-        }
-
-        if (prev) {
-          prev.addEventListener("click", function () {
-            goTo(current - 1, "prev");
+        tabs.forEach(function (tab, index) {
+          tab.addEventListener("click", function () {
+            setActive(tab.getAttribute("data-product-tab"), true);
           });
-        }
 
-        if (next) {
-          next.addEventListener("click", function () {
-            goTo(current + 1, "next");
-          });
-        }
-
-        dots.forEach(function (dot) {
-          dot.addEventListener("click", function () {
-            var index = Number(dot.getAttribute("data-slider-dot"));
-            if (Number.isNaN(index)) return;
-            goTo(index + 1, "dot");
+          tab.addEventListener("keydown", function (event) {
+            if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return;
+            event.preventDefault();
+            var direction = event.key === "ArrowRight" ? 1 : -1;
+            var nextIndex = (index + direction + tabs.length) % tabs.length;
+            var nextTab = tabs[nextIndex];
+            setActive(nextTab.getAttribute("data-product-tab"), true);
+            nextTab.focus();
           });
         });
-
-        track.addEventListener("transitionend", function (event) {
-          if (event.target !== track) return;
-          if (event.propertyName !== "transform" && event.propertyName !== "-webkit-transform") return;
-          finishTransition();
-        });
-
-        viewport.addEventListener("pointerdown", function (event) {
-          if (event.pointerType === "mouse") return;
-          touchActive = true;
-          activePointerId = event.pointerId;
-          touchStartX = event.clientX;
-          touchLastX = event.clientX;
-          touchStartY = event.clientY;
-          if (typeof viewport.setPointerCapture === "function") {
-            try {
-              viewport.setPointerCapture(event.pointerId);
-            } catch (_err) { }
-          }
-          stopAuto();
-        });
-
-        viewport.addEventListener("pointermove", function (event) {
-          if (!touchActive || event.pointerId !== activePointerId) return;
-          touchLastX = event.clientX;
-        });
-
-        viewport.addEventListener("pointerup", function (event) {
-          if (!touchActive || event.pointerId !== activePointerId) return;
-          touchActive = false;
-          activePointerId = null;
-          if (typeof viewport.releasePointerCapture === "function") {
-            try {
-              if (typeof viewport.hasPointerCapture !== "function" || viewport.hasPointerCapture(event.pointerId)) {
-                viewport.releasePointerCapture(event.pointerId);
-              }
-            } catch (_err) { }
-          }
-          var diffX = touchLastX - touchStartX;
-          var diffY = event.clientY - touchStartY;
-          if (Math.abs(diffX) >= 45 && Math.abs(diffX) > Math.abs(diffY) && !isTransitioning) {
-            if (diffX < 0) {
-              goTo(current + 1, "swipe_left");
-            } else {
-              goTo(current - 1, "swipe_right");
-            }
-          }
-          startAuto();
-        });
-
-        viewport.addEventListener("pointercancel", function (event) {
-          if (activePointerId !== null && event.pointerId !== activePointerId) return;
-          touchActive = false;
-          activePointerId = null;
-          startAuto();
-        });
-
-        slider.addEventListener("pointerleave", function () {
-          if (!touchActive) return;
-          touchActive = false;
-          activePointerId = null;
-          startAuto();
-        });
-
-        window.addEventListener("resize", function () {
-          if (resizeRaf) window.cancelAnimationFrame(resizeRaf);
-          resizeRaf = window.requestAnimationFrame(function () {
-            touchActive = false;
-            activePointerId = null;
-            clearTransitionFallback();
-            isTransitioning = false;
-            syncViewportMinHeight();
-            render(false);
-          });
-        });
-
-        realSlides.forEach(function (slide) {
-          var image = slide.querySelector("img");
-          if (!image || image.complete) return;
-          image.addEventListener("load", function () {
-            syncViewportMinHeight();
-            render(false);
-          });
-        });
-
-        slider.addEventListener("mouseenter", stopAuto);
-        slider.addEventListener("mouseleave", startAuto);
-        slider.addEventListener("focusin", stopAuto);
-        slider.addEventListener("focusout", startAuto);
-
-        if (reduceMotion) {
-          intervalMs = 6500;
-        }
-
-        syncViewportMinHeight();
-        render(false);
-        if (!reduceMotion) {
-          startAuto();
-        } else {
-          stopAuto();
-        }
       }
 
       document.getElementById("year").textContent = new Date().getFullYear();
@@ -3421,7 +3444,7 @@
       initFaqAccordion();
       initConsultModal();
       initImageLightbox();
-      initSlider();
+      initProductTabs();
     })();
   </script>
 </body>
