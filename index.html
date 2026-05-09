@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description"
-    content="Сравнивайте поставщиков по Excel-прайсам и сайтам, собирайте оптимальную корзину и видьте экономию и переплату по закупке ресторана." />
+    content="Сравнивайте поставщиков по ценам из Excel, сайтов и личных кабинетов, собирайте оптимальную корзину и находите переплату в рублях." />
   <meta name="theme-color" content="#4f46e5" />
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
   <meta name="googlebot" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
@@ -21,14 +21,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload"
-    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@400;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Geologica:wght@500;600;700;800&family=Golos+Text:wght@400;500;600;700;800&display=swap"
     as="style" />
   <link
-    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@400;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Geologica:wght@500;600;700;800&family=Golos+Text:wght@400;500;600;700;800&display=swap"
     rel="stylesheet" media="print" onload="this.media='all'" />
   <noscript>
     <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Geologica:wght@500;600;700;800&family=Golos+Text:wght@400;500;600;700;800&display=swap"
       rel="stylesheet" />
   </noscript>
 
@@ -73,7 +73,7 @@
   <meta property="og:locale" content="ru_RU" />
   <meta property="og:title" content="iiRest — сравнение цен поставщиков для ресторанов" />
   <meta property="og:description"
-    content="Сравнивайте поставщиков по Excel-прайсам и сайтам, собирайте оптимальную корзину и видьте экономию и переплату по закупке ресторана." />
+    content="Сравнивайте поставщиков по ценам из Excel, сайтов и личных кабинетов, собирайте оптимальную корзину и находите переплату в рублях." />
   <meta property="og:url" content="https://iirest.ru/" />
   <meta property="og:image" content="https://iirest.ru/hero-dashboard.png" />
   <meta property="og:image:type" content="image/png" />
@@ -81,13 +81,15 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="iiRest — сравнение цен поставщиков для ресторанов" />
   <meta name="twitter:description"
-    content="Сравнивайте поставщиков по Excel-прайсам и сайтам, собирайте оптимальную корзину и видьте экономию и переплату по закупке ресторана." />
+    content="Сравнивайте поставщиков по ценам из Excel, сайтов и личных кабинетов, собирайте оптимальную корзину и находите переплату в рублях." />
   <meta name="twitter:image" content="https://iirest.ru/hero-dashboard.png" />
 
   <title>iiRest — сравнение цен поставщиков для ресторанов</title>
 
   <style>
     :root {
+      --font-display: "Geologica", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-text: "Golos Text", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       --paper: #f8fafc;
       --paper-accent: #eef2ff;
       --cream: #ffffff;
@@ -99,8 +101,15 @@
       --mint: #e0e7ff;
       --soft-green: #dcfce7;
       --success: #16a34a;
-      --warning: #f97316;
+      --warning: #dc2626;
       --danger: #dc2626;
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --border-soft: #e5eaf2;
+      --bg-soft: #f7f9fc;
+      --text-main: #111827;
+      --text-muted: #667085;
+      --accent: var(--primary);
       --shadow-sm: 0 4px 10px rgba(15, 23, 42, 0.07);
       --shadow: 0 20px 44px rgba(79, 70, 229, 0.14);
       --radius: 22px;
@@ -123,14 +132,15 @@
     body {
       margin: 0;
       color: var(--ink);
-      font-family: "Manrope", sans-serif;
-      line-height: 1.62;
+      font-family: var(--font-text);
+      font-size: 16.5px;
+      line-height: 1.58;
+      font-weight: 400;
+      letter-spacing: -0.005em;
       text-rendering: optimizeLegibility;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
-      background: radial-gradient(circle at 0% 10%, rgba(79, 70, 229, 0.12), transparent 22%),
-        radial-gradient(circle at 100% 0%, rgba(99, 102, 241, 0.1), transparent 20%),
-        var(--paper);
+      background: var(--paper);
     }
 
     a {
@@ -144,6 +154,59 @@
       height: auto;
     }
 
+    h1,
+    h2,
+    h3,
+    .hero-title-full,
+    .section-header h2,
+    .plugin-copy h2,
+    .btn,
+    .hero-chip,
+    .result-row strong,
+    .result-summary strong,
+    .price,
+    .metric-value {
+      hyphens: none;
+      word-break: normal;
+      overflow-wrap: normal;
+    }
+
+    h1,
+    h2,
+    .hero-title-full,
+    .section-header h2,
+    .plugin-copy h2 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      letter-spacing: -0.045em;
+      text-wrap: balance;
+    }
+
+    p,
+    li,
+    .faq-answer {
+      hyphens: none;
+      overflow-wrap: normal;
+      word-break: normal;
+    }
+
+    .long-url,
+    .code-like,
+    .email {
+      overflow-wrap: anywhere;
+    }
+
+    .metric-value,
+    .result-summary strong,
+    .price,
+    .pricing-price,
+    .mini-price,
+    td,
+    th {
+      font-variant-numeric: tabular-nums;
+      font-feature-settings: "tnum" 1, "lnum" 1;
+    }
+
     .container {
       max-width: var(--max);
       margin: 0 auto;
@@ -151,7 +214,7 @@
     }
 
     .section {
-      padding: 86px 0;
+      padding: 96px 0;
     }
 
     .section-header {
@@ -162,10 +225,11 @@
 
     .section-header h2 {
       margin: 0 0 14px;
-      font-family: "Unbounded", sans-serif;
-      font-size: clamp(28px, 3.3vw, 42px);
-      line-height: 1.17;
-      letter-spacing: -0.02em;
+      font-size: clamp(30px, 3.1vw, 44px);
+      line-height: 1.1;
+      max-width: 780px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .section-header p {
@@ -174,8 +238,8 @@
       margin-left: auto;
       margin-right: auto;
       color: var(--muted);
-      font-size: clamp(16px, 1.7vw, 19px);
-      line-height: 1.55;
+      font-size: clamp(16px, 1.45vw, 18px);
+      line-height: 1.56;
     }
 
     .eyebrow {
@@ -186,8 +250,9 @@
       background: var(--mint);
       color: var(--primary-dark);
       font-size: 12px;
+      line-height: 1.2;
       font-weight: 700;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
     }
 
@@ -198,8 +263,10 @@
       gap: 8px;
       border-radius: 12px;
       padding: 14px 24px;
-      font-size: 16px;
+      font-size: 15px;
+      line-height: 1.2;
       font-weight: 700;
+      white-space: nowrap;
       cursor: pointer;
       transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
     }
@@ -249,7 +316,7 @@
       align-items: center;
       gap: 10px;
       white-space: nowrap;
-      font-family: "Unbounded", sans-serif;
+      font-family: var(--font-display);
       font-size: 18px;
       font-weight: 700;
       letter-spacing: -0.02em;
@@ -260,7 +327,7 @@
       padding-left: 8px;
       border-left: 1px solid var(--line);
       color: #617284;
-      font-family: "Manrope", sans-serif;
+      font-family: var(--font-text);
       font-size: 13px;
       font-weight: 600;
       letter-spacing: 0;
@@ -270,9 +337,10 @@
     .menu {
       display: flex;
       align-items: center;
-      gap: 26px;
-      font-size: 15px;
-      font-weight: 700;
+      gap: clamp(14px, 2vw, 26px);
+      font-family: var(--font-text);
+      font-size: 14.5px;
+      font-weight: 600;
       color: #526176;
     }
 
@@ -290,6 +358,7 @@
     .nav-actions .btn {
       padding: 10px 14px;
       font-size: 14px;
+      font-weight: 700;
       border-radius: 10px;
       white-space: nowrap;
     }
@@ -304,8 +373,8 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.04fr) minmax(360px, 0.96fr);
-      gap: clamp(28px, 5vw, 56px);
+      grid-template-columns: minmax(0, 1fr) minmax(340px, 360px);
+      gap: clamp(28px, 3.4vw, 36px);
       align-items: center;
     }
 
@@ -315,22 +384,29 @@
 
     .hero-title-full {
       margin: 16px 0 0;
-      font-family: "Unbounded", sans-serif;
-      font-size: clamp(32px, 4.3vw, 50px);
-      line-height: 1.1;
-      letter-spacing: -0.028em;
+      max-width: 780px;
+      font-size: clamp(40px, 3.4vw, 44px);
+      line-height: 1.06;
       background: linear-gradient(130deg, #0f172a 15%, #4338ca 95%);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
+    @media (min-width: 768px) {
+      .hero-title-nowrap {
+        white-space: nowrap;
+      }
+    }
+
     .hero p.hero-lead {
       margin: 20px 0 0;
-      max-width: 660px;
+      max-width: 640px;
       color: #526176;
-      font-size: clamp(17px, 1.8vw, 21px);
-      line-height: 1.55;
+      font-family: var(--font-text);
+      font-size: clamp(17px, 1.55vw, 20px);
+      font-weight: 400;
+      line-height: 1.48;
     }
 
     .hero p {
@@ -354,11 +430,16 @@
       min-height: 52px;
     }
 
+    .hero-actions .btn.primary {
+      min-width: 210px;
+      box-shadow: 0 14px 26px rgba(79, 70, 229, 0.3);
+    }
+
     .hero p.hero-note {
       margin: 0;
       color: #708196;
       font-size: 14px;
-      font-weight: 700;
+      font-weight: 600;
     }
 
     .hero-chips {
@@ -373,7 +454,7 @@
       display: inline-flex;
       align-items: center;
       min-height: 34px;
-      padding: 7px 12px;
+      padding: 7px 13px;
       border: 1px solid #d4ddff;
       border-radius: 999px;
       background: #fff;
@@ -386,54 +467,34 @@
 
     .hero-result-card {
       width: 100%;
-      max-width: 480px;
+      max-width: 420px;
       justify-self: end;
-      border: 1px solid #dbe2ea;
-      border-radius: 22px;
-      background: linear-gradient(180deg, #ffffff, #f8fbff);
-      box-shadow: var(--shadow);
-      padding: 22px;
+      border: 1px solid rgba(79, 70, 229, 0.2);
+      border-radius: var(--radius-lg);
+      background: #fff;
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+      padding: 26px;
     }
 
     .result-card-head {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 16px;
-      padding-bottom: 16px;
+      padding-bottom: 14px;
       border-bottom: 1px solid #e2e8f0;
     }
 
     .result-kicker {
-      margin: 0 0 5px;
-      color: #64748b;
+      margin: 0;
+      color: #334155;
+      font-family: var(--font-text);
       font-size: 12px;
-      font-weight: 800;
+      line-height: 1.2;
+      font-weight: 700;
       letter-spacing: 0.04em;
       text-transform: uppercase;
     }
 
-    .result-card-head h2 {
-      margin: 0;
-      font-family: "Unbounded", sans-serif;
-      font-size: 24px;
-      line-height: 1.18;
-    }
-
-    .result-source {
-      flex: 0 0 auto;
-      border-radius: 999px;
-      padding: 7px 10px;
-      background: var(--mint);
-      color: var(--primary-dark);
-      font-size: 12px;
-      font-weight: 800;
-      white-space: nowrap;
-    }
-
     .result-rows {
       display: grid;
-      gap: 10px;
+      gap: 12px;
       margin: 18px 0;
     }
 
@@ -442,7 +503,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 18px;
-      padding: 13px 14px;
+      padding: 13px 15px;
       border: 1px solid #e2e8f0;
       border-radius: 14px;
       background: #fff;
@@ -450,54 +511,93 @@
 
     .result-row span {
       color: #64748b;
-      font-size: 14px;
-      font-weight: 700;
+      font-size: 13px;
+      line-height: 1.3;
+      font-weight: 600;
     }
 
     .result-row strong {
       color: #0f172a;
-      font-size: 22px;
-      line-height: 1.05;
+      font-family: var(--font-text);
+      font-size: 18px;
+      line-height: 1.15;
+      font-weight: 700;
       white-space: nowrap;
     }
 
-    .result-row.highlight {
-      border-color: rgba(22, 163, 74, 0.28);
+    .result-row-positive {
+      border-color: rgba(22, 163, 74, 0.22);
       background: #f0fdf4;
     }
 
-    .result-row.warning {
-      border-color: rgba(249, 115, 22, 0.28);
-      background: #fff7ed;
-    }
-
-    .result-row.highlight strong {
+    .result-row-positive strong {
       color: var(--success);
     }
 
-    .result-row.warning strong {
+    .result-summary {
+      display: grid;
+      gap: 7px;
+      padding: 22px 18px;
+      border: 1px solid rgba(220, 38, 38, 0.28);
+      border-radius: var(--radius-md);
+      background: #fef2f2;
+      box-shadow: 0 12px 22px rgba(220, 38, 38, 0.1);
+    }
+
+    .result-summary span {
+      color: #991b1b;
+      font-family: var(--font-text);
+      font-size: 14px;
+      line-height: 1.25;
+      font-weight: 700;
+      text-transform: lowercase;
+    }
+
+    .result-summary strong {
+      color: var(--warning);
+      font-family: var(--font-display);
+      font-size: clamp(42px, 4vw, 56px);
+      line-height: 0.98;
+      font-weight: 700;
+      letter-spacing: -0.045em;
+      white-space: nowrap;
+    }
+
+    .result-percent {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      border: 1px solid rgba(220, 38, 38, 0.2);
+      border-radius: 14px;
+      border-color: rgba(220, 38, 38, 0.22);
+      background: #fef2f2;
+      color: var(--warning);
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.3;
+      text-align: center;
+    }
+
+    .result-row-warning strong,
+    .result-percent strong {
       color: var(--warning);
     }
 
     .result-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
+      display: grid;
+      gap: 5px;
       padding-top: 16px;
       border-top: 1px solid #e2e8f0;
       color: #475569;
-      font-size: 13px;
-      font-weight: 800;
+      font-size: 12.5px;
+      font-weight: 600;
       line-height: 1.35;
     }
 
-    .result-footer-badge {
-      border-radius: 999px;
-      padding: 6px 10px;
-      background: #eef2ff;
-      color: var(--primary-dark);
-      white-space: nowrap;
+    .result-footer strong {
+      color: #475569;
+      font-weight: 600;
     }
 
     .hero-image {
@@ -514,34 +614,44 @@
     .plugin-section {
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(238, 242, 255, 0.42));
+      background: linear-gradient(180deg, #eef2ff 0%, #f7f9fc 100%);
     }
 
     .plugin-box {
       display: grid;
-      grid-template-columns: minmax(0, 0.95fr) minmax(360px, 1.05fr);
-      gap: clamp(24px, 4vw, 42px);
+      grid-template-columns: 1fr;
+      gap: clamp(26px, 4vw, 38px);
       align-items: center;
       padding: clamp(24px, 4vw, 38px);
-      border: 1px solid #d4ddff;
-      border-radius: 24px;
+      border: 1px solid rgba(79, 70, 229, 0.24);
+      border-radius: var(--radius-lg);
       background: #fff;
-      box-shadow: var(--shadow);
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+    }
+
+    .plugin-copy {
+      max-width: 820px;
+    }
+
+    .plugin-eyebrow {
+      background: #eef2ff;
+      color: var(--primary-dark);
+      border: 1px solid rgba(79, 70, 229, 0.2);
     }
 
     .plugin-copy h2 {
       margin: 14px 0 14px;
-      font-family: "Unbounded", sans-serif;
-      font-size: clamp(28px, 3.2vw, 42px);
-      line-height: 1.15;
-      letter-spacing: -0.02em;
+      font-size: clamp(30px, 3.1vw, 44px);
+      line-height: 1.1;
+      max-width: 780px;
     }
 
     .plugin-copy p {
       margin: 0;
       color: var(--muted);
-      font-size: 16px;
-      line-height: 1.6;
+      font-size: clamp(16px, 1.45vw, 18px);
+      line-height: 1.56;
+      max-width: 720px;
     }
 
     .plugin-copy p + p {
@@ -557,74 +667,232 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 10px;
       margin-top: 22px;
+      max-width: 820px;
     }
 
     .plugin-point {
-      min-height: 94px;
+      min-height: 86px;
       padding: 14px;
       border: 1px solid #e2e8f0;
       border-radius: 14px;
-      background: #f8fafc;
+      background: #ffffff;
       color: #334155;
       font-size: 14px;
       font-weight: 800;
       line-height: 1.35;
+      box-shadow: 0 8px 14px rgba(15, 23, 42, 0.04);
     }
 
-    .plugin-flow {
-      padding: 22px;
-      border: 1px solid #dbe2ea;
-      border-radius: 20px;
-      background: linear-gradient(180deg, #f8fbff, #ffffff);
-    }
-
-    .flow-sources {
+    .plugin-scenario {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+      gap: 16px;
+      align-items: stretch;
     }
 
-    .flow-node {
+    .scenario-card {
+      display: grid;
+      grid-template-rows: auto auto 1fr;
+      gap: 14px;
+      min-width: 0;
+      min-height: 342px;
+      padding: 20px;
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      border-radius: 22px;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      box-shadow: none;
+    }
+
+    .scenario-card.featured,
+    .scenario-card.is-primary {
+      border-color: rgba(79, 70, 229, 0.28);
+      box-shadow: 0 18px 38px rgba(79, 70, 229, 0.10);
+    }
+
+    .scenario-head {
+      display: grid;
+      gap: 7px;
+    }
+
+    .scenario-head span {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
       display: grid;
       place-items: center;
-      min-height: 64px;
-      padding: 12px;
-      border: 1px solid #dbe2ea;
-      border-radius: 14px;
-      background: #fff;
-      color: #0f172a;
-      text-align: center;
-      font-weight: 800;
-      line-height: 1.25;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .flow-node.accent {
-      border-color: rgba(79, 70, 229, 0.32);
       background: #eef2ff;
       color: var(--primary-dark);
-    }
-
-    .flow-node.success {
-      border-color: rgba(22, 163, 74, 0.28);
-      background: #f0fdf4;
-      color: #166534;
-    }
-
-    .flow-node.order {
-      border-color: rgba(249, 115, 22, 0.26);
-      background: #fff7ed;
-      color: #9a3412;
-    }
-
-    .flow-arrow {
-      display: grid;
-      place-items: center;
-      height: 34px;
-      color: #94a3b8;
-      font-size: 22px;
+      font-size: 13px;
+      font-family: var(--font-text);
       font-weight: 800;
-      line-height: 1;
+    }
+
+    .scenario-card h3 {
+      margin: 0;
+      font-family: var(--font-text);
+      font-size: 18px;
+      line-height: 1.25;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      text-wrap: balance;
+    }
+
+    .scenario-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.52;
+      font-weight: 400;
+    }
+
+    .scenario-connector {
+      align-self: center;
+      width: 28px;
+      height: 1px;
+      background: #c7d2fe;
+      position: relative;
+    }
+
+    .scenario-connector::after {
+      content: "";
+      position: absolute;
+      right: -1px;
+      top: 50%;
+      width: 7px;
+      height: 7px;
+      border-top: 1px solid #a5b4fc;
+      border-right: 1px solid #a5b4fc;
+      transform: translateY(-50%) rotate(45deg);
+      background: transparent;
+    }
+
+    .mini-interface {
+      align-self: stretch;
+      display: grid;
+      gap: 10px;
+      font-family: var(--font-text);
+      font-size: 12.5px;
+      line-height: 1.35;
+    }
+
+    .mini-panel {
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      background: var(--bg-soft);
+      overflow: hidden;
+    }
+
+    .mini-panel-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 12px;
+      border-bottom: 1px solid #e2e8f0;
+      color: #334155;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .mini-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+      padding: 9px 12px;
+      color: #475569;
+      font-size: 12.5px;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .mini-row + .mini-row {
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .mini-row strong {
+      color: #111827;
+      white-space: nowrap;
+    }
+
+    .mini-status {
+      align-self: end;
+      display: grid;
+      gap: 2px;
+      border-radius: 12px;
+      padding: 10px 12px;
+      background: #eef2ff;
+      color: var(--primary-dark);
+      font-family: var(--font-text);
+      font-size: 12.5px;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .mini-status strong {
+      color: #111827;
+      font-weight: 800;
+    }
+
+    .mini-matrix {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 14px;
+      background: #fff;
+      font-family: var(--font-text);
+      font-size: 12.5px;
+      line-height: 1.35;
+    }
+
+    .mini-matrix th,
+    .mini-matrix td {
+      padding: 9px 8px;
+      border-bottom: 1px solid #e2e8f0;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .mini-matrix td {
+      font-size: 12.5px;
+      font-weight: 600;
+    }
+
+    .mini-matrix th:first-child,
+    .mini-matrix td:first-child {
+      text-align: left;
+      color: #475569;
+    }
+
+    .mini-matrix th {
+      color: #64748b;
+      font-size: 11px;
+      font-weight: 700;
+      background: #f8fafc;
+    }
+
+    .mini-matrix td.best {
+      color: var(--success);
+      font-weight: 800;
+      background: #f0fdf4;
+    }
+
+    .mini-cart {
+      display: grid;
+      gap: 5px;
+      padding: 12px;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      background: #f8fafc;
+      color: #334155;
+      font-family: var(--font-text);
+      font-size: 12.5px;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .mini-cart strong {
+      color: #111827;
+      font-size: 16px;
     }
 
     .solution-intro-section {
@@ -680,9 +948,12 @@
 
     .pain-card h3 {
       margin: 0 0 10px;
-      font-size: 22px;
-      font-family: "Unbounded", sans-serif;
-      line-height: 1.2;
+      font-family: var(--font-text);
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      line-height: 1.25;
+      text-wrap: balance;
     }
 
     .pain-card p {
@@ -703,63 +974,74 @@
     }
 
     .solution-card {
-      border: 1px solid #dbe2ea;
-      border-radius: 18px;
-      background: linear-gradient(180deg, #ffffff, #fafcff);
-      box-shadow: var(--shadow-sm);
-      padding: 22px;
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-md);
+      background: #fff;
+      box-shadow: none;
+      padding: 24px;
       height: 100%;
     }
 
     .solution-card h3 {
       margin: 0 0 8px;
-      font-size: 20px;
-      line-height: 1.22;
-      font-family: "Unbounded", sans-serif;
+      font-family: var(--font-text);
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      line-height: 1.25;
+      text-wrap: balance;
     }
 
     .solution-card p {
       margin: 0;
       color: var(--muted);
       font-size: 15px;
-      line-height: 1.55;
+      line-height: 1.52;
     }
 
-    .problem-panel {
-      padding: 28px;
-      border-radius: 22px;
-      border: 1px solid #dbe2ea;
-      background: linear-gradient(180deg, #ffffff, #f8fbff);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .problem-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
+    .problem-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px 22px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
     }
 
-    .problem-list li {
+    .problem-card {
       position: relative;
-      padding-left: 28px;
-      color: #334155;
-      font-size: 16px;
-      line-height: 1.55;
+      min-height: 176px;
+      padding: 24px;
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-md);
+      background: #fff;
+      box-shadow: none;
     }
 
-    .problem-list li::before {
+    .problem-card::before {
       content: "";
-      position: absolute;
-      left: 0;
-      top: 10px;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #cbd5e1;
-      box-shadow: 0 0 0 6px rgba(203, 213, 225, 0.34);
+      display: block;
+      width: 32px;
+      height: 3px;
+      margin-bottom: 16px;
+      border-radius: 999px;
+      background: rgba(220, 38, 38, 0.7);
+      box-shadow: none;
+    }
+
+    .problem-card h3 {
+      margin: 0 0 8px;
+      color: #0f172a;
+      font-family: var(--font-text);
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      line-height: 1.25;
+      text-wrap: balance;
+    }
+
+    .problem-card p {
+      margin: 0;
+      color: #334155;
+      font-size: 15px;
+      line-height: 1.52;
     }
 
     .steps-grid {
@@ -769,10 +1051,10 @@
     }
     .step-card {
       padding: 24px 22px;
-      border-radius: 18px;
-      border: 1px solid #dbe2ea;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-soft);
       background: #fff;
-      box-shadow: var(--shadow-sm);
+      box-shadow: none;
     }
 
     .step-head {
@@ -800,9 +1082,12 @@
 
     .step-card h3 {
       margin: 0;
-      font-size: 20px;
-      font-family: "Unbounded", sans-serif;
-      line-height: 1.2;
+      font-family: var(--font-text);
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      line-height: 1.25;
+      text-wrap: balance;
     }
 
     .step-card p {
@@ -815,10 +1100,10 @@
     .how-features {
       margin-top: 20px;
       padding: 22px 24px;
-      border-radius: 18px;
-      border: 1px solid #dbe2ea;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-soft);
       background: #fff;
-      box-shadow: var(--shadow-sm);
+      box-shadow: none;
       overflow: hidden;
     }
 
@@ -872,8 +1157,11 @@
       display: block;
       margin: 0;
       font-size: 22px;
-      font-family: "Unbounded", sans-serif;
-      line-height: 1.2;
+      font-family: var(--font-text);
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      line-height: 1.25;
+      text-wrap: balance;
       transition: color 0.2s ease;
     }
 
@@ -948,17 +1236,19 @@
 
     .feature-group {
       padding: 18px;
-      border: 1px solid #dbe2ea;
-      border-radius: 14px;
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-md);
       background: #f8fafc;
     }
 
     .feature-group h3 {
       margin: 0 0 12px;
       color: #0f172a;
-      font-family: "Unbounded", sans-serif;
+      font-family: var(--font-text);
       font-size: 17px;
-      line-height: 1.22;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      line-height: 1.25;
     }
 
     .feature-group ul {
@@ -992,159 +1282,241 @@
       border-bottom: 1px solid var(--line);
     }
 
-    .slider {
-      position: relative;
-      border-radius: 20px;
-      border: 1px solid #d9e2ef;
+    .product-tabs {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
       background: #fff;
-      box-shadow: var(--shadow);
-      padding: 16px 16px 14px;
+      box-shadow: 0 22px 44px rgba(15, 23, 42, 0.08);
+      padding: 18px;
     }
 
-    .slider.is-measuring .slide,
-    .slider.is-measuring .slide-title,
-    .slider.is-measuring .slide-caption {
-      transition: none !important;
-    }
-
-    .slider-stage {
-      position: relative;
-    }
-
-    .slider-viewport {
-      overflow: hidden;
-      border-radius: 16px;
-      touch-action: pan-y;
-    }
-
-    .slider-track {
+    .product-tab-list {
       display: flex;
-      align-items: stretch;
-      gap: 16px;
-      transition: transform 1.05s cubic-bezier(0.22, 1, 0.36, 1);
-      will-change: transform;
-      touch-action: pan-y;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+      padding: 6px;
+      border: 1px solid #e2e8f0;
+      border-radius: var(--radius-md);
+      background: #f8fafc;
     }
 
-    .slide {
-      flex: 0 0 clamp(240px, 74%, 860px);
-      padding: 14px;
-      border-radius: 16px;
-      border: 1px solid #dbe2ea;
+    .product-tab {
+      flex: 1 1 120px;
+      min-height: 42px;
+      border: 1px solid transparent;
+      border-radius: 12px;
+      background: transparent;
+      color: #475569;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .product-tab:hover,
+    .product-tab:focus-visible {
+      color: var(--primary-dark);
       background: #fff;
-      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
-      transform: scale(0.92);
-      opacity: 0.55;
-      transition: transform 0.45s ease, opacity 0.45s ease, box-shadow 0.45s ease;
+      border-color: #d4ddff;
     }
 
-    .slide.is-active {
-      transform: scale(1);
-      opacity: 1;
-      box-shadow: 0 16px 28px rgba(79, 70, 229, 0.16);
+    .product-tab:focus-visible {
+      outline: 2px solid #b8c3ff;
+      outline-offset: 2px;
     }
 
-    .slide-title {
+    .product-tab.active {
+      color: var(--primary-dark);
+      background: #fff;
+      border-color: rgba(79, 70, 229, 0.24);
+      box-shadow: 0 8px 16px rgba(79, 70, 229, 0.1);
+    }
+
+    .product-stage {
+      position: relative;
+    }
+
+    .product-panel {
+      display: none;
+      grid-template-columns: minmax(240px, 0.34fr) minmax(0, 0.66fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .product-panel.is-active {
+      display: grid;
+    }
+
+    .product-copy {
+      padding: 22px;
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-md);
+      background: var(--bg-soft);
+    }
+
+    .product-title {
       margin: 0 0 10px;
-      font-size: 20px;
-      font-family: "Unbounded", sans-serif;
-      line-height: 1.2;
-      transition: opacity 0.25s ease, transform 0.25s ease;
+      font-family: var(--font-text);
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      line-height: 1.25;
     }
 
-    .slide-caption {
-      margin: 0 0 14px;
+    .product-caption {
+      margin: 0;
       color: var(--muted);
       font-size: 15px;
-      line-height: 1.5;
-      transition: opacity 0.25s ease, transform 0.25s ease;
+      line-height: 1.52;
     }
 
-    .slide:not(.is-active) .slide-title,
-    .slide:not(.is-active) .slide-caption {
-      opacity: 0;
-      transform: translateY(6px);
-      pointer-events: none;
-      margin-bottom: 0;
-      max-height: 0;
-      overflow: hidden;
-    }
-
-    .slide figure {
-      margin: 0;
-      border-radius: 12px;
+    .product-visual {
+      min-width: 0;
       border: 1px solid #dbe2ea;
-      overflow: hidden;
+      border-radius: var(--radius-md);
       background: #fff;
+      overflow: hidden;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+    }
+
+    .product-shot {
+      margin: 0;
+      height: 100%;
       cursor: zoom-in;
     }
 
-    .slide figure img {
+    .product-shot img {
       width: 100%;
+      height: 100%;
+      min-height: 360px;
       display: block;
-      height: auto;
-    }
-
-    .slider-controls {
-      display: flex;
-      justify-content: center;
-      padding: 14px 0 2px;
-    }
-
-    .slider-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 3;
-      width: 42px;
-      height: 42px;
-      border: 1px solid rgba(15, 23, 42, 0.14);
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.94);
-      color: #334155;
-      font-size: 22px;
-      font-weight: 700;
-      line-height: 1;
-      display: grid;
-      place-items: center;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      box-shadow: 0 8px 16px rgba(15, 23, 42, 0.14);
-    }
-
-    .slider-btn[data-slider-prev] {
-      left: 10px;
-    }
-
-    .slider-btn[data-slider-next] {
-      right: 10px;
-    }
-
-    .slider-btn:hover {
-      color: var(--primary);
-      border-color: #a9b9df;
+      object-fit: contain;
       background: #fff;
     }
 
-    .slider-dots {
-      display: flex;
+    .plugin-mockup {
+      height: 100%;
+      min-height: 360px;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(180px, 0.75fr);
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      background: linear-gradient(180deg, #f8fbff, #ffffff);
+    }
+
+    .mock-card {
+      display: grid;
+      align-content: start;
+      gap: 10px;
+      min-width: 0;
+      padding: 16px;
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-md);
+      background: #fff;
+      color: #334155;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .mock-card.main {
+      grid-row: 1 / span 2;
+    }
+
+    .mock-card.accent {
+      border-color: rgba(79, 70, 229, 0.24);
+      background: #eef2ff;
+      color: var(--primary-dark);
+    }
+
+    .mock-card h4 {
+      margin: 0;
+      color: #111827;
+      font-family: var(--font-text);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      line-height: 1.25;
+    }
+
+    .mock-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
       align-items: center;
-      gap: 8px;
+      padding: 11px 0;
+      border-bottom: 1px solid #e2e8f0;
+      color: #475569;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.3;
     }
 
-    .slider-dot {
-      width: 10px;
-      height: 10px;
-      border: 0;
-      border-radius: 50%;
-      background: #cbd5e1;
-      cursor: pointer;
-      transition: transform 0.2s ease, background-color 0.2s ease;
+    .mock-row:last-child {
+      border-bottom: 0;
     }
 
-    .slider-dot.active {
-      background: var(--primary);
-      transform: scale(1.12);
+    .mock-row strong {
+      color: #111827;
+      white-space: nowrap;
+    }
+
+    .mock-stat {
+      color: #111827;
+      font-family: var(--font-display);
+      font-size: 20px;
+      line-height: 1.15;
+    }
+
+    .mock-action {
+      width: fit-content;
+      border-radius: 999px;
+      padding: 8px 11px;
+      background: #fff;
+      color: var(--primary-dark);
+      font-size: 12px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .deliverables-section {
+      background: #fff;
+      border-top: 1px solid var(--line);
+    }
+
+    .deliverables-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .deliverable-card {
+      display: grid;
+      gap: 10px;
+      min-height: 174px;
+      padding: 24px;
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-md);
+      background: var(--bg-soft);
+    }
+
+    .deliverable-card h3 {
+      margin: 0;
+      font-family: var(--font-text);
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      line-height: 1.25;
+      text-wrap: balance;
+    }
+
+    .deliverable-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.52;
     }
 
     .pricing-section {
@@ -1158,8 +1530,8 @@
     }
 
     .pricing-card {
-      border: 1px solid #dbe2ea;
-      border-radius: 18px;
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-md);
       background: #fff;
       padding: 22px;
       display: flex;
@@ -1186,17 +1558,20 @@
 
     .pricing-card h3 {
       margin: 0;
-      font-family: "Unbounded", sans-serif;
+      font-family: var(--font-text);
       font-size: 25px;
+      font-weight: 700;
+      letter-spacing: -0.015em;
       line-height: 1.15;
     }
 
     .pricing-price {
       margin: 0;
+      font-family: var(--font-display);
       font-size: 31px;
       font-weight: 800;
       line-height: 1.1;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.035em;
     }
 
     .pricing-note {
@@ -1205,6 +1580,16 @@
       font-size: 14px;
       font-weight: 600;
       line-height: 1.45;
+    }
+
+    .pricing-note.free {
+      width: fit-content;
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: #eef2ff;
+      color: var(--primary-dark);
+      font-size: 13px;
+      font-weight: 800;
     }
 
     .pricing-list {
@@ -1335,10 +1720,10 @@
 
     .compare-copy h2 {
       margin: 0 0 12px;
-      font-family: "Unbounded", sans-serif;
+      font-family: var(--font-display);
       font-size: clamp(28px, 3vw, 38px);
       line-height: 1.15;
-      letter-spacing: -0.02em;
+      letter-spacing: 0;
     }
 
     .compare-copy p {
@@ -1381,43 +1766,19 @@
     }
 
     .cta-box {
-      border-radius: 26px;
-      background: linear-gradient(138deg, #f4efff 0%, #ece3ff 52%, #e1d7ff 100%);
-      border: 1px solid rgba(146, 121, 217, 0.42);
-      color: #30214c;
+      border-radius: var(--radius-lg);
+      background: #eef2ff;
+      border: 1px solid rgba(79, 70, 229, 0.22);
+      color: var(--text-main);
       text-align: center;
       padding: 54px 24px;
       position: relative;
       overflow: hidden;
     }
 
-    .cta-box::before {
-      content: "";
-      position: absolute;
-      width: 360px;
-      height: 360px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(167, 139, 250, 0.34) 0%, rgba(196, 181, 253, 0.24) 48%, rgba(196, 181, 253, 0) 74%);
-      top: -190px;
-      right: -90px;
-      pointer-events: none;
-    }
-
-    .cta-box::after {
-      content: "";
-      position: absolute;
-      width: 280px;
-      height: 280px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(139, 92, 246, 0.26) 0%, rgba(167, 139, 250, 0) 74%);
-      left: -120px;
-      bottom: -140px;
-      pointer-events: none;
-    }
-
     .cta-box h2 {
       margin: 0 0 14px;
-      font-family: "Unbounded", sans-serif;
+      font-family: var(--font-display);
       font-size: clamp(28px, 4vw, 42px);
       line-height: 1.14;
       position: relative;
@@ -1427,7 +1788,7 @@
     .cta-box p {
       margin: 0 auto 28px;
       max-width: 680px;
-      color: #584a78;
+      color: var(--muted);
       font-size: clamp(16px, 1.8vw, 20px);
       line-height: 1.5;
       position: relative;
@@ -1449,15 +1810,28 @@
       padding-right: 34px;
       font-size: 17px;
       background: #ffffff;
-      border-color: #d8c8ff;
-      color: #3b2a65;
-      box-shadow: 0 12px 24px rgba(99, 83, 171, 0.2);
+      border-color: #d4ddff;
+      color: #312e81;
+      box-shadow: 0 12px 24px rgba(79, 70, 229, 0.16);
     }
 
     .cta-box .btn:hover {
-      background: #f3edff;
-      border-color: #c8b0ff;
-      color: #332356;
+      background: #fff;
+      border-color: var(--primary);
+      color: var(--primary-dark);
+    }
+
+    .cta-box .btn.primary {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+      box-shadow: 0 12px 24px rgba(79, 70, 229, 0.22);
+    }
+
+    .cta-box .btn.primary:hover {
+      background: var(--primary-dark);
+      border-color: var(--primary-dark);
+      color: #fff;
     }
 
     .cta-footnote {
@@ -1504,7 +1878,7 @@
       margin: 0 0 6px;
       font-size: 24px;
       line-height: 1.2;
-      font-family: "Unbounded", sans-serif;
+      font-family: var(--font-display);
     }
 
     .consult-modal p {
@@ -1600,7 +1974,7 @@
     }
 
     .hero-image:focus-visible,
-    .slide figure:focus-visible,
+    .product-shot:focus-visible,
     .lightbox-action:focus-visible {
       outline: 2px solid #b8c3ff;
       outline-offset: 3px;
@@ -1652,7 +2026,7 @@
 
     .lightbox-title {
       margin: 0;
-      font-family: "Unbounded", sans-serif;
+      font-family: var(--font-display);
       font-size: clamp(20px, 2.4vw, 28px);
       line-height: 1.2;
       color: #fff;
@@ -1762,6 +2136,22 @@
       color: var(--primary);
     }
 
+    .card h3,
+    .solution-card h3,
+    .problem-card h3,
+    .step-card h3,
+    .scenario-card h3,
+    .pain-card h3,
+    .pricing-card h3,
+    .feature-group h3,
+    .deliverable-card h3,
+    .faq-question {
+      font-family: var(--font-text);
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      text-wrap: balance;
+    }
+
     @media (max-width: 1080px) {
       .hero-grid {
         grid-template-columns: 1fr;
@@ -1783,7 +2173,9 @@
 
       .pain-grid,
       .solution-grid,
+      .problem-grid,
       .steps-grid,
+      .deliverables-grid,
       .pricing-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -1852,17 +2244,17 @@
       }
 
       .hero {
-        padding-top: 62px;
+        padding-top: 56px;
       }
 
       .hero-title-full {
-        font-size: clamp(31px, 9.4vw, 40px);
-        line-height: 1.11;
-        letter-spacing: -0.022em;
+        font-size: clamp(34px, 7vw, 46px);
+        line-height: 1.08;
+        letter-spacing: -0.04em;
       }
 
       .section-header h2 {
-        line-height: 1.19;
+        line-height: 1.12;
       }
 
       .hero-chips {
@@ -1889,7 +2281,7 @@
         grid-template-columns: 1fr;
       }
 
-      .problem-list {
+      .problem-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1910,8 +2302,32 @@
         grid-template-columns: 1fr;
       }
 
-      .flow-sources {
+      .plugin-scenario {
         grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .scenario-card {
+        min-height: 0;
+      }
+
+      .scenario-connector {
+        width: 1px;
+        height: 28px;
+        margin: 0 auto;
+      }
+
+      .scenario-connector::after {
+        right: auto;
+        left: 50%;
+        top: auto;
+        bottom: 0;
+        width: 9px;
+        height: 9px;
+        border: 0;
+        border-right: 1px solid #a5b4fc;
+        border-bottom: 1px solid #a5b4fc;
+        transform: translateX(-50%) rotate(45deg);
       }
 
       .how-features {
@@ -1934,39 +2350,43 @@
         padding: 72px 0;
       }
 
-      .slider {
+      .product-tabs {
         padding: 12px 10px 12px;
       }
 
-      .slider-track {
-        gap: 10px;
+      .product-tab-list {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        scrollbar-width: thin;
       }
 
-      .slide {
-        flex-basis: 86%;
-        padding: 12px;
+      .product-tab {
+        flex: 0 0 auto;
+        min-width: 126px;
       }
 
-      .slider-btn {
-        width: 38px;
-        height: 38px;
-        font-size: 20px;
+      .product-panel,
+      .product-panel.is-active {
+        grid-template-columns: 1fr;
       }
 
-      .slider-btn[data-slider-prev] {
-        left: 6px;
+      .product-copy {
+        padding: 18px;
       }
 
-      .slider-btn[data-slider-next] {
-        right: 6px;
+      .product-shot img,
+      .plugin-mockup {
+        min-height: 260px;
       }
 
-      .slider-controls {
-        padding-top: 10px;
+      .plugin-mockup {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
       }
 
-      .slider-dots {
-        justify-content: center;
+      .mock-card.main {
+        grid-row: auto;
       }
 
       .faq-item summary {
@@ -2008,6 +2428,67 @@
       }
     }
 
+    @media (max-width: 767px) {
+      body {
+        font-size: 16px;
+        line-height: 1.56;
+      }
+
+      .hero {
+        padding: 48px 0 40px;
+      }
+
+      .hero-title-full {
+        font-size: clamp(32px, 9vw, 38px);
+        line-height: 1.08;
+        letter-spacing: -0.04em;
+      }
+
+      .hero-title-break {
+        display: none;
+      }
+
+      .hero p.hero-lead {
+        font-size: 16.5px;
+        line-height: 1.48;
+      }
+
+      .section {
+        padding: 64px 0;
+      }
+
+      .section-header {
+        margin-bottom: 30px;
+      }
+
+      .section-header h2,
+      .plugin-copy h2 {
+        font-size: clamp(28px, 7.5vw, 34px);
+        line-height: 1.12;
+        letter-spacing: -0.035em;
+      }
+
+      .section-header p,
+      .plugin-copy p {
+        font-size: 16px;
+        line-height: 1.52;
+      }
+
+      .card h3,
+      .solution-card h3,
+      .problem-card h3,
+      .step-card h3,
+      .scenario-card h3 {
+        font-size: 17px;
+        line-height: 1.25;
+      }
+
+      .btn {
+        font-size: 15px;
+        min-height: 48px;
+      }
+    }
+
     @media (max-width: 640px) {
       section[id] {
         scroll-margin-top: 260px;
@@ -2034,7 +2515,20 @@
       }
 
       .result-row strong {
-        font-size: 21px;
+        font-size: 18px;
+      }
+
+      .result-summary strong {
+        font-size: clamp(40px, 12vw, 46px);
+      }
+
+      .mock-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .deliverables-grid {
+        grid-template-columns: 1fr;
       }
 
       .cta-actions .btn {
@@ -2059,7 +2553,7 @@
       "availability": "https://schema.org/InStock",
       "url": "https://iirest.ru/"
     },
-    "description": "Сравнивайте поставщиков по Excel-прайсам и сайтам, собирайте оптимальную корзину и видьте экономию и переплату по закупке ресторана.",
+    "description": "Сравнивайте поставщиков по ценам из Excel, сайтов и личных кабинетов, собирайте оптимальную корзину и находите переплату в рублях.",
     "url": "https://iirest.ru/"
   }
   </script>
@@ -2142,10 +2636,10 @@
       },
       {
         "@type": "Question",
-        "name": "Как считается экономия?",
+        "name": "Как считается переплата?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Система сравнивает выбранную корзину с альтернативными сценариями закупки и показывает, где заказ стал выгоднее, а где остается переплата. Эффект виден по заказу, поставщику, закупщику и точке."
+          "text": "Система сравнивает текущую корзину с оптимальным сценарием закупки и показывает разницу в рублях и процентах. Эффект виден по заказу, поставщику, закупщику и точке."
         }
       }
     ]
@@ -2182,53 +2676,44 @@
       <div class="container hero-grid">
         <div class="hero-copy">
           <span class="eyebrow">Для ресторанов, кафе и сетей</span>
-          <h1 class="hero-title-full">Вы уверены, что закупаетесь по лучшим ценам?</h1>
-          <p class="hero-lead">iiRest сравнит ваших поставщиков по Excel-прайсам и сайтам, покажет оптимальную корзину,
-            экономию и переплату по реальному заказу.</p>
+          <h1 class="hero-title-full">Вы уверены, что<br class="hero-title-break" /> <span class="hero-title-nowrap">закупаетесь по лучшим&nbsp;ценам?</span></h1>
+          <p class="hero-lead">iiRest собирает цены из Excel, сайтов и личных кабинетов, сравнивает их по вашему заказу
+            и показывает найденную переплату в рублях.</p>
           <div class="hero-actions">
             <a class="btn primary" href="https://app.iirest.ru/register" target="_blank" rel="noopener noreferrer"
               data-track-goal="cta_hero_try">Проверить закупку</a>
-            <a class="btn secondary" href="#visuals" data-track-goal="cta_hero_demo">Посмотреть демо</a>
+            <a class="btn secondary" href="#plugin" data-track-goal="cta_hero_demo">Как работает плагин</a>
           </div>
-          <p class="hero-note">Работает с Excel-прайсами, сайтами поставщиков и личными кабинетами.</p>
+          <p class="hero-note">Пилот можно запустить на текущих поставщиках и реальном заказе.</p>
 
           <div class="hero-chips" aria-label="Ключевые возможности iiRest">
-            <span class="hero-chip">Excel-прайсы</span>
-            <span class="hero-chip">Сайты поставщиков</span>
-            <span class="hero-chip">Личные кабинеты</span>
-            <span class="hero-chip">Оптимальная корзина</span>
-            <span class="hero-chip">Экономия в рублях</span>
+            <span class="hero-chip">Реальный заказ</span>
+            <span class="hero-chip">Лучшая корзина</span>
+            <span class="hero-chip">Переплата в ₽</span>
           </div>
         </div>
         <aside class="hero-result-card" aria-label="Пример результата проверки закупки">
           <div class="result-card-head">
-            <div>
-              <p class="result-kicker">Проверка закупки</p>
-              <h2>Результат по заказу</h2>
-            </div>
-            <span class="result-source">Excel + сайты</span>
+            <p class="result-kicker">Демо-расчёт по закупке</p>
           </div>
           <div class="result-rows">
             <div class="result-row">
               <span>Текущая корзина</span>
-              <strong>184 600 ₽</strong>
+              <strong>184&nbsp;600&nbsp;₽</strong>
             </div>
-            <div class="result-row">
+            <div class="result-row result-row-positive">
               <span>Оптимальная корзина</span>
-              <strong>171 900 ₽</strong>
+              <strong>171&nbsp;900&nbsp;₽</strong>
             </div>
-            <div class="result-row highlight">
-              <span>Экономия</span>
-              <strong>12 700 ₽</strong>
+            <div class="result-summary">
+              <strong>12&nbsp;700&nbsp;₽</strong>
+              <span>найденная переплата</span>
             </div>
-            <div class="result-row warning">
-              <span>Переплата</span>
-              <strong>6,8%</strong>
-            </div>
+            <div class="result-percent">6,8% к текущей корзине</div>
           </div>
           <div class="result-footer">
-            <span>Excel-прайсы + сайты поставщиков</span>
-            <span class="result-footer-badge">Одна матрица</span>
+            <span>Цены:</span>
+            <strong>Excel · сайт · личный кабинет</strong>
           </div>
         </aside>
       </div>
@@ -2238,15 +2723,15 @@
       <div class="container">
         <div class="plugin-box">
           <div class="plugin-copy">
-            <span class="eyebrow">Плагин iiRest</span>
-            <h2>Поставщик не даёт прайс? Всё равно сравним.</h2>
-            <p>Многие поставщики показывают цены только на сайте или в личном кабинете. Обычно такие цены сложно
-              сравнить с Excel-прайсами других поставщиков — они выпадают из нормального контроля.</p>
-            <p>Плагин iiRest подтягивает цены с сайта поставщика, добавляет их в общую матрицу и помогает выбрать
-              оптимальную корзину. После сравнения вы можете сформировать корзины на сайтах выбранных поставщиков.</p>
+            <span class="eyebrow plugin-eyebrow">Не только Excel</span>
+            <h2>Не все поставщики дают прайсы. iiRest всё равно сравнит цены.</h2>
+            <p>Часть поставщиков показывает цены только на сайте или в личном кабинете. Обычно их проверяют
+              вручную — поэтому они не попадают в честное сравнение.</p>
+            <p>Плагин iiRest забирает актуальные цены с сайта, передаёт их в матрицу и помогает сформировать корзины у
+              выбранных поставщиков после сравнения.</p>
             <div class="plugin-actions">
               <a class="btn primary" href="https://app.iirest.ru/register" target="_blank" rel="noopener noreferrer"
-                data-track-goal="cta_plugin_try">Сравнить поставщиков без прайсов</a>
+                data-track-goal="cta_plugin_try">Проверить поставщиков без прайсов</a>
             </div>
             <div class="plugin-points" aria-label="Что убирает плагин iiRest">
               <div class="plugin-point">Не переписывайте цены вручную</div>
@@ -2254,17 +2739,83 @@
               <div class="plugin-point">Не собирайте корзины заново после сравнения</div>
             </div>
           </div>
-          <div class="plugin-flow" aria-label="Схема работы с Excel-прайсами и сайтами поставщиков">
-            <div class="flow-sources">
-              <div class="flow-node">Excel-прайсы</div>
-              <div class="flow-node">Сайты поставщиков</div>
-            </div>
-            <div class="flow-arrow">↓</div>
-            <div class="flow-node accent">Матрица iiRest</div>
-            <div class="flow-arrow">↓</div>
-            <div class="flow-node success">Оптимальная корзина</div>
-            <div class="flow-arrow">↓</div>
-            <div class="flow-node order">Корзины на сайтах поставщиков</div>
+          <div class="plugin-scenario" aria-label="Сценарий работы плагина iiRest">
+            <article class="scenario-card">
+              <div class="scenario-head">
+                <span>1</span>
+                <h3>Цены поставщиков</h3>
+              </div>
+              <p>Excel-прайс, сайт поставщика и личный кабинет.</p>
+              <div class="mini-interface">
+                <div class="mini-panel">
+                  <div class="mini-panel-head">
+                    <span>Сайт поставщика</span>
+                  </div>
+                  <div class="mini-row"><span>Томаты 5 кг</span><strong>1&nbsp;240&nbsp;₽</strong></div>
+                  <div class="mini-row"><span>Моцарелла 1 кг</span><strong>690&nbsp;₽</strong></div>
+                  <div class="mini-row"><span>Мука 25 кг</span><strong>1&nbsp;180&nbsp;₽</strong></div>
+                </div>
+                <div class="mini-status"><strong>Плагин iiRest</strong><span>цены найдены</span></div>
+              </div>
+            </article>
+            <span class="scenario-connector" aria-hidden="true"></span>
+            <article class="scenario-card is-primary">
+              <div class="scenario-head">
+                <span>2</span>
+                <h3>Матрица iiRest</h3>
+              </div>
+              <p>Все цены в одном сравнении.</p>
+              <div class="mini-interface">
+                <table class="mini-matrix" aria-label="Пример матрицы цен">
+                  <thead>
+                    <tr>
+                      <th>Товар</th>
+                      <th>П1</th>
+                      <th>П2</th>
+                      <th>П3</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Томаты</td>
+                      <td>1&nbsp;240&nbsp;₽</td>
+                      <td class="best">1&nbsp;180&nbsp;₽</td>
+                      <td>1&nbsp;210&nbsp;₽</td>
+                    </tr>
+                    <tr>
+                      <td>Моцарелла</td>
+                      <td>690&nbsp;₽</td>
+                      <td>720&nbsp;₽</td>
+                      <td class="best">675&nbsp;₽</td>
+                    </tr>
+                    <tr>
+                      <td>Мука</td>
+                      <td class="best">1&nbsp;180&nbsp;₽</td>
+                      <td>1&nbsp;230&nbsp;₽</td>
+                      <td>1&nbsp;210&nbsp;₽</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+            <span class="scenario-connector" aria-hidden="true"></span>
+            <article class="scenario-card">
+              <div class="scenario-head">
+                <span>3</span>
+                <h3>Корзины у поставщиков</h3>
+              </div>
+              <p>Выбранные позиции готовы к заказу.</p>
+              <div class="mini-interface">
+                <div class="mini-cart">
+                  <span>Поставщик 1</span>
+                  <strong>3 позиции · 42&nbsp;300&nbsp;₽</strong>
+                </div>
+                <div class="mini-cart">
+                  <span>Поставщик 3</span>
+                  <strong>5 позиций · 87&nbsp;900&nbsp;₽</strong>
+                </div>
+              </div>
+            </article>
           </div>
         </div>
       </div>
@@ -2273,27 +2824,25 @@
     <section class="section audience-section" id="audience">
       <div class="container">
         <div class="section-header">
-          <span class="eyebrow">Для кого</span>
-          <h2>Для тех, кто закупается у нескольких поставщиков</h2>
-          <p>iiRest особенно полезен, если цены разбросаны по прайсам, сайтам, личным кабинетам и чатам, а закупка
-            всё ещё собирается вручную или по привычке.</p>
+          <h2>Когда iiRest окупается быстрее всего</h2>
+          <p>Чем больше поставщиков, точек и ручных сверок, тем быстрее iiRest показывает эффект.</p>
         </div>
         <div class="solution-grid">
           <article class="solution-card">
-            <h3>Несколько поставщиков</h3>
-            <p>Цены и условия отличаются, а сравнить всю корзину вручную сложно.</p>
+            <h3>5+&nbsp;поставщиков</h3>
+            <p>Сложно понять, кто выгоднее по всей корзине, а не по отдельным позициям.</p>
           </article>
           <article class="solution-card">
-            <h3>Не все дают прайсы</h3>
-            <p>Часть поставщиков показывает цены только на сайте или в личном кабинете.</p>
+            <h3>Цены на сайтах</h3>
+            <p>Часть поставщиков не присылает прайсы, и их цены проверяют вручную.</p>
           </article>
           <article class="solution-card">
-            <h3>Закупка по привычке</h3>
-            <p>Команда выбирает поставщика не потому, что он выгоднее, а потому что так быстрее.</p>
+            <h3>Несколько точек</h3>
+            <p>Закупка идёт по-разному, а единый контроль цен быстро теряется.</p>
           </article>
           <article class="solution-card">
-            <h3>Переплата не видна</h3>
-            <p>Без общей матрицы сложно понять, где ресторан теряет деньги.</p>
+            <h3>Excel и чаты</h3>
+            <p>Прайсы, заявки и решения разбросаны по файлам, почте и мессенджерам.</p>
           </article>
         </div>
       </div>
@@ -2302,18 +2851,26 @@
     <section class="section problem-section" id="problem">
       <div class="container">
         <div class="section-header">
-          <span class="eyebrow">Проблема</span>
-          <h2>Где закупка начинает течь</h2>
-          <p>Потери появляются не из-за одной большой ошибки, а из-за ежедневной рутины без прозрачного сравнения.</p>
+          <h2>Почему поставщик кажется выгодным</h2>
+          <p>Пока вы сравниваете отдельные позиции, а не всю корзину, реальная переплата остаётся незаметной.</p>
         </div>
-        <div class="problem-panel">
-          <ul class="problem-list">
-            <li>Прайсы лежат в почте, чатах и разных файлах</li>
-            <li>Цены на сайтах поставщиков не попадают в сравнение</li>
-            <li>Заказ собирается по привычке, а не по лучшей цене</li>
-            <li>Excel показывает строки, но не показывает реальную переплату</li>
-            <li>На нескольких точках контроль быстро расползается</li>
-          </ul>
+        <div class="problem-grid">
+          <article class="problem-card">
+            <h3>Одна позиция не показывает картину</h3>
+            <p>Поставщик может быть дешевле по томатам и дороже по всей корзине.</p>
+          </article>
+          <article class="problem-card">
+            <h3>Сайты выпадают из сравнения</h3>
+            <p>Если нет Excel-прайса, цены часто проверяются вручную или не проверяются вообще.</p>
+          </article>
+          <article class="problem-card">
+            <h3>Заказ собирается по привычке</h3>
+            <p>Команда выбирает знакомый сценарий, даже если он уже не самый выгодный.</p>
+          </article>
+          <article class="problem-card">
+            <h3>Excel не показывает итог</h3>
+            <p>В файле видны строки, но не видно лучшую корзину и переплату в рублях.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -2321,27 +2878,25 @@
     <section class="section solution-intro-section" id="solution">
       <div class="container">
         <div class="section-header">
-          <span class="eyebrow">Решение</span>
-          <h2>iiRest собирает все цены в одну матрицу</h2>
-          <p>Загрузите Excel-прайсы или подтяните цены с сайтов поставщиков через плагин. iiRest сравнит предложения,
-            покажет лучший сценарий закупки и поможет собрать заказы.</p>
+          <h2>Сравнивайте не прайсы, а итоговую корзину</h2>
+          <p>iiRest считает стоимость реального заказа по разным поставщикам и показывает, какой сценарий выгоднее.</p>
         </div>
         <div class="solution-grid">
           <article class="solution-card">
-            <h3>Цены из разных источников</h3>
-            <p>Excel-прайсы, сайты поставщиков и личные кабинеты попадают в одно сравнение.</p>
+            <h3>Все цены в одном сравнении</h3>
+            <p>Прайсы и цены с сайтов попадают в единую матрицу.</p>
           </article>
           <article class="solution-card">
-            <h3>Оптимальная корзина</h3>
-            <p>Система показывает, у кого выгоднее покупать каждую позицию по реальному заказу.</p>
+            <h3>Лучший вариант по корзине</h3>
+            <p>iiRest считает не отдельные строки, а итоговую стоимость заказа.</p>
           </article>
           <article class="solution-card">
-            <h3>Экономия и переплата</h3>
-            <p>Вы сразу видите, где заказ стал выгоднее, а где ресторан всё ещё теряет деньги.</p>
+            <h3>Переплата в рублях</h3>
+            <p>Разница между текущей и оптимальной корзиной видна сразу.</p>
           </article>
           <article class="solution-card">
-            <h3>Корзины у поставщиков</h3>
-            <p>После сравнения плагин помогает сформировать корзины на сайтах выбранных поставщиков.</p>
+            <h3>Заказ без повторного набора</h3>
+            <p>Выбранные позиции можно разложить по поставщикам и перенести в корзины.</p>
           </article>
         </div>
       </div>
@@ -2350,65 +2905,62 @@
     <section class="section" id="how">
       <div class="container">
         <div class="section-header">
-          <span class="eyebrow">Как это работает</span>
-          <h2>Три шага до выгодной закупки</h2>
-          <p>Начните с текущих поставщиков и реального списка заказа. Ничего не нужно перестраивать на старте.</p>
+          <h2>Как проходит проверка закупки</h2>
+          <p>Берём текущий список заказа и ваших поставщиков. На выходе — расчёт переплаты и оптимальный сценарий
+            закупки.</p>
         </div>
         <div class="steps-grid">
           <article class="step-card">
             <div class="step-head">
               <span class="step-num">1</span>
-              <h3>Добавьте цены поставщиков</h3>
+              <h3>Собираем цены</h3>
             </div>
-            <p>Загрузите Excel-прайсы или подтяните цены с сайтов через плагин iiRest.</p>
+            <p>Загружаем прайсы и подтягиваем цены с сайтов поставщиков.</p>
           </article>
           <article class="step-card">
             <div class="step-head">
               <span class="step-num">2</span>
-              <h3>Соберите заказ по реальному списку</h3>
+              <h3>Сравниваем корзину</h3>
             </div>
-            <p>iiRest сравнит предложения и покажет, у кого выгоднее покупать каждую позицию.</p>
+            <p>iiRest считает стоимость заказа в разных вариантах закупки.</p>
           </article>
           <article class="step-card">
             <div class="step-head">
               <span class="step-num">3</span>
-              <h3>Оформите корзины</h3>
+              <h3>Показываем результат</h3>
             </div>
-            <p>Система разложит заказ по поставщикам, а плагин поможет сформировать корзины на их сайтах.</p>
+            <p>Вы видите найденную переплату, лучшую корзину и поставщиков для заказа.</p>
           </article>
         </div>
         <details class="how-features">
           <summary class="how-features-summary">
-            <span class="how-features-title">Что еще есть в iiRest</span>
-            <span class="how-features-note">Сравнение цен, сбор заказа и контроль закупки без длинного списка функций</span>
+            <span class="how-features-title">Всё для контроля закупки</span>
+            <span class="how-features-note">От сравнения цен до аналитики по поставщикам, закупщикам и точкам.</span>
             <span class="how-features-hint">Посмотреть весь список</span>
           </summary>
           <div class="feature-groups">
             <article class="feature-group">
-              <h3>Сравнение цен</h3>
+              <h3>Сравнение</h3>
               <ul>
-                <li>Загрузка Excel-прайсов</li>
-                <li>Цены с сайтов поставщиков через плагин</li>
-                <li>Единая матрица сравнения</li>
-                <li>Умный подбор похожих позиций</li>
+                <li>Прайсы и цены с сайтов</li>
+                <li>Матрица поставщиков</li>
+                <li>Подбор похожих позиций</li>
               </ul>
             </article>
             <article class="feature-group">
-              <h3>Сбор заказа</h3>
+              <h3>Заказ</h3>
               <ul>
-                <li>Корзина по нескольким поставщикам</li>
-                <li>Группировка заказа по поставщикам</li>
+                <li>Корзина по поставщикам</li>
                 <li>Редактирование количества</li>
-                <li>Экспорт и фиксация результата</li>
+                <li>Экспорт результата</li>
               </ul>
             </article>
             <article class="feature-group">
-              <h3>Контроль закупки</h3>
+              <h3>Контроль</h3>
               <ul>
-                <li>Экономия и переплата по заказу</li>
-                <li>Аналитика по поставщикам</li>
-                <li>Аналитика по закупщикам и точкам</li>
-                <li>Индекс цен и динамика</li>
+                <li>Переплата по заказу</li>
+                <li>Индекс цен</li>
+                <li>Динамика по точкам</li>
               </ul>
             </article>
           </div>
@@ -2419,52 +2971,97 @@
     <section class="section showcase-section" id="visuals">
       <div class="container">
         <div class="section-header">
-          <span class="eyebrow">Аналитика</span>
-          <h2>Экономия не &laquo;на ощущениях&raquo;, а в цифрах</h2>
-          <p>Смотрите, сколько стоит выбранная корзина, где осталась переплата и какие поставщики реально выгоднее по
-            вашим заказам.</p>
+          <h2>Цифры, по которым можно принимать решение</h2>
+          <p>Смотрите, кто реально выгоднее по заказам, где появилась переплата и как меняются цены по поставщикам и
+            точкам.</p>
         </div>
 
-        <div class="slider" data-slider aria-label="Слайдер интерфейсов iiRest">
-          <div class="slider-stage">
-            <button class="slider-btn" type="button" data-slider-prev aria-label="Предыдущий слайд">‹</button>
-            <div class="slider-viewport">
-              <div class="slider-track">
-                <article class="slide" data-slide-name="analytics_cart_mix">
-                  <h3 class="slide-title">Аналитика</h3>
-                  <p class="slide-caption">Экономия, переплата и динамика цен по заказам, поставщикам, закупщикам и
-                    точкам.</p>
-                  <figure role="button" tabindex="0" data-lightbox-trigger aria-label="Открыть скриншот: Аналитика в корзине">
-                    <img src="Screenshots/Аналитика Корзина.png" alt="Комбинированный экран аналитики и корзины"
-                      width="1065" height="282" loading="lazy" decoding="async" />
-                  </figure>
-                </article>
-                <article class="slide" data-slide-name="matrix">
-                  <h3 class="slide-title">Матрица</h3>
-                  <p class="slide-caption">Все предложения поставщиков в одном окне: Excel-прайсы и цены с сайтов.</p>
-                  <figure role="button" tabindex="0" data-lightbox-trigger aria-label="Открыть скриншот: Матрица">
-                    <img src="Screenshots/Матрица.png" alt="Экран матрицы сравнения цен поставщиков" width="1070"
-                      height="634" loading="lazy" decoding="async" />
-                  </figure>
-                </article>
-                <article class="slide" data-slide-name="cart">
-                  <h3 class="slide-title">Корзина</h3>
-                  <p class="slide-caption">Заказ по нескольким поставщикам без ручной сводки и повторного набора.</p>
-                  <figure role="button" tabindex="0" data-lightbox-trigger aria-label="Открыть скриншот: Корзина">
-                    <img src="Screenshots/Корзина.png" alt="Экран корзины с итогами заказа" width="1066" height="532"
-                      loading="lazy" decoding="async" />
-                  </figure>
-                </article>
-              </div>
-            </div>
-            <button class="slider-btn" type="button" data-slider-next aria-label="Следующий слайд">›</button>
+        <div class="product-tabs" data-product-tabs>
+          <div class="product-tab-list" role="tablist" aria-label="Экраны продукта iiRest">
+            <button class="product-tab active" id="product-tab-matrix" type="button" role="tab" aria-selected="true"
+              aria-controls="product-panel-matrix" data-product-tab="matrix">Матрица</button>
+            <button class="product-tab" id="product-tab-cart" type="button" role="tab" aria-selected="false"
+              aria-controls="product-panel-cart" data-product-tab="cart" tabindex="-1">Корзина</button>
+            <button class="product-tab" id="product-tab-analytics" type="button" role="tab" aria-selected="false"
+              aria-controls="product-panel-analytics" data-product-tab="analytics" tabindex="-1">Аналитика</button>
+            <button class="product-tab" id="product-tab-plugin" type="button" role="tab" aria-selected="false"
+              aria-controls="product-panel-plugin" data-product-tab="plugin" tabindex="-1">Плагин</button>
           </div>
-          <div class="slider-controls">
-            <div class="slider-dots" aria-label="Индикаторы слайдов">
-              <button class="slider-dot active" type="button" data-slider-dot="0" aria-label="Аналитика в корзине"></button>
-              <button class="slider-dot" type="button" data-slider-dot="1" aria-label="Матрица"></button>
-              <button class="slider-dot" type="button" data-slider-dot="2" aria-label="Корзина"></button>
-            </div>
+          <div class="product-stage">
+            <article class="product-panel is-active" id="product-panel-matrix" role="tabpanel"
+              aria-labelledby="product-tab-matrix" data-product-panel="matrix">
+              <div class="product-copy">
+                <h3 class="product-title">Матрица</h3>
+                <p class="product-caption">Сравнение поставщиков по каждой позиции и по всей корзине.</p>
+              </div>
+              <div class="product-visual">
+                <figure class="product-shot" role="button" tabindex="0" data-lightbox-trigger
+                  aria-label="Открыть скриншот: Матрица">
+                  <img src="Screenshots/Матрица.png" alt="Экран матрицы сравнения цен поставщиков" width="1070"
+                    height="634" loading="eager" decoding="async" />
+                </figure>
+              </div>
+            </article>
+            <article class="product-panel" id="product-panel-cart" role="tabpanel" aria-labelledby="product-tab-cart"
+              data-product-panel="cart" hidden>
+              <div class="product-copy">
+                <h3 class="product-title">Корзина</h3>
+                <p class="product-caption">Заказ разложен по поставщикам с итоговыми суммами.</p>
+              </div>
+              <div class="product-visual">
+                <figure class="product-shot" role="button" tabindex="0" data-lightbox-trigger
+                  aria-label="Открыть скриншот: Корзина">
+                  <img src="Screenshots/Корзина.png" alt="Экран корзины с итогами заказа" width="1066" height="532"
+                    loading="eager" decoding="async" />
+                </figure>
+              </div>
+            </article>
+            <article class="product-panel" id="product-panel-analytics" role="tabpanel"
+              aria-labelledby="product-tab-analytics" data-product-panel="analytics" hidden>
+              <div class="product-copy">
+                <h3 class="product-title">Аналитика</h3>
+                <p class="product-caption">Переплата, динамика цен и эффективность закупки.</p>
+              </div>
+              <div class="product-visual">
+                <figure class="product-shot" role="button" tabindex="0" data-lightbox-trigger
+                  aria-label="Открыть скриншот: Аналитика">
+                  <img src="Screenshots/Аналитика Корзина.png" alt="Комбинированный экран аналитики и корзины"
+                    width="1065" height="282" loading="eager" decoding="async" />
+                </figure>
+              </div>
+            </article>
+            <article class="product-panel" id="product-panel-plugin" role="tabpanel"
+              aria-labelledby="product-tab-plugin" data-product-panel="plugin" hidden>
+              <div class="product-copy">
+                <h3 class="product-title">Плагин</h3>
+                <p class="product-caption">Цены с сайта поставщика передаются в сравнение и заказ.</p>
+              </div>
+              <div class="product-visual">
+                <div class="plugin-mockup" aria-label="Мокап работы плагина iiRest">
+                  <div class="mock-card main">
+                    <h4>Личный кабинет поставщика</h4>
+                    <div class="mock-row"><span>Томаты сливка 5 кг</span><strong>1&nbsp;240&nbsp;₽</strong></div>
+                    <div class="mock-row"><span>Моцарелла 1 кг</span><strong>690&nbsp;₽</strong></div>
+                    <div class="mock-row"><span>Мука пшеничная 25 кг</span><strong>1&nbsp;180&nbsp;₽</strong></div>
+                    <div class="mock-row"><span>Масло оливковое 5 л</span><strong>4&nbsp;760&nbsp;₽</strong></div>
+                  </div>
+                  <div class="mock-card accent">
+                    <h4>Плагин iiRest</h4>
+                    <span class="mock-stat">4 цены найдены</span>
+                    <span class="mock-action">Передать в матрицу</span>
+                  </div>
+                  <div class="mock-card">
+                    <h4>Матрица iiRest</h4>
+                    <span>Цены обновлены</span>
+                    <span>Поставщик добавлен в сравнение</span>
+                  </div>
+                  <div class="mock-card">
+                    <h4>Корзина поставщика</h4>
+                    <span>3 позиции готовы к заказу</span>
+                  </div>
+                </div>
+              </div>
+            </article>
           </div>
         </div>
       </div>
@@ -2474,16 +3071,43 @@
       <div class="container">
         <div class="compare-box">
           <div class="compare-copy">
-            <h2>iiRest — не еще одна таблица</h2>
-            <p>Это рабочий слой между Excel-прайсами, сайтами поставщиков и решением о закупке, где видно цену,
-              сценарий заказа и итоговый эффект в цифрах.</p>
+            <h2>iiRest — не ещё одна таблица</h2>
+            <p>iiRest соединяет Excel-прайсы, сайты поставщиков и реальный заказ. В одном окне видно, где дешевле, что
+              покупать и сколько вы переплачиваете.</p>
           </div>
           <ul class="compare-list">
-            <li>Вместо Excel, чатов и ручной сводки</li>
-            <li>Вместо закупки &laquo;по памяти&raquo;</li>
-            <li>Вместо ощущения &laquo;кажется, переплачиваем&raquo;</li>
-            <li>Вместо споров, почему заказ собран именно так</li>
+            <li>Вместо ручной сводки в Excel</li>
+            <li>Вместо закупки по привычке</li>
+            <li>Вместо догадок — переплата в рублях</li>
+            <li>Вместо споров — понятный расчёт по заказу</li>
           </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section deliverables-section" id="pilot-result">
+      <div class="container">
+        <div class="section-header">
+          <h2>Что вы получите после проверки</h2>
+          <p>Не презентацию, а расчёт по вашей реальной закупке.</p>
+        </div>
+        <div class="deliverables-grid">
+          <article class="deliverable-card">
+            <h3>Матрицу цен</h3>
+            <p>Все поставщики и цены в одном сравнении.</p>
+          </article>
+          <article class="deliverable-card">
+            <h3>Оптимальную корзину</h3>
+            <p>Какие позиции у кого выгоднее покупать.</p>
+          </article>
+          <article class="deliverable-card">
+            <h3>Найденную переплату</h3>
+            <p>Разница между текущим и лучшим сценарием в рублях.</p>
+          </article>
+          <article class="deliverable-card">
+            <h3>План следующего шага</h3>
+            <p>Что можно автоматизировать сразу, а что оставить в текущем процессе.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -2491,7 +3115,7 @@
     <section class="section pricing-section" id="pricing">
       <div class="container">
         <div class="section-header">
-          <span class="eyebrow">Тарифы</span>
+          <span class="eyebrow">Пилот</span>
           <h2>Начните с проверки одной закупки</h2>
           <p>Проверьте эффект на реальном заказе, а потом выберите подходящий формат работы.</p>
         </div>
@@ -2499,8 +3123,9 @@
         <div class="pricing-grid">
           <article class="pricing-card featured">
             <h3>Базовый</h3>
-            <p class="pricing-price">От 1 400 ₽/мес</p>
-            <p class="pricing-note">1 месяц бесплатного теста на реальной закупке</p>
+            <p class="pricing-price">От 1&nbsp;400&nbsp;₽/мес</p>
+            <p class="pricing-note">Пилот на реальной закупке: проверим поставщиков, корзину и найденную переплату.</p>
+            <p class="pricing-note free">1 месяц теста — бесплатно</p>
             <ul class="pricing-list">
               <li>Автозагрузка прайс-листов</li>
               <li>Умная матрица сравнения</li>
@@ -2580,10 +3205,9 @@
               собирать корзину по разным поставщикам в рамках одного заказа.</p>
           </details>
           <details class="faq-item">
-            <summary>Как считается экономия?</summary>
-            <p class="faq-answer">Система сравнивает выбранную корзину с альтернативными сценариями закупки и
-              показывает, где заказ стал выгоднее, а где остается переплата. Эффект виден по заказу, поставщику,
-              закупщику и точке.</p>
+            <summary>Как считается переплата?</summary>
+            <p class="faq-answer">Система сравнивает текущую корзину с оптимальным сценарием закупки и показывает
+              разницу в рублях и процентах. Эффект виден по заказу, поставщику, закупщику и точке.</p>
           </details>
         </div>
       </div>
@@ -2592,9 +3216,9 @@
     <section class="cta-section" id="cta">
       <div class="container">
         <div class="cta-box">
-          <h2>Проверьте, где вы переплачиваете уже на ближайшей закупке</h2>
-          <p>Возьмите текущий список заказа. Загрузите Excel-прайсы или подтяните цены с сайтов поставщиков через
-            плагин iiRest. Мы покажем, какая корзина выгоднее и где ресторан теряет деньги.</p>
+          <h2>Найдите переплату в ближайшей закупке</h2>
+          <p>Загрузите текущий список заказа и цены поставщиков. iiRest сравнит варианты и покажет, где можно закупиться
+            выгоднее.</p>
           <div class="cta-actions">
             <a class="btn primary" href="https://app.iirest.ru/register" target="_blank" rel="noopener noreferrer"
               data-track-goal="cta_final_try">Проверить закупку</a>
@@ -2969,9 +3593,9 @@
           var img = trigger.querySelector("img");
           if (!img) return null;
 
-          var slide = trigger.closest(".slide");
-          var headline = slide ? slide.querySelector(".slide-title") : null;
-          var copy = slide ? slide.querySelector(".slide-caption") : null;
+          var productPanel = trigger.closest(".product-panel");
+          var headline = productPanel ? productPanel.querySelector(".product-title") : null;
+          var copy = productPanel ? productPanel.querySelector(".product-caption") : null;
 
           return {
             src: trigger.getAttribute("data-lightbox-src") || img.currentSrc || img.src,
@@ -3131,288 +3755,50 @@
         });
       }
 
-      function initSlider() {
-        var slider = document.querySelector("[data-slider]");
-        if (!slider) return;
+      function initProductTabs() {
+        var root = document.querySelector("[data-product-tabs]");
+        if (!root) return;
 
-        var viewport = slider.querySelector(".slider-viewport");
-        var track = slider.querySelector(".slider-track");
-        var dots = Array.prototype.slice.call(slider.querySelectorAll("[data-slider-dot]"));
-        var prev = slider.querySelector("[data-slider-prev]");
-        var next = slider.querySelector("[data-slider-next]");
+        var tabs = Array.prototype.slice.call(root.querySelectorAll("[data-product-tab]"));
+        var panels = Array.prototype.slice.call(root.querySelectorAll("[data-product-panel]"));
+        if (tabs.length === 0 || panels.length === 0) return;
 
-        if (!viewport || !track) return;
-
-        var realSlides = Array.prototype.slice.call(track.querySelectorAll(".slide"));
-        if (realSlides.length === 0) return;
-
-        var total = realSlides.length;
-        var firstClone = realSlides[0].cloneNode(true);
-        var lastClone = realSlides[total - 1].cloneNode(true);
-
-        firstClone.setAttribute("aria-hidden", "true");
-        lastClone.setAttribute("aria-hidden", "true");
-        firstClone.setAttribute("data-slide-clone", "first");
-        lastClone.setAttribute("data-slide-clone", "last");
-
-        track.insertBefore(lastClone, realSlides[0]);
-        track.appendChild(firstClone);
-
-        var slides = Array.prototype.slice.call(track.querySelectorAll(".slide"));
-        var current = 1;
-        var timer = null;
-        var intervalMs = 4200;
-        var touchStartX = 0;
-        var touchStartY = 0;
-        var touchLastX = 0;
-        var activePointerId = null;
-        var touchActive = false;
-        var isTransitioning = false;
-        var transitionFallbackTimer = null;
-        var resizeRaf = null;
-        var isMeasuring = false;
-        var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-        function getLogicalIndex(index) {
-          if (index === 0) return total - 1;
-          if (index === total + 1) return 0;
-          return index - 1;
-        }
-
-        function getOffset(index) {
-          var slide = slides[index];
-          if (!slide) return 0;
-          return slide.offsetLeft - (viewport.clientWidth - slide.clientWidth) / 2;
-        }
-
-        function updateState() {
-          var logicalIndex = getLogicalIndex(current);
-
-          slides.forEach(function (slide, idx) {
-            slide.classList.toggle("is-active", idx === current);
+        function setActive(name, shouldTrack) {
+          tabs.forEach(function (tab) {
+            var isActive = tab.getAttribute("data-product-tab") === name;
+            tab.classList.toggle("active", isActive);
+            tab.setAttribute("aria-selected", isActive ? "true" : "false");
+            tab.tabIndex = isActive ? 0 : -1;
           });
 
-          dots.forEach(function (dot, idx) {
-            dot.classList.toggle("active", idx === logicalIndex);
+          panels.forEach(function (panel) {
+            var isActive = panel.getAttribute("data-product-panel") === name;
+            panel.classList.toggle("is-active", isActive);
+            panel.hidden = !isActive;
           });
-        }
 
-        function render(animate) {
-          track.style.transition = animate === false
-            ? "none"
-            : "transform 1.05s cubic-bezier(0.22, 1, 0.36, 1)";
-          track.style.transform = "translate3d(-" + getOffset(current) + "px, 0, 0)";
-          updateState();
-        }
-
-        function syncViewportMinHeight() {
-          if (isMeasuring) return;
-          isMeasuring = true;
-
-          var savedCurrent = current;
-          var maxHeight = 0;
-
-          slider.classList.add("is-measuring");
-
-          for (var index = 1; index <= total; index += 1) {
-            current = index;
-            updateState();
-            var height = Math.ceil(track.getBoundingClientRect().height);
-            if (height > maxHeight) {
-              maxHeight = height;
-            }
-          }
-
-          current = savedCurrent;
-          updateState();
-          slider.classList.remove("is-measuring");
-
-          if (maxHeight > 0) {
-            viewport.style.minHeight = maxHeight + "px";
-          }
-
-          isMeasuring = false;
-        }
-
-        function currentSlideName() {
-          var logicalIndex = getLogicalIndex(current);
-          var slide = realSlides[logicalIndex];
-          return slide ? slide.getAttribute("data-slide-name") : "unknown";
-        }
-
-        function clearTransitionFallback() {
-          if (!transitionFallbackTimer) return;
-          window.clearTimeout(transitionFallbackTimer);
-          transitionFallbackTimer = null;
-        }
-
-        function finishTransition() {
-          clearTransitionFallback();
-          isTransitioning = false;
-
-          if (current === 0) {
-            current = total;
-            render(false);
-          } else if (current === total + 1) {
-            current = 1;
-            render(false);
-          }
-        }
-
-        function goTo(index, reason) {
-          if (isTransitioning) return;
-          current = index;
-          isTransitioning = true;
-          render(true);
-          clearTransitionFallback();
-          transitionFallbackTimer = window.setTimeout(function () {
-            if (!isTransitioning) return;
-            finishTransition();
-          }, 1300);
-
-          if (reason) {
-            trackGoal("slider_interaction", {
-              action: reason,
-              slide: currentSlideName()
+          if (shouldTrack) {
+            trackGoal("product_tab_click", {
+              tab: name
             });
           }
         }
 
-        function startAuto() {
-          if (reduceMotion) return;
-          stopAuto();
-          timer = window.setInterval(function () {
-            if (isTransitioning) return;
-            goTo(current + 1);
-          }, intervalMs);
-        }
-
-        function stopAuto() {
-          if (!timer) return;
-          window.clearInterval(timer);
-          timer = null;
-        }
-
-        if (prev) {
-          prev.addEventListener("click", function () {
-            goTo(current - 1, "prev");
+        tabs.forEach(function (tab, index) {
+          tab.addEventListener("click", function () {
+            setActive(tab.getAttribute("data-product-tab"), true);
           });
-        }
 
-        if (next) {
-          next.addEventListener("click", function () {
-            goTo(current + 1, "next");
-          });
-        }
-
-        dots.forEach(function (dot) {
-          dot.addEventListener("click", function () {
-            var index = Number(dot.getAttribute("data-slider-dot"));
-            if (Number.isNaN(index)) return;
-            goTo(index + 1, "dot");
+          tab.addEventListener("keydown", function (event) {
+            if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return;
+            event.preventDefault();
+            var direction = event.key === "ArrowRight" ? 1 : -1;
+            var nextIndex = (index + direction + tabs.length) % tabs.length;
+            var nextTab = tabs[nextIndex];
+            setActive(nextTab.getAttribute("data-product-tab"), true);
+            nextTab.focus();
           });
         });
-
-        track.addEventListener("transitionend", function (event) {
-          if (event.target !== track) return;
-          if (event.propertyName !== "transform" && event.propertyName !== "-webkit-transform") return;
-          finishTransition();
-        });
-
-        viewport.addEventListener("pointerdown", function (event) {
-          if (event.pointerType === "mouse") return;
-          touchActive = true;
-          activePointerId = event.pointerId;
-          touchStartX = event.clientX;
-          touchLastX = event.clientX;
-          touchStartY = event.clientY;
-          if (typeof viewport.setPointerCapture === "function") {
-            try {
-              viewport.setPointerCapture(event.pointerId);
-            } catch (_err) { }
-          }
-          stopAuto();
-        });
-
-        viewport.addEventListener("pointermove", function (event) {
-          if (!touchActive || event.pointerId !== activePointerId) return;
-          touchLastX = event.clientX;
-        });
-
-        viewport.addEventListener("pointerup", function (event) {
-          if (!touchActive || event.pointerId !== activePointerId) return;
-          touchActive = false;
-          activePointerId = null;
-          if (typeof viewport.releasePointerCapture === "function") {
-            try {
-              if (typeof viewport.hasPointerCapture !== "function" || viewport.hasPointerCapture(event.pointerId)) {
-                viewport.releasePointerCapture(event.pointerId);
-              }
-            } catch (_err) { }
-          }
-          var diffX = touchLastX - touchStartX;
-          var diffY = event.clientY - touchStartY;
-          if (Math.abs(diffX) >= 45 && Math.abs(diffX) > Math.abs(diffY) && !isTransitioning) {
-            if (diffX < 0) {
-              goTo(current + 1, "swipe_left");
-            } else {
-              goTo(current - 1, "swipe_right");
-            }
-          }
-          startAuto();
-        });
-
-        viewport.addEventListener("pointercancel", function (event) {
-          if (activePointerId !== null && event.pointerId !== activePointerId) return;
-          touchActive = false;
-          activePointerId = null;
-          startAuto();
-        });
-
-        slider.addEventListener("pointerleave", function () {
-          if (!touchActive) return;
-          touchActive = false;
-          activePointerId = null;
-          startAuto();
-        });
-
-        window.addEventListener("resize", function () {
-          if (resizeRaf) window.cancelAnimationFrame(resizeRaf);
-          resizeRaf = window.requestAnimationFrame(function () {
-            touchActive = false;
-            activePointerId = null;
-            clearTransitionFallback();
-            isTransitioning = false;
-            syncViewportMinHeight();
-            render(false);
-          });
-        });
-
-        realSlides.forEach(function (slide) {
-          var image = slide.querySelector("img");
-          if (!image || image.complete) return;
-          image.addEventListener("load", function () {
-            syncViewportMinHeight();
-            render(false);
-          });
-        });
-
-        slider.addEventListener("mouseenter", stopAuto);
-        slider.addEventListener("mouseleave", startAuto);
-        slider.addEventListener("focusin", stopAuto);
-        slider.addEventListener("focusout", startAuto);
-
-        if (reduceMotion) {
-          intervalMs = 6500;
-        }
-
-        syncViewportMinHeight();
-        render(false);
-        if (!reduceMotion) {
-          startAuto();
-        } else {
-          stopAuto();
-        }
       }
 
       document.getElementById("year").textContent = new Date().getFullYear();
@@ -3421,7 +3807,7 @@
       initFaqAccordion();
       initConsultModal();
       initImageLightbox();
-      initSlider();
+      initProductTabs();
     })();
   </script>
 </body>
