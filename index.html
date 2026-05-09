@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description"
-    content="iiRest помогает ресторанам сравнивать цены поставщиков, собирать выгодные заказы и видеть экономию по закупке в цифрах." />
+    content="Сравнивайте поставщиков по Excel-прайсам и сайтам, собирайте оптимальную корзину и видьте экономию и переплату по закупке ресторана." />
   <meta name="theme-color" content="#4f46e5" />
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
   <meta name="googlebot" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
@@ -15,9 +15,6 @@
   <link rel="alternate" type="text/markdown" href="https://iirest.ru/llms-en.txt" title="LLMs (EN)" />
   <link rel="alternate" hreflang="ru-RU" href="https://iirest.ru/" />
   <link rel="alternate" hreflang="x-default" href="https://iirest.ru/" />
-  <link rel="preload" as="image" href="hero-dashboard-1200.webp" type="image/webp"
-    imagesrcset="hero-dashboard-780.webp 780w, hero-dashboard-1200.webp 1200w, hero-dashboard-1600.webp 1600w"
-    imagesizes="(max-width: 1080px) min(100vw - 48px, 780px), 520px" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="icon" type="image/png" href="favicon.png" sizes="120x120" />
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
@@ -74,20 +71,20 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="iiRest" />
   <meta property="og:locale" content="ru_RU" />
-  <meta property="og:title" content="iiRest — сравнение цен поставщиков и контроль закупки для ресторанов" />
+  <meta property="og:title" content="iiRest — сравнение цен поставщиков для ресторанов" />
   <meta property="og:description"
-    content="iiRest помогает ресторанам сравнивать цены поставщиков, собирать выгодные заказы и видеть экономию по закупке в цифрах." />
+    content="Сравнивайте поставщиков по Excel-прайсам и сайтам, собирайте оптимальную корзину и видьте экономию и переплату по закупке ресторана." />
   <meta property="og:url" content="https://iirest.ru/" />
   <meta property="og:image" content="https://iirest.ru/hero-dashboard.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:alt" content="Интерфейс iiRest для контроля закупки и сравнения цен поставщиков" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="iiRest — сравнение цен поставщиков и контроль закупки для ресторанов" />
+  <meta name="twitter:title" content="iiRest — сравнение цен поставщиков для ресторанов" />
   <meta name="twitter:description"
-    content="iiRest помогает ресторанам сравнивать цены поставщиков, собирать выгодные заказы и видеть экономию по закупке в цифрах." />
+    content="Сравнивайте поставщиков по Excel-прайсам и сайтам, собирайте оптимальную корзину и видьте экономию и переплату по закупке ресторана." />
   <meta name="twitter:image" content="https://iirest.ru/hero-dashboard.png" />
 
-  <title>iiRest — сравнение цен поставщиков и контроль закупки для ресторанов</title>
+  <title>iiRest — сравнение цен поставщиков для ресторанов</title>
 
   <style>
     :root {
@@ -101,6 +98,9 @@
       --primary-dark: #4338ca;
       --mint: #e0e7ff;
       --soft-green: #dcfce7;
+      --success: #16a34a;
+      --warning: #f97316;
+      --danger: #dc2626;
       --shadow-sm: 0 4px 10px rgba(15, 23, 42, 0.07);
       --shadow: 0 20px 44px rgba(79, 70, 229, 0.14);
       --radius: 22px;
@@ -299,19 +299,24 @@
     }
 
     .hero {
-      padding: 72px 0 44px;
+      padding: 78px 0 54px;
     }
 
-    .hero-top {
-      padding: 0 clamp(24px, 4vw, 52px);
-      margin-bottom: 30px;
-      text-align: center;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.04fr) minmax(360px, 0.96fr);
+      gap: clamp(28px, 5vw, 56px);
+      align-items: center;
+    }
+
+    .hero-copy {
+      max-width: 680px;
     }
 
     .hero-title-full {
-      margin: 12px auto 0;
+      margin: 16px 0 0;
       font-family: "Unbounded", sans-serif;
-      font-size: clamp(30px, 4.2vw, 50px);
+      font-size: clamp(32px, 4.3vw, 50px);
       line-height: 1.1;
       letter-spacing: -0.028em;
       background: linear-gradient(130deg, #0f172a 15%, #4338ca 95%);
@@ -321,22 +326,11 @@
     }
 
     .hero p.hero-lead {
-      margin: 18px auto 0;
-      max-width: 760px;
+      margin: 20px 0 0;
+      max-width: 660px;
       color: #526176;
-      font-size: clamp(17px, 1.8vw, 20px);
-      line-height: 1.58;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
-      gap: 28px;
-      align-items: center;
-    }
-
-    .hero-copy {
-      max-width: 560px;
+      font-size: clamp(17px, 1.8vw, 21px);
+      line-height: 1.55;
     }
 
     .hero p {
@@ -352,11 +346,11 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 14px 12px;
-      margin: 24px 0;
+      margin: 30px 0 12px;
     }
 
     .hero-actions .btn {
-      min-width: 190px;
+      min-width: 180px;
       min-height: 52px;
     }
 
@@ -364,35 +358,146 @@
       margin: 0;
       color: #708196;
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 700;
     }
 
-    .hero-metrics {
-      margin-top: 16px;
-      display: grid;
-      gap: 12px;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+    .hero-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+      max-width: 620px;
     }
 
-    .metric-pill {
-      padding: 12px 14px;
-      border-radius: 12px;
+    .hero-chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 7px 12px;
       border: 1px solid #d4ddff;
+      border-radius: 999px;
       background: #fff;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .metric-pill b {
-      display: block;
-      margin-bottom: 2px;
-      font-size: 16px;
-      color: var(--primary-dark);
-    }
-
-    .metric-pill span {
+      color: #334155;
       font-size: 13px;
-      color: #617284;
-      font-weight: 600;
+      font-weight: 800;
+      line-height: 1.2;
+      box-shadow: 0 4px 10px rgba(79, 70, 229, 0.06);
+    }
+
+    .hero-result-card {
+      width: 100%;
+      max-width: 480px;
+      justify-self: end;
+      border: 1px solid #dbe2ea;
+      border-radius: 22px;
+      background: linear-gradient(180deg, #ffffff, #f8fbff);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+
+    .result-card-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .result-kicker {
+      margin: 0 0 5px;
+      color: #64748b;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .result-card-head h2 {
+      margin: 0;
+      font-family: "Unbounded", sans-serif;
+      font-size: 24px;
+      line-height: 1.18;
+    }
+
+    .result-source {
+      flex: 0 0 auto;
+      border-radius: 999px;
+      padding: 7px 10px;
+      background: var(--mint);
+      color: var(--primary-dark);
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .result-rows {
+      display: grid;
+      gap: 10px;
+      margin: 18px 0;
+    }
+
+    .result-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 13px 14px;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      background: #fff;
+    }
+
+    .result-row span {
+      color: #64748b;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .result-row strong {
+      color: #0f172a;
+      font-size: 22px;
+      line-height: 1.05;
+      white-space: nowrap;
+    }
+
+    .result-row.highlight {
+      border-color: rgba(22, 163, 74, 0.28);
+      background: #f0fdf4;
+    }
+
+    .result-row.warning {
+      border-color: rgba(249, 115, 22, 0.28);
+      background: #fff7ed;
+    }
+
+    .result-row.highlight strong {
+      color: var(--success);
+    }
+
+    .result-row.warning strong {
+      color: var(--warning);
+    }
+
+    .result-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-top: 16px;
+      border-top: 1px solid #e2e8f0;
+      color: #475569;
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
+    .result-footer-badge {
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: #eef2ff;
+      color: var(--primary-dark);
+      white-space: nowrap;
     }
 
     .hero-image {
@@ -404,6 +509,122 @@
       max-width: 520px;
       justify-self: end;
       cursor: zoom-in;
+    }
+
+    .plugin-section {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(238, 242, 255, 0.42));
+    }
+
+    .plugin-box {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(360px, 1.05fr);
+      gap: clamp(24px, 4vw, 42px);
+      align-items: center;
+      padding: clamp(24px, 4vw, 38px);
+      border: 1px solid #d4ddff;
+      border-radius: 24px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .plugin-copy h2 {
+      margin: 14px 0 14px;
+      font-family: "Unbounded", sans-serif;
+      font-size: clamp(28px, 3.2vw, 42px);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .plugin-copy p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .plugin-copy p + p {
+      margin-top: 12px;
+    }
+
+    .plugin-actions {
+      margin-top: 22px;
+    }
+
+    .plugin-points {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .plugin-point {
+      min-height: 94px;
+      padding: 14px;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      background: #f8fafc;
+      color: #334155;
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
+    .plugin-flow {
+      padding: 22px;
+      border: 1px solid #dbe2ea;
+      border-radius: 20px;
+      background: linear-gradient(180deg, #f8fbff, #ffffff);
+    }
+
+    .flow-sources {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .flow-node {
+      display: grid;
+      place-items: center;
+      min-height: 64px;
+      padding: 12px;
+      border: 1px solid #dbe2ea;
+      border-radius: 14px;
+      background: #fff;
+      color: #0f172a;
+      text-align: center;
+      font-weight: 800;
+      line-height: 1.25;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .flow-node.accent {
+      border-color: rgba(79, 70, 229, 0.32);
+      background: #eef2ff;
+      color: var(--primary-dark);
+    }
+
+    .flow-node.success {
+      border-color: rgba(22, 163, 74, 0.28);
+      background: #f0fdf4;
+      color: #166534;
+    }
+
+    .flow-node.order {
+      border-color: rgba(249, 115, 22, 0.26);
+      background: #fff7ed;
+      color: #9a3412;
+    }
+
+    .flow-arrow {
+      display: grid;
+      place-items: center;
+      height: 34px;
+      color: #94a3b8;
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1;
     }
 
     .solution-intro-section {
@@ -718,18 +939,51 @@
       }
     }
 
-    .how-features-list {
-      margin: 14px 0 0;
-      padding-left: 22px;
+    .feature-groups {
+      margin-top: 18px;
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px 24px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
     }
 
-    .how-features-list li {
+    .feature-group {
+      padding: 18px;
+      border: 1px solid #dbe2ea;
+      border-radius: 14px;
+      background: #f8fafc;
+    }
+
+    .feature-group h3 {
+      margin: 0 0 12px;
+      color: #0f172a;
+      font-family: "Unbounded", sans-serif;
+      font-size: 17px;
+      line-height: 1.22;
+    }
+
+    .feature-group ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 8px;
+    }
+
+    .feature-group li {
+      position: relative;
+      padding-left: 18px;
       color: var(--muted);
-      font-size: 15px;
-      line-height: 1.55;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .feature-group li::before {
+      content: "•";
+      position: absolute;
+      left: 2px;
+      top: -1px;
+      color: var(--primary);
+      font-weight: 800;
     }
 
     .showcase-section {
@@ -1513,9 +1767,18 @@
         grid-template-columns: 1fr;
       }
 
+      .hero-result-card {
+        justify-self: center;
+        max-width: 640px;
+      }
+
       .hero-image {
         max-width: 780px;
         margin: 0 auto;
+      }
+
+      .plugin-box {
+        grid-template-columns: 1fr;
       }
 
       .pain-grid,
@@ -1525,7 +1788,7 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .how-features-list {
+      .feature-groups {
         grid-template-columns: 1fr;
       }
 
@@ -1544,7 +1807,7 @@
         align-items: flex-start;
         gap: 10px 12px;
         min-height: 0;
-        padding: 10px 0 12px;
+        padding: 10px 24px 12px;
       }
 
       .menu {
@@ -1592,13 +1855,8 @@
         padding-top: 62px;
       }
 
-      .hero-top {
-        padding: 0 24px;
-        margin-bottom: 20px;
-      }
-
       .hero-title-full {
-        font-size: clamp(31px, 10vw, 38px);
+        font-size: clamp(31px, 9.4vw, 40px);
         line-height: 1.11;
         letter-spacing: -0.022em;
       }
@@ -1607,12 +1865,22 @@
         line-height: 1.19;
       }
 
-      .hero-metrics {
-        grid-template-columns: 1fr;
+      .hero-chips {
+        gap: 8px;
       }
 
       .hero-actions .btn {
         width: 100%;
+      }
+
+      .hero-result-card {
+        padding: 18px;
+      }
+
+      .result-card-head,
+      .result-footer {
+        align-items: flex-start;
+        flex-direction: column;
       }
 
       .pain-grid,
@@ -1632,6 +1900,18 @@
       .compare-box {
         grid-template-columns: 1fr;
         padding: 24px 22px;
+      }
+
+      .plugin-box {
+        padding: 24px 20px;
+      }
+
+      .plugin-points {
+        grid-template-columns: 1fr;
+      }
+
+      .flow-sources {
+        grid-template-columns: 1fr;
       }
 
       .how-features {
@@ -1741,6 +2021,22 @@
         grid-column: 1 / -1;
       }
 
+      .hero-chip {
+        flex: 1 1 calc(50% - 8px);
+        justify-content: center;
+        text-align: center;
+      }
+
+      .result-row {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .result-row strong {
+        font-size: 21px;
+      }
+
       .cta-actions .btn {
         width: 100%;
       }
@@ -1763,7 +2059,7 @@
       "availability": "https://schema.org/InStock",
       "url": "https://iirest.ru/"
     },
-    "description": "iiRest помогает ресторанам сравнивать цены поставщиков, собирать выгодные заказы и видеть экономию по закупке в цифрах.",
+    "description": "Сравнивайте поставщиков по Excel-прайсам и сайтам, собирайте оптимальную корзину и видьте экономию и переплату по закупке ресторана.",
     "url": "https://iirest.ru/"
   }
   </script>
@@ -1801,7 +2097,23 @@
         "name": "Как быстро можно начать?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Обычно первый тест можно провести в тот же день: загрузить прайсы, собрать реальный список закупки и увидеть сравнение по поставщикам без долгого внедрения."
+          "text": "Обычно первый тест можно провести в тот же день: загрузить Excel-прайсы или подтянуть цены с сайтов, собрать реальный список закупки и увидеть сравнение по поставщикам без долгого внедрения."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Что делать, если поставщик не даёт Excel-прайс?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Если поставщик показывает цены только на сайте или в личном кабинете, плагин iiRest может подтянуть эти цены и передать их в матрицу сравнения. Так поставщик не выпадает из контроля, а вы можете сравнить его с остальными по реальному заказу."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Можно ли после сравнения оформить заказ на сайте поставщика?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Да. После выбора оптимальной корзины плагин помогает сформировать корзины на сайтах выбранных поставщиков, чтобы не собирать заказ заново вручную."
         }
       },
       {
@@ -1860,59 +2172,100 @@
         <button class="btn secondary btn-consult" type="button"
           data-track-goal="cta_header_consult">Получить консультацию</button>
         <a class="btn primary header-try" href="https://app.iirest.ru/register" target="_blank" rel="noopener noreferrer"
-          data-track-goal="cta_header_try">Запустить тест</a>
+          data-track-goal="cta_header_try">Проверить закупку</a>
       </div>
     </div>
   </header>
 
   <main>
     <section class="hero">
-      <div class="hero-top">
-        <span class="eyebrow">Для собственников и управляющих ресторанов</span>
-        <h1 class="hero-title-full">Снижайте переплату в закупке и держите поставщиков под контролем</h1>
-        <p class="hero-lead">iiRest помогает быстро сравнивать цены поставщиков в
-          одном окне, собирать выгодные заказы за пару кликов и видеть реальную экономию в цифрах.</p>
-      </div>
       <div class="container hero-grid">
         <div class="hero-copy">
+          <span class="eyebrow">Для ресторанов, кафе и сетей</span>
+          <h1 class="hero-title-full">Вы уверены, что закупаетесь по лучшим ценам?</h1>
+          <p class="hero-lead">iiRest сравнит ваших поставщиков по Excel-прайсам и сайтам, покажет оптимальную корзину,
+            экономию и переплату по реальному заказу.</p>
           <div class="hero-actions">
             <a class="btn primary" href="https://app.iirest.ru/register" target="_blank" rel="noopener noreferrer"
-              data-track-goal="cta_hero_try">Запустить тест на реальной закупке</a>
-            <button class="btn secondary btn-consult" type="button"
-              data-track-goal="cta_hero_consult">Получить консультацию</button>
+              data-track-goal="cta_hero_try">Проверить закупку</a>
+            <a class="btn secondary" href="#visuals" data-track-goal="cta_hero_demo">Посмотреть демо</a>
           </div>
-          <p class="hero-note">Проверьте сервис на своей реальной закупке — без долгого внедрения и сложного запуска.</p>
+          <p class="hero-note">Работает с Excel-прайсами, сайтами поставщиков и личными кабинетами.</p>
 
-          <div class="hero-metrics">
-            <div class="metric-pill">
-              <b>Экономия в цифрах</b>
-              <span>Видно, где корзина выгоднее, а где остается переплата</span>
-            </div>
-            <div class="metric-pill">
-              <b>Один экран вместо Excel и чатов</b>
-              <span>Прайсы, сравнение и заказ собираются в одном интерфейсе</span>
-            </div>
-            <div class="metric-pill">
-              <b>Быстрый заказ по нескольким поставщикам</b>
-              <span>Команда собирает закупку без ручной сводки и лишних ошибок</span>
-            </div>
+          <div class="hero-chips" aria-label="Ключевые возможности iiRest">
+            <span class="hero-chip">Excel-прайсы</span>
+            <span class="hero-chip">Сайты поставщиков</span>
+            <span class="hero-chip">Личные кабинеты</span>
+            <span class="hero-chip">Оптимальная корзина</span>
+            <span class="hero-chip">Экономия в рублях</span>
           </div>
         </div>
-        <div class="hero-image" role="button" tabindex="0" data-lightbox-trigger
-          data-lightbox-src="hero-dashboard-1600.jpg" data-lightbox-title="Панель контроля закупки"
-          data-lightbox-caption="Главный экран iiRest: сравнение цен поставщиков, заказ и контроль результата."
-          aria-label="Открыть скриншот панели контроля закупки">
-          <picture>
-            <source type="image/webp"
-              srcset="hero-dashboard-780.webp 780w, hero-dashboard-1200.webp 1200w, hero-dashboard-1600.webp 1600w"
-              sizes="(max-width: 1080px) min(100vw - 48px, 780px), 520px" />
-            <source type="image/jpeg"
-              srcset="hero-dashboard-780.jpg 780w, hero-dashboard-1200.jpg 1200w, hero-dashboard-1600.jpg 1600w"
-              sizes="(max-width: 1080px) min(100vw - 48px, 780px), 520px" />
-            <img src="hero-dashboard-1200.jpg" alt="Дашборд iiRest для контроля закупки и сравнения цен поставщиков"
-              width="1600"
-              height="995" loading="eager" fetchpriority="high" decoding="async" />
-          </picture>
+        <aside class="hero-result-card" aria-label="Пример результата проверки закупки">
+          <div class="result-card-head">
+            <div>
+              <p class="result-kicker">Проверка закупки</p>
+              <h2>Результат по заказу</h2>
+            </div>
+            <span class="result-source">Excel + сайты</span>
+          </div>
+          <div class="result-rows">
+            <div class="result-row">
+              <span>Текущая корзина</span>
+              <strong>184 600 ₽</strong>
+            </div>
+            <div class="result-row">
+              <span>Оптимальная корзина</span>
+              <strong>171 900 ₽</strong>
+            </div>
+            <div class="result-row highlight">
+              <span>Экономия</span>
+              <strong>12 700 ₽</strong>
+            </div>
+            <div class="result-row warning">
+              <span>Переплата</span>
+              <strong>6,8%</strong>
+            </div>
+          </div>
+          <div class="result-footer">
+            <span>Excel-прайсы + сайты поставщиков</span>
+            <span class="result-footer-badge">Одна матрица</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section plugin-section" id="plugin">
+      <div class="container">
+        <div class="plugin-box">
+          <div class="plugin-copy">
+            <span class="eyebrow">Плагин iiRest</span>
+            <h2>Поставщик не даёт прайс? Всё равно сравним.</h2>
+            <p>Многие поставщики показывают цены только на сайте или в личном кабинете. Обычно такие цены сложно
+              сравнить с Excel-прайсами других поставщиков — они выпадают из нормального контроля.</p>
+            <p>Плагин iiRest подтягивает цены с сайта поставщика, добавляет их в общую матрицу и помогает выбрать
+              оптимальную корзину. После сравнения вы можете сформировать корзины на сайтах выбранных поставщиков.</p>
+            <div class="plugin-actions">
+              <a class="btn primary" href="https://app.iirest.ru/register" target="_blank" rel="noopener noreferrer"
+                data-track-goal="cta_plugin_try">Сравнить поставщиков без прайсов</a>
+            </div>
+            <div class="plugin-points" aria-label="Что убирает плагин iiRest">
+              <div class="plugin-point">Не переписывайте цены вручную</div>
+              <div class="plugin-point">Не исключайте поставщиков без прайсов</div>
+              <div class="plugin-point">Не собирайте корзины заново после сравнения</div>
+            </div>
+          </div>
+          <div class="plugin-flow" aria-label="Схема работы с Excel-прайсами и сайтами поставщиков">
+            <div class="flow-sources">
+              <div class="flow-node">Excel-прайсы</div>
+              <div class="flow-node">Сайты поставщиков</div>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-node accent">Матрица iiRest</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-node success">Оптимальная корзина</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-node order">Корзины на сайтах поставщиков</div>
+          </div>
         </div>
       </div>
     </section>
@@ -1921,26 +2274,26 @@
       <div class="container">
         <div class="section-header">
           <span class="eyebrow">Для кого</span>
-          <h2>Для собственников и управляющих ресторанов, которым важно не переплачивать</h2>
-          <p>iiRest особенно полезен, если у вас несколько поставщиков, закупка собирается вручную, цены часто
-            меняются, а проверить реальную экономию по заказу сложно.</p>
+          <h2>Для тех, кто закупается у нескольких поставщиков</h2>
+          <p>iiRest особенно полезен, если цены разбросаны по прайсам, сайтам, личным кабинетам и чатам, а закупка
+            всё ещё собирается вручную или по привычке.</p>
         </div>
         <div class="solution-grid">
           <article class="solution-card">
             <h3>Несколько поставщиков</h3>
-            <p>Цены и условия разбросаны по разным прайсам, кабинетам и привычным каналам связи.</p>
+            <p>Цены и условия отличаются, а сравнить всю корзину вручную сложно.</p>
           </article>
           <article class="solution-card">
-            <h3>Ручная сборка закупки</h3>
-            <p>Excel, чаты и файлы отнимают время и добавляют лишние поводы для ошибок в заказе.</p>
+            <h3>Не все дают прайсы</h3>
+            <p>Часть поставщиков показывает цены только на сайте или в личном кабинете.</p>
           </article>
           <article class="solution-card">
-            <h3>Нестабильные цены</h3>
-            <p>Выгодная цена быстро меняется, и без постоянного сравнения переплата накапливается незаметно.</p>
+            <h3>Закупка по привычке</h3>
+            <p>Команда выбирает поставщика не потому, что он выгоднее, а потому что так быстрее.</p>
           </article>
           <article class="solution-card">
-            <h3>Слабая прозрачность результата</h3>
-            <p>Трудно быстро понять, где заказ действительно выгодный, а где ресторан уже теряет деньги.</p>
+            <h3>Переплата не видна</h3>
+            <p>Без общей матрицы сложно понять, где ресторан теряет деньги.</p>
           </article>
         </div>
       </div>
@@ -1950,17 +2303,16 @@
       <div class="container">
         <div class="section-header">
           <span class="eyebrow">Проблема</span>
-          <h2>Почему закупка начинает &laquo;течь&raquo;</h2>
-          <p>Потери обычно появляются не из-за одной большой ошибки, а из-за ежедневной рутины без прозрачного
-            сравнения и понятного контроля.</p>
+          <h2>Где закупка начинает течь</h2>
+          <p>Потери появляются не из-за одной большой ошибки, а из-за ежедневной рутины без прозрачного сравнения.</p>
         </div>
         <div class="problem-panel">
           <ul class="problem-list">
             <li>Прайсы лежат в почте, чатах и разных файлах</li>
-            <li>Сравнение идет вручную и съедает время</li>
+            <li>Цены на сайтах поставщиков не попадают в сравнение</li>
             <li>Заказ собирается по привычке, а не по лучшей цене</li>
-            <li>Непонятно, где реальная экономия, а где переплата</li>
-            <li>На нескольких точках порядок быстро расползается</li>
+            <li>Excel показывает строки, но не показывает реальную переплату</li>
+            <li>На нескольких точках контроль быстро расползается</li>
           </ul>
         </div>
       </div>
@@ -1970,86 +2322,26 @@
       <div class="container">
         <div class="section-header">
           <span class="eyebrow">Решение</span>
-          <h2>iiRest превращает хаос закупки в управляемый процесс</h2>
-          <p>Сервис помогает сравнивать предложения поставщиков по реальному списку закупки, собирать выгодную
-            корзину и видеть результат без ручной сводки.</p>
+          <h2>iiRest собирает все цены в одну матрицу</h2>
+          <p>Загрузите Excel-прайсы или подтяните цены с сайтов поставщиков через плагин. iiRest сравнит предложения,
+            покажет лучший сценарий закупки и поможет собрать заказы.</p>
         </div>
         <div class="solution-grid">
           <article class="solution-card">
-            <h3>Единая матрица вместо ручной сводки</h3>
-            <p>Прайсы приводятся к сопоставимому виду, чтобы вы могли сравнивать предложения без копипаста, формул и
-              постоянных правок.</p>
+            <h3>Цены из разных источников</h3>
+            <p>Excel-прайсы, сайты поставщиков и личные кабинеты попадают в одно сравнение.</p>
           </article>
           <article class="solution-card">
-            <h3>Выгодная корзина по реальному заказу</h3>
-            <p>iiRest помогает быстро собрать закупку по нескольким поставщикам и увидеть лучший сценарий по
-              конкретному списку товаров.</p>
+            <h3>Оптимальная корзина</h3>
+            <p>Система показывает, у кого выгоднее покупать каждую позицию по реальному заказу.</p>
           </article>
           <article class="solution-card">
-            <h3>Экономия и переплата видны сразу</h3>
-            <p>Аналитика показывает, где закупка стала выгоднее, а где ресторан продолжает терять деньги.</p>
+            <h3>Экономия и переплата</h3>
+            <p>Вы сразу видите, где заказ стал выгоднее, а где ресторан всё ещё теряет деньги.</p>
           </article>
           <article class="solution-card">
-            <h3>Один процесс для команды и руководителя</h3>
-            <p>Шефу и закупщику — меньше рутины. Собственнику и управляющему — больше прозрачности и контроля.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section buyer-section" id="buyers">
-      <div class="container">
-        <div class="section-header">
-          <span class="eyebrow">Ценность для руководителя</span>
-          <h2>Что получает собственник или управляющий</h2>
-          <p>iiRest помогает быстрее увидеть, где теряются деньги, и держать закупку под контролем без расширения
-            штата и новой ручной отчетности.</p>
-        </div>
-        <div class="solution-grid">
-          <article class="solution-card">
-            <h3>Меньше переплаты</h3>
-            <p>Сравнивайте цены по нужным позициям и быстрее находите более выгодные варианты закупки.</p>
-          </article>
-          <article class="solution-card">
-            <h3>Больше контроля по поставщикам</h3>
-            <p>Видно, кто реально дает лучшие условия по фактическому заказу, а не только по отдельным строкам прайса.</p>
-          </article>
-          <article class="solution-card">
-            <h3>Понятный эффект в цифрах</h3>
-            <p>Экономия, переплата и динамика цен видны без ручной сводки и без споров о результате.</p>
-          </article>
-          <article class="solution-card">
-            <h3>Меньше зависимости от ручной рутины</h3>
-            <p>Процесс не разваливается, когда закупка держится на одном человеке, Excel и переписке в чатах.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section user-section" id="users">
-      <div class="container">
-        <div class="section-header">
-          <span class="eyebrow">Ценность для команды</span>
-          <h2>Что получает шеф или закупщик</h2>
-          <p>Скорость и удобство остаются важными, но работают как поддержка главной цели: собирать заказ аккуратно и
-            прозрачно для руководителя.</p>
-        </div>
-        <div class="solution-grid">
-          <article class="solution-card">
-            <h3>Быстрее сбор заказа</h3>
-            <p>Меньше переключений между файлами и меньше повторяющихся действий по каждой закупке.</p>
-          </article>
-          <article class="solution-card">
-            <h3>Меньше ручной сверки</h3>
-            <p>Поставщики и позиции сравниваются в одном интерфейсе, а не вручную строка за строкой.</p>
-          </article>
-          <article class="solution-card">
-            <h3>Меньше ошибок по позициям и фасовкам</h3>
-            <p>Проще заметить расхождения и не потерять нужный товар в похожих названиях и форматах.</p>
-          </article>
-          <article class="solution-card">
-            <h3>Удобнее работать с несколькими поставщиками</h3>
-            <p>Заказ можно собрать в одной корзине и сразу разложить по поставщикам без лишнего хаоса.</p>
+            <h3>Корзины у поставщиков</h3>
+            <p>После сравнения плагин помогает сформировать корзины на сайтах выбранных поставщиков.</p>
           </article>
         </div>
       </div>
@@ -2059,57 +2351,67 @@
       <div class="container">
         <div class="section-header">
           <span class="eyebrow">Как это работает</span>
-          <h2>Три шага до более выгодной закупки</h2>
-          <p>Старт не требует тяжелого внедрения: вы берете текущие прайсы и реальный список закупки, а дальше
-            iiRest помогает быстро собрать лучший сценарий.</p>
+          <h2>Три шага до выгодной закупки</h2>
+          <p>Начните с текущих поставщиков и реального списка заказа. Ничего не нужно перестраивать на старте.</p>
         </div>
         <div class="steps-grid">
           <article class="step-card">
             <div class="step-head">
               <span class="step-num">1</span>
-              <h3>Загрузите прайсы поставщиков</h3>
+              <h3>Добавьте цены поставщиков</h3>
             </div>
-            <p>iiRest подготавливает прайсы для корректного сравнения цен.</p>
+            <p>Загрузите Excel-прайсы или подтяните цены с сайтов через плагин iiRest.</p>
           </article>
           <article class="step-card">
             <div class="step-head">
               <span class="step-num">2</span>
               <h3>Соберите заказ по реальному списку</h3>
             </div>
-            <p>Система помогает подобрать предложения по вашим позициям и собрать корзину по нескольким поставщикам.</p>
+            <p>iiRest сравнит предложения и покажет, у кого выгоднее покупать каждую позицию.</p>
           </article>
           <article class="step-card">
             <div class="step-head">
               <span class="step-num">3</span>
-              <h3>Оцените эффект</h3>
+              <h3>Оформите корзины</h3>
             </div>
-            <p>Сразу видно экономию, переплату, динамику цен и результат закупки в аналитике.</p>
+            <p>Система разложит заказ по поставщикам, а плагин поможет сформировать корзины на их сайтах.</p>
           </article>
         </div>
         <details class="how-features">
           <summary class="how-features-summary">
             <span class="how-features-title">Что еще есть в iiRest</span>
-            <span class="how-features-note">Матрица, корзина, аналитика, загрузка прайсов и работа по точкам</span>
+            <span class="how-features-note">Сравнение цен, сбор заказа и контроль закупки без длинного списка функций</span>
             <span class="how-features-hint">Посмотреть весь список</span>
           </summary>
-          <ul class="how-features-list">
-            <li>Загрузка прайсов за 2 клика — любые Excel-форматы. Сервис сам распознаёт позиции и цены.</li>
-            <li>2 режима обновления прайса — полная замена или дозагрузка (дополнение без потери данных).</li>
-            <li>Управляйте закупками централизованно — задавайте видимость и права для сотрудников, привязывайте поставщиков к конкретным точкам.</li>
-            <li>Номенклатура ресторана с комментариями — сохраняйте «как правильно» и требования для поставщиков.</li>
-            <li>Тендер за минуту — добавляйте позиции из номенклатуры, списком из текста или файлом.</li>
-            <li>Гибкий пул поставщиков — выбирайте, кого сравнивать в каждом тендере.</li>
-            <li>Умный подбор позиций — автопоиск в матрице + ручной поиск по кнопке.</li>
-            <li>Поиск по эталону — кнопка «звездочка» перестраивает поиск по выбранному у поставщика наименованию, повышая точность сопоставления с другими поставщиками.</li>
-            <li>Корзина тендера — группировка по поставщикам, редактирование количества, авто-пересчёт сумм.</li>
-            <li>Доп. накладная в заказе — разделяйте отгрузки внутри одного заказа поставщику.</li>
-            <li>Экспорт в Excel — по одному поставщику или сразу по всем, с комментариями к позициям.</li>
-            <li>Цены прямо с сайтов поставщиков — автоматическое подтягивание актуальных цен.</li>
-            <li>Сохранение и «закрытие» тендера — фиксируйте результат и защищайте от правок.</li>
-            <li>Аналитика в тендере — сравнение выбранной корзины с самой дешевой, средней и вариантом заказа у одного поставщика: сразу видны экономия и переплата.</li>
-            <li>Аналитика компании — срезы по периоду, ресторанам, закупщикам и поставщикам + индекс цен и «самый дешевый/дорогой».</li>
-            <li>Быстрый вход через Telegram — без паролей и лишних шагов.</li>
-          </ul>
+          <div class="feature-groups">
+            <article class="feature-group">
+              <h3>Сравнение цен</h3>
+              <ul>
+                <li>Загрузка Excel-прайсов</li>
+                <li>Цены с сайтов поставщиков через плагин</li>
+                <li>Единая матрица сравнения</li>
+                <li>Умный подбор похожих позиций</li>
+              </ul>
+            </article>
+            <article class="feature-group">
+              <h3>Сбор заказа</h3>
+              <ul>
+                <li>Корзина по нескольким поставщикам</li>
+                <li>Группировка заказа по поставщикам</li>
+                <li>Редактирование количества</li>
+                <li>Экспорт и фиксация результата</li>
+              </ul>
+            </article>
+            <article class="feature-group">
+              <h3>Контроль закупки</h3>
+              <ul>
+                <li>Экономия и переплата по заказу</li>
+                <li>Аналитика по поставщикам</li>
+                <li>Аналитика по закупщикам и точкам</li>
+                <li>Индекс цен и динамика</li>
+              </ul>
+            </article>
+          </div>
         </details>
       </div>
     </section>
@@ -2119,8 +2421,8 @@
         <div class="section-header">
           <span class="eyebrow">Аналитика</span>
           <h2>Экономия не &laquo;на ощущениях&raquo;, а в цифрах</h2>
-          <p>Смотрите динамику цен, экономию и переплату по заказам, поставщикам, закупщикам и точкам. iiRest помогает
-            принимать решения на основе фактов, а не на основе привычки или ручных таблиц.</p>
+          <p>Смотрите, сколько стоит выбранная корзина, где осталась переплата и какие поставщики реально выгоднее по
+            вашим заказам.</p>
         </div>
 
         <div class="slider" data-slider aria-label="Слайдер интерфейсов iiRest">
@@ -2129,37 +2431,17 @@
             <div class="slider-viewport">
               <div class="slider-track">
                 <article class="slide" data-slide-name="analytics_cart_mix">
-                  <h3 class="slide-title">Аналитика в корзине</h3>
-                  <p class="slide-caption">По реальному заказу сразу видно, сколько стоит выбранная корзина и где
-                    остается переплата.</p>
+                  <h3 class="slide-title">Аналитика</h3>
+                  <p class="slide-caption">Экономия, переплата и динамика цен по заказам, поставщикам, закупщикам и
+                    точкам.</p>
                   <figure role="button" tabindex="0" data-lightbox-trigger aria-label="Открыть скриншот: Аналитика в корзине">
                     <img src="Screenshots/Аналитика Корзина.png" alt="Комбинированный экран аналитики и корзины"
                       width="1065" height="282" loading="lazy" decoding="async" />
                   </figure>
                 </article>
-                <article class="slide" data-slide-name="analytics">
-                  <h3 class="slide-title">Аналитика по закупщикам и поставщикам</h3>
-                  <p class="slide-caption">Сравнивайте эффективность, динамику цен и результат по каждому сценарию
-                    закупки.</p>
-                  <figure role="button" tabindex="0" data-lightbox-trigger
-                    aria-label="Открыть скриншот: Аналитика по закупщикам и поставщикам">
-                    <img src="Screenshots/Аналитика2.png" alt="Экран аналитики закупок" width="1156" height="645"
-                      loading="lazy" decoding="async" />
-                  </figure>
-                </article>
-                <article class="slide" data-slide-name="analytics_summary">
-                  <h3 class="slide-title">Аналитика по точкам закупки</h3>
-                  <p class="slide-caption">Сводка по ресторанам помогает видеть отклонения и быстрее искать точки
-                    потерь.</p>
-                  <figure role="button" tabindex="0" data-lightbox-trigger
-                    aria-label="Открыть скриншот: Аналитика по точкам закупки">
-                    <img src="Screenshots/Аналитика1.png" alt="Сводная аналитика по закупщикам" width="1120"
-                      height="403" loading="lazy" decoding="async" />
-                  </figure>
-                </article>
                 <article class="slide" data-slide-name="matrix">
                   <h3 class="slide-title">Матрица</h3>
-                  <p class="slide-caption">Единый экран для сравнения предложений поставщиков по нужным позициям.</p>
+                  <p class="slide-caption">Все предложения поставщиков в одном окне: Excel-прайсы и цены с сайтов.</p>
                   <figure role="button" tabindex="0" data-lightbox-trigger aria-label="Открыть скриншот: Матрица">
                     <img src="Screenshots/Матрица.png" alt="Экран матрицы сравнения цен поставщиков" width="1070"
                       height="634" loading="lazy" decoding="async" />
@@ -2167,8 +2449,7 @@
                 </article>
                 <article class="slide" data-slide-name="cart">
                   <h3 class="slide-title">Корзина</h3>
-                  <p class="slide-caption">Заказ по нескольким поставщикам собирается без прыжков между файлами и
-                    чатами.</p>
+                  <p class="slide-caption">Заказ по нескольким поставщикам без ручной сводки и повторного набора.</p>
                   <figure role="button" tabindex="0" data-lightbox-trigger aria-label="Открыть скриншот: Корзина">
                     <img src="Screenshots/Корзина.png" alt="Экран корзины с итогами заказа" width="1066" height="532"
                       loading="lazy" decoding="async" />
@@ -2181,10 +2462,8 @@
           <div class="slider-controls">
             <div class="slider-dots" aria-label="Индикаторы слайдов">
               <button class="slider-dot active" type="button" data-slider-dot="0" aria-label="Аналитика в корзине"></button>
-              <button class="slider-dot" type="button" data-slider-dot="1" aria-label="Аналитика по закупщикам и поставщикам"></button>
-              <button class="slider-dot" type="button" data-slider-dot="2" aria-label="Аналитика по точкам"></button>
-              <button class="slider-dot" type="button" data-slider-dot="3" aria-label="Матрица"></button>
-              <button class="slider-dot" type="button" data-slider-dot="4" aria-label="Корзина"></button>
+              <button class="slider-dot" type="button" data-slider-dot="1" aria-label="Матрица"></button>
+              <button class="slider-dot" type="button" data-slider-dot="2" aria-label="Корзина"></button>
             </div>
           </div>
         </div>
@@ -2196,8 +2475,8 @@
         <div class="compare-box">
           <div class="compare-copy">
             <h2>iiRest — не еще одна таблица</h2>
-            <p>Это рабочий слой между прайсами поставщиков и решением о закупке, где видно цену, сценарий заказа и
-              итоговый эффект в цифрах.</p>
+            <p>Это рабочий слой между Excel-прайсами, сайтами поставщиков и решением о закупке, где видно цену,
+              сценарий заказа и итоговый эффект в цифрах.</p>
           </div>
           <ul class="compare-list">
             <li>Вместо Excel, чатов и ручной сводки</li>
@@ -2213,9 +2492,8 @@
       <div class="container">
         <div class="section-header">
           <span class="eyebrow">Тарифы</span>
-          <h2>Выберите уровень автоматизации закупки</h2>
-          <p>Начните с теста на реальной закупке и выберите подходящий формат по масштабу бизнеса и уровню
-            автоматизации.</p>
+          <h2>Начните с проверки одной закупки</h2>
+          <p>Проверьте эффект на реальном заказе, а потом выберите подходящий формат работы.</p>
         </div>
 
         <div class="pricing-grid">
@@ -2229,7 +2507,7 @@
               <li>Базовая аналитика закупок</li>
             </ul>
             <a class="pricing-cta" href="https://app.iirest.ru/register" target="_blank" rel="noopener noreferrer"
-              data-track-goal="cta_pricing_basic">Запустить тест</a>
+              data-track-goal="cta_pricing_basic">Проверить закупку</a>
           </article>
 
           <article class="pricing-card">
@@ -2271,8 +2549,19 @@
         <div class="faq-list">
           <details class="faq-item" open>
             <summary>Как быстро можно начать?</summary>
-            <p class="faq-answer">Обычно первый тест можно провести в тот же день: загрузить прайсы, собрать реальный
-              список закупки и увидеть сравнение по поставщикам без долгого внедрения.</p>
+            <p class="faq-answer">Обычно первый тест можно провести в тот же день: загрузить Excel-прайсы или подтянуть
+              цены с сайтов, собрать реальный список закупки и увидеть сравнение по поставщикам без долгого внедрения.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Что делать, если поставщик не даёт Excel-прайс?</summary>
+            <p class="faq-answer">Если поставщик показывает цены только на сайте или в личном кабинете, плагин iiRest
+              может подтянуть эти цены и передать их в матрицу сравнения. Так поставщик не выпадает из контроля, а вы
+              можете сравнить его с остальными по реальному заказу.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Можно ли после сравнения оформить заказ на сайте поставщика?</summary>
+            <p class="faq-answer">Да. После выбора оптимальной корзины плагин помогает сформировать корзины на сайтах
+              выбранных поставщиков, чтобы не собирать заказ заново вручную.</p>
           </details>
           <details class="faq-item">
             <summary>Что делать, если у поставщиков разные названия товаров?</summary>
@@ -2303,12 +2592,12 @@
     <section class="cta-section" id="cta">
       <div class="container">
         <div class="cta-box">
-          <h2>Посмотрите, где вы переплачиваете уже на ближайшей закупке</h2>
-          <p>Возьмите текущий список закупки, загрузите прайсы и проверьте, какую экономию и прозрачность дает iiRest
-            уже на первом сценарии.</p>
+          <h2>Проверьте, где вы переплачиваете уже на ближайшей закупке</h2>
+          <p>Возьмите текущий список заказа. Загрузите Excel-прайсы или подтяните цены с сайтов поставщиков через
+            плагин iiRest. Мы покажем, какая корзина выгоднее и где ресторан теряет деньги.</p>
           <div class="cta-actions">
             <a class="btn primary" href="https://app.iirest.ru/register" target="_blank" rel="noopener noreferrer"
-              data-track-goal="cta_final_try">Запустить тест</a>
+              data-track-goal="cta_final_try">Проверить закупку</a>
             <button class="btn secondary btn-consult" type="button"
               data-track-goal="cta_final_consult">Получить консультацию</button>
           </div>
@@ -2453,7 +2742,7 @@
           threshold: 0.45
         });
 
-        ["buyers", "visuals", "pricing", "faq"].forEach(function (id) {
+        ["plugin", "visuals", "pricing", "faq"].forEach(function (id) {
           var node = document.getElementById(id);
           if (node) observer.observe(node);
         });
