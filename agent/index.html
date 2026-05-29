@@ -5,8 +5,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description"
-    content="ИИ-ассистент управляющего iiRest подключен к данным ресторана, отвечает на вопросы, быстро собирает отчеты и помогает управленцу 24/7 за 4 000 рублей в месяц." />
-  <meta name="theme-color" content="#4f46e5" />
+    content="iirest AI Agent подключается к учётной системе ресторана и отвечает на вопросы по продажам, меню, закупкам, остаткам и управлению прямо в мессенджере." />
+  <meta name="theme-color" content="#F7F4EF" />
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
   <meta name="googlebot" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
   <meta name="yandex" content="index,follow,max-snippet:-1,max-image-preview:large" />
@@ -31,242 +31,816 @@
       href="https://fonts.googleapis.com/css2?family=Geologica:wght@500;600;700;800&family=Golos+Text:wght@400;500;600;700;800&display=swap"
       rel="stylesheet" />
   </noscript>
-  <link rel="stylesheet" href="../site.css" />
+  <link rel="stylesheet" href="agent.css" />
 
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="iiRest" />
-  <meta property="og:locale" content="ru_RU" />
-  <meta property="og:title" content="ИИ-ассистент управляющего рестораном iiRest" />
+  <meta property="og:title" content="ИИ-ассистент для ресторана — iirest AI Agent" />
   <meta property="og:description"
-    content="Ассистент за 4 000 ₽/мес: знает подключенные данные ресторана, собирает отчеты, отвечает на вопросы и помогает управленцу 24/7." />
-  <meta property="og:url" content="https://iirest.ru/agent/" />
+    content="Задавайте вопросы по продажам, меню, закупкам и управлению прямо в мессенджере. Агент знает контекст ресторана и помогает принимать решения." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://iirest.ru/agent" />
+  <meta property="og:site_name" content="iirest" />
+  <meta property="og:locale" content="ru_RU" />
   <meta property="og:image" content="https://iirest.ru/hero-dashboard.png" />
-  <meta property="og:image:type" content="image/png" />
-  <meta property="og:image:alt" content="Данные iiRest для ИИ-ассистента управляющего" />
+  <meta property="og:image:alt" content="Демонстрация iirest AI Agent в мессенджере" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="ИИ-ассистент управляющего рестораном iiRest" />
+  <meta name="twitter:title" content="ИИ-ассистент для ресторана — iirest AI Agent" />
   <meta name="twitter:description"
-    content="Ассистент за 4 000 ₽/мес: знает подключенные данные ресторана, собирает отчеты, отвечает на вопросы и помогает управленцу 24/7." />
+    content="Агент подключается к данным ресторана и отвечает на вопросы по продажам, меню, закупкам и управлению прямо в мессенджере." />
   <meta name="twitter:image" content="https://iirest.ru/hero-dashboard.png" />
 
-  <title>ИИ-ассистент управляющего рестораном iiRest</title>
+  <title>ИИ-ассистент для ресторана в мессенджере — iirest AI Agent</title>
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "ИИ-ассистент управляющего iiRest",
+    "name": "iirest AI Agent",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web",
     "inLanguage": "ru-RU",
     "url": "https://iirest.ru/agent/",
-    "image": "https://iirest.ru/hero-dashboard.png",
-    "description": "ИИ-ассистент управленца для ресторанов: подключен к данным iiRest, отвечает на вопросы, собирает отчеты и подсвечивает отклонения.",
-    "offers": {
-      "@type": "Offer",
-      "price": "4000",
-      "priceCurrency": "RUB",
-      "availability": "https://schema.org/InStock",
-      "url": "https://iirest.ru/agent/"
+    "description": "ИИ-ассистент для ресторана, который подключается к учетной системе, POS, iiko, API или выгрузкам и отвечает на управленческие вопросы в мессенджере.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "iirest",
+      "url": "https://iirest.ru/"
     }
   }
   </script>
 </head>
 
 <body>
-  <header class="site-header">
-    <div class="container nav">
-      <a class="brand" href="../index.html" aria-label="iiRest">
+  <header class="agent-header" data-header>
+    <div class="agent-container agent-nav">
+      <a class="agent-brand" href="../index.html" aria-label="iirest">
         <img src="../logo.svg" alt="" width="32" height="32" decoding="async" />
-        iiRest
+        <span>iirest</span>
       </a>
-      <nav class="menu" aria-label="Основная навигация">
-        <a href="../index.html">Продукты</a>
-        <a href="index.html" aria-current="page">ИИ-агент</a>
-        <a href="../zakupki/index.html">Закупки</a>
+
+      <button class="mobile-menu-button" type="button" aria-expanded="false" aria-controls="agent-menu"
+        data-menu-toggle>
+        <span class="sr-only">Открыть меню</span>
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </button>
+
+      <nav class="agent-menu" id="agent-menu" aria-label="Навигация по странице" data-menu>
+        <a href="#questions">Возможности</a>
+        <a href="#roles">Сценарии</a>
+        <a href="#how">Как работает</a>
+        <a href="#safety">Безопасность</a>
+        <a href="#launch">Запуск</a>
       </nav>
-      <div class="nav-actions">
-        <a class="btn secondary" href="https://app.iirest.ru" target="_blank" rel="noopener noreferrer">Войти</a>
-        <a class="btn primary" href="mailto:dkruglov@outlook.com?subject=ИИ-ассистент%20управляющего%20iiRest">Подключить</a>
-      </div>
+
+      <a class="agent-header-cta" href="#contact">Обсудить подключение</a>
     </div>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <span class="eyebrow">ИИ-ассистент управляющего</span>
-          <h1 class="hero-title">Сотрудник по данным за 4 000 ₽ в месяц</h1>
-          <p class="lead">Он подключен к iiRest, знает данные ресторана, быстро собирает отчеты, отвечает на вопросы
-            управленца и сам подсвечивает, где нужно внимание.</p>
+    <section class="agent-hero" id="top">
+      <div class="agent-container hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow">ИИ-ассистент для ресторанного бизнеса</span>
+          <h1>Спросите ресторан — и получите ответ</h1>
+          <p class="hero-lead">iirest AI Agent подключается к учётной системе ресторана и отвечает на вопросы владельца
+            или управляющего прямо в мессенджере: по продажам, меню, закупкам, остаткам, акциям, сменам и операционным
+            проблемам.</p>
+          <p class="hero-support">Это не просто бот для отчётов. Это окно в ИИ, который знает контекст вашего ресторана
+            и помогает думать, искать причины и находить решения.</p>
           <div class="hero-actions">
-            <a class="btn primary"
-              href="mailto:dkruglov@outlook.com?subject=ИИ-ассистент%20управляющего%20iiRest">Подключить за 4 000 ₽</a>
-            <a class="btn secondary" href="#tasks">Что умеет</a>
+            <a class="btn btn-primary" href="#contact">Обсудить подключение</a>
+            <a class="btn btn-secondary" href="#questions">Посмотреть примеры</a>
           </div>
-          <div class="hero-chips" aria-label="Ключевые свойства ассистента">
-            <span class="hero-chip">24/7 на связи</span>
-            <span class="hero-chip">Знает контекст</span>
-            <span class="hero-chip">Отчеты за минуты</span>
-          </div>
+          <p class="microcopy">Начать можно с одного ресторана и нескольких ключевых сценариев.</p>
         </div>
 
-        <aside class="agent-console" aria-label="Пример работы ИИ-ассистента управляющего">
-          <div class="console-top">
-            <strong>iiRest Assistant</strong>
-            <span class="console-state">подключен к данным</span>
-          </div>
-          <div class="console-body">
-            <div class="chat-line">
-              <span>Управляющий</span>
-              <strong>Где вчера выросла себестоимость?</strong>
-            </div>
-            <div class="chat-line agent">
-              <span>Ассистент</span>
-              <strong>Молочка +7%, овощи +4%. Собрал отчет по точкам.</strong>
-            </div>
-            <div class="chat-line">
-              <span>Управляющий</span>
-              <strong>Кого проверить первым?</strong>
-            </div>
-            <div class="chat-line agent">
-              <span>Ассистент</span>
-              <strong>Поставщик Бета: 3 позиции дороже рынка.</strong>
-            </div>
-          </div>
-          <div class="result-summary primary">
-            <span>стоимость ассистента</span>
-            <strong>4 000 ₽</strong>
-          </div>
-          <div class="result-footer">
-            <strong>Не болеет, не спит, не забывает задачу.</strong>
-            <span>Работает как дополнительный сотрудник управленца, но всегда опирается на подключенные данные.</span>
-          </div>
-        </aside>
-      </div>
-    </section>
+        <div class="hero-visual reveal" aria-label="Демонстрация работы iirest AI Agent в Telegram">
+          <div class="agent-demo-phone" data-agent-demo>
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <div class="phone-statusbar" aria-hidden="true">
+                  <span>09:41</span>
+                  <div class="phone-indicators">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                  </div>
+                </div>
 
-    <section class="section compact" id="tasks">
-      <div class="container">
-        <div class="section-header">
-          <h2>Что делает для управленца</h2>
-          <p>Ассистент нужен не “для поговорить”, а чтобы быстрее получать ответы по ресторану и видеть отклонения.</p>
-        </div>
+                <div class="telegram-topbar">
+                  <div class="telegram-avatar" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M20.8 4.4 17.6 20c-.2.9-.8 1.1-1.6.7l-4.4-3.3-2.1 2c-.2.2-.4.4-.9.4l.3-4.6 8.4-7.6c.4-.3-.1-.5-.5-.2L6.4 14 2 12.6c-.9-.3-.9-1 0-1.4L19.4 4.5c.8-.3 1.5.2 1.4-.1Z" />
+                    </svg>
+                  </div>
+                  <div class="telegram-contact">
+                    <strong>iirest AI Agent</strong>
+                    <span data-agent-demo-status>online</span>
+                  </div>
+                  <span class="telegram-label">Telegram</span>
+                </div>
 
-        <div class="use-grid">
-          <article class="use-item">
-            <h3>Отвечает на вопросы</h3>
-            <p>Можно спросить про закупки, цены, поставщиков, точки, переплату и динамику.</p>
-          </article>
-          <article class="use-item">
-            <h3>Собирает отчеты</h3>
-            <p>Готовит короткую управленческую сводку без ручного сбора таблиц и переписок.</p>
-          </article>
-          <article class="use-item">
-            <h3>Видит контекст</h3>
-            <p>Работает с данными iiRest, поэтому понимает поставщиков, корзины, цены и историю.</p>
-          </article>
-          <article class="use-item">
-            <h3>Проявляет инициативу</h3>
-            <p>Подсвечивает рост цен, странные закупки, пропущенные прайсы и зоны риска.</p>
-          </article>
-        </div>
-      </div>
-    </section>
+                <div class="telegram-thread" data-agent-demo-thread aria-live="polite" aria-atomic="false"></div>
 
-    <section class="section alt compact">
-      <div class="container split">
-        <div>
-          <span class="eyebrow">Как сотрудник в команде</span>
-          <h2>Всегда готов помочь, когда управленцу нужен ответ</h2>
-          <p>Ассистент не уходит из смены, не болеет и не спит. Его задача - держать управленца ближе к фактам:
-            собрать отчет, объяснить отклонение, найти риск и подготовить следующий вопрос.</p>
-          <div class="hero-actions">
-            <a class="btn primary"
-              href="mailto:dkruglov@outlook.com?subject=Подключить%20ИИ-ассистента%20управляющего">Обсудить подключение</a>
-            <a class="btn secondary" href="../zakupki/index.html">Данные закупок</a>
-          </div>
-        </div>
-        <div class="hero-result-card">
-          <div class="result-card-head">
-            <p class="result-kicker">Рабочий режим</p>
-          </div>
-          <div class="result-rows">
-            <div class="result-row result-row-positive">
-              <span>Доступность</span>
-              <strong>24/7</strong>
+                <div class="telegram-composer" aria-hidden="true">
+                  <div class="composer-field">
+                    <span data-agent-demo-input></span>
+                    <i class="composer-cursor"></i>
+                  </div>
+                  <span class="composer-send">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M5 12 19 5l-4 14-3-6-7-1Z" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
             </div>
-            <div class="result-row">
-              <span>Отчеты</span>
-              <strong>за минуты</strong>
-            </div>
-            <div class="result-row">
-              <span>Контекст</span>
-              <strong>данные iiRest</strong>
-            </div>
-            <div class="result-row result-row-warning">
-              <span>Риски</span>
-              <strong>сам подсветит</strong>
-            </div>
+
+            <p class="demo-note">Демонстрационные данные. Реальные ответы зависят от подключённых источников.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section compact">
-      <div class="container">
-        <div class="section-header">
-          <h2>Какие вопросы можно задавать</h2>
-          <p>Формулируйте как обычному сотруднику, который знает данные и умеет быстро собрать ответ.</p>
+    <section class="agent-section" id="questions">
+      <div class="agent-container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Что можно спросить</span>
+          <h2>Задавайте вопросы так, как задали бы управляющему</h2>
+          <p>Без SQL, фильтров и выгрузок. Просто напишите вопрос в мессенджер — агент сам поймёт, какие данные нужны.
+          </p>
         </div>
 
-        <div class="timeline">
-          <article class="timeline-step">
-            <strong>01</strong>
-            <div>
-              <h3>Что изменилось за неделю?</h3>
-              <p>Ассистент поднимет динамику, найдет скачки цен и покажет, где нужен контроль.</p>
+        <div class="question-grid">
+          <article class="question-card reveal">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 19V5m0 14h16M8 16V9m4 7V7m4 9v-4" /></svg>
+            </div>
+            <h3>Продажи</h3>
+            <ul>
+              <li>Какая выручка была вчера по точкам?</li>
+              <li>Почему пятница хуже прошлой недели?</li>
+              <li>Где просел средний чек?</li>
+            </ul>
+          </article>
+
+          <article class="question-card reveal">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M5 4h14v14H7l-2 2V4Zm4 5h6M9 13h4" /></svg>
+            </div>
+            <h3>Меню</h3>
+            <ul>
+              <li>Какие блюда дают маржу, а какие только занимают место?</li>
+              <li>Что чаще покупают вместе?</li>
+              <li>Какие позиции стоит продвинуть в акции?</li>
+            </ul>
+          </article>
+
+          <article class="question-card reveal">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 7h16l-2 12H6L4 7Zm3-3h10l3 3H4l3-3Zm3 7v4m4-4v4" /></svg>
+            </div>
+            <h3>Закупки</h3>
+            <ul>
+              <li>Что подорожало у поставщиков за месяц?</li>
+              <li>Где можно сэкономить без потери качества?</li>
+              <li>Какие позиции закупаем дороже рынка?</li>
+            </ul>
+          </article>
+
+          <article class="question-card reveal">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M5 20h14V8l-4-4H5v16Zm10-16v4h4M8 12h8M8 16h6" /></svg>
+            </div>
+            <h3>Остатки и списания</h3>
+            <ul>
+              <li>Что скоро закончится?</li>
+              <li>Где выросли списания?</li>
+              <li>Какие продукты зависают на складе?</li>
+            </ul>
+          </article>
+
+          <article class="question-card reveal">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 13l10-7v12L4 13Zm10-1h4a3 3 0 0 1 0 6h-4" /></svg>
+            </div>
+            <h3>Маркетинг</h3>
+            <ul>
+              <li>Придумай акцию на слабый вторник.</li>
+              <li>Какие блюда лучше продвигать в доставке?</li>
+              <li>Как вернуть гостей, которые давно не заказывали?</li>
+            </ul>
+          </article>
+
+          <article class="question-card reveal">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 4v16M5 8h14M7 20h10M8 8l-3 7h6L8 8Zm8 0l-3 7h6l-3-7Z" /></svg>
+            </div>
+            <h3>Управление</h3>
+            <ul>
+              <li>Какие проблемы требуют внимания сегодня?</li>
+              <li>Что изменилось за неделю?</li>
+              <li>Подготовь короткую сводку для собственника.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="agent-section context-section" id="context">
+      <div class="agent-container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Контекст ресторана</span>
+          <h2>Агент видит не одну цифру, а весь контекст</h2>
+          <p>Он связывает продажи, блюда, закупки, остатки, поставщиков, акции и историю ресторана — поэтому может не
+            только ответить «что произошло», но и помочь понять «почему» и «что делать».</p>
+        </div>
+
+        <div class="context-layout">
+          <div class="context-map reveal" aria-label="Схема подключения данных к AI Agent">
+            <div class="source source-1">Продажи</div>
+            <div class="source source-2">Меню</div>
+            <div class="source source-3">Закупки</div>
+            <div class="source source-4">Остатки</div>
+            <div class="source source-5">Поставщики</div>
+            <div class="source source-6">Акции</div>
+            <div class="source source-7">Отзывы</div>
+            <div class="source source-8">Документы и правила</div>
+            <div class="source source-9">История вопросов</div>
+            <div class="agent-node">
+              <span>AI Agent</span>
+              <small>данные → смысл → действие</small>
+            </div>
+            <div class="context-results">
+              <span>Ответ</span>
+              <span>Причина</span>
+              <span>Действие</span>
+            </div>
+          </div>
+
+          <div class="context-cards">
+            <article class="context-card reveal">
+              <h3>Понимает ресторанные связи</h3>
+              <p>Например, агент может связать падение маржи не только с продажами, но и с ростом закупочной цены,
+                изменением микса блюд или скидками.</p>
+            </article>
+            <article class="context-card reveal">
+              <h3>Помнит контекст</h3>
+              <p>Можно уточнять: «а если смотреть только доставку?», «а по вторникам?», «а без банкетов?». Агент
+                продолжит анализ без нового отчёта.</p>
+            </article>
+            <article class="context-card reveal">
+              <h3>Помогает думать</h3>
+              <p>С ним можно не только смотреть цифры, но и брейнштормить: меню, акции, закупочную стратегию, гипотезы
+                роста и управленческие решения.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="agent-section" id="modes">
+      <div class="agent-container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Три режима работы</span>
+          <h2>Три режима: спросить, получить сигнал, придумать решение</h2>
+          <p>Агент работает и как быстрый аналитик, и как регулярный контролёр, и как партнёр для управленческого
+            мышления.</p>
+        </div>
+
+        <div class="mode-grid">
+          <article class="mode-card reveal">
+            <span class="mode-number">1</span>
+            <h3>Вопросы по запросу</h3>
+            <p>Напишите вопрос в мессенджер и получите ответ по живым данным ресторана.</p>
+            <ul>
+              <li>Сколько заработали вчера?</li>
+              <li>Какая точка просела?</li>
+              <li>Почему выросла себестоимость?</li>
+              <li>Какие блюда стали продаваться хуже?</li>
+            </ul>
+            <a class="chip-link" href="#contact">Спросить сейчас</a>
+          </article>
+
+          <article class="mode-card mode-card-dark reveal">
+            <span class="mode-number">2</span>
+            <h3>Регулярные сводки и алерты</h3>
+            <p>Агент может сам присылать утреннюю сводку, недельный отчёт или предупреждение, если что-то пошло не так.
+            </p>
+            <ul>
+              <li>Утренняя сводка владельцу</li>
+              <li>Алерт по падению выручки</li>
+              <li>Алерт по росту списаний</li>
+              <li>Недельный отчёт по закупкам</li>
+            </ul>
+            <a class="chip-link" href="#contact">Настроить ритм</a>
+          </article>
+
+          <article class="mode-card reveal">
+            <span class="mode-number">3</span>
+            <h3>Идеи, гипотезы и решения</h3>
+            <p>Агент знает данные ресторана и помогает придумывать конкретные действия: акции, изменения меню,
+              закупочные решения, сценарии роста.</p>
+            <ul>
+              <li>Придумай акцию на слабый день.</li>
+              <li>Что можно сделать, чтобы поднять средний чек?</li>
+              <li>Какие блюда стоит убрать или заменить?</li>
+              <li>Как снизить закупочные расходы?</li>
+            </ul>
+            <a class="chip-link" href="#contact">Найти идеи</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="agent-section roles-section" id="roles">
+      <div class="agent-container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Сценарии по ролям</span>
+          <h2>Один агент — разные сценарии для команды</h2>
+          <p>Владелец, управляющий, операционный директор, маркетолог и закупщик могут задавать свои вопросы и получать
+            ответы на своём уровне детализации.</p>
+        </div>
+
+        <div class="role-tabs reveal" data-role-tabs>
+          <div class="tab-list" role="tablist" aria-label="Роли пользователей">
+            <button type="button" role="tab" aria-selected="true" aria-controls="role-owner" id="tab-owner"
+              data-role-tab="owner">Владелец</button>
+            <button type="button" role="tab" aria-selected="false" aria-controls="role-manager" id="tab-manager"
+              data-role-tab="manager" tabindex="-1">Управляющий</button>
+            <button type="button" role="tab" aria-selected="false" aria-controls="role-ops" id="tab-ops"
+              data-role-tab="ops" tabindex="-1">Операционный директор</button>
+            <button type="button" role="tab" aria-selected="false" aria-controls="role-marketer" id="tab-marketer"
+              data-role-tab="marketer" tabindex="-1">Маркетолог</button>
+            <button type="button" role="tab" aria-selected="false" aria-controls="role-buyer" id="tab-buyer"
+              data-role-tab="buyer" tabindex="-1">Закупщик</button>
+          </div>
+
+          <div class="role-panel is-active" role="tabpanel" id="role-owner" aria-labelledby="tab-owner"
+            data-role-panel="owner">
+            <div class="role-copy">
+              <h3>Видеть бизнес без погружения в отчёты</h3>
+              <ul>
+                <li>ежедневная сводка по выручке, марже, проблемам;</li>
+                <li>сравнение точек;</li>
+                <li>объяснение отклонений;</li>
+                <li>подготовка вопросов управляющему;</li>
+                <li>быстрый анализ «что требует внимания».</li>
+              </ul>
+            </div>
+            <div class="dialog-card">
+              <div class="dialog-question">Что самое важное произошло в ресторане за вчера?</div>
+              <div class="dialog-answer">Выручка в норме, но маржа просела на 4,2 п.п. Основные причины: рост
+                закупочной цены по мясу и увеличение скидок в доставке. Рекомендую проверить поставщика по 6 позициям и
+                ограничить промокод на блюда с низкой маржей.</div>
+            </div>
+          </div>
+
+          <div class="role-panel" role="tabpanel" id="role-manager" aria-labelledby="tab-manager" data-role-panel="manager"
+            hidden>
+            <div class="role-copy">
+              <h3>Быстро принимать решения в течение дня</h3>
+              <ul>
+                <li>что закончилось;</li>
+                <li>что списывается;</li>
+                <li>где просели продажи;</li>
+                <li>какие позиции продвигать официантам;</li>
+                <li>что проверить перед сменой.</li>
+              </ul>
+            </div>
+            <div class="dialog-card">
+              <div class="dialog-question">Что проверить перед вечерней сменой?</div>
+              <div class="dialog-answer">Проверьте остатки курицы и сливок, они ниже обычного расхода для пятницы.
+                Также стоит продвигать сет с пастой: высокая маржа и хорошая конверсия в ужин.</div>
+            </div>
+          </div>
+
+          <div class="role-panel" role="tabpanel" id="role-ops" aria-labelledby="tab-ops" data-role-panel="ops" hidden>
+            <div class="role-copy">
+              <h3>Контролировать сеть по сигналам, а не по таблицам</h3>
+              <ul>
+                <li>сравнение точек;</li>
+                <li>поиск аномалий;</li>
+                <li>недельные отчёты;</li>
+                <li>контроль стандартов;</li>
+                <li>выявление точек с риском.</li>
+              </ul>
+            </div>
+            <div class="dialog-card">
+              <div class="dialog-question">Какие точки выбиваются из нормы за эту неделю?</div>
+              <div class="dialog-answer">Точка на Ленина просела по выручке на 12%, но средний чек не изменился —
+                проблема в трафике. Точка на Мира держит выручку, но маржа ниже сети из-за скидок и закупочной цены по
+                молочной группе.</div>
+            </div>
+          </div>
+
+          <div class="role-panel" role="tabpanel" id="role-marketer" aria-labelledby="tab-marketer"
+            data-role-panel="marketer" hidden>
+            <div class="role-copy">
+              <h3>Делать акции на основе данных, а не интуиции</h3>
+              <ul>
+                <li>идеи промо;</li>
+                <li>анализ эффективности акций;</li>
+                <li>блюда для продвижения;</li>
+                <li>рост среднего чека;</li>
+                <li>реактивация гостей.</li>
+              </ul>
+            </div>
+            <div class="dialog-card">
+              <div class="dialog-question">Какую акцию сделать на вторник, чтобы не убить маржу?</div>
+              <div class="dialog-answer">Лучше продвигать комбо с пастой и напитком: паста стабильно продаётся во
+                вторник, напиток увеличивает чек, а маржа остаётся выше средней. Не рекомендую скидку на стейки —
+                высокий спрос есть и без промо.</div>
+            </div>
+          </div>
+
+          <div class="role-panel" role="tabpanel" id="role-buyer" aria-labelledby="tab-buyer" data-role-panel="buyer"
+            hidden>
+            <div class="role-copy">
+              <h3>Видеть цены, поставщиков и возможности экономии</h3>
+              <ul>
+                <li>сравнение цен поставщиков;</li>
+                <li>рост закупочных цен;</li>
+                <li>позиции для пересмотра;</li>
+                <li>альтернативные предложения;</li>
+                <li>контроль заказов.</li>
+              </ul>
+            </div>
+            <div class="dialog-card">
+              <div class="dialog-question">Что сильнее всего подорожало за месяц?</div>
+              <div class="dialog-answer">Сильнее всего выросли сливки, говядина и томаты. По сливкам есть
+                альтернативный поставщик дешевле на 8%, но нужно проверить стабильность поставок. По говядине рост
+                влияет на маржу трёх блюд.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="agent-section" id="how">
+      <div class="agent-container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Как это работает</span>
+          <h2>Подключаем к вашей системе — дальше вы просто пишете в мессенджер</h2>
+          <p>Запуск можно начать с ограниченного набора данных и постепенно расширять возможности агента.</p>
+        </div>
+
+        <div class="steps">
+          <article class="step reveal">
+            <span>01</span>
+            <h3>Подключаем данные</h3>
+            <p>Подключаем учётную систему, выгрузки или API. На первом этапе можно начать с ограниченного набора данных
+              и сценариев.</p>
+          </article>
+          <article class="step reveal">
+            <span>02</span>
+            <h3>Настраиваем контекст</h3>
+            <p>Описываем структуру ресторана, точки, роли, ключевые метрики, правила и вопросы, которые важны именно
+              вам.</p>
+          </article>
+          <article class="step reveal">
+            <span>03</span>
+            <h3>Запускаем в мессенджере</h3>
+            <p>Владелец, управляющий или команда пишут агенту так же, как пишут коллеге.</p>
+          </article>
+          <article class="step reveal">
+            <span>04</span>
+            <h3>Добавляем отчёты и сигналы</h3>
+            <p>Настраиваем регулярные сводки, алерты и сценарии: утренний отчёт, контроль закупок, просадка выручки,
+              рост списаний.</p>
+          </article>
+        </div>
+
+        <div class="note-band reveal">
+          Не обязательно запускать всё сразу. Можно начать с 3–5 вопросов, которые реально болят, и постепенно расширять
+          возможности агента.
+        </div>
+      </div>
+    </section>
+
+    <section class="agent-section safety-section" id="safety">
+      <div class="agent-container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Безопасность и контроль</span>
+          <h2>Данные под контролем. Действия — только по правилам.</h2>
+          <p>На старте агент может работать в безопасном read-only режиме: анализировать, объяснять и предлагать
+            действия, но не менять данные в системе без разрешения.</p>
+        </div>
+
+        <div class="safety-grid">
+          <article class="safety-card reveal">
+            <h3>Ограничение доступа</h3>
+            <p>Можно подключить только нужные разделы: продажи, меню, закупки, остатки, отчёты. Лишние данные не
+              передаются.</p>
+          </article>
+          <article class="safety-card reveal">
+            <h3>Роли и права</h3>
+            <p>Владелец, управляющий и сотрудники могут видеть разные уровни информации.</p>
+          </article>
+          <article class="safety-card reveal">
+            <h3>Безопасный режим</h3>
+            <p>На старте агент может только отвечать на вопросы и готовить рекомендации, без самостоятельных изменений в
+              учётной системе.</p>
+          </article>
+          <article class="safety-card reveal">
+            <h3>История запросов</h3>
+            <p>Важные вопросы и ответы можно логировать, чтобы понимать, какие решения принимались и на основании каких
+              данных.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="agent-section" id="comparison">
+      <div class="agent-container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Чем отличается</span>
+          <h2>Это не дашборд, не Excel и не обычный чатбот</h2>
+          <p>Главная ценность — не в том, что агент показывает данные. А в том, что он помогает превращать данные в
+            решения.</p>
+        </div>
+
+        <div class="comparison-table reveal" role="table" aria-label="Сравнение AI Agent с другими инструментами">
+          <div class="comparison-row comparison-head" role="row">
+            <div role="columnheader">Инструмент</div>
+            <div role="columnheader">Что делает</div>
+            <div role="columnheader">Ограничение</div>
+            <div role="columnheader">Что даёт AI Agent</div>
+          </div>
+          <div class="comparison-row" role="row">
+            <div role="cell" data-label="Инструмент">BI / дашборд</div>
+            <div role="cell" data-label="Что делает">Показывает графики и отчёты</div>
+            <div role="cell" data-label="Ограничение">Нужно самому искать причину и делать выводы</div>
+            <div role="cell" data-label="Что даёт AI Agent">Отвечает на вопрос, объясняет отклонение и предлагает
+              следующий шаг</div>
+          </div>
+          <div class="comparison-row" role="row">
+            <div role="cell" data-label="Инструмент">Excel / выгрузки</div>
+            <div role="cell" data-label="Что делает">Даёт сырые данные</div>
+            <div role="cell" data-label="Ограничение">Нужно тратить время на обработку</div>
+            <div role="cell" data-label="Что даёт AI Agent">Сам собирает контекст и формулирует вывод понятным языком
+            </div>
+          </div>
+          <div class="comparison-row" role="row">
+            <div role="cell" data-label="Инструмент">Обычный чатбот</div>
+            <div role="cell" data-label="Что делает">Отвечает по заранее заданным сценариям</div>
+            <div role="cell" data-label="Ограничение">Не понимает бизнес и не работает с живыми данными</div>
+            <div role="cell" data-label="Что даёт AI Agent">Подключён к данным ресторана и может рассуждать с учётом
+              контекста</div>
+          </div>
+          <div class="comparison-row" role="row">
+            <div role="cell" data-label="Инструмент">Консультант</div>
+            <div role="cell" data-label="Что делает">Может дать идеи и рекомендации</div>
+            <div role="cell" data-label="Ограничение">Не находится внутри бизнеса каждый день</div>
+            <div role="cell" data-label="Что даёт AI Agent">Всегда доступен, видит текущие данные и помогает проверять
+              гипотезы быстро</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="agent-section dialogs-section" id="dialogues">
+      <div class="agent-container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Примеры живых диалогов</span>
+          <h2>Как это выглядит в мессенджере</h2>
+          <p>Ниже — демонстрационные примеры. Реальные ответы зависят от подключённых данных, роли пользователя и правил
+            доступа.</p>
+        </div>
+
+        <div class="dialog-grid">
+          <article class="scenario-dialog reveal">
+            <span class="scenario-label">Продажи</span>
+            <div class="dialog-question">Что вчера было не так с продажами?</div>
+            <div class="dialog-answer">Общая выручка ниже среднего на 9%, но проблема не во всём дне. Основная просадка
+              была с 16:00 до 18:00. Средний чек почти не изменился, значит, упал поток гостей. Рекомендую проверить
+              смену, локальные факторы и запустить лёгкое промо на этот слот.</div>
+            <div class="dialog-buttons">
+              <button type="button">Показать по часам</button>
+              <button type="button">Сравнить с прошлой средой</button>
+              <button type="button">Придумать промо</button>
             </div>
           </article>
-          <article class="timeline-step">
-            <strong>02</strong>
-            <div>
-              <h3>Где мы переплатили?</h3>
-              <p>Сравнит корзину, поставщиков и альтернативы, затем даст короткую сводку по деньгам.</p>
+
+          <article class="scenario-dialog reveal">
+            <span class="scenario-label">Закупки</span>
+            <div class="dialog-question">Где мы переплачиваем по закупкам?</div>
+            <div class="dialog-answer">За последние 30 дней сильнее всего выросли цены по молочной группе и мясу. По 4
+              позициям есть альтернативные предложения дешевле. Потенциальная экономия зависит от объёма и стабильности
+              поставки — могу подготовить список для переговоров с поставщиками.</div>
+            <div class="dialog-buttons">
+              <button type="button">Список позиций</button>
+              <button type="button">Сравнить поставщиков</button>
+              <button type="button">Подготовить аргументы</button>
             </div>
           </article>
-          <article class="timeline-step">
-            <strong>03</strong>
-            <div>
-              <h3>Что показать владельцу?</h3>
-              <p>Соберет управленческий отчет: факт, причина, риск и следующее действие.</p>
+
+          <article class="scenario-dialog reveal">
+            <span class="scenario-label">Маркетинг</span>
+            <div class="dialog-question">Придумай акцию на вторник, чтобы поднять выручку.</div>
+            <div class="dialog-answer">Во вторник слабее всего вечерний слот. Лучше не давать общую скидку, а собрать
+              комбо из позиций с хорошей маржой: паста + напиток + десерт. Это может поднять средний чек без сильной
+              потери маржи.</div>
+            <div class="dialog-buttons">
+              <button type="button">Сделать 3 варианта</button>
+              <button type="button">Посчитать влияние</button>
+              <button type="button">Подготовить текст акции</button>
+            </div>
+          </article>
+
+          <article class="scenario-dialog reveal">
+            <span class="scenario-label">Управление</span>
+            <div class="dialog-question">Что мне как владельцу нужно знать сегодня утром?</div>
+            <div class="dialog-answer">Три вещи: выручка в норме, но маржа ниже плана; выросли списания по овощам; одна
+              точка выбивается по скидкам. Рекомендую сегодня проверить закупку овощей и правила применения скидок в
+              точке на Мира.</div>
+            <div class="dialog-buttons">
+              <button type="button">Подробнее по марже</button>
+              <button type="button">Показать списания</button>
+              <button type="button">Сделать задачу управляющему</button>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section compact">
-      <div class="container">
-        <div class="cta-band">
-          <div>
-            <h2>Подключите ассистента управленца</h2>
-            <p>4 000 ₽ в месяц за сотрудника по данным, который всегда на связи и помогает принимать решения быстрее.</p>
+    <section class="agent-section launch-section" id="launch">
+      <div class="agent-container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Запуск</span>
+          <h2>Можно начать с пилота</h2>
+          <p>Выбираем несколько реальных вопросов, подключаем данные и проверяем, помогает ли агент быстрее видеть
+            проблемы и принимать решения.</p>
+        </div>
+
+        <div class="launch-grid">
+          <article class="launch-card reveal">
+            <h3>Пилот на одной точке</h3>
+            <p>Подходит, чтобы проверить ценность агента на реальных вопросах владельца или управляющего.</p>
+            <ul>
+              <li>подключение базовых данных;</li>
+              <li>5–10 ключевых вопросов;</li>
+              <li>запуск в мессенджере;</li>
+              <li>базовая утренняя сводка;</li>
+              <li>корректировка сценариев после первых вопросов.</li>
+            </ul>
+            <a class="btn btn-secondary" href="#contact">Обсудить пилот</a>
+          </article>
+
+          <article class="launch-card launch-card-featured reveal">
+            <h3>Контур для управляющего и владельца</h3>
+            <p>Агент помогает следить за продажами, закупками, остатками, меню и отклонениями.</p>
+            <ul>
+              <li>больше источников данных;</li>
+              <li>роли и права;</li>
+              <li>регулярные отчёты;</li>
+              <li>алерты;</li>
+              <li>сценарии анализа и рекомендаций.</li>
+            </ul>
+            <a class="btn btn-primary" href="#contact">Обсудить запуск</a>
+          </article>
+
+          <article class="launch-card reveal">
+            <h3>Контроль сети</h3>
+            <p>Для собственника или операционного директора, которому важно сравнивать точки и быстро понимать, где
+              нужна реакция.</p>
+            <ul>
+              <li>сравнение точек;</li>
+              <li>сигналы по отклонениям;</li>
+              <li>еженедельные executive briefings;</li>
+              <li>отчёты по закупкам и меню;</li>
+              <li>расширение сценариев под сеть.</li>
+            </ul>
+            <a class="btn btn-secondary" href="#contact">Обсудить сеть</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="agent-section faq-section" id="faq">
+      <div class="agent-container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">FAQ</span>
+          <h2>Вопросы, которые обычно задают перед запуском</h2>
+        </div>
+
+        <div class="faq-list reveal" data-faq>
+          <article class="faq-item">
+            <button type="button" aria-expanded="false">
+              <span>Это заменяет учётную систему?</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+            </button>
+            <div class="faq-answer" hidden>
+              <p>Нет. Агент не заменяет учётную систему. Он подключается к ней и делает работу с данными проще: можно
+                задавать вопросы, получать объяснения, регулярные сводки и идеи.</p>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button type="button" aria-expanded="false">
+              <span>Нужно ли учиться новому интерфейсу?</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+            </button>
+            <div class="faq-answer" hidden>
+              <p>Нет. Основной сценарий — обычный мессенджер. Вы пишете вопрос так же, как написали бы управляющему или
+                аналитику.</p>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button type="button" aria-expanded="false">
+              <span>Агент может менять данные в системе?</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+            </button>
+            <div class="faq-answer" hidden>
+              <p>На старте лучше использовать безопасный read-only режим: агент анализирует, объясняет и предлагает
+                действия, но не меняет данные без отдельного разрешения.</p>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button type="button" aria-expanded="false">
+              <span>Можно ли начать без сложной интеграции?</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+            </button>
+            <div class="faq-answer" hidden>
+              <p>Да. Для пилота можно начать с ограниченного набора данных, выгрузок или одного API-подключения. Главное
+                — выбрать реальные вопросы, на которых будет понятна польза.</p>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button type="button" aria-expanded="false">
+              <span>Это только про цифры?</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+            </button>
+            <div class="faq-answer" hidden>
+              <p>Нет. Цифры — основа, но агент также помогает формулировать идеи, искать причины, придумывать акции,
+                сравнивать варианты и готовить управленческие решения.</p>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button type="button" aria-expanded="false">
+              <span>Для кого это подходит?</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+            </button>
+            <div class="faq-answer" hidden>
+              <p>Для владельцев, управляющих, операционных директоров, маркетологов и закупщиков ресторанов, кафе и
+                сетей, где уже есть данные, но не хватает быстрого способа превращать их в решения.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="agent-container contact-grid">
+        <div class="contact-copy reveal">
+          <span class="eyebrow">Финальный CTA</span>
+          <h2>Подключите ИИ к данным ресторана — и начните задавать вопросы</h2>
+          <p>Покажите, как у вас сейчас устроены данные и какие вопросы вы задаёте бизнесу каждый день. Мы предложим
+            первый набор сценариев для пилота.</p>
+          <div class="contact-actions">
+            <a class="btn btn-primary" href="#contact">Обсудить подключение</a>
+            <a class="btn btn-secondary" href="#contact">Получить список сценариев</a>
           </div>
-          <div class="cta-actions">
-            <a class="btn primary"
-              href="mailto:dkruglov@outlook.com?subject=Подключить%20ИИ-ассистента%20управляющего">Подключить</a>
-            <a class="btn secondary" href="../index.html">Вся линейка</a>
+          <p class="microcopy">Начать можно с одной точки, одного мессенджера и нескольких управленческих вопросов.</p>
+          <div class="direct-links" aria-label="Прямые контакты">
+            <a href="https://t.me/tabascoden" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
+            <a href="mailto:dkruglov@outlook.com?subject=iirest%20AI%20Agent">Написать на email</a>
           </div>
         </div>
+
+        <form class="contact-form reveal" data-contact-form>
+          <label>
+            Имя
+            <input type="text" name="name" autocomplete="name" placeholder="Как к вам обращаться" />
+          </label>
+          <label>
+            Телефон или email
+            <input type="text" name="contact" autocomplete="email" placeholder="+7 или email" required />
+          </label>
+          <label>
+            Название ресторана
+            <input type="text" name="restaurant" autocomplete="organization" placeholder="Ресторан, кафе или сеть" />
+          </label>
+          <label>
+            Комментарий
+            <textarea name="message" rows="4"
+              placeholder="Какие данные есть и какие вопросы хотите задавать агенту"></textarea>
+          </label>
+          <button class="btn btn-primary" type="submit">Обсудить подключение</button>
+          <p class="form-note">Форма пока не отправляется автоматически. После отправки покажем контакты для связи.</p>
+        </form>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div><strong>iiRest</strong> © 2026</div>
+  <footer class="agent-footer">
+    <div class="agent-container footer-grid">
+      <div><strong>iirest</strong> © 2026</div>
       <div class="footer-links">
         <a href="../index.html">Продукты</a>
         <a href="../zakupki/index.html">Закупки</a>
@@ -275,6 +849,10 @@
       </div>
     </div>
   </footer>
+
+  <div class="toast" role="status" aria-live="polite" hidden data-toast></div>
+
+  <script src="agent.js" defer></script>
 </body>
 
 </html>
