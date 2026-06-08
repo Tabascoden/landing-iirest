@@ -14,6 +14,7 @@ English mirror: https://iirest.ru/llms-en.txt
 - Главная линейки продуктов: https://iirest.ru/
 - Закупки и сравнение цен поставщиков: https://iirest.ru/zakupki/
 - ИИ-ассистент управляющего рестораном: https://iirest.ru/agent/
+- Контакты iiRest: https://iirest.ru/contact/
 - Вход в приложение: https://app.iirest.ru/
 - Регистрация на бесплатный период: https://app.iirest.ru/register
 
@@ -63,7 +64,9 @@ English mirror: https://iirest.ru/llms-en.txt
 ## Контакт
 
 - Email поддержки: dkruglov@outlook.com
+- Телефон: +7 (905) 517-33-91
 - Telegram: https://t.me/tabascoden
+- MAX: https://max.ru/u/f9LHodD0cOJpI81NPVc5_l0T62eCSPDfkmxLUmDs4HoEdcl6RTxsCxSdbXw
 
 ## Сигналы обхода и индексации
 

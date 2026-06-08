@@ -12,6 +12,7 @@ Russian source: https://iirest.ru/llms.txt
 - Product line homepage: https://iirest.ru/
 - Procurement and supplier price comparison: https://iirest.ru/zakupki/
 - AI assistant for restaurant managers: https://iirest.ru/agent/
+- iiRest contacts: https://iirest.ru/contact/
 - App sign in: https://app.iirest.ru/
 - Free trial registration: https://app.iirest.ru/register
 
@@ -61,7 +62,9 @@ Public price: 4000 RUB/month.
 ## Contact
 
 - Support email: dkruglov@outlook.com
+- Phone: +7 (905) 517-33-91
 - Telegram: https://t.me/tabascoden
+- MAX: https://max.ru/u/f9LHodD0cOJpI81NPVc5_l0T62eCSPDfkmxLUmDs4HoEdcl6RTxsCxSdbXw
 
 ## Crawl and Index Signals
 
