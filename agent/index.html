@@ -32,7 +32,7 @@
       rel="stylesheet" />
   </noscript>
   <link rel="stylesheet" href="../site.css" />
-  <link rel="stylesheet" href="agent.css?v=20260608-max-mockup" />
+  <link rel="stylesheet" href="agent.css?v=20260608-faq" />
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="iiRest" />
@@ -86,10 +86,6 @@
         <a href="../contact/index.html">Контакты</a>
       </nav>
 
-      <div class="nav-actions">
-        <a class="btn secondary" href="https://app.iirest.ru" target="_blank" rel="noopener noreferrer">Войти</a>
-        <a class="btn primary" href="#contact">Подключить</a>
-      </div>
     </div>
   </header>
 
@@ -97,20 +93,13 @@
     <section class="hero" id="top">
       <div class="container hero-grid">
         <div class="hero-copy reveal">
-          <span class="eyebrow">ИИ-ассистент в MAX</span>
           <h1 class="hero-title">Наймите ИИ&#8209;ассистента управляющего за 6 000 ₽ в месяц</h1>
-          <p class="lead">Пишите ему как управляющему: что проверить перед сменой, почему просела выручка, где выросла
-            закупочная цена. В ответ он дает короткую сводку по данным ресторана: цифры, причина и следующий шаг.</p>
+          <p class="lead">Больше не нужно каждый раз открывать отчеты и искать данные. Напишите вопрос в чат - ассистент
+            сам найдет данные, подсветит проблемы и предложит решения.</p>
           <div class="hero-actions">
-            <a class="btn primary" href="#contact">Подключить ассистента</a>
-            <a class="btn secondary" href="#questions">Что можно спросить</a>
+            <a class="btn primary" href="#contact">Попробовать демо*</a>
           </div>
-          <div class="hero-chips" aria-label="Ключевые свойства">
-            <span class="hero-chip">MAX - основной канал</span>
-            <span class="hero-chip">6 000 ₽/мес</span>
-            <span class="hero-chip">Цифры + причина + шаг</span>
-            <span class="hero-chip">Короткие ответы</span>
-          </div>
+          <p class="hero-demo-note">*За 10 минут настроим бесплатный демо доступ</p>
         </div>
 
         <div class="hero-visual reveal" aria-label="Пример переписки с агентом в MAX">
@@ -121,18 +110,16 @@
               <div class="max-chat-overlay" data-max-chat-demo aria-label="Пример диалога с ресторанным агентом">
                 <div class="max-chat-thread" data-max-chat-thread>
                   <div class="max-chat-bubble max-chat-bubble-user is-visible">
-                    Какая была вчера выручка?
+                    Изучи меню и продажи за 30 дней. Предложи новые комбо для доставки
                     <span>20:37</span>
                   </div>
                   <div class="max-chat-bubble max-chat-bubble-agent is-visible">
-                    148 760 ₽ по iiko. Это −18% к среде за 4 недели. Чеков 214, средний чек 695 ₽, гости 187.
-                    <div class="max-chat-links"><span>iiko: Продажи по часам</span></div>
+                    Доставка уже дает чек выше, чем заказы без доставки, поэтому здесь лучше продавать наборы "на двоих" и "на семью", а не дешевые перекусы. Главный вариант для баннера - "Большой грузинский на двоих": 6 вареных хинкали миксом, 2 чебурека, 2 соуса и 2 морса. По меню выходит примерно 1600+ ₽, комбо - 1499 ₽. Выглядит щедро и помогает поднять средний чек.
                     <span>20:38</span>
                   </div>
                 </div>
               </div>
             </div>
-            <figcaption class="demo-note">Реальный формат: короткий вопрос в MAX и ответ по данным ресторана.</figcaption>
           </figure>
         </div>
       </div>
@@ -142,46 +129,51 @@
       <div class="container">
         <div class="section-header reveal">
           <h2>Как это выглядит в переписке</h2>
-          <p>Вопрос можно писать простыми словами. Ассистент отвечает коротко: что произошло, почему это важно и что
-            сделать дальше.</p>
         </div>
 
         <div class="agent-question-grid">
           <article class="use-item agent-chat-example reveal">
-            <h3>Выручка</h3>
-            <p class="chat-prompt">«Какая была вчера выручка?»</p>
-            <p class="chat-answer">148 760 ₽ по iiko: −18% к средней среде. Чеков 214, средний чек 695 ₽, гости 187.
-              Источник: iiko → Продажи по часам.</p>
+            <h3>Продвижение</h3>
+            <p class="chat-prompt">«Изучи меню и продажи за 30 дней. Предложи новые комбо для доставки»</p>
+            <p class="chat-answer">Доставка уже дает чек выше, чем заказы без доставки, поэтому здесь лучше продавать
+              наборы "на двоих" и "на семью", а не дешевые перекусы. Главный вариант для баннера - "Большой грузинский
+              на двоих": 6 вареных хинкали миксом, 2 чебурека, 2 соуса и 2 морса. По меню выходит примерно 1600+ ₽,
+              комбо - 1499 ₽. Выглядит щедро и помогает поднять средний чек.</p>
           </article>
           <article class="use-item agent-chat-example reveal">
-            <h3>Просадка</h3>
-            <p class="chat-prompt">«В чем проблема, почему просели?»</p>
-            <p class="chat-answer">Основной минус в 18:00-21:00: −28 900 ₽, гостей −31, конверсия доставки −12%.
-              Источник: iiko → Продажи, смены, доставка.</p>
+            <h3>Продажи</h3>
+            <p class="chat-prompt">«Какая вчера была выручка?»</p>
+            <p class="chat-answer">Выручка 148 760 ₽ — это −18% к средней среде за последние 4 недели. Основная
+              просадка в 18:00–21:00: заказов меньше, средний чек почти не изменился. Значит, проблема скорее в потоке
+              гостей, а не в цене. Источник: iiko → Продажи по часам, чеки, каналы продаж.</p>
           </article>
           <article class="use-item agent-chat-example reveal">
-            <h3>Закупки</h3>
-            <p class="chat-prompt">«Где переплачиваем?»</p>
-            <p class="chat-answer">Моцарелла +46 ₽/кг, сливки +18 ₽/л, томаты +27 ₽/кг. Потенциал экономии 18 400 ₽/мес.
-              Источник: iiko → Накладные и цены.</p>
+            <h3>Закупочные цены</h3>
+            <p class="chat-prompt">«Где выросли закупочные цены?»</p>
+            <p class="chat-answer">За неделю заметно подорожали три позиции: моцарелла +46 ₽/кг, сливки +18 ₽/л, томаты
+              +27 ₽/кг. При текущем объеме это может давать около 18 400 ₽ переплаты в месяц. Первым стоит проверить
+              поставщика по молочке. Источник: iiko → Накладные, закупочные цены, поставщики.</p>
           </article>
           <article class="use-item agent-chat-example reveal">
-            <h3>Напоминания</h3>
-            <p class="chat-prompt">«Напомни про молочку»</p>
-            <p class="chat-answer">Готово. Завтра в 10:00 напомню проверить молочку, лимит отклонения поставлю +5%.
-              Каждую пятницу пришлю сводку из iiko → Закупки.</p>
+            <h3>Фудкост</h3>
+            <p class="chat-prompt">«Какие блюда стали менее выгодными?»</p>
+            <p class="chat-answer">За неделю фудкост по хачапури вырос с 31% до 38%. Главная причина — подорожание сыра
+              и масла, а цена блюда не менялась. Лучше проверить поставщика по молочке или пересчитать техкарту перед
+              следующим заказом. Источник: iiko → Техкарты, закупочные цены, продажи.</p>
           </article>
           <article class="use-item agent-chat-example reveal">
-            <h3>Маркетинг</h3>
-            <p class="chat-prompt">«Слабый вторник. Что сделать?»</p>
-            <p class="chat-answer">Не снижайте цену на все меню. Соберите комбо из маржинальных блюд на вечерний слот:
-              маржа 67%, чек +280-340 ₽. Источник: iiko → ABC меню.</p>
+            <h3>Накладные</h3>
+            <p class="chat-prompt">«Есть ли не проведенные накладные?»</p>
+            <p class="chat-answer">Да, за неделю найдено 4 не проведенные накладные на 47 800 ₽. Из-за них остатки и
+              фудкост могут отображаться некорректно. Лучше сначала провести молочку и овощи — по ним уже видно
+              расхождение с фактическим расходом. Источник: iiko → Накладные, остатки, фудкост.</p>
           </article>
           <article class="use-item agent-chat-example reveal">
-            <h3>Собственник</h3>
-            <p class="chat-prompt">«Что требует внимания?»</p>
-            <p class="chat-answer">Три сигнала из iiko: вечер −28 900 ₽, молочка +18 400 ₽/мес, овощи +7 300 ₽ списаний.
-              Быстрый эффект даст проверка смены и закупки.</p>
+            <h3>Списания</h3>
+            <p class="chat-prompt">«Где выросли потери?»</p>
+            <p class="chat-answer">За неделю списания по овощам выше нормы на 7 300 ₽. Основной рост — томаты и зелень
+              после выходных. Похоже, закупили больше фактического спроса. На следующую поставку лучше снизить объем на
+              15–20%. Источник: iiko → Списания, закупки, продажи.</p>
           </article>
         </div>
       </div>
@@ -191,8 +183,6 @@
       <div class="container">
         <div class="section-head reveal">
           <h2>Не просто бот с отчетами</h2>
-          <p>Ассистент соединяет данные ресторана, память о контексте и агентские сценарии: отвечает, проверяет,
-            напоминает и помогает думать.</p>
         </div>
 
         <div class="integration-strip reveal" aria-label="Интеграции с ресторанными системами">
@@ -251,80 +241,43 @@
       </div>
     </section>
 
-    <section class="section alt compact" id="scenarios">
-      <div class="container">
-        <div class="section-header reveal">
-          <h2>Где он быстро дает пользу</h2>
-          <p>Начать можно с нескольких сценариев, а затем расширять ассистента под процессы ресторана.</p>
+    <section class="section agent-faq-section" id="faq">
+      <div class="container agent-faq-grid">
+        <div class="agent-faq-head reveal">
+          <span class="eyebrow">FAQ</span>
+          <h2>Вопросы перед запуском</h2>
         </div>
 
-        <div class="lineup-board">
-          <article class="lineup-card reveal">
-            <div>
-              <strong>Вопрос без компьютера</strong>
-              <p>Управляющий пишет в MAX и получает ответ по данным, не заходя в учетную систему.</p>
-            </div>
-            <span class="tag blue">чат</span>
-          </article>
-          <article class="lineup-card reveal">
-            <div>
-              <strong>Утренняя сводка</strong>
-              <p>Выручка, гости, средний чек, закупки, остатки и отклонения коротким сообщением.</p>
-            </div>
-            <span class="tag green">ежедневно</span>
-          </article>
-          <article class="lineup-card reveal">
-            <div>
-              <strong>Контроль закупки</strong>
-              <p>Рост цен, переплата, поставщики для проверки и аргументы для переговоров.</p>
-            </div>
-            <span class="tag warning">деньги</span>
-          </article>
-          <article class="lineup-card reveal">
-            <div>
-              <strong>Разбор просадки</strong>
-              <p>Ассистент ищет, где упали гости, чек, маржа или поток в конкретный слот.</p>
-            </div>
-            <span class="tag blue">анализ</span>
-          </article>
-          <article class="lineup-card reveal">
-            <div>
-              <strong>Маркетинг и креативы</strong>
-              <p>Идеи акций, комбо, постов, рассылок и гипотез на основе меню, спроса и маржи.</p>
-            </div>
-            <span class="tag green">идеи</span>
-          </article>
-          <article class="lineup-card reveal">
-            <div>
-              <strong>Регулярные задачи</strong>
-              <p>Напоминания, еженедельные отчеты, проверки поставщиков и списки того, что нужно проконтролировать.</p>
-            </div>
-            <span class="tag blue">задачи</span>
-          </article>
-        </div>
-      </div>
-    </section>
+        <div class="agent-faq-list">
+          <details class="agent-faq-item reveal" open>
+            <summary>Что делает ИИ-ассистент iiRest?</summary>
+            <p>ИИ-ассистент отвечает на вопросы по данным ресторана прямо в MAX: находит данные в вашей учетной системе, анализирует и предоставляет вам сами данные, выводы и рекомендации. Он не просто присылает отчет, а коротко объясняет: что произошло, почему это важно и какой следующий шаг можно сделать.</p>
+          </details>
 
-    <section class="section compact" id="safety">
-      <div class="container">
-        <div class="section-head reveal">
-          <h2>Контроль остается у команды</h2>
-          <p>Ассистент ускоряет анализ и подготовку решений, но не забирает управленческую ответственность.</p>
-        </div>
+          <details class="agent-faq-item reveal">
+            <summary>Чем он отличается от обычного бота с отчетами?</summary>
+            <p>Обычный бот отправляет заранее настроенные отчеты. ИИ-ассистент работает в формате диалога: можно спросить простыми словами, уточнить детали, попросить сравнить периоды, найти причину просадки или напомнить проверить задачу позже.</p>
+          </details>
 
-        <div class="guardrail-grid">
-          <article class="guardrail reveal">
-            <h3>Read-only</h3>
-            <p>На старте ассистент читает данные, отвечает и предлагает действия, но не меняет учетную систему.</p>
-          </article>
-          <article class="guardrail reveal">
-            <h3>Права</h3>
-            <p>Доступы настраиваются по ролям и источникам данных.</p>
-          </article>
-          <article class="guardrail reveal">
-            <h3>Проверка</h3>
-            <p>Ответы и рекомендации можно сверить с цифрами, источниками и правилами ресторана.</p>
-          </article>
+          <details class="agent-faq-item reveal">
+            <summary>К каким системам можно подключить ассистента?</summary>
+            <p>Быстрее всего запускаем с iiko, r_keeper, Saby Presto. Возможно подключение к любым другим системам, если есть API и доступный формат обмена данными.</p>
+          </details>
+
+          <details class="agent-faq-item reveal">
+            <summary>Ассистент может что-то изменить в учетной системе?</summary>
+            <p>На старте - нет. Мы запускаем ассистента в безопасном read-only режиме: он читает данные, отвечает на вопросы, показывает источники и предлагает действия, но не может ничего менять.</p>
+          </details>
+
+          <details class="agent-faq-item reveal">
+            <summary>Что входит за 6 000 ₽ в месяц?</summary>
+            <p>В цену включено подключение одного ресторана к одному аккаунту в мессенджере MAX. Условия для подключения нескольких точек, аккаунтов или других мессенджеров обсуждаются отдельно.</p>
+          </details>
+
+          <details class="agent-faq-item reveal">
+            <summary>Сколько времени занимает подключение?</summary>
+            <p>Для систем iiko, r_keeper, Saby Presto ваш ассистент будет готов к работе через 10 минут.</p>
+          </details>
         </div>
       </div>
     </section>
@@ -332,14 +285,7 @@
     <section class="section alt" id="contact">
       <div class="container agent-contact-grid">
         <div class="agent-contact-copy reveal">
-          <span class="eyebrow">Подключение</span>
-          <h2>Запустим ассистента в MAX</h2>
-          <p>Выберем 5-10 вопросов, подключим iiko, rkeeper, Saby Presto или вашу систему и проверим ответы, сводки,
-            напоминания и регулярные задачи.</p>
-          <div class="hero-actions">
-            <a class="btn primary" href="mailto:dkruglov@outlook.com?subject=iiRest%20AI%20Assistant%20MAX">Запустить в MAX</a>
-            <a class="btn secondary" href="mailto:dkruglov@outlook.com?subject=iiRest%20AI%20Assistant">Email</a>
-          </div>
+          <h2>Готовы попробовать работу с искусственным интеллектом?</h2>
         </div>
 
         <form class="agent-contact-form reveal" data-contact-form>
@@ -360,7 +306,6 @@
             <textarea name="message" rows="4" placeholder="Какие данные, вопросы и регулярные задачи хотите подключить"></textarea>
           </label>
           <button class="btn primary" type="submit">Обсудить запуск</button>
-          <p class="form-note">Форма покажет контакты для связи. Автоматическая отправка пока не включена.</p>
         </form>
       </div>
     </section>
@@ -386,7 +331,7 @@
 
   <div class="toast" role="status" aria-live="polite" hidden data-toast></div>
 
-  <script src="agent.js?v=20260608-max-mockup" defer></script>
+  <script src="agent.js?v=20260608-faq-accordion" defer></script>
 </body>
 
 </html>
