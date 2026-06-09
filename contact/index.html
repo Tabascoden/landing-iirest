@@ -103,7 +103,7 @@
             </div>
           </div>
 
-          <form class="contact-form" data-contact-form>
+          <form class="contact-form" data-contact-form data-lead-form data-form="contact">
             <label>
               <span>Имя</span>
               <input type="text" name="name" placeholder="Как к вам обращаться" autocomplete="name" />
@@ -143,25 +143,73 @@
 
   <script>
     (function () {
-      var form = document.querySelector("[data-contact-form]");
-      if (!form) return;
+      async function sendLeadToMax(form) {
+        var formData = new FormData(form);
+        var contact = String(formData.get("contact") || "").trim();
+        var emailMatch = contact.match(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i);
+        var phoneOnly = contact.replace(/[^\d+]/g, "");
 
-      form.addEventListener("submit", function (event) {
-        event.preventDefault();
+        var payload = {
+          source: "iirest.ru",
+          page: window.location.href,
+          form: form.dataset.form || "feedback",
+          name: formData.get("name"),
+          phone: formData.get("phone") || (phoneOnly.replace(/\+/g, "").length >= 10 ? phoneOnly : ""),
+          email: formData.get("email") || (emailMatch ? emailMatch[0] : ""),
+          company: formData.get("company"),
+          message: formData.get("message"),
+          utm: Object.fromEntries(new URLSearchParams(window.location.search))
+        };
 
-        var data = new FormData(form);
-        var name = String(data.get("name") || "").trim();
-        var contact = String(data.get("contact") || "").trim();
-        var message = String(data.get("message") || "").trim();
-        var body = [
-          "Имя: " + (name || "-"),
-          "Контакт: " + (contact || "-"),
-          "",
-          message || "-"
-        ].join("\n");
+        var response = await fetch("https://n8n.iirest.ru/webhook/website-lead-max", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(payload)
+        });
 
-        window.location.href = "mailto:dkruglov@outlook.com?subject=" + encodeURIComponent("Контакт с сайта iiRest") +
-          "&body=" + encodeURIComponent(body);
+        if (!response.ok) {
+          throw new Error("Lead webhook failed");
+        }
+
+        var responseText = await response.text();
+        try {
+          return responseText ? JSON.parse(responseText) : {};
+        } catch (error) {
+          return {
+            raw: responseText
+          };
+        }
+      }
+
+      document.querySelectorAll("form[data-lead-form]").forEach(function (form) {
+        form.addEventListener("submit", async function (event) {
+          event.preventDefault();
+
+          var button = form.querySelector("button[type='submit']");
+          var oldText = button ? button.textContent : "";
+
+          try {
+            if (button) {
+              button.disabled = true;
+              button.textContent = "Отправляем...";
+            }
+
+            await sendLeadToMax(form);
+
+            form.reset();
+            alert("Заявка отправлена. Мы скоро свяжемся с вами.");
+          } catch (error) {
+            console.error(error);
+            alert("Не получилось отправить заявку. Попробуйте ещё раз или напишите нам напрямую.");
+          } finally {
+            if (button) {
+              button.disabled = false;
+              button.textContent = oldText;
+            }
+          }
+        });
       });
     })();
   </script>

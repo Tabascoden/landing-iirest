@@ -570,13 +570,74 @@
     });
   }
 
-  function initContactForm() {
-    var form = document.querySelector("[data-contact-form]");
-    if (!form) return;
+  async function sendLeadToMax(form) {
+    var formData = new FormData(form);
+    var contact = String(formData.get("contact") || "").trim();
+    var emailMatch = contact.match(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i);
+    var phoneOnly = contact.replace(/[^\d+]/g, "");
 
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
-      showToast("Форма пока не отправляет заявку. Напишите на email или в удобный мессенджер.");
+    var payload = {
+      source: "iirest.ru",
+      page: window.location.href,
+      form: form.dataset.form || "feedback",
+      name: formData.get("name"),
+      phone: formData.get("phone") || (phoneOnly.replace(/\+/g, "").length >= 10 ? phoneOnly : ""),
+      email: formData.get("email") || (emailMatch ? emailMatch[0] : ""),
+      company: formData.get("company"),
+      message: formData.get("message"),
+      utm: Object.fromEntries(new URLSearchParams(window.location.search))
+    };
+
+    var response = await fetch("https://n8n.iirest.ru/webhook/website-lead-max", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(payload)
+    });
+
+    if (!response.ok) {
+      throw new Error("Lead webhook failed");
+    }
+
+    var responseText = await response.text();
+    try {
+      return responseText ? JSON.parse(responseText) : {};
+    } catch (error) {
+      return {
+        raw: responseText
+      };
+    }
+  }
+
+  function initLeadForms() {
+    document.querySelectorAll("form[data-lead-form]").forEach(function (form) {
+      form.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        var button = form.querySelector("button[type='submit']");
+        var oldText = button ? button.textContent : "";
+
+        try {
+          if (button) {
+            button.disabled = true;
+            button.textContent = "Отправляем...";
+          }
+
+          await sendLeadToMax(form);
+
+          form.reset();
+          showToast("Заявка отправлена. Мы скоро свяжемся с вами.");
+        } catch (error) {
+          console.error(error);
+          showToast("Не получилось отправить заявку. Попробуйте ещё раз или напишите нам напрямую.");
+        } finally {
+          if (button) {
+            button.disabled = false;
+            button.textContent = oldText;
+          }
+        }
+      });
     });
   }
 
@@ -584,5 +645,5 @@
   initAgentDemo();
   initMaxChatDemo();
   initFaqAccordion();
-  initContactForm();
+  initLeadForms();
 })();

@@ -3555,7 +3555,7 @@
           <button class="consult-close" type="button" data-consult-close aria-label="Закрыть">×</button>
         </div>
 
-        <form id="consult-form" class="consult-form" novalidate>
+        <form id="consult-form" class="consult-form" data-lead-form data-form="zakupki-consult" novalidate>
           <label class="consult-field">
             <span>Имя</span>
             <input type="text" name="name" placeholder="Как к вам обращаться" />
@@ -3629,11 +3629,7 @@
     (function () {
       var counterId = 105886469;
       var consultConfig = {
-        // n8n webhook endpoint (Production URL).
-        webhookUrl: "https://n8n.iirest.ru/webhook/site-contact",
-        // Header auth for n8n Webhook node (authentication = Header Auth).
-        webhookSecretHeader: "x-webhook-key",
-        webhookSecretValue: "super_secret_123",
+        webhookUrl: "https://n8n.iirest.ru/webhook/website-lead-max",
         fallbackEmail: "dkruglov@outlook.com"
       };
 
@@ -3747,12 +3743,16 @@
           var phone = phoneOnly.replace(/\+/g, "").length >= 10 ? phoneOnly : "";
 
           return {
+            source: "iirest.ru",
+            page: window.location.href,
+            form: form.dataset.form || "feedback",
             name: String(formData.get("name") || "").trim(),
             contact: contact,
             email: emailMatch ? emailMatch[0] : "",
             phone: phone,
+            company: String(formData.get("company") || "").trim(),
             message: String(formData.get("message") || "").trim(),
-            page: window.location.href,
+            utm: Object.fromEntries(new URLSearchParams(window.location.search)),
             createdAt: new Date().toISOString()
           };
         }
@@ -3784,9 +3784,6 @@
           var headers = {
             "Content-Type": "application/json"
           };
-          if (consultConfig.webhookSecretHeader && consultConfig.webhookSecretValue) {
-            headers[consultConfig.webhookSecretHeader] = consultConfig.webhookSecretValue;
-          }
 
           return fetch(consultConfig.webhookUrl, {
             method: "POST",
