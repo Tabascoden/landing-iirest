@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="ИИ-ассистент управляющего iiRest работает в MAX, подключается к данным ресторана, отвечает на вопросы, ищет ошибки, напоминает о задачах и помогает с решениями." />
+  <meta name="theme-color" content="#4f46e5" />
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+  <meta name="googlebot" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+  <meta name="yandex" content="index,follow,max-snippet:-1,max-image-preview:large" />
+  <link rel="canonical" href="https://iirest.ru/agent/" />
+  <link rel="alternate" type="text/markdown" href="https://iirest.ru/llms.txt" title="LLMs (RU+EN)" />
+  <link rel="alternate" type="text/markdown" href="https://iirest.ru/llms-en.txt" title="LLMs (EN)" />
+  <link rel="alternate" hreflang="ru-RU" href="https://iirest.ru/agent/" />
+  <link rel="alternate" hreflang="x-default" href="https://iirest.ru/agent/" />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="icon" type="image/png" href="../favicon.png" sizes="120x120" />
+  <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Geologica:wght@500;600;700;800&family=Golos+Text:wght@400;500;600;700;800&display=swap"
+    as="style" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Geologica:wght@500;600;700;800&family=Golos+Text:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geologica:wght@500;600;700;800&family=Golos+Text:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet" />
+  </noscript>
+  <link rel="stylesheet" href="../site.css" />
+  <link rel="stylesheet" href="agent.css?v=20260608-faq" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="iiRest" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:title" content="ИИ-ассистент управляющего за 6 000 ₽ в месяц — iiRest" />
+  <meta property="og:description"
+    content="Ассистент в MAX подключается к данным ресторана, отвечает на вопросы, ищет ошибки, напоминает о задачах и предлагает решения." />
+  <meta property="og:url" content="https://iirest.ru/agent/" />
+  <meta property="og:image" content="https://iirest.ru/Screenshots/Max.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:alt" content="Переписка с ресторанным агентом iiRest в MAX" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ИИ-ассистент управляющего за 6 000 ₽ в месяц — iiRest" />
+  <meta name="twitter:description"
+    content="ИИ-ассистент в MAX отвечает по данным ресторана, ищет отклонения и помогает принимать решения." />
+  <meta name="twitter:image" content="https://iirest.ru/Screenshots/Max.png" />
+
+  <title>ИИ-ассистент управляющего за 6 000 ₽ в месяц — iiRest</title>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "iiRest AI Assistant",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "inLanguage": "ru-RU",
+    "url": "https://iirest.ru/agent/",
+    "description": "ИИ-ассистент управляющего для ресторана: работает в MAX, подключается к данным ресторана, отвечает на вопросы, ищет ошибки, напоминает о задачах и предлагает решения.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "iiRest",
+      "url": "https://iirest.ru/"
+    }
+  }
+  </script>
+</head>
+
+<body class="agent-page">
+  <header class="site-header" data-header>
+    <div class="container nav">
+      <a class="brand" href="../index.html" aria-label="iiRest">
+        <img src="../logo.svg" alt="" width="32" height="32" decoding="async" />
+        iiRest
+      </a>
+
+      <nav class="menu" aria-label="Основная навигация">
+        <a href="../index.html">Продукты</a>
+        <a href="../zakupki/index.html">Закупки</a>
+        <a href="index.html" aria-current="page">ИИ-агент</a>
+        <a href="../contact/index.html">Контакты</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <h1 class="hero-title">Наймите ИИ&#8209;ассистента управляющего за 6 000 ₽ в месяц</h1>
+          <p class="lead">Больше не нужно каждый раз открывать отчеты и искать данные. Напишите вопрос в чат - ассистент
+            сам найдет данные, подсветит проблемы и предложит решения.</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#contact">Попробовать демо*</a>
+          </div>
+          <p class="hero-demo-note">*За 10 минут настроим бесплатный демо доступ</p>
+        </div>
+
+        <div class="hero-visual reveal" aria-label="Пример переписки с агентом в MAX">
+          <figure class="agent-max-shot">
+            <div class="agent-max-screen">
+              <img src="../Screenshots/Max.png" alt="Чат MAX с ботом iiRest" width="929" height="1693" decoding="async"
+                fetchpriority="high" />
+              <div class="max-chat-overlay" data-max-chat-demo aria-label="Пример диалога с ресторанным агентом">
+                <div class="max-chat-thread" data-max-chat-thread>
+                  <div class="max-chat-bubble max-chat-bubble-user is-visible">
+                    Изучи меню и продажи за 30 дней. Предложи новые комбо для доставки
+                    <span>20:37</span>
+                  </div>
+                  <div class="max-chat-bubble max-chat-bubble-agent is-visible">
+                    Доставка уже дает чек выше, чем заказы без доставки, поэтому здесь лучше продавать наборы "на двоих" и "на семью", а не дешевые перекусы. Главный вариант для баннера - "Большой грузинский на двоих": 6 вареных хинкали миксом, 2 чебурека, 2 соуса и 2 морса. По меню выходит примерно 1600+ ₽, комбо - 1499 ₽. Выглядит щедро и помогает поднять средний чек.
+                    <span>20:38</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt compact" id="questions">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2>Просто задайте вопрос или поставьте задачу</h2>
+        </div>
+
+        <div class="agent-question-grid">
+          <article class="use-item agent-chat-example reveal">
+            <h3>Продвижение</h3>
+            <p class="chat-prompt">«Изучи меню и продажи за 30 дней. Предложи новые комбо для доставки»</p>
+            <p class="chat-answer">Доставка уже дает чек выше, чем заказы без доставки, поэтому здесь лучше продавать
+              наборы "на двоих" и "на семью", а не дешевые перекусы. Главный вариант для баннера - "Большой грузинский
+              на двоих": 6 вареных хинкали миксом, 2 чебурека, 2 соуса и 2 морса. По меню выходит примерно 1600+ ₽,
+              комбо - 1499 ₽. Выглядит щедро и помогает поднять средний чек.</p>
+          </article>
+          <article class="use-item agent-chat-example reveal">
+            <h3>Продажи</h3>
+            <p class="chat-prompt">«Какая вчера была выручка?»</p>
+            <p class="chat-answer">Выручка 148 760 ₽ — это −18% к средней среде за последние 4 недели. Основная
+              просадка в 18:00–21:00: заказов меньше, средний чек почти не изменился. Значит, проблема скорее в потоке
+              гостей, а не в цене. Источник: iiko → Продажи по часам, чеки, каналы продаж.</p>
+          </article>
+          <article class="use-item agent-chat-example reveal">
+            <h3>Закупочные цены</h3>
+            <p class="chat-prompt">«Где выросли закупочные цены?»</p>
+            <p class="chat-answer">За неделю заметно подорожали три позиции: моцарелла +46 ₽/кг, сливки +18 ₽/л, томаты
+              +27 ₽/кг. При текущем объеме это может давать около 18 400 ₽ переплаты в месяц. Первым стоит проверить
+              поставщика по молочке. Источник: iiko → Накладные, закупочные цены, поставщики.</p>
+          </article>
+          <article class="use-item agent-chat-example reveal">
+            <h3>Фудкост</h3>
+            <p class="chat-prompt">«Какие блюда стали менее выгодными?»</p>
+            <p class="chat-answer">За неделю фудкост по хачапури вырос с 31% до 38%. Главная причина — подорожание сыра
+              и масла, а цена блюда не менялась. Лучше проверить поставщика по молочке или пересчитать техкарту перед
+              следующим заказом. Источник: iiko → Техкарты, закупочные цены, продажи.</p>
+          </article>
+          <article class="use-item agent-chat-example reveal">
+            <h3>Накладные</h3>
+            <p class="chat-prompt">«Есть ли не проведенные накладные?»</p>
+            <p class="chat-answer">Да, за неделю найдено 4 не проведенные накладные на 47 800 ₽. Из-за них остатки и
+              фудкост могут отображаться некорректно. Лучше сначала провести молочку и овощи — по ним уже видно
+              расхождение с фактическим расходом. Источник: iiko → Накладные, остатки, фудкост.</p>
+          </article>
+          <article class="use-item agent-chat-example reveal">
+            <h3>Списания</h3>
+            <p class="chat-prompt">«Где выросли потери?»</p>
+            <p class="chat-answer">За неделю списания по овощам выше нормы на 7 300 ₽. Основной рост — томаты и зелень
+              после выходных. Похоже, закупили больше фактического спроса. На следующую поставку лучше снизить объем на
+              15–20%. Источник: iiko → Списания, закупки, продажи.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section compact" id="how">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Не просто бот с отчетами</h2>
+        </div>
+
+        <div class="integration-strip reveal" aria-label="Интеграции с ресторанными системами">
+          <span class="integration-label">Подключаемся к</span>
+          <span class="tag blue">iiko</span>
+          <span class="tag blue">rkeeper</span>
+          <span class="tag blue">Saby Presto</span>
+          <p>Если у вас другая учетная система, настроим подключение под ваши данные: через API, регулярные выгрузки
+            или доступный формат обмена.</p>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-step reveal">
+            <strong>01</strong>
+            <div>
+              <h3>Подключен к ресторану</h3>
+              <p>Видит продажи, меню, закупки, остатки, смены, поставщиков и историю вопросов из вашей системы.</p>
+            </div>
+          </article>
+          <article class="timeline-step reveal">
+            <strong>02</strong>
+            <div>
+              <h3>Отвечает в MAX</h3>
+              <p>Можно спросить с телефона, когда нет компьютера, доступа к учетной системе или времени разбираться.</p>
+            </div>
+          </article>
+          <article class="timeline-step reveal">
+            <strong>03</strong>
+            <div>
+              <h3>Ищет ошибки</h3>
+              <p>Подсвечивает рост цен, странные списания, слабые смены, просадку среднего чека и расхождения.</p>
+            </div>
+          </article>
+          <article class="timeline-step reveal">
+            <strong>04</strong>
+            <div>
+              <h3>Предлагает решения</h3>
+              <p>Объясняет причину и предлагает следующий шаг: что проверить, кому написать, какую гипотезу протестировать.</p>
+            </div>
+          </article>
+          <article class="timeline-step reveal">
+            <strong>05</strong>
+            <div>
+              <h3>Напоминает и повторяет</h3>
+              <p>По просьбе ставит напоминания, делает утренние сводки и запускает регулярные проверки.</p>
+            </div>
+          </article>
+          <article class="timeline-step reveal">
+            <strong>06</strong>
+            <div>
+              <h3>Помогает с идеями</h3>
+              <p>С ним можно брейнштормить акции, креативы, меню, исследования гостей и управленческие решения.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section agent-faq-section" id="faq">
+      <div class="container agent-faq-grid">
+        <div class="agent-faq-head reveal">
+          <span class="eyebrow">FAQ</span>
+          <h2>Вопросы перед запуском</h2>
+        </div>
+
+        <div class="agent-faq-list">
+          <details class="agent-faq-item reveal" open>
+            <summary>Что делает ИИ-ассистент iiRest?</summary>
+            <p>ИИ-ассистент отвечает на вопросы по данным ресторана прямо в MAX: находит данные в вашей учетной системе, анализирует и предоставляет вам сами данные, выводы и рекомендации. Он не просто присылает отчет, а коротко объясняет: что произошло, почему это важно и какой следующий шаг можно сделать.</p>
+          </details>
+
+          <details class="agent-faq-item reveal">
+            <summary>Чем он отличается от обычного бота с отчетами?</summary>
+            <p>Обычный бот отправляет заранее настроенные отчеты. ИИ-ассистент работает в формате диалога: можно спросить простыми словами, уточнить детали, попросить сравнить периоды, найти причину просадки или напомнить проверить задачу позже.</p>
+          </details>
+
+          <details class="agent-faq-item reveal">
+            <summary>К каким системам можно подключить ассистента?</summary>
+            <p>Быстрее всего запускаем с iiko, r_keeper, Saby Presto. Возможно подключение к любым другим системам, если есть API и доступный формат обмена данными.</p>
+          </details>
+
+          <details class="agent-faq-item reveal">
+            <summary>Ассистент может что-то изменить в учетной системе?</summary>
+            <p>На старте - нет. Мы запускаем ассистента в безопасном read-only режиме: он читает данные, отвечает на вопросы, показывает источники и предлагает действия, но не может ничего менять.</p>
+          </details>
+
+          <details class="agent-faq-item reveal">
+            <summary>Что входит за 6 000 ₽ в месяц?</summary>
+            <p>В цену включено подключение одного ресторана к одному аккаунту в мессенджере MAX. Условия для подключения нескольких точек, аккаунтов или других мессенджеров обсуждаются отдельно.</p>
+          </details>
+
+          <details class="agent-faq-item reveal">
+            <summary>Сколько времени занимает подключение?</summary>
+            <p>Для систем iiko, r_keeper, Saby Presto ваш ассистент будет готов к работе через 10 минут.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="contact">
+      <div class="container agent-contact-grid">
+        <div class="agent-contact-copy reveal">
+          <h2>Готовы попробовать работу с искусственным интеллектом?</h2>
+        </div>
+
+        <form class="agent-contact-form reveal" data-contact-form data-lead-form data-form="agent">
+          <label>
+            Имя
+            <input type="text" name="name" autocomplete="name" placeholder="Как к вам обращаться" />
+          </label>
+          <label>
+            Телефон или email
+            <input type="text" name="contact" autocomplete="email" placeholder="+7 или email" required />
+          </label>
+          <label>
+            Ресторан
+            <input type="text" name="company" autocomplete="organization" placeholder="Название или сеть" />
+          </label>
+          <label>
+            Задача
+            <textarea name="message" rows="4" placeholder="Какие данные, вопросы и регулярные задачи хотите подключить"></textarea>
+          </label>
+          <button class="btn primary" type="submit">Обсудить запуск</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand"><strong>iiRest</strong> © 2026</div>
+      <div class="footer-links">
+        <a href="mailto:dkruglov@outlook.com">dkruglov@outlook.com</a>
+        <a href="https://t.me/tabascoden" target="_blank" rel="noopener noreferrer">Telegram</a>
+        <a href="https://max.ru/u/f9LHodD0cOJpI81NPVc5_l0T62eCSPDfkmxLUmDs4HoEdcl6RTxsCxSdbXw" target="_blank"
+          rel="noopener noreferrer">MAX</a>
+        <a href="https://app.iirest.ru/legal/public-offer" target="_blank" rel="noopener noreferrer">Публичная
+          оферта</a>
+        <a href="https://app.iirest.ru/legal/user-agreement" target="_blank"
+          rel="noopener noreferrer">Пользовательское соглашение</a>
+        <a href="https://app.iirest.ru/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Политика
+          конфиденциальности</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" role="status" aria-live="polite" hidden data-toast></div>
+
+  <script src="agent.js?v=20260608-faq-accordion" defer></script>
+</body>
+
+</html>

@@ -3,23 +3,49 @@
   xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://iirest.ru/</loc>
-    <lastmod>2026-02-19</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://iirest.ru/hero-dashboard.png</image:loc>
-      <image:title>Интерфейс iirest для сравнения цен поставщиков</image:title>
+      <image:title>Линейка продуктов iiRest для управления рестораном</image:title>
     </image:image>
   </url>
   <url>
+    <loc>https://iirest.ru/zakupki/</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://iirest.ru/hero-dashboard.png</image:loc>
+      <image:title>Интерфейс iiRest для сравнения цен поставщиков</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://iirest.ru/agent/</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://iirest.ru/hero-dashboard.png</image:loc>
+      <image:title>ИИ-ассистент управляющего рестораном iiRest</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://iirest.ru/contact/</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://iirest.ru/llms.txt</loc>
-    <lastmod>2026-02-19</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://iirest.ru/llms-en.txt</loc>
-    <lastmod>2026-02-19</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>

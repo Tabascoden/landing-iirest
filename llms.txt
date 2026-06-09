@@ -1,6 +1,6 @@
-# iirest
+# iiRest
 
-> iirest — веб-SaaS для автоматизации закупок в ресторанах. / iirest is a web SaaS for restaurant procurement automation.
+> iiRest - линейка веб-продуктов для управления рестораном: ИИ-ассистент управляющего, закупки и агенты для horeca-команд. / iiRest is a product line for restaurant management, procurement, and AI assistants.
 
 Canonical: https://iirest.ru/
 Languages: ru-RU, en
@@ -9,33 +9,64 @@ English mirror: https://iirest.ru/llms-en.txt
 
 ## Русский (ru-RU)
 
-## Что делает iirest
+## Публичная структура сайта
 
-- Сравнивает цены поставщиков в единой матрице.
-- Ускоряет подготовку закупочных заказов.
-- Поддерживает загрузку прайс-листов и работу с поставщиками.
-- Показывает аналитику по экономии, переплате и динамике закупок.
+- Главная линейки продуктов: https://iirest.ru/
+- Закупки и сравнение цен поставщиков: https://iirest.ru/zakupki/
+- ИИ-ассистент управляющего рестораном: https://iirest.ru/agent/
+- Контакты iiRest: https://iirest.ru/contact/
+- Вход в приложение: https://app.iirest.ru/
+- Регистрация на бесплатный период: https://app.iirest.ru/register
+
+## Что делает iiRest
+
+- Показывает линейку продуктов для управления рестораном на главной странице.
+- Выделяет готовый ИИ-ассистент управляющего: он подключен к данным iiRest, понимает контекст ресторана, отвечает на вопросы и собирает отчеты.
+- Сравнивает цены поставщиков в единой матрице на странице `/zakupki/`.
+- Ускоряет подготовку закупочных заказов и помогает находить переплату.
+- Поддерживает загрузку прайс-листов, работу с сайтами поставщиков и аналитику закупок.
+- Готовит к запуску агента маркетолога кафе и агента-сотрудника; на главной можно оставить заявку.
 
 ## Для кого
 
 - Владельцы и управляющие ресторанов.
 - Закупщики и закупочные команды.
 - Сетевые horeca-компании.
+- Операционные руководители, которым нужны контроль цен, прозрачность закупок и снижение ручной рутины.
 
-## Ключевые публичные страницы
+## Основные продукты
 
-- Лендинг: https://iirest.ru/
-- Вход в приложение: https://app.iirest.ru/
-- Регистрация на бесплатный период: https://app.iirest.ru/register
+### iiRest Закупки
+
+Страница: https://iirest.ru/zakupki/
+
+Назначение: сравнение цен поставщиков, сбор актуальных цен из Excel, сайтов и личных кабинетов, формирование оптимальной корзины и аналитика экономии.
+
+### ИИ-ассистент управляющего iiRest
+
+Страница: https://iirest.ru/agent/
+
+Назначение: управленческий ассистент по данным ресторана. Отвечает на вопросы, быстро собирает отчеты, подсвечивает отклонения и работает 24/7 как дополнительный сотрудник управленца.
+
+Публичная цена: 4000 RUB/месяц.
+
+### Будущие агенты
+
+- Агент маркетолога кафе.
+- Агент-сотрудник для регулярных поручений, напоминаний и внутренних ответов.
 
 ## Публичный оффер
 
-- Доступен бесплатный тестовый период (указано на лендинге).
-- Базовая публичная цена: от 1400 RUB/месяц (см. блок тарифов и structured data на странице).
+- Бесплатный тестовый период доступен через приложение.
+- Базовая публичная цена продукта закупок начинается от 1400 RUB/месяц, см. блок тарифов на странице `/zakupki/`.
+- Публичная цена ИИ-ассистента управляющего: 4000 RUB/месяц, см. страницу `/agent/`.
 
 ## Контакт
 
 - Email поддержки: dkruglov@outlook.com
+- Телефон: +7 (905) 517-33-91
+- Telegram: https://t.me/tabascoden
+- MAX: https://max.ru/u/f9LHodD0cOJpI81NPVc5_l0T62eCSPDfkmxLUmDs4HoEdcl6RTxsCxSdbXw
 
 ## Сигналы обхода и индексации
 
@@ -44,33 +75,61 @@ English mirror: https://iirest.ru/llms-en.txt
 
 ## English (en)
 
-## What iirest does
+## Public site structure
 
-- Compares supplier prices in one matrix view.
-- Speeds up procurement order preparation.
-- Supports price-list uploads and supplier workflows.
-- Shows analytics for savings, overpayment, and purchasing dynamics.
+- Product line homepage: https://iirest.ru/
+- Procurement and supplier price comparison: https://iirest.ru/zakupki/
+- AI assistant for restaurant managers: https://iirest.ru/agent/
+- App sign in: https://app.iirest.ru/
+- Free trial registration: https://app.iirest.ru/register
+
+## What iiRest does
+
+- Presents the iiRest product line for restaurant management on the homepage.
+- Highlights the ready AI assistant for managers: it connects to iiRest data, understands restaurant context, answers questions, and prepares reports.
+- Compares supplier prices in one matrix on `/zakupki/`.
+- Speeds up procurement order preparation and helps identify overpayment.
+- Supports price-list uploads, supplier website workflows, and purchasing analytics.
+- Prepares future agents for cafe marketers and employee-style routine tasks; visitors can leave a request on the homepage.
 
 ## Primary audience
 
 - Restaurant owners and managers.
 - Procurement specialists and purchasing teams.
 - Multi-location horeca operators.
+- Operations leaders who need price control, purchasing transparency, and less manual routine.
 
-## Key public pages
+## Primary products
 
-- Landing page: https://iirest.ru/
-- App sign in: https://app.iirest.ru/
-- Free trial registration: https://app.iirest.ru/register
+### iiRest Procurement
+
+Page: https://iirest.ru/zakupki/
+
+Purpose: supplier price comparison, current price collection from Excel files, websites and portals, optimal basket building, and savings analytics.
+
+### iiRest Manager AI Assistant
+
+Page: https://iirest.ru/agent/
+
+Purpose: a management assistant for restaurant data. It answers questions, quickly prepares reports, highlights anomalies, and works 24/7 as an additional employee for the manager.
+
+Public price: 4000 RUB/month.
+
+### Future Agents
+
+- Cafe marketer agent.
+- Employee-style agent for recurring tasks, reminders, checks, and internal answers.
 
 ## Public offer highlights
 
-- Free trial access is available (as stated on landing).
-- Base public price starts from 1400 RUB/month (see pricing block and structured data).
+- Free trial access is available through the application.
+- The public base price for procurement starts from 1400 RUB/month; see the pricing section on `/zakupki/`.
+- The public price for the manager AI assistant is 4000 RUB/month; see `/agent/`.
 
 ## Contact
 
 - Support email: dkruglov@outlook.com
+- Telegram: https://t.me/tabascoden
 
 ## Crawl and index signals
 
