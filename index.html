@@ -87,9 +87,39 @@
     ]
   }
   </script>
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () {
+        (m[i].a = m[i].a || []).push(arguments);
+      };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) {
+        if (document.scripts[j].src === r) return;
+      }
+      k = e.createElement(t);
+      a = e.getElementsByTagName(t)[0];
+      k.async = 1;
+      k.src = r;
+      a.parentNode.insertBefore(k, a);
+    })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(105886469, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true,
+      webvisor: true,
+      trackHash: true,
+      ecommerce: "dataLayer"
+    });
+  </script>
+  <!-- /Yandex.Metrika counter -->
 </head>
 
 <body>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/105886469" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
   <header class="site-header">
     <div class="container nav">
       <a class="brand" href="index.html" aria-label="iiRest">
@@ -111,7 +141,8 @@
         <h1 class="hero-title">iiRest — умные инструменты для ресторана</h1>
 
         <div class="product-grid hero-products home-product-grid" aria-label="Текущие продукты iiRest">
-          <a class="product-card product-showcase featured product-card-link" href="agent/index.html">
+          <a class="product-card product-showcase featured product-card-link" href="agent/index.html"
+            data-track-goal="home_product_agent">
             <div class="product-meta">
               <span class="tag">6 000 ₽/мес</span>
               <span class="tag blue">MAX</span>
@@ -127,7 +158,8 @@
             <span class="product-card-cta">Подробнее</span>
           </a>
 
-          <a class="product-card product-showcase featured product-card-link" href="zakupki/index.html">
+          <a class="product-card product-showcase featured product-card-link" href="zakupki/index.html"
+            data-track-goal="home_product_zakupki">
             <div class="product-meta">
               <span class="tag">от 1 400 ₽/мес</span>
             </div>
@@ -167,7 +199,7 @@
         </div>
 
         <div class="home-upcoming-actions">
-          <a class="btn primary" href="contact/index.html">Хочу участвовать в пилоте →</a>
+          <a class="btn primary" href="contact/index.html" data-track-goal="home_pilot_contact">Хочу участвовать в пилоте →</a>
         </div>
       </div>
     </section>
@@ -177,19 +209,55 @@
     <div class="container footer-grid">
       <div class="footer-brand"><strong>iiRest</strong> © 2026</div>
       <div class="footer-links">
-        <a href="mailto:dkruglov@outlook.com">dkruglov@outlook.com</a>
-        <a href="https://t.me/tabascoden" target="_blank" rel="noopener noreferrer">Telegram</a>
+        <a href="mailto:dkruglov@outlook.com" data-track-goal="contact_email">dkruglov@outlook.com</a>
+        <a href="https://t.me/tabascoden" target="_blank" rel="noopener noreferrer"
+          data-track-goal="contact_telegram">Telegram</a>
         <a href="https://max.ru/u/f9LHodD0cOJpI81NPVc5_l0T62eCSPDfkmxLUmDs4HoEdcl6RTxsCxSdbXw" target="_blank"
-          rel="noopener noreferrer">MAX</a>
-        <a href="https://app.iirest.ru/legal/public-offer" target="_blank" rel="noopener noreferrer">Публичная
+          rel="noopener noreferrer" data-track-goal="contact_max">MAX</a>
+        <a href="https://app.iirest.ru/legal/public-offer" target="_blank" rel="noopener noreferrer"
+          data-track-goal="legal_offer">Публичная
           оферта</a>
         <a href="https://app.iirest.ru/legal/user-agreement" target="_blank"
-          rel="noopener noreferrer">Пользовательское соглашение</a>
-        <a href="https://app.iirest.ru/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Политика
+          rel="noopener noreferrer" data-track-goal="legal_user_agreement">Пользовательское соглашение</a>
+        <a href="https://app.iirest.ru/legal/privacy-policy" target="_blank" rel="noopener noreferrer"
+          data-track-goal="legal_privacy">Политика
           конфиденциальности</a>
       </div>
     </div>
   </footer>
+  <script>
+    (function () {
+      var counterId = 105886469;
+
+      function trackGoal(goal, params) {
+        if (!goal || typeof ym !== "function") return;
+        try {
+          ym(counterId, "reachGoal", goal, params || {});
+        } catch (error) {
+          // noop
+        }
+      }
+
+      document.addEventListener("click", function (event) {
+        var target = event.target;
+        if (!(target instanceof Element)) return;
+
+        var trackNode = target.closest("[data-track-goal]");
+        if (trackNode) {
+          trackGoal(trackNode.getAttribute("data-track-goal"), {
+            path: location.pathname
+          });
+        }
+
+        var appLink = target.closest("a[href^='https://app.iirest.ru']");
+        if (appLink) {
+          trackGoal("app_transition", {
+            href: appLink.getAttribute("href")
+          });
+        }
+      });
+    })();
+  </script>
 </body>
 
 </html>

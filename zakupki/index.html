@@ -34,27 +34,19 @@
 
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
-    (function (w, d, t, src, fn) {
-      w[fn] = w[fn] || function () {
-        (w[fn].a = w[fn].a || []).push(arguments);
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () {
+        (m[i].a = m[i].a || []).push(arguments);
       };
-      w[fn].l = Date.now();
-
-      var loaded = false;
-      function loadMetrika() {
-        if (loaded) return;
-        loaded = true;
-        var s = d.createElement(t);
-        s.async = true;
-        s.src = src;
-        var ref = d.getElementsByTagName(t)[0];
-        ref.parentNode.insertBefore(s, ref);
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) {
+        if (document.scripts[j].src === r) return;
       }
-
-      d.addEventListener("pointerdown", loadMetrika, { once: true, passive: true });
-      d.addEventListener("keydown", loadMetrika, { once: true });
-      d.addEventListener("scroll", loadMetrika, { once: true, passive: true });
-      w.setTimeout(loadMetrika, 12000);
+      k = e.createElement(t);
+      a = e.getElementsByTagName(t)[0];
+      k.async = 1;
+      k.src = r;
+      a.parentNode.insertBefore(k, a);
     })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
     ym(105886469, "init", {
@@ -2956,6 +2948,9 @@
 </head>
 
 <body>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/105886469" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
   <header>
     <div class="container nav">
       <a class="brand" href="../index.html" data-track-goal="brand_click">
@@ -3558,17 +3553,17 @@
         <form id="consult-form" class="consult-form" data-lead-form data-form="zakupki-consult" novalidate>
           <label class="consult-field">
             <span>Имя</span>
-            <input type="text" name="name" placeholder="Как к вам обращаться" />
+            <input type="text" name="name" placeholder="Как к вам обращаться" data-ym-disable-keys />
           </label>
 
           <label class="consult-field">
             <span>Контакт</span>
-            <input type="text" name="contact" placeholder="Телефон или email" required />
+            <input type="text" name="contact" placeholder="Телефон или email" required data-ym-disable-keys />
           </label>
 
           <label class="consult-field">
             <span>Запрос</span>
-            <textarea name="message" placeholder="Опишите текущую закупку, задачу или вопрос" required></textarea>
+            <textarea name="message" placeholder="Опишите текущую закупку, задачу или вопрос" required data-ym-disable-keys></textarea>
           </label>
 
           <div class="consult-form-actions">

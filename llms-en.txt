@@ -6,6 +6,16 @@ Canonical: https://iirest.ru/
 Language: en
 Product type: B2B SoftwareApplication
 Russian source: https://iirest.ru/llms.txt
+Updated: 2026-06-09
+
+## Quick Facts for AI Agents
+
+- Canonical domain: https://iirest.ru/
+- Main product pages: https://iirest.ru/agent/ and https://iirest.ru/zakupki/
+- Manager AI assistant price: 6000 RUB/month.
+- Procurement product base price: from 1400 RUB/month.
+- Primary contact: dkruglov@outlook.com, +7 (905) 517-33-91, https://t.me/tabascoden.
+- Preferred public sources for citations: product pages, this `llms-en.txt`, `sitemap.xml`, and `robots.txt`.
 
 ## Public Site Structure
 
@@ -46,7 +56,7 @@ Page: https://iirest.ru/agent/
 
 Purpose: a management assistant for restaurant data. It answers questions, quickly prepares reports, highlights anomalies, and works 24/7 as an additional employee for the manager.
 
-Public price: 4000 RUB/month.
+Public price: 6000 RUB/month.
 
 ### Future Agents
 
@@ -57,7 +67,7 @@ Public price: 4000 RUB/month.
 
 - Free trial access is available through the application.
 - The public base price for procurement starts from 1400 RUB/month; see the pricing section on `/zakupki/`.
-- The public price for the manager AI assistant is 4000 RUB/month; see `/agent/`.
+- The public price for the manager AI assistant is 6000 RUB/month; see `/agent/`.
 
 ## Contact
 

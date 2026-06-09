@@ -62,6 +62,13 @@
     "inLanguage": "ru-RU",
     "url": "https://iirest.ru/agent/",
     "description": "ИИ-ассистент управляющего для ресторана: работает в MAX, подключается к данным ресторана, отвечает на вопросы, ищет ошибки, напоминает о задачах и предлагает решения.",
+    "offers": {
+      "@type": "Offer",
+      "price": "6000",
+      "priceCurrency": "RUB",
+      "availability": "https://schema.org/InStock",
+      "url": "https://iirest.ru/agent/"
+    },
     "publisher": {
       "@type": "Organization",
       "name": "iiRest",
@@ -69,9 +76,95 @@
     }
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Что делает ИИ-ассистент iiRest?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ИИ-ассистент отвечает на вопросы по данным ресторана прямо в MAX: находит данные в учетной системе, анализирует их, показывает выводы, рекомендации и следующий шаг."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Чем он отличается от обычного бота с отчетами?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Обычный бот отправляет заранее настроенные отчеты. ИИ-ассистент работает в формате диалога: можно спросить простыми словами, уточнить детали, сравнить периоды, найти причину просадки или поставить напоминание."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "К каким системам можно подключить ассистента?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Быстрее всего запускаем с iiko, r_keeper и Saby Presto. Возможно подключение к другим системам, если есть API и доступный формат обмена данными."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Ассистент может что-то изменить в учетной системе?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "На старте ассистент работает в безопасном read-only режиме: читает данные, отвечает на вопросы, показывает источники и предлагает действия, но не меняет данные в учетной системе."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Что входит за 6 000 ₽ в месяц?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "В цену включено подключение одного ресторана к одному аккаунту в мессенджере MAX. Несколько точек, аккаунтов или другие мессенджеры обсуждаются отдельно."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Сколько времени занимает подключение?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Для систем iiko, r_keeper и Saby Presto ассистент будет готов к работе через 10 минут."
+        }
+      }
+    ]
+  }
+  </script>
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () {
+        (m[i].a = m[i].a || []).push(arguments);
+      };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) {
+        if (document.scripts[j].src === r) return;
+      }
+      k = e.createElement(t);
+      a = e.getElementsByTagName(t)[0];
+      k.async = 1;
+      k.src = r;
+      a.parentNode.insertBefore(k, a);
+    })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(105886469, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true,
+      webvisor: true,
+      trackHash: true,
+      ecommerce: "dataLayer"
+    });
+  </script>
+  <!-- /Yandex.Metrika counter -->
 </head>
 
 <body class="agent-page">
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/105886469" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
   <header class="site-header" data-header>
     <div class="container nav">
       <a class="brand" href="../index.html" aria-label="iiRest">
@@ -291,19 +384,19 @@
         <form class="agent-contact-form reveal" data-contact-form data-lead-form data-form="agent">
           <label>
             Имя
-            <input type="text" name="name" autocomplete="name" placeholder="Как к вам обращаться" />
+            <input type="text" name="name" autocomplete="name" placeholder="Как к вам обращаться" data-ym-disable-keys />
           </label>
           <label>
             Телефон или email
-            <input type="text" name="contact" autocomplete="email" placeholder="+7 или email" required />
+            <input type="text" name="contact" autocomplete="email" placeholder="+7 или email" required data-ym-disable-keys />
           </label>
           <label>
             Ресторан
-            <input type="text" name="company" autocomplete="organization" placeholder="Название или сеть" />
+            <input type="text" name="company" autocomplete="organization" placeholder="Название или сеть" data-ym-disable-keys />
           </label>
           <label>
             Задача
-            <textarea name="message" rows="4" placeholder="Какие данные, вопросы и регулярные задачи хотите подключить"></textarea>
+            <textarea name="message" rows="4" placeholder="Какие данные, вопросы и регулярные задачи хотите подключить" data-ym-disable-keys></textarea>
           </label>
           <button class="btn primary" type="submit">Обсудить запуск</button>
         </form>
@@ -315,15 +408,18 @@
     <div class="container footer-grid">
       <div class="footer-brand"><strong>iiRest</strong> © 2026</div>
       <div class="footer-links">
-        <a href="mailto:dkruglov@outlook.com">dkruglov@outlook.com</a>
-        <a href="https://t.me/tabascoden" target="_blank" rel="noopener noreferrer">Telegram</a>
+        <a href="mailto:dkruglov@outlook.com" data-track-goal="contact_email">dkruglov@outlook.com</a>
+        <a href="https://t.me/tabascoden" target="_blank" rel="noopener noreferrer"
+          data-track-goal="contact_telegram">Telegram</a>
         <a href="https://max.ru/u/f9LHodD0cOJpI81NPVc5_l0T62eCSPDfkmxLUmDs4HoEdcl6RTxsCxSdbXw" target="_blank"
-          rel="noopener noreferrer">MAX</a>
-        <a href="https://app.iirest.ru/legal/public-offer" target="_blank" rel="noopener noreferrer">Публичная
+          rel="noopener noreferrer" data-track-goal="contact_max">MAX</a>
+        <a href="https://app.iirest.ru/legal/public-offer" target="_blank" rel="noopener noreferrer"
+          data-track-goal="legal_offer">Публичная
           оферта</a>
         <a href="https://app.iirest.ru/legal/user-agreement" target="_blank"
-          rel="noopener noreferrer">Пользовательское соглашение</a>
-        <a href="https://app.iirest.ru/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Политика
+          rel="noopener noreferrer" data-track-goal="legal_user_agreement">Пользовательское соглашение</a>
+        <a href="https://app.iirest.ru/legal/privacy-policy" target="_blank" rel="noopener noreferrer"
+          data-track-goal="legal_privacy">Политика
           конфиденциальности</a>
       </div>
     </div>
@@ -331,7 +427,7 @@
 
   <div class="toast" role="status" aria-live="polite" hidden data-toast></div>
 
-  <script src="agent.js?v=20260608-faq-accordion" defer></script>
+  <script src="agent.js?v=20260609-analytics" defer></script>
 </body>
 
 </html>

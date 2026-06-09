@@ -1,5 +1,15 @@
 (function () {
   var toast = document.querySelector("[data-toast]");
+  var counterId = 105886469;
+
+  function trackGoal(goal, params) {
+    if (!goal || typeof ym !== "function") return;
+    try {
+      ym(counterId, "reachGoal", goal, params || {});
+    } catch (error) {
+      // noop
+    }
+  }
 
   function initSmoothScroll() {
     document.addEventListener("click", function (event) {
@@ -20,6 +30,27 @@
 
       if (history.pushState) {
         history.pushState(null, "", id);
+      }
+    });
+  }
+
+  function initGoalTracking() {
+    document.addEventListener("click", function (event) {
+      var target = event.target;
+      if (!(target instanceof Element)) return;
+
+      var trackNode = target.closest("[data-track-goal]");
+      if (trackNode) {
+        trackGoal(trackNode.getAttribute("data-track-goal"), {
+          path: location.pathname
+        });
+      }
+
+      var appLink = target.closest("a[href^='https://app.iirest.ru']");
+      if (appLink) {
+        trackGoal("app_transition", {
+          href: appLink.getAttribute("href")
+        });
       }
     });
   }
@@ -628,9 +659,15 @@
           await sendLeadToMax(form);
 
           form.reset();
+          trackGoal("agent_submit", {
+            form: form.dataset.form || "agent"
+          });
           showToast("Заявка отправлена. Мы скоро свяжемся с вами.");
         } catch (error) {
           console.error(error);
+          trackGoal("agent_submit_error", {
+            form: form.dataset.form || "agent"
+          });
           showToast("Не получилось отправить заявку. Попробуйте ещё раз или напишите нам напрямую.");
         } finally {
           if (button) {
@@ -643,6 +680,7 @@
   }
 
   initSmoothScroll();
+  initGoalTracking();
   initAgentDemo();
   initMaxChatDemo();
   initFaqAccordion();
