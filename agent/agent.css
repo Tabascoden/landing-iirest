@@ -748,6 +748,26 @@
   text-align: center;
 }
 
+.agent-page .section-header,
+.agent-page .section-head,
+.agent-faq-head,
+.agent-contact-copy {
+  display: block;
+  max-width: 760px;
+  margin: 0 auto 44px;
+  text-align: center;
+}
+
+.agent-page .section-header h2,
+.agent-page .section-head h2,
+.agent-faq-head h2,
+.agent-contact-copy h2 {
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: 40px;
+  line-height: 1.1;
+}
+
 .agent-question-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -816,21 +836,16 @@
 
 .agent-faq-grid {
   display: grid;
-  gap: 34px;
+  gap: 0;
   align-items: start;
 }
 
 .agent-faq-head {
-  display: grid;
-  justify-items: center;
-  text-align: center;
+  margin-bottom: 34px;
 }
 
 .agent-faq-head h2 {
   margin-top: 16px;
-  max-width: 720px;
-  font-size: 40px;
-  line-height: 1.1;
 }
 
 .agent-faq-list {
@@ -900,15 +915,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 28px;
+  gap: 0;
 }
 
 .agent-contact-copy h2 {
-  margin: 0 auto;
   max-width: 680px;
-  font-size: 40px;
-  line-height: 1.1;
-  text-align: center;
 }
 
 .agent-contact-copy p {
@@ -1136,6 +1147,16 @@
     grid-template-columns: 1fr;
   }
 
+  .agent-page .section-header,
+  .agent-page .section-head,
+  .agent-faq-head,
+  .agent-contact-copy {
+    margin-bottom: 32px;
+  }
+
+  .agent-page .section-header h2,
+  .agent-page .section-head h2,
+  .agent-faq-head h2,
   .agent-contact-copy h2 {
     font-size: 30px;
   }
