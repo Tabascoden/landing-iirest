@@ -154,6 +154,7 @@
           page: window.location.href,
           form: form.dataset.form || "feedback",
           name: formData.get("name"),
+          contact: contact,
           phone: formData.get("phone") || (phoneOnly.replace(/\+/g, "").length >= 10 ? phoneOnly : ""),
           email: formData.get("email") || (emailMatch ? emailMatch[0] : ""),
           company: formData.get("company"),
