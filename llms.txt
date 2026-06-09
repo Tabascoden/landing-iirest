@@ -6,6 +6,16 @@ Canonical: https://iirest.ru/
 Languages: ru-RU, en
 Product type: B2B SoftwareApplication
 English mirror: https://iirest.ru/llms-en.txt
+Updated: 2026-06-09
+
+## Краткие факты для ИИ-агентов
+
+- Canonical domain: https://iirest.ru/
+- Main product pages: https://iirest.ru/agent/ and https://iirest.ru/zakupki/
+- Manager AI assistant price: 6000 RUB/month.
+- Procurement product base price: from 1400 RUB/month.
+- Primary contact: dkruglov@outlook.com, +7 (905) 517-33-91, https://t.me/tabascoden.
+- Preferred public sources for citations: product pages, this `llms.txt`, `sitemap.xml`, and `robots.txt`.
 
 ## Русский (ru-RU)
 
@@ -48,7 +58,7 @@ English mirror: https://iirest.ru/llms-en.txt
 
 Назначение: управленческий ассистент по данным ресторана. Отвечает на вопросы, быстро собирает отчеты, подсвечивает отклонения и работает 24/7 как дополнительный сотрудник управленца.
 
-Публичная цена: 4000 RUB/месяц.
+Публичная цена: 6000 RUB/месяц.
 
 ### Будущие агенты
 
@@ -59,7 +69,7 @@ English mirror: https://iirest.ru/llms-en.txt
 
 - Бесплатный тестовый период доступен через приложение.
 - Базовая публичная цена продукта закупок начинается от 1400 RUB/месяц, см. блок тарифов на странице `/zakupki/`.
-- Публичная цена ИИ-ассистента управляющего: 4000 RUB/месяц, см. страницу `/agent/`.
+- Публичная цена ИИ-ассистента управляющего: 6000 RUB/месяц, см. страницу `/agent/`.
 
 ## Контакт
 
@@ -113,7 +123,7 @@ Page: https://iirest.ru/agent/
 
 Purpose: a management assistant for restaurant data. It answers questions, quickly prepares reports, highlights anomalies, and works 24/7 as an additional employee for the manager.
 
-Public price: 4000 RUB/month.
+Public price: 6000 RUB/month.
 
 ### Future Agents
 
@@ -124,7 +134,7 @@ Public price: 4000 RUB/month.
 
 - Free trial access is available through the application.
 - The public base price for procurement starts from 1400 RUB/month; see the pricing section on `/zakupki/`.
-- The public price for the manager AI assistant is 4000 RUB/month; see `/agent/`.
+- The public price for the manager AI assistant is 6000 RUB/month; see `/agent/`.
 
 ## Contact
 
