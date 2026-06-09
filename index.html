@@ -175,7 +175,8 @@
     h2,
     .hero-title-full,
     .section-header h2,
-    .plugin-copy h2 {
+    .plugin-copy h2,
+    .result-summary strong {
       font-family: var(--font-display);
       font-weight: 700;
       letter-spacing: -0.045em;
@@ -263,6 +264,7 @@
       gap: 8px;
       border-radius: 12px;
       padding: 14px 24px;
+      font-family: var(--font-text);
       font-size: 15px;
       line-height: 1.2;
       font-weight: 700;
@@ -316,9 +318,9 @@
       align-items: center;
       gap: 10px;
       white-space: nowrap;
-      font-family: var(--font-display);
+      font-family: var(--font-text);
       font-size: 18px;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: -0.02em;
     }
 
@@ -367,6 +369,10 @@
       padding: 10px 12px;
     }
 
+    .header-try-short {
+      display: none;
+    }
+
     .hero {
       padding: 78px 0 54px;
     }
@@ -385,8 +391,10 @@
     .hero-title-full {
       margin: 16px 0 0;
       max-width: 780px;
-      font-size: clamp(40px, 3.4vw, 44px);
-      line-height: 1.06;
+      font-size: clamp(42px, 3.4vw, 46px);
+      line-height: 1.05;
+      letter-spacing: -0.045em;
+      text-wrap: balance;
       background: linear-gradient(130deg, #0f172a 15%, #4338ca 95%);
       -webkit-background-clip: text;
       background-clip: text;
@@ -556,8 +564,8 @@
     .result-summary strong {
       color: var(--warning);
       font-family: var(--font-display);
-      font-size: clamp(42px, 4vw, 56px);
-      line-height: 0.98;
+      font-size: clamp(46px, 4.4vw, 62px);
+      line-height: 0.96;
       font-weight: 700;
       letter-spacing: -0.045em;
       white-space: nowrap;
@@ -680,7 +688,7 @@
       font-size: 14px;
       font-weight: 800;
       line-height: 1.35;
-      box-shadow: 0 8px 14px rgba(15, 23, 42, 0.04);
+      box-shadow: none;
     }
 
     .plugin-scenario {
@@ -893,6 +901,7 @@
     .mini-cart strong {
       color: #111827;
       font-size: 16px;
+      white-space: nowrap;
     }
 
     .solution-intro-section {
@@ -1107,6 +1116,45 @@
       overflow: hidden;
     }
 
+    .features-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .features-head h2 {
+      margin: 0 0 10px;
+      font-family: var(--font-text);
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      line-height: 1.25;
+      text-wrap: balance;
+    }
+
+    .features-head p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 620px;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .features-toggle {
+      flex: 0 0 auto;
+      min-height: 42px;
+      padding: 10px 14px;
+      font-size: 13px;
+    }
+
+    .features-toggle[aria-expanded="true"] {
+      color: var(--primary-dark);
+      border-color: rgba(79, 70, 229, 0.3);
+      background: #eef2ff;
+    }
+
     .how-features-summary {
       list-style: none;
       cursor: pointer;
@@ -1228,10 +1276,14 @@
     }
 
     .feature-groups {
-      margin-top: 18px;
+      margin-top: 22px;
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 14px;
+    }
+
+    .feature-groups[hidden] {
+      display: none;
     }
 
     .feature-group {
@@ -1288,6 +1340,15 @@
       background: #fff;
       box-shadow: 0 22px 44px rgba(15, 23, 42, 0.08);
       padding: 18px;
+    }
+
+    .product-zoom-hint {
+      display: none;
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.35;
     }
 
     .product-tab-list {
@@ -1465,8 +1526,9 @@
 
     .mock-stat {
       color: #111827;
-      font-family: var(--font-display);
+      font-family: var(--font-text);
       font-size: 20px;
+      font-weight: 800;
       line-height: 1.15;
     }
 
@@ -1486,6 +1548,11 @@
       border-top: 1px solid var(--line);
     }
 
+    .not-table-section,
+    .after-check-section {
+      padding: 72px 0;
+    }
+
     .deliverables-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1499,7 +1566,8 @@
       padding: 24px;
       border: 1px solid var(--border-soft);
       border-radius: var(--radius-md);
-      background: var(--bg-soft);
+      background: #fff;
+      box-shadow: none;
     }
 
     .deliverable-card h3 {
@@ -1537,12 +1605,12 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
-      box-shadow: var(--shadow-sm);
+      box-shadow: none;
     }
 
     .pricing-card.featured {
       border-color: rgba(79, 70, 229, 0.38);
-      box-shadow: 0 18px 28px -18px rgba(79, 70, 229, 0.68);
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
     }
 
     .pricing-badge {
@@ -1707,15 +1775,15 @@
     }
 
     .compare-box {
-      padding: 30px;
+      padding: 28px;
       border-radius: 24px;
-      border: 1px solid #dbe2ea;
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(238, 242, 255, 0.92));
-      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-soft);
+      background: #fff;
+      box-shadow: none;
       display: grid;
-      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-      gap: 24px;
-      align-items: start;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 28px;
+      align-items: center;
     }
 
     .compare-copy h2 {
@@ -1723,7 +1791,7 @@
       font-family: var(--font-display);
       font-size: clamp(28px, 3vw, 38px);
       line-height: 1.15;
-      letter-spacing: 0;
+      letter-spacing: -0.035em;
     }
 
     .compare-copy p {
@@ -1805,6 +1873,24 @@
       z-index: 1;
     }
 
+    .card,
+    .problem-card,
+    .solution-card,
+    .step-card,
+    .deliverable-card,
+    .feature-group,
+    .pricing-card {
+      box-shadow: none;
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      background: #fff;
+    }
+
+    .hero-result-card,
+    .plugin-box,
+    .pricing-card.featured {
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+    }
+
     .cta-box .btn {
       padding-left: 34px;
       padding-right: 34px;
@@ -1878,7 +1964,8 @@
       margin: 0 0 6px;
       font-size: 24px;
       line-height: 1.2;
-      font-family: var(--font-display);
+      font-family: var(--font-text);
+      font-weight: 800;
     }
 
     .consult-modal p {
@@ -2026,8 +2113,9 @@
 
     .lightbox-title {
       margin: 0;
-      font-family: var(--font-display);
+      font-family: var(--font-text);
       font-size: clamp(20px, 2.4vw, 28px);
+      font-weight: 800;
       line-height: 1.2;
       color: #fff;
     }
@@ -2441,7 +2529,8 @@
       .hero-title-full {
         font-size: clamp(32px, 9vw, 38px);
         line-height: 1.08;
-        letter-spacing: -0.04em;
+        letter-spacing: -0.035em;
+        max-width: 100%;
       }
 
       .hero-title-break {
@@ -2487,6 +2576,221 @@
         font-size: 15px;
         min-height: 48px;
       }
+
+      .nav {
+        min-height: 62px;
+        flex-wrap: nowrap;
+        align-items: center;
+        padding: 0 20px;
+      }
+
+      .brand span,
+      .menu {
+        display: none;
+      }
+
+      .nav-actions {
+        order: 0;
+        display: flex;
+        flex: 0 0 auto;
+        gap: 0;
+      }
+
+      .nav-actions .btn.secondary,
+      .nav-actions .btn-consult,
+      .nav-actions .btn-login {
+        display: none;
+      }
+
+      .nav-actions .btn.primary,
+      .nav-actions .btn.header-try {
+        width: auto;
+        min-height: 38px;
+        padding: 9px 12px;
+        font-size: 13px;
+        line-height: 1.2;
+        white-space: nowrap;
+      }
+
+      .header-try-full {
+        display: none;
+      }
+
+      .header-try-short {
+        display: inline;
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 24px;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+        min-height: 50px;
+      }
+
+      .hero-actions .btn.secondary {
+        min-height: auto;
+        padding: 8px 0;
+        border: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+
+      .hero-chips {
+        display: none;
+      }
+
+      .hero-result-card {
+        padding: 18px;
+        border-radius: 20px;
+        box-shadow: 0 18px 42px rgba(15, 23, 42, 0.08);
+      }
+
+      .result-row {
+        padding: 11px 12px;
+        gap: 10px;
+      }
+
+      .result-row span {
+        font-size: 12.5px;
+      }
+
+      .result-row strong {
+        font-size: 16px;
+      }
+
+      .result-summary {
+        padding: 18px 14px;
+      }
+
+      .result-summary strong {
+        font-size: clamp(40px, 12vw, 50px);
+      }
+
+      .plugin-points {
+        display: none;
+      }
+
+      .plugin-scenario {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .scenario-connector {
+        display: none;
+      }
+
+      .scenario-card {
+        min-height: auto;
+        padding: 16px;
+        border-radius: 18px;
+        gap: 10px;
+      }
+
+      .scenario-head {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .scenario-card p {
+        display: none;
+      }
+
+      .mini-interface {
+        font-size: 12px;
+        min-width: 0;
+        overflow: hidden;
+      }
+
+      .mini-row {
+        padding: 7px 10px;
+      }
+
+      .mini-matrix th,
+      .mini-matrix td {
+        padding: 5px 2px;
+        font-size: 9.8px;
+      }
+
+      .mini-matrix {
+        table-layout: fixed;
+      }
+
+      .mini-matrix th:first-child,
+      .mini-matrix td:first-child {
+        width: 34%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .mini-cart strong {
+        font-size: 14px;
+      }
+
+      .plugin-actions .btn {
+        width: 100%;
+        white-space: normal;
+        text-align: center;
+      }
+
+      .features-head {
+        display: grid;
+        gap: 16px;
+        text-align: left;
+      }
+
+      .features-toggle {
+        width: 100%;
+      }
+
+      .not-table-section,
+      .after-check-section {
+        padding: 52px 0;
+      }
+
+      .compare-box {
+        grid-template-columns: 1fr;
+        padding: 20px;
+      }
+
+      .product-tab-list {
+        display: flex;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        gap: 8px;
+        padding-bottom: 6px;
+        margin-left: -4px;
+        margin-right: -4px;
+        scrollbar-width: none;
+      }
+
+      .product-tab-list::-webkit-scrollbar {
+        display: none;
+      }
+
+      .product-tab {
+        flex: 0 0 auto;
+        min-width: 0;
+        white-space: nowrap;
+        padding: 9px 12px;
+        font-size: 13px;
+      }
+
+      .product-visual,
+      .product-panel {
+        overflow: hidden;
+        border-radius: 18px;
+      }
+
+      .product-zoom-hint {
+        display: block;
+      }
     }
 
     @media (max-width: 640px) {
@@ -2509,17 +2813,17 @@
       }
 
       .result-row {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 6px;
+        align-items: center;
+        flex-direction: row;
+        gap: 10px;
       }
 
       .result-row strong {
-        font-size: 18px;
+        font-size: 16px;
       }
 
       .result-summary strong {
-        font-size: clamp(40px, 12vw, 46px);
+        font-size: clamp(40px, 12vw, 50px);
       }
 
       .mock-row {
@@ -2666,7 +2970,9 @@
         <button class="btn secondary btn-consult" type="button"
           data-track-goal="cta_header_consult">Получить консультацию</button>
         <a class="btn primary header-try" href="https://app.iirest.ru/register" target="_blank" rel="noopener noreferrer"
-          data-track-goal="cta_header_try">Проверить закупку</a>
+          data-track-goal="cta_header_try" aria-label="Проверить закупку"><span class="header-try-full"
+            aria-hidden="true">Проверить закупку</span><span class="header-try-short"
+            aria-hidden="true">Проверить</span></a>
       </div>
     </div>
   </header>
@@ -2676,7 +2982,8 @@
       <div class="container hero-grid">
         <div class="hero-copy">
           <span class="eyebrow">Для ресторанов, кафе и сетей</span>
-          <h1 class="hero-title-full">Вы уверены, что<br class="hero-title-break" /> <span class="hero-title-nowrap">закупаетесь по лучшим&nbsp;ценам?</span></h1>
+          <h1 class="hero-title-full">Вы уверены, что закупаетесь<br class="hero-title-break" /> <span
+              class="hero-title-nowrap">по лучшим&nbsp;ценам?</span></h1>
           <p class="hero-lead">iiRest собирает цены из Excel, сайтов и личных кабинетов, сравнивает их по вашему заказу
             и показывает найденную переплату в рублях.</p>
           <div class="hero-actions">
@@ -2932,13 +3239,16 @@
             <p>Вы видите найденную переплату, лучшую корзину и поставщиков для заказа.</p>
           </article>
         </div>
-        <details class="how-features">
-          <summary class="how-features-summary">
-            <span class="how-features-title">Всё для контроля закупки</span>
-            <span class="how-features-note">От сравнения цен до аналитики по поставщикам, закупщикам и точкам.</span>
-            <span class="how-features-hint">Посмотреть весь список</span>
-          </summary>
-          <div class="feature-groups">
+        <div class="how-features features-section">
+          <div class="features-head">
+            <div>
+              <h2>Всё для контроля закупки</h2>
+              <p>От сравнения цен до аналитики по поставщикам, закупщикам и точкам.</p>
+            </div>
+            <button class="btn secondary features-toggle" type="button" aria-expanded="false"
+              aria-controls="feature-groups" data-features-toggle>Посмотреть весь список</button>
+          </div>
+          <div class="feature-groups" id="feature-groups" hidden>
             <article class="feature-group">
               <h3>Сравнение</h3>
               <ul>
@@ -2964,7 +3274,7 @@
               </ul>
             </article>
           </div>
-        </details>
+        </div>
       </div>
     </section>
 
@@ -2987,6 +3297,7 @@
             <button class="product-tab" id="product-tab-plugin" type="button" role="tab" aria-selected="false"
               aria-controls="product-panel-plugin" data-product-tab="plugin" tabindex="-1">Плагин</button>
           </div>
+          <p class="product-zoom-hint">Нажмите, чтобы увеличить экран</p>
           <div class="product-stage">
             <article class="product-panel is-active" id="product-panel-matrix" role="tabpanel"
               aria-labelledby="product-tab-matrix" data-product-panel="matrix">
@@ -3067,9 +3378,9 @@
       </div>
     </section>
 
-    <section class="section" id="difference">
+    <section class="section not-table-section" id="difference">
       <div class="container">
-        <div class="compare-box">
+        <div class="compare-box not-table-box">
           <div class="compare-copy">
             <h2>iiRest — не ещё одна таблица</h2>
             <p>iiRest соединяет Excel-прайсы, сайты поставщиков и реальный заказ. В одном окне видно, где дешевле, что
@@ -3085,7 +3396,7 @@
       </div>
     </section>
 
-    <section class="section deliverables-section" id="pilot-result">
+    <section class="section deliverables-section after-check-section" id="pilot-result">
       <div class="container">
         <div class="section-header">
           <h2>Что вы получите после проверки</h2>
@@ -3384,6 +3695,22 @@
               other.open = false;
             });
           });
+        });
+      }
+
+      function initFeaturesToggle() {
+        var button = document.querySelector("[data-features-toggle]");
+        if (!button) return;
+
+        var targetId = button.getAttribute("aria-controls");
+        var target = targetId ? document.getElementById(targetId) : null;
+        if (!target) return;
+
+        button.addEventListener("click", function () {
+          var shouldOpen = target.hidden;
+          target.hidden = !shouldOpen;
+          button.setAttribute("aria-expanded", shouldOpen ? "true" : "false");
+          button.textContent = shouldOpen ? "Скрыть список" : "Посмотреть весь список";
         });
       }
 
@@ -3805,6 +4132,7 @@
       initGoalTracking();
       initSectionViews();
       initFaqAccordion();
+      initFeaturesToggle();
       initConsultModal();
       initImageLightbox();
       initProductTabs();
