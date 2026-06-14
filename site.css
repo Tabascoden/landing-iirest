@@ -352,15 +352,15 @@ th {
 }
 
 .home-product-grid {
-  align-items: stretch;
+  align-items: start;
 }
 
 .hero-products .product-card {
-  min-height: 360px;
+  min-height: 0;
 }
 
 .product-showcase {
-  min-height: 430px;
+  min-height: 0;
   padding: 32px;
   border-color: rgba(79, 70, 229, 0.24);
   background:
@@ -427,6 +427,10 @@ th {
   font-size: 14px;
   font-weight: 800;
   line-height: 1.2;
+}
+
+.home-product-grid .product-card-cta {
+  margin-top: 4px;
 }
 
 .product-card-cta::after {
